@@ -1,7 +1,4 @@
 <?php
-
-
-
 class M_page extends CI_Model{
 
 	public function m_get_id($id){
