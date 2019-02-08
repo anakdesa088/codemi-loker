@@ -29,11 +29,6 @@ class Auth extends CI_Controller {
 ');	
 			redirect('auth/daftar',$password);
 		}
-
-
-      
-
-
 	}
 
 	public function random(){
