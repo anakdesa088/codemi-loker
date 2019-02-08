@@ -11,6 +11,7 @@ class Database extends CI_Controller
 	}
 	function dump()
 	{
+		// Test
 		try 
 		{
 			$dateTime = sprintf("backup_sisfo_akper_%s",date('d_m_Y_H:i:s'));
