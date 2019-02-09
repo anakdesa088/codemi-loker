@@ -23,4 +23,13 @@ class Database extends CI_Controller
 			echo 'dumper error: ' . $e->getMessage();
 		}
 	}
+	public function tester()
+	{
+		$this->load->library('akper/auth');
+		echo "<pre>";
+		var_dump($this->auth->login([
+			'username' => 'admin',
+			'password' => 'admin'
+		]));
+	}
 }
