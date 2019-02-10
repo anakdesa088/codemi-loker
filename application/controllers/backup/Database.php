@@ -32,4 +32,16 @@ class Database extends CI_Controller
 			'password' => 'admin'
 		]));
 	}
+	public function test_view()
+	{
+		$this->load->library('Akper/template',[
+			'base_view' 	=> 'testview/template',
+			'partial_view' 	=> [
+				'header' => 'testview/header'
+			]
+		]);
+		$this->template->render(['content' => 'testview/content'],[
+			'asas' => 'Hello'
+		]);
+	}
 }
