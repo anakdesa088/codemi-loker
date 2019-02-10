@@ -13,22 +13,30 @@ class Auth extends CI_Controller {
 	
 	public function daftar()
 	{	
-		$data['captcha'] = $this->recaptcha->getWidget();
-            $data['script_captcha'] = $this->recaptcha->getScriptTag();
-		$this->load->view('frontend/daftar',$data);
+		
+		$this->load->view('frontend/auth/v_daftar');
 	}
 	public function c_proses_daftar(){
 		$email = $this->input->post('email', true);
 		$password = random_string('basic',8);
-		$array = array('email'=>$email,'password'=>$password);
-		$daftar = $this->m_auth->m_proses_daftar($array);
-		if ($daftar > 0) {
-			$this->session->set_flashdata('berhasil','<div class="alert alert-success" role="alert">
-                         Success ! Silahkan cek email anda
-                       </div>
-');	
-			redirect('auth/daftar',$password);
+		$cek_email = $this->m_auth->m_cek_email($email);
+		if (count($cek_email) != 0) {
+			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning" role="alert">
+				                         Email '.$email.' Sudah Terdaftar
+				                       </div>');
+							redirect('auth/daftar');
+		}else{
+			$array =	 array('email'=>$email,'password'=>$password);
+						$daftar = $this->m_auth->m_proses_daftar($array);
+						if ($daftar > 0) {
+							$this->session->set_flashdata('berhasil','<div class="alert alert-success" role="alert">
+				                         Success  Password anda adalah <br><center>'.$password.'</center>
+				                       </div>
+				');	
+							redirect('auth/daftar');
+						}
 		}
+			
 	}
 
 	public function random(){

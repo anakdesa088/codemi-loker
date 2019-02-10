@@ -16,4 +16,9 @@ class M_auth extends CI_Model{
 	return $login->row();	
 
 	}
+	public function m_cek_email($email){
+		$this->db->where('email', $email);
+		$data = $this->db->get('pmb');
+		return $data->result();
+	}
 }

@@ -20,8 +20,7 @@
             jQuery = require('jquery');
             if (!jQuery.fn) jQuery.fn = {};
         }
-        var moment = (typeof window != 'undefined' && typeof window.moment != 'undefined') ? window.moment : require('moment');
-        module.exports = factory(moment, jQuery);
+        module.exports = factory(require('moment'), jQuery);
     } else {
         // Browser globals
         root.daterangepicker = factory(root.moment, root.jQuery);

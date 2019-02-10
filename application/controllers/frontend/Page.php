@@ -12,10 +12,10 @@ function __construct(){
 		
 	}
 
-	public function pmb($id){
-
-		$data['tampil'] = $this->m_page->m_get_id($id);
-		$this->load->view('frontend/pmb', $data);
+	public function pmb(){
+		//$id parameter
+		//$data['tampil'] = $this->m_page->m_get_id();
+		$this->load->view('frontend/pmb/v_pmb');
 
 	}
 	public function proses_pmb($id){
