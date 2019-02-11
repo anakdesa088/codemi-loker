@@ -174,18 +174,30 @@
                                                             </div>
                                                             <!--/span-->
                                                         </div>
-                                                        <!--/row-->
+                                                        <!--/row-->  
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Kewarganegaraan</label>
                                                                     <div class="m-b-10">
                                                                         <label class="custom-control custom-radio">
-                                                                            <input id="radio1" value="<?php echo $tampil->kewarganegaraan; ?>" name="kewarganegaraan" type="radio" value="Wni" class="custom-control-input">
+                                                           <?php $cek = $tampil->kewarganegaraan; 
+                                                            if ($cek == 'Wni') {
+                                                           echo "   <input id='radio1' checked  name='kewarganegaraan' value='Wni' type='radio' class='custom-control-input'>";
+                                                            }else{
+                                                           echo "   <input id='radio1'   name='kewarganegaraan' value='Wni' type='radio' class='custom-control-input'>";
+                                                            }
+                                                         ?>                
                                                                             <span class="custom-control-label">Wni</span>
                                                                         </label>
                                                                         <label class="custom-control custom-radio">
-                                                                            <input id="radio2" value="<?php echo $tampil->kewarganegaraan; ?>" name="kewarganegaraan" value="Wna" type="radio" class="custom-control-input">
+                                                            <?php $cek = $tampil->kewarganegaraan; 
+                                                            if ($cek == 'Wna') {
+                                                           echo "   <input id='radio1' checked  name='kewarganegaraan' value='Wna' type='radio' class='custom-control-input'>";
+                                                            }else{
+                                                           echo "   <input id='radio1'   name='kewarganegaraan' value='Wna' type='radio' class='custom-control-input'>";
+                                                            }
+                                                         ?> 
                                                                             <span class="custom-control-label">Wna</span>
                                                                         </label>
                                                                     </div>
@@ -197,11 +209,24 @@
                                                                     <label class="control-label">Jenis Kelamin</label>
                                                                     <div class="m-b-10">
                                                                         <label class="custom-control custom-radio">
-                                                                            <input id="radio1" value="<?php echo $tampil->jk; ?>" name="jk" value="Laki-Laki" type="radio" class="custom-control-input">
+                                                           <?php $cek = $tampil->jk; 
+                                                            if ($cek == 'Laki-laki') {
+                                                           echo "   <input id='radio1' checked  name='jk' value='Laki-Laki' type='radio' class='custom-control-input'>";
+                                                            }else{
+                                                           echo "   <input id='radio1'   name='jk' value='Laki-Laki' type='radio' class='custom-control-input'>";
+                                                            }
+                                                         ?>                                                                          
+                                                                         
                                                                             <span class="custom-control-label">Laki-Laki</span>
                                                                         </label>
                                                                         <label class="custom-control custom-radio">
-                                                                            <input id="radio2" value="<?php echo $tampil->jk; ?>" name="jk" value="Perempuan" type="radio" class="custom-control-input">
+                                                           <?php $cek = $tampil->jk; 
+                                                            if ($cek == 'Perempuan') {
+                                                           echo "   <input id='radio1' checked  name='jk' value='Perempuan' type='radio' class='custom-control-input'>";
+                                                            }else{
+                                                           echo "   <input id='radio1'   name='jk' value='Perempuan' type='radio' class='custom-control-input'>";
+                                                            }
+                                                         ?>            
                                                                             <span class="custom-control-label">Perempuan</span>
                                                                         </label>
                                                                     </div>
@@ -274,7 +299,7 @@
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
                                                                     <label>Alamat Lengkap</label>
-                                                                    <textarea value="<?php echo $tampil->alamat; ?>" name="alamat" class="form-control"></textarea>
+                                                                    <textarea  name="alamat" class="form-control"><?php echo $tampil->alamat; ?></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -383,8 +408,15 @@
                                                             </div>
                                                         </div>
                                                     <div class="form-actions">
-                                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Simpan</button>
-                                                        
+                                                        <div class="row">
+                                                        <div class="col-md-6">
+                                                        <a href=""class="btn btn-success"> <i class="fa fa-check"></i>Simpan</a>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                    <a href=""class="btn btn-info"> <i class="fa fa-check"></i>Edit</a>                                                                
+                                                        </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 </form>
