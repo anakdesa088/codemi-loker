@@ -1,0 +1,1 @@
+Ini Content, <b><?php echo $nama; ?></b>
