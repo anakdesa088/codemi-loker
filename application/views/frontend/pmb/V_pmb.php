@@ -9,9 +9,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta  name="viewport" content="width=device-width, initial-scale=1">
+    <meta  name="description" content="">
+    <meta  name="author" content="">
     
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/es/favicon.png') ?>">
     <title>PMB</title>
@@ -165,7 +165,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="control-label">Nama Lengkap</label>
-                                                                <input type="text" id="firstName" class="form-control" placeholder="John doe">
+                                                                <input type="text" id="firstName" value="<?php echo $tampil->nama_lengkap; ?>" name="nama_lengkap" class="form-control" placeholder="John doe">
                                                                 <small class="form-control-feedback"></small> </div>
                                                             </div>
                                                             <!--/span-->
@@ -177,12 +177,18 @@
                                                         <!--/row-->
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <div class="form-group has-success">
+                                                                <div class="form-group">
                                                                     <label class="control-label">Kewarganegaraan</label>
-                                                                    <select class="form-control custom-select">
-                                                                        <option value="">WNA</option>
-                                                                        <option value="">WNI</option>
-                                                                    </select>
+                                                                    <div class="m-b-10">
+                                                                        <label class="custom-control custom-radio">
+                                                                            <input id="radio1" value="<?php echo $tampil->kewarganegaraan; ?>" name="kewarganegaraan" type="radio" value="Wni" class="custom-control-input">
+                                                                            <span class="custom-control-label">Wni</span>
+                                                                        </label>
+                                                                        <label class="custom-control custom-radio">
+                                                                            <input id="radio2" value="<?php echo $tampil->kewarganegaraan; ?>" name="kewarganegaraan" value="Wna" type="radio" class="custom-control-input">
+                                                                            <span class="custom-control-label">Wna</span>
+                                                                        </label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <!--/span-->
@@ -191,11 +197,11 @@
                                                                     <label class="control-label">Jenis Kelamin</label>
                                                                     <div class="m-b-10">
                                                                         <label class="custom-control custom-radio">
-                                                                            <input id="radio1" name="radio" type="radio" class="custom-control-input">
+                                                                            <input id="radio1" value="<?php echo $tampil->jk; ?>" name="jk" value="Laki-Laki" type="radio" class="custom-control-input">
                                                                             <span class="custom-control-label">Laki-Laki</span>
                                                                         </label>
                                                                         <label class="custom-control custom-radio">
-                                                                            <input id="radio2" name="radio" type="radio" class="custom-control-input">
+                                                                            <input id="radio2" value="<?php echo $tampil->jk; ?>" name="jk" value="Perempuan" type="radio" class="custom-control-input">
                                                                             <span class="custom-control-label">Perempuan</span>
                                                                         </label>
                                                                     </div>
@@ -208,7 +214,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Tinggi Badan</label>
-                                                                    <input type="number"  class="form-control" placeholder="Cm">
+                                                                    <input type="number" value="<?php echo $tampil->tinggi_badan ?>" name="tinggi_badan"  class="form-control" placeholder="Cm">
                                                                     <small class="form-control-feedback">Cm</small> 
 
                                                                 </div>
@@ -217,7 +223,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Berat Badan</label>
-                                                                    <input type="number" class="form-control" placeholder="Kg">
+                                                                    <input type="number" value="<?php echo $tampil->berat_badan; ?>" name="berat_badan" class="form-control" placeholder="Kg">
                                                                     <small class="form-control-feedback">Kg</small> 
 
                                                                 </div>
@@ -232,23 +238,43 @@
                                                                     <label class="control-label">Tempat, Tanggal Lahir</label>
                                                                     <div class="row">
                                                                         <div class="col-sm-4">
-                                                                            <input type="text"  class="form-control" placeholder="Tempat">
+                                                                            <input type="text"  value="<?php echo $tampil->tmpt_lahir; ?>" name="tmpt_lahir" class="form-control" placeholder="Tempat">
                                                                         </div>
 
                                                                         <div class="col-sm-5">
-                                                                            <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                                                            <input type="date" value="<?php echo $tampil->tgl_lahir; ?>" name="tgl_lahir" class="form-control" placeholder="dd/mm/yyyy">
                                                                         </div>
                                                                     </div>                                                    
                                                                 </div>
                                                             </div>
 
                                                         </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Nama Ayah</label>
+                                                                    <input type="text"  value="<?php echo $tampil->nama_ayah; ?>" name="nama_ayah" class="form-control" placeholder="Cm">
+                                                                    <small class="form-control-feedback">Cm</small> 
 
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Nama Ibu</label>
+                                                                    <input type="text" value="<?php echo $tampil->nama_ibu; ?>" name="nama_ibu" class="form-control" placeholder="Kg">
+                                                                    <small class="form-control-feedback">Kg</small> 
+
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+
+                                                        </div>   
                                                         <div class="row">
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
                                                                     <label>Alamat Lengkap</label>
-                                                                    <textarea class="form-control"></textarea>
+                                                                    <textarea value="<?php echo $tampil->alamat; ?>" name="alamat" class="form-control"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -256,7 +282,7 @@
                                                             <div class="col-md-4 ">
                                                                 <div class="form-group">
                                                                     <label>Kode Pos</label>
-                                                                    <input type="number" class="form-control" name="" placeholder="45xxxx">
+                                                                    <input type="number" value="<?php echo $tampil->kode_pos; ?>" name="kode_pos" class="form-control"  placeholder="45xxxx">
                                                                 </div>
                                                             </div>
                                                             
@@ -269,13 +295,13 @@
                                                         <div class="row">
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <input type="number"  class="form-control" placeholder="08xxxxxxxx">
+                                                                    <input type="number" value="<?php echo $tampil->no_hp1; ?>" name="no_hp1"  class="form-control" placeholder="08xxxxxxxx">
                                                                 </div>
                                                             </div>
                                                             Atau
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <input type="number"  class="form-control" placeholder="08xxxxxxx">
+                                                                    <input type="number" value="<?php echo $tampil->no_hp2; ?>" name="no_hp2"  class="form-control" placeholder="08xxxxxxx">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -284,7 +310,7 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label>Informasi Yang Anda Dapatkan Dari</label>
-                                                                        <input type="text" class="form-control" name="" placeholder="Teman/Saudara">
+                                                                        <input type="text" class="form-control" value="<?php echo $tampil->info_dari; ?>" name="info_dari" placeholder="Teman/Saudara">
                                                                     </div>    
                                                                 </div>    
                                                         </div>   
@@ -293,7 +319,7 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label>Nama Asal Sekolah</label>
-                                                                        <input type="text" class="form-control" name="" placeholder="SMK N/SMA N">
+                                                                        <input type="text" class="form-control" value="<?php echo $tampil->nama_asal_sekolah; ?>" name="nama_asal_sekolah" placeholder="SMK N/SMA N">
                                                                     </div>    
                                                                 </div>    
                                                         </div>   
@@ -301,7 +327,7 @@
                                                                 <div class="col-md-8">
                                                                     <div class="form-group">
                                                                         <label>Alamat Asal Sekolah</label>
-                                                                        <textarea class="form-control"></textarea>
+                                                                        <textarea value="<?php echo $tampil->alamat_asal_sekolah; ?>" name="alamat_asal_sekolah" class="form-control"></textarea>
                                                                     </div>    
                                                                 </div>    
                                                         </div>   
@@ -317,7 +343,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <span><input type="file" name="..."> </span> 
+                                                                    <span><input type="file"  name="foto_ijaza"> </span> 
                                                                     
                                                                 </div>
                                                             </div>
@@ -331,7 +357,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <span><input type="file" name="..."> </span> 
+                                                                    <span><input type="file"  name="foto_kesehatan"> </span> 
                                                                     
                                                                 </div>
                                                             </div>
@@ -344,7 +370,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <span><input type="file" name="..."> </span> 
+                                                                    <span><input type="file"  name="foto"> </span> 
                                                                     
                                                                 </div>
                                                             </div>
