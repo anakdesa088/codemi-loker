@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <div> <a href="pages-register.html" class="text-info m-l-5"><b>Login</b></a></div>
+                                <div> <a href="<?php echo site_url('auth/login') ?>" class="text-info m-l-5"><b>Login</b></a></div>
                             </div>
                         </div>
                     </form>

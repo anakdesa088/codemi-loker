@@ -43,7 +43,7 @@ class Auth extends CI_Controller {
 		echo random_string('basic',20);
 	}
 	public function login(){
-		$this->load->view('frontend/login');
+		$this->load->view('frontend/auth/v_login');
 	}
 	public function c_proses_login(){
 		$email = $this->input->post('email', true);
@@ -52,22 +52,22 @@ class Auth extends CI_Controller {
 		$cek = $this->m_auth->m_proses_login($email, $password);
 		$hasil = count($cek);
 		if ($hasil > 0) {
-			$yanglogin = $this->db->get_where('pendaftaran', array('email'=>$email,'password'=>$password))->row();
+			$yanglogin = $this->db->get_where('pmb', array('email'=>$email,'password'=>$password))->row();
 			$data = array('udahlogin'=>true,
 				'nama_lengkap'=> $yanglogin->nama_lengkap,
 				'email'=> $yanglogin->email,
 				'level'=> $yanglogin->level,
-				'id_pendaftar' => $yanglogin->id_pendaftar,
+				'id_pmb' => $yanglogin->id_pmb,
 				'email' => $yanglogin->email,
 				'status' => 'login'
 
 			);
-			$id_pendaftar = $yanglogin->id_pendaftar;
+			$id = $yanglogin->id_pmb;
 			$this->session->set_userdata($data);
-			if ($yanglogin->level == 'mahasiswa_baru') {
-				echo "anda mahasiswa baru";
-			}elseif ($yanglogin->level == 'mahasiswa') {
-					redirect('page/pmb/'.$id_pendaftar);
+			if ($yanglogin->level == 'pmb_baru') {
+				redirect('page/pmb/'.$id);
+			}elseif ($yanglogin->level == 'pmb_lamah') {
+				echo "anda mahasiswa baru";	
 
 
 			}

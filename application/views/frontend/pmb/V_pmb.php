@@ -113,7 +113,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h5 class="warna">anakdesa@gmail.com </h5></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h5 class="warna"><?php echo $this->session->userdata('email');  ?> </h5></a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                                 <ul class="dropdown-user">
                                     <li>
@@ -130,7 +130,7 @@
                                         <li role="separator" class="divider"></li>
                                         <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                        <li><a href="<?php echo site_url('auth/c_keluar') ?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -151,7 +151,8 @@
                                         <center><h4 class="m-b-0 text-white">Other Sample form</h4></center>
                                     </div>
                                     <div class="card-body">
-                                        <form action="#">
+                                        <?php $id_pmb = $tampil->id_pmb;   ?>
+                                        <form method="post" type="multipart/form-data" action="<?php echo site_url('page/c_proses_pmb/'.$id_pmb); ?>" >
                                             <div class="form-body">
                                                 <center>
                                                     <h4 class="card-title">FORMULIR PENDAFTARAN</h4>
