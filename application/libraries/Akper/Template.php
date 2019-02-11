@@ -1,6 +1,10 @@
 <?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
+ * Codeigniter Private Template Engine Library (currently for sisfo_akper)
  * 
+ * @package  Codeigniter
+ * @author  Nur Muhammad Umar Ihsani <cobaniatbaik@gmail.com>
  */
 class Template
 {
@@ -28,17 +32,7 @@ class Template
 	}
 	public function render($partial_view = [],$data = NULL,$is_plain_text = FALSE,$data_separation = TRUE)
 	{
-		if (!empty($partial_view)) 
-		{
-			if (is_array($partial_view)) 
-			{
-				$this->partial_view = array_merge($this->partial_view,$partial_view);
-			}
-			if (is_string($partial_view)) 
-			{
-				$this->partial_view[$this->content_view_name] = $partial_view;
-			}
-		}
+		$this->mergePartialView($partial_view);
 
 
 		if ($data_separation === TRUE) 
@@ -59,5 +53,20 @@ class Template
 	public function setPartialView($partial_view)
 	{
 		$this->partial_view = $partial_view;
+	}
+	
+	public function mergePartialView($partial_view)
+	{
+		if (!empty($partial_view)) 
+		{
+			if (is_array($partial_view)) 
+			{
+				$this->partial_view = array_merge($this->partial_view,$partial_view);
+			}
+			if (is_string($partial_view)) 
+			{
+				$this->partial_view[$this->content_view_name] = $partial_view;
+			}
+		}
 	}
 }
