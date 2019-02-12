@@ -1,5 +1,16 @@
+<?php
+
+if (isset($tampil)) {
+  $id = $tampil->id_pmb;
+}
+$id_sesi = $this->session->userdata('id_pmb');
+if ($this->session->userdata('id_pmb') !== $id) {
+  redirect('page/pmb/'.$id_sesi);
 
 
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,7 +163,7 @@
                                     </div>
                                     <div class="card-body">
                                         <?php $id_pmb = $tampil->id_pmb;   ?>
-                                        <form method="post" type="multipart/form-data" action="<?php echo site_url('page/c_proses_pmb/'.$id_pmb); ?>" >
+                                        <form method="post" enctype="multipart/form-data" action="<?php echo site_url('page/c_proses_pmb/'.$id_pmb); ?>" >
                                             <div class="form-body">
                                                 <center>
                                                     <h4 class="card-title">FORMULIR PENDAFTARAN</h4>
@@ -161,7 +172,9 @@
                                                     <h4 class="card-title">AKPER BUNTET PESANTREN CIREBON   </h4></center>                                     
                                                     <hr>
                                                     <div class="container">
+                                                        <center><?php echo $this->session->userdata('sukses'); ?></center>
                                                     <div class="row p-t-20">
+
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="control-label">Nama Lengkap</label>
@@ -396,6 +409,9 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <span><input type="file"  name="foto"> </span> 
+                                                                    <input type="hidden" name="foto_ijaza2" value="<?php echo $tampil->foto_ijaza; ?>">
+                                                                    <input type="hidden" name="foto_kesehatan2" value="<?php echo $tampil->foto_kesehatan; ?>">
+                                                                    <input type="hidden" name="foto2" value="<?php echo $tampil->foto; ?>">
                                                                     
                                                                 </div>
                                                             </div>
@@ -410,8 +426,7 @@
                                                     <div class="form-actions">
                                                         <div class="row">
                                                         <div class="col-md-6">
-                                                        <a href=""class="btn btn-success"> <i class="fa fa-check"></i>Simpan</a>
-                                                        </div>
+                                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Simpan</button>
 
                                                         <div class="col-md-6">
                                                     <a href=""class="btn btn-info"> <i class="fa fa-check"></i>Edit</a>                                                                

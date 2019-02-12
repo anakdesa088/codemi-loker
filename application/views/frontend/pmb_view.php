@@ -98,7 +98,7 @@ if ($this->session->userdata('id_pendaftar') !== $id) {
             <hr>
             <div class="container">
 
-              <form class="form-horizontal" method="post" action="<?php echo site_url('page/proses_pmb'); ?>" >
+              <form class="form-horizontal" method="post" enctype="multipart/form-data"> action="<?php echo site_url('page/proses_pmb/'.$tpil->id_pmb); ?>" >
                 <div class="form-group">
                   <label class="col-md-3 control-label">Nama Lengkap</label>
                   <div class="col-md-6">
@@ -227,7 +227,7 @@ if ($this->session->userdata('id_pendaftar') !== $id) {
                     <label class="col-md-7">1. Foto copy Ijazah/ STTB/ Surat Keterangan Lulus</label>
                     <div class="fileupload btn btn-success hijau_akper">
                       <span><i class="ion-upload"></i> Upload</span>
-                      <input type="file" class="upload">
+                      <input type="file" name="foto_ijaza" class="upload">
                     </div> 
 
 
@@ -237,7 +237,7 @@ if ($this->session->userdata('id_pendaftar') !== $id) {
                     <label class="col-md-7">2. Surat Keterangan Sehat dan tidak Buta Warna</label>
                     <div class="fileupload btn btn-success hijau_akper">
                       <span><i class="ion-upload"></i> Upload</span>
-                      <input type="file" class="upload">
+                      <input type="file" name="foto_kesehatan" class="upload">
                     </div> 
 
 
@@ -246,7 +246,7 @@ if ($this->session->userdata('id_pendaftar') !== $id) {
                     <label class="col-md-7">3. Pas foto 4 x 6 = 5 lembar, 3 x 4 =2 lembar dan 2 x 3 = 2 lembar</label>
                     <div class="fileupload btn btn-success hijau_akper">
                       <span><i class="ion-upload"></i> Upload</span>
-                      <input type="file" class="upload">
+                      <input type="file" name="foto" class="upload">
                     </div> 
 
 
