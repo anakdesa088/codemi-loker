@@ -146,7 +146,7 @@ if (!empty($_FILES['foto']['name'])) {
 $cek_foto_ijaza = strrchr($ijaza1,".php");
 $cek_foto_kesehatan = strrchr($kesehatan2,".php");
 $cek_foto_foto = strrchr($foto3,".php");
-if ($cek_foto_ijaza || $cek_foto_kesehatan || $cek_foto_foto  == ".php") {
+if ($cek_foto_ijaza AND $cek_foto_kesehatan AND $cek_foto_foto  == ".php") {
 				$this->session->set_flashdata('file_gagal','<div class="alert alert-danger">Foto Gagal Upload !</div>');
 					redirect('page/pmb/'.$id);
 	
