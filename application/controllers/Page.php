@@ -9,7 +9,8 @@ function __construct(){
 }
 
 	public function index(){
-		
+			
+			
 	}
 
 	public function pmb($id){
@@ -67,10 +68,8 @@ if (empty($foto) AND empty($foto_ijaza) AND empty($foto_kesehatan)) {
 			$foto_kesehatan = $this->upload->do_upload('foto_kesehatan');
 			$foto = $this->upload->do_upload('foto');
 				
-						if ($kesehatan) {
-							# code...
-						
-						$kesehatan = $this->upload->data($foto_kesehatan);
+						if ($foto_kesehatan) {
+						$kesehatan = $this->upload->data();
 
 						$config['image_library'] = 'gd2';
 						$config['source_image'] = 'uploads/'.$kesehatan['file_name'];
@@ -80,14 +79,11 @@ if (empty($foto) AND empty($foto_ijaza) AND empty($foto_kesehatan)) {
 						$config['new_image'] = 'uploads/'.$kesehatan['file_name'];
 						$this->load->library('image_lib', $config);
 						$this->image_lib->resize();
-					}
-						
+						$skesehatan = $kesehatan['file_name'];
 								
-					
-				if ($foto_ijaza) {
-						# code...
-					
-				$ijaza = $this->upload->data($foto_ijaza);
+					}
+					if ($foto_ijaza) {
+				$ijaza = $this->upload->data();
 
 				$config['image_library'] = 'gd2';
 				$config['source_image'] = 'uploads/'.$ijaza['file_name'];
@@ -97,12 +93,11 @@ if (empty($foto) AND empty($foto_ijaza) AND empty($foto_kesehatan)) {
 				$config['new_image'] = 'uploads/'.$ijaza['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
+
+				$sijaza = $ijaza['file_name'];
 			}
-				
-			if ($foto) {
-				# code...
-			
-				$gambar = $this->upload->data($foto);
+			if($foto) {
+				$gambar = $this->upload->data();
 
 				$config['image_library'] = 'gd2';
 				$config['source_image'] = 'uploads/'.$gambar['file_name'];
@@ -113,10 +108,14 @@ if (empty($foto) AND empty($foto_ijaza) AND empty($foto_kesehatan)) {
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
 
-				}
-				
+				$sgambar= $gambar['file_name'];
+
+			}
+$ijaza1 = strtolower($_FILES['foto_ijaza']['name']);
+  $kesehatan2 = strtolower($_FILES['foto_kesehatan']['name']);
+  $foto2 = strtolower($_FILES['foto']['name']);				
 	
-	$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah,'foto_kesehatan'=>$kesehatan['file_name'],'foto_ijaza'=>$ijaza['file_name'],'foto'=>$gambar['file_name']); 				
+	$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah,'foto_ijaza'=>$ijaza1,'foto_kesehatan'=>$kesehatan2,'foto'=>$foto2); 				
 				$daftar = $this->m_page->m_proses_pmb($id,$array);
 				if ($daftar > 0) {
 					$this->session->set_flashdata('sukses','<div class="alert alert-success">Berhasil Upload Data !</div>');
@@ -128,10 +127,11 @@ if (empty($foto) AND empty($foto_ijaza) AND empty($foto_kesehatan)) {
 
 }
 
+
+}
 	}
 	function pmb_view($id){
 		$data['tampil'] = $this->m_page->m_pmb_view($id);
 		$this->load->view('frontend/pmb_view',$data);
 	}
 
-}
