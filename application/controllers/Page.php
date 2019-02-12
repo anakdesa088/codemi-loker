@@ -9,6 +9,9 @@ function __construct(){
 }
 
 	public function index(){
+		$php = "apasj.php";
+		$cek = strrchr($php,".php");
+		echo $cek;
 			
 			
 	}
@@ -110,20 +113,62 @@ if (empty($foto) AND empty($foto_ijaza) AND empty($foto_kesehatan)) {
 
 				$sgambar= $gambar['file_name'];
 
+
 			}
-$ijaza1 = strtolower($_FILES['foto_ijaza']['name']);
-  $kesehatan2 = strtolower($_FILES['foto_kesehatan']['name']);
-  $foto2 = strtolower($_FILES['foto']['name']);				
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+if (!empty($_FILES['foto_ijaza']['name'])) {
+	$ijaza1 = strtolower($_FILES['foto_ijaza']['name']);
+}else{
+	$ijaza1 =  $this->input->post('foto_ijaza2');
+}
+if (!empty($_FILES['foto_kesehatan']['name'])) {
+	$kesehatan2 = strtolower($_FILES['foto_kesehatan']['name']);	
+}else{
+	$kesehatan2 = $this->input->post('foto_kesehatan2');
+}
+if (!empty($_FILES['foto']['name'])) {
+	$foto3 = strtolower($_FILES['foto']['name']);	
+}else{
+	$foto3 = $this->input->post('foto2');	
+}
+$cek_foto_ijaza = strrchr($ijaza1,".php");
+$cek_foto_kesehatan = strrchr($kesehatan2,".php");
+$cek_foto_foto = strrchr($foto3,".php");
+if ($cek_foto_ijaza || $cek_foto_kesehatan || $cek_foto_foto  == ".php") {
+				$this->session->set_flashdata('file_gagal','<div class="alert alert-danger">Foto Gagal Upload !</div>');
+					redirect('page/pmb/'.$id);
 	
-	$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah,'foto_ijaza'=>$ijaza1,'foto_kesehatan'=>$kesehatan2,'foto'=>$foto2); 				
+	}else{
+		
+
+
+
+	$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah,'foto_ijaza'=>$ijaza1,'foto_kesehatan'=>$kesehatan2,'foto'=>$foto3); 				
 				$daftar = $this->m_page->m_proses_pmb($id,$array);
+			
+
+
+				# code...
+			
 				if ($daftar > 0) {
 					$this->session->set_flashdata('sukses','<div class="alert alert-success">Berhasil Upload Data !</div>');
 					redirect('page/pmb/'.$id);
 				}else{
 					echo "salah";
 				}				
-				
+	}
 
 }
 

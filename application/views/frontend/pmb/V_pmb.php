@@ -173,6 +173,7 @@ if ($this->session->userdata('id_pmb') !== $id) {
                                                     <hr>
                                                     <div class="container">
                                                         <center><?php echo $this->session->userdata('sukses'); ?></center>
+                                                        <center><?php echo $this->session->userdata('file_gagal'); ?></center>
                                                     <div class="row p-t-20">
 
                                                         <div class="col-md-6">
@@ -409,6 +410,8 @@ if ($this->session->userdata('id_pmb') !== $id) {
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <span><input type="file"  name="foto"> </span> 
+
+
                                                                     <input type="hidden" name="foto_ijaza2" value="<?php echo $tampil->foto_ijaza; ?>">
                                                                     <input type="hidden" name="foto_kesehatan2" value="<?php echo $tampil->foto_kesehatan; ?>">
                                                                     <input type="hidden" name="foto2" value="<?php echo $tampil->foto; ?>">
