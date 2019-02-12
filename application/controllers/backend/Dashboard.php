@@ -17,10 +17,10 @@ function __construct(){
 	public function keuangan(){
 		$data['tampil'] = $this->m_dashboard->m_get_pmb();
 		$data['isi'] = 'content/keuangan/pmb/v_data_pmb.php';
-		$this->load->view('template/layout',$data);
+		$this->load->view('testview/template/layout',$data);
 	}
 	public function tambah_keuangan(){
 		$data['isi'] = 'content/keuangan/pmb/v_tambah_pmb.php';
-		$this->load->view('template/layout', $data);
+		$this->load->view('testview/template/layout', $data);
 	}
 }

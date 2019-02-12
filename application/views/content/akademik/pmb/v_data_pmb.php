@@ -62,19 +62,7 @@
                                                 <td><?php echo $r->tmpt_lahir ." ".$r->tgl_lahir; ?></td>
                                                 <td><?php echo $r->jk; ?></td>
                                                 <td><?php echo $r->no_hp1; ?></td>
-                                                <td>
-                                                <div class="btn-group">
-                                                      <button type="button" class="btn btn-danger">Action</button>
-                                                      <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                      </button>
-                                                      <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="<?php echo site_url('backend/keuangan/c_aktip/'.$r->id_pmb); ?>">Aktip</a>
-                                                        
-                                                        
-                                                      </div>
-                                                    </div>                                                    
-                                                </td>
+                                                <td><a href="">Aktip</a><a href="">Tidak</a></td>
                                                 <td><?php ?></td>
                                                 <td><?php  ?></td>
                                                 <td></td>
