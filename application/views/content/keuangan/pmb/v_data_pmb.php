@@ -64,7 +64,7 @@
                                                     <td><?php echo $r->jk; ?></td>
                                                     <td><?php echo $r->no_hp1; ?></td>
                                                     <td>
-                                                        <a href="" class="btn btn-warning">Edit</a>
+                                                        <a href="<?php echo site_url('backend/keuangan/c_detail/'.$r->id_pmb); ?>" class="btn btn-info">Detail</a>
                                                         <a href="#animate-modal-2" class="btn btn-danger" data-toggle="modal">Hapus</a>
                                                         
                                                         
