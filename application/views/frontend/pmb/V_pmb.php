@@ -1,5 +1,8 @@
 <?php
 
+if ($this->session->userdata('status') !== 'login') {
+    redirect('auth/login');
+}
 if (isset($tampil)) {
   $id = $tampil->id_pmb;
 }
@@ -172,6 +175,7 @@ if ($this->session->userdata('id_pmb') !== $id) {
                                                     <h4 class="card-title">AKPER BUNTET PESANTREN CIREBON   </h4></center>                                     
                                                     <hr>
                                                     <div class="container">
+                                                        <center><?php echo $this->session->userdata('foto'); ?></center>
                                                         <center><?php echo $this->session->userdata('sukses'); ?></center>
                                                         <center><?php echo $this->session->userdata('file_gagal'); ?></center>
                                                     <div class="row p-t-20">

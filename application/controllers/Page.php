@@ -48,11 +48,13 @@ class Page extends CI_Controller{
 
 
 
-		if (empty($foto) AND empty($foto_ijaza) AND empty($foto_kesehatan)) {
+		if (empty($foto) || empty($foto_ijaza) || empty($foto_kesehatan)) {
 			
+			$this->session->set_flashdata('foto','<div class="alert alert-danger">Mohon Diisi semua foto</div>');
+					redirect('page/pmb/'.$id);
 
 
-			$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah); 
+		/*	$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah); 
 
 			
 			$daftar = $this->m_page->m_proses_pmb($id,$array);
@@ -62,7 +64,7 @@ class Page extends CI_Controller{
 			}else{
 				echo "salah";
 			}
-
+			*/
 		}else{
 			$config['upload_path'] = './uploads'; //path folder gambar
 			$config['allowed_types'] = 'gif|jpg|png|jpeg'; //type gambar bisa disesuaikan
