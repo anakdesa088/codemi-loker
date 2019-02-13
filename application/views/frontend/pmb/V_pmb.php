@@ -27,14 +27,14 @@ if ($this->session->userdata('id_pmb') !== $id) {
     <meta  name="description" content="">
     <meta  name="author" content="">
     
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/es/favicon.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/frontend/images/es/favicon.png') ?>">
     <title>PMB</title>
     
-    <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     
-    <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet">
     
-    <link href="<?php echo base_url('assets/css/colors/blue.css') ?>" id="theme" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/css/colors/blue.css') ?>" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,7 +86,7 @@ if ($this->session->userdata('id_pmb') !== $id) {
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item logo">
-                            <img src="<?php echo base_url('assets/images/logo_akper.png') ?>" width="55">
+                            <img src="<?php echo base_url('assets/frontend/images/logo_akper.png') ?>" width="55">
                             
                         </li>
                         <!-- ============================================================== -->
@@ -132,7 +132,7 @@ if ($this->session->userdata('id_pmb') !== $id) {
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img src="<?php echo base_url('assets/images/users/1.jpg') ?>" alt="user"></div>
+                                            <div class="u-img"><img src="<?php echo base_url('assets/frontend/images/users/1.jpg') ?>" alt="user"></div>
                                             <div class="u-text">
                                                 <h4>Steave Jobs</h4>
                                                 <p class="text-muted">varun@gmail.com</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
@@ -426,7 +426,7 @@ if ($this->session->userdata('id_pmb') !== $id) {
                                                          <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <img src="<?php echo base_url('assets/images/logo_akper.png') ?>" width="100">
+                                                                    <img src="<?php echo base_url('assets/frontend/images/logo_akper.png') ?>" width="100">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -456,25 +456,25 @@ if ($this->session->userdata('id_pmb') !== $id) {
                         <!-- ============================================================== -->
                         <!-- All Jquery -->
                         <!-- ============================================================== -->
-                        <script src="<?php echo base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/plugins/jquery/jquery.min.js') ?>"></script>
                         <!-- Bootstrap tether Core JavaScript -->
-                        <script src="<?php echo base_url('assets/plugins/bootstrap/js/popper.min.js') ?>"></script>
-                        <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/popper.min.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
                         <!-- slimscrollbar scrollbar JavaScript -->
-                        <script src="<?php echo base_url('assets/js/jquery.slimscroll.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/js/jquery.slimscroll.js') ?>"></script>
                         <!--Wave Effects -->
-                        <script src="<?php echo base_url('assets/js/waves.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/js/waves.js') ?>"></script>
                         <!--Menu sidebar -->
 
                         <!--stickey kit -->
-                        <script src="<?php echo base_url('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
-                        <script src="<?php echo base_url('assets/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
                         <!--Custom JavaScript -->
-                        <script src="<?php echo base_url('assets/js/custom.min.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/js/custom.min.js') ?>"></script>
                         <!-- ============================================================== -->
                         <!-- Style switcher -->
                         <!-- ============================================================== -->
-                        <script src="<?php echo base_url('assets/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
+                        <script src="<?php echo base_url('assets/frontend/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
                     </body>
 
 

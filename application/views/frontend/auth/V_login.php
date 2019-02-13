@@ -11,14 +11,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/favicon.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/frontend/images/favicon.png') ?>">
     <title>Halaman Login</title>
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="<?php echo base_url('assets/css/colors/blue.css') ?>" id="theme" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/css/colors/blue.css') ?>" id="theme" rel="stylesheet">
     <!-- H
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') ?>"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js') ?>/1.4.2/respond.min.js') ?>"></script>
@@ -65,7 +65,7 @@
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item logo">
-                            <img src="<?php echo base_url('assets/images/logo_akper.png') ?>" width="55">
+                            <img src="<?php echo base_url('assets/frontend/images/logo_akper.png') ?>" width="55">
                             
                         </li>
                         <!-- ============================================================== -->
@@ -156,25 +156,25 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/jquery/jquery.min.js') ?>"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url('assets/plugins/bootstrap/js/popper.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/popper.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url('assets/js/jquery.slimscroll.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/jquery.slimscroll.js') ?>"></script>
     <!--Wave Effects -->
-    <script src="<?php echo base_url('assets/js/waves.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/waves.js') ?>"></script>
     <!--Menu sidebar -->
-    <script src="<?php echo base_url('assets/js/sidebarmenu.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/sidebarmenu.js') ?>"></script>
     <!--stickey kit -->
-    <script src="<?php echo base_url('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
     <!--Custom JavaScript -->
-    <script src="<?php echo base_url('assets/js/custom.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/js/custom.min.js') ?>"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url('assets/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
+    <script src="<?php echo base_url('assets/frontend/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
 </body>
 
 
