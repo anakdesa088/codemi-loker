@@ -28,7 +28,8 @@ public function c_delete($id){
 		redirect('backend/keuangan/index');
 	}
 }
-public function detail(){
+public function detail($id){
+	$data['tampil'] = $this->m_keuangan->m_detail($id);
 	$data['isi'] = 'content/keuangan/pmb/v_detail_pmb.php';
 	$this->load->view('template/layout',$data);
 }

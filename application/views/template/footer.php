@@ -1,7 +1,8 @@
-                <footer class="footer-main"> 2017 &copy; Marble admin Template. </footer>   
+
                  <!--End footer -->
         
                 </div>  <!--/.wrapper-->
+                                <footer class="footer-main"> 2017 &copy; Marble admin Template. </footer>   
              </div> <!--/.page-container-->
           </div>
          <!--End wrapper-->

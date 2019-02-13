@@ -17,4 +17,9 @@ class M_keuangan extends CI_Model{
 		$hapus = $this->db->delete('pmb');
 		return $hapus;
 	}
+	public function m_detail($id){
+		$this->db->where('id_pmb',$id);
+		$detail = $this->db->get('pmb');
+		return $detail->row();
+	}
 }
