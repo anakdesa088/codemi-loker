@@ -43,7 +43,8 @@ public function c_status_valid($id){
 }
 public function c_status_invalid($id){
 	$status = "invalid";
-	$array = array('status'=>$status);
+	$level = "pmb_lamah";
+	$array = array('status'=>$status,'level'=>$level);
 	$data = $this->m_keuangan->m_status_invalid($id,$array);
 	if ($data > 0) {
 		redirect('backend/keuangan/index');

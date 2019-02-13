@@ -57,6 +57,13 @@
                                                 
 
                                                 ?>
+                                                <?php
+                                                if ($r->status == "valid") {
+                                                    
+
+                                                
+
+                                                ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $r->nama_lengkap; ?></td>
@@ -73,7 +80,7 @@
                                                          
                                                     </td>
                                                 </tr>
-                                                <?php  } ?>
+                                                <?php }  } ?>
                                             </tbody>
                                            </table>  
                                     </div>
