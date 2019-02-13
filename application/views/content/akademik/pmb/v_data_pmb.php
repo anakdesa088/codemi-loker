@@ -1,83 +1,104 @@
-<div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Table basic</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">pages</li>
-                        <li class="breadcrumb-item active">Table basic</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Data Export</h4>
+<style type="text/css">
+    .alert{
+        color :green;
+    }
+</style>
+                   <div class="page-title-box">
+                        <h4 class="page-title">Data Table</h4>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="#">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#">Table</a>
+                            </li>
+                            <li class="active">
+                                Data Table
+                            </li>
+                        </ol>
+                        <div class="clearfix"></div>
+                     </div>
+                      <!--End Page Title-->          
+           
+        
+                       <!--Start row-->
+                       <div class="row">
+                           <div class="col-md-12">
+                               <div class="white-box">
+                                   <h2 class="header-title">Data Peserta Mahasiswa Baru</h2>
+                                    <div class="table-responsive">
+                                        <?php echo $this->session->flashdata('hapus'); ?>
+                                     <table id="example" class="display table">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>TTL</th>
+                                                    <th>Jenis Kelamin</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>TTL</th>
+                                                    <th>Jenis Kelamin</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <?php 
+                                                $no = 1; 
+                                                foreach ($tampil as $r) {
+                                                    
+                                                
 
-                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
-                                <a href="" class="btn btn-info">Tambah</a>
-                                <div class="table-responsive m-t-40">
-                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama </th>
-                                                <th>TTL</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>No Hp</th>
-                                                <th>Foto Ijazah</th>
-                                                <th>Foto Kesehatan</th>
-                                                <th>Foto Peserta</th>
-                                                <th>Status</th>
-                                                <center><th>Aksi</th></center>
-                                            </tr>
-                                        </thead>
-                                        
-                                        <tbody>
-                                         <?php 
-                                         
-                                         $no = 1;
-                                         foreach ($tampil as $r) {
-                                             
-                                         
-                                         ?>   
-                                            <tr>
-                                                <td><?php echo $no++; ?></td>
-                                                <td><?php echo $r->nama_lengkap; ?></td>
-                                                <td><?php echo $r->tmpt_lahir ." ".$r->tgl_lahir; ?></td>
-                                                <td><?php echo $r->jk; ?></td>
-                                                <td><?php echo $r->no_hp1; ?></td>
-                                                <td><a href="">Aktip</a><a href="">Tidak</a></td>
-                                                <td><?php ?></td>
-                                                <td><?php  ?></td>
-                                                <td></td>
-                                                <td>
-                                                    <a href="" class="btn btn-warning">Edit</a>
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $no++; ?></td>
+                                                    <td><?php echo $r->nama_lengkap; ?></td>
+                                                    <td><?php echo $r->tmpt_lahir.", ".$r->tgl_lahir; ?></td>
+                                                    <td><?php echo $r->jk; ?></td>
+                                                    <td><?php echo $r->no_hp1; ?></td>
+                                                    <td>
+                                                        <a href="<?php echo site_url('backend/keuangan/c_detail/'.$r->id_pmb); ?>" class="btn btn-info">Detail</a>
+                                                        <a href="#animate-modal-2" class="btn btn-danger" data-toggle="modal">Hapus</a>
+                                                        
+                                                        
 
-                                                    <a href="" class="btn btn-warning">Hapus</a>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        
+                                                        
+                                                         
+                                                    </td>
+                                                </tr>
+                                                <?php  } ?>
+                                            </tbody>
+                                           </table>  
+                                    </div>
+                               </div>
+                           </div>
+                       </div>
 
-                    </div>
+                           <div class="modal fade" id="animate-modal-2" >
+                                            <div class="modal-dialog animated fadeInUp">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">ALert</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+
+
+                                                        Apakah anda Yakin ingin menghapus data <b class="alert"><?php echo $r->nama_lengkap; ?> </b>?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="<?php echo site_url('backend/keuangan/c_delete/'.$r->id_pmb); ?>" class="btn btn-success">Hapus</a>
+                                                        <button data-dismiss="modal" class="btn btn-default" type="button">Batal</button>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+

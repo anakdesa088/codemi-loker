@@ -21,5 +21,12 @@ public function c_kirim($id){
 	$nama_lengkap = $this->input->view('nama_lengkap');
 	$array = array('nama_lengkap');
 }
+public function c_delete($id){
+	$hapus = $this->m_keuangan->m_delete($id);
+	if ($hapus > 0) {
+		$this->session->set_flashdata('hapus','<div class="alert alert-success">Berhasil Hapus Data</div>');
+		redirect('backend/keuangan/index');
+	}
+}
 
 }

@@ -52,6 +52,7 @@
         }, function(isConfirm){   
             if (isConfirm) {     
                 swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                window.location.href='backend/keuangan/index';
             } else {     
                 swal("Cancelled", "Your imaginary file is safe :)", "error");   
             } 

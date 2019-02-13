@@ -12,5 +12,9 @@ class M_keuangan extends CI_Model{
 		$tampil = $this->db->get('pmb');
 		return $tampil->row();
 	}
-	
+	public function m_delete($id){
+		$this->db->where('id_pmb',$id);
+		$hapus = $this->db->delete('pmb');
+		return $hapus;
+	}
 }
