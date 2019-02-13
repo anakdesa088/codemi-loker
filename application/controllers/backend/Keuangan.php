@@ -33,5 +33,20 @@ public function detail($id){
 	$data['isi'] = 'content/keuangan/pmb/v_detail_pmb.php';
 	$this->load->view('template/layout',$data);
 }
-
+public function c_status_valid($id){
+	$status = "valid";
+	$array = array('status'=>$status);
+	$data = $this->m_keuangan->m_status_valid($id,$array);
+	if ($data > 0) {
+		redirect('backend/keuangan/index');
+	}
+}
+public function c_status_invalid($id){
+	$status = "invalid";
+	$array = array('status'=>$status);
+	$data = $this->m_keuangan->m_status_invalid($id,$array);
+	if ($data > 0) {
+		redirect('backend/keuangan/index');
+	}
+}
 }

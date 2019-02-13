@@ -22,4 +22,14 @@ class M_keuangan extends CI_Model{
 		$detail = $this->db->get('pmb');
 		return $detail->row();
 	}
+	public function m_status_valid($id,$data){
+		$this->db->where('id_pmb',$id);
+		$status = $this->db->update('pmb',$data);
+		return $data;
+	}
+	public function m_status_invalid($id,$data){
+		$this->db->where('id_pmb',$id);
+		$status = $this->db->update('pmb',$data);
+		return $data;
+	}
 }
