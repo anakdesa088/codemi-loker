@@ -90,7 +90,7 @@ class Auth extends CI_Controller
 
 
 	// Method untuk generate random password
-	private function random_pass($length = 8)
+	private function random_password($length = 8)
 	{
 		return random_string('basic',$length);
 	}
