@@ -23,4 +23,5 @@ function __construct(){
 		$data['isi'] = 'content/keuangan/pmb/v_tambah_pmb.php';
 		$this->load->view('testview/template/layout', $data);
 	}
+	
 }

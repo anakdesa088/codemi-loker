@@ -67,7 +67,7 @@ class Auth extends CI_Controller {
 			if ($yanglogin->level == 'pmb_baru') {
 				redirect('page/pmb/'.$id);
 			}elseif ($yanglogin->level == 'pmb_lamah') {
-				echo "anda mahasiswa baru";	
+				redirect('backend/mahasiswa/index/'.$id);
 
 
 			}

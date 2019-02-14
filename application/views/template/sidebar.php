@@ -35,10 +35,10 @@
 
 
                             <li>
-                           <a href="javascript:void(0)"><i class="icon-location-pin"></i> <span class="menu-label">Maps</span><span class="fa arrow"></span></a>
+                           <a href="javascript:void(0)"><i class="icon-location-pin"></i> <span class="menu-label">PMB</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
-                                <li><a href="google-map.html"> Google Map</a></li>
-                                <li><a href="vector-map.html"> Vector Map</a></li>
+                                <li><a href="google-map.html"> MAHASISWA</a></li>
+                                <li><a href="vector-map.html"> INFORMASI</a></li>
                                </ul>
                             </li>
 

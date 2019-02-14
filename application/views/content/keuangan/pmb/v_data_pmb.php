@@ -33,6 +33,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Email</th>
                         <th>TTL</th>
                         <th>Jenis Kelamin</th>
                         <th>Status</th>
@@ -43,6 +44,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Email</th>
                         <th>TTL</th>
                         <th>Jenis Kelamin</th>
                         <th>Status</th>
@@ -60,6 +62,7 @@
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $r->nama_lengkap; ?></td>
+                            <td><?php echo $r->email; ?></td>
                             <td><?php echo $r->tmpt_lahir.", ".$r->tgl_lahir; ?></td>
                             <td><?php echo $r->jk; ?></td>
                             <?php 
@@ -82,7 +85,7 @@
                                     <button type="button" class="btn btn-success dropdown-toggle" 
                                     data-toggle="dropdown"aria-expanded="false"><?php echo $r->status; ?> <span class="caret"></span></button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#animate-modal-3" data-toggle="modal">Valid</a></li>
+                                        <li><a href="<?php echo site_url('backend/keuangan/c_status_valid/'.$r->id_pmb); ?>" data-toggle="modal">Valid</a></li>
                                         <li><a href="<?php echo site_url('backend/keuangan/c_status_invalid/'.$r->id_pmb); ?>">Invalid</a></li>
 
                                     </ul>
@@ -145,7 +148,7 @@
                 Apakah anda Yakin ingin menghapus data <b class="alert"><?php echo $r->nama_lengkap; ?> </b>?
             </div>
             <div class="modal-footer">
-                <a href="<?php echo site_url('backend/keuangan/c_delete/'.$r->id_pmb); ?>" class="btn btn-success">Hapus</a>
+                <a href="" class="btn btn-success">Hapus</a>
                 <button data-dismiss="modal" class="btn btn-default" type="button">Batal</button>
 
             </div>
