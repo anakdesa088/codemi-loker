@@ -50,4 +50,5 @@ public function c_status_invalid($id){
 		redirect('backend/keuangan/index');
 	}
 }
+
 }

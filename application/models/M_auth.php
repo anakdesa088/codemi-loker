@@ -18,4 +18,11 @@ class M_auth extends CI_Model
 		$data = $this->db->get('pmb');
 		return $data->result();
 	}
+	public function m_proses_login_admin($email,$password)
+	{
+		$this->db->where('email',$email);
+		$this->db->where('password',$password);
+		$login = $this->db->get('user');
+		return $login->row();	
+	}
 }

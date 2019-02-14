@@ -6,7 +6,9 @@
                               <a href="javascript:void(0)"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
                                 
                             </li>
-                            
+                        <?php if ($this->session->userdata('level') !=='keuangan') {
+                    # code...
+                  ?>
                           <li>
                          <a href="javascript:void(0)"><i class="ti-new-window"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
@@ -21,6 +23,9 @@
                                 </ul>
                             </li>
 
+                <?php } if ($this->session->userdata('level') !=='akademik') {
+                    # code...
+                  ?>
                             <li>
                                 <a href="javascript:void(0)"><i class="ti-email"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
@@ -31,7 +36,7 @@
                                 
                                 </ul>
                             </li>
-
+                        <?php } ?>
 
 
                             <li>
@@ -42,8 +47,8 @@
                                </ul>
                             </li>
 
-                            <li><a href="widget.html"><i class="icon-docs"></i>  <span class="menu-label">Widget </span></a></li>
-                            <li><a href="calendar.html"><i class="fa fa-calendar"></i>  <span class="menu-label">Calendar </span></a></li>
+                            <li><a href="widget.html"><i class="icon-docs"></i>  <span class="menu-label">USER </span></a></li>
+                            <li><a href="calendar.html"><i class="fa fa-calendar"></i>  <span class="menu-label">DATA USER</span></a></li>
                             
                             
                         </ul>
