@@ -1,92 +1,102 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
-
-	function __construct(){
+class Auth extends CI_Controller 
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->helper('string');
-		$this->load->model('m_auth');
-		
+		$this->load->model('m_auth');	
 		$this->load->library(array('session','form_validation', 'Recaptcha'));
 	}
 	
 	public function daftar()
 	{	
-		
-		$this->load->view('frontend/auth/v_daftar');
+		return $this->load->view('frontend/auth/v_daftar');
 	}
-	public function c_proses_daftar(){
-		$email = $this->input->post('email', true);
-		$password = random_string('basic',8);
-		$cek_email = $this->m_auth->m_cek_email($email);
-		if (count($cek_email) != 0) {
+
+	public function c_proses_daftar()
+	{
+		$email 			= $this->input->post('email', true);
+		$password 		= $this->random_password();
+		$email_is_used 	= $this->m_auth->is_email_used($email);
+		if ($email_is_used) 
+		{
 			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning" role="alert">
 				                         Email '.$email.' Sudah Terdaftar
 				                       </div>');
-							redirect('auth/daftar');
-		}else{
-			$array =	 array('email'=>$email,'password'=>$password);
-						$daftar = $this->m_auth->m_proses_daftar($array);
-						if ($daftar > 0) {
-							$this->session->set_flashdata('berhasil','<div class="alert alert-success" role="alert">
-				                         Success  Password anda adalah <br><center>'.$password.'</center>
-				                       </div>
-				');	
-							redirect('auth/daftar');
-						}
-		}
-			
-	}
-
-	public function random(){
-		echo random_string('basic',20);
-	}
-	public function login(){
-		$this->load->view('frontend/auth/v_login');
-	}
-	public function c_proses_login(){
-		$email = $this->input->post('email', true);
-		$spassword = $this->input->post('password', true);
-		$password = $spassword;
-		$cek = $this->m_auth->m_proses_login($email, $password);
-		$hasil = count($cek);
-		if ($hasil > 0) {
-			$yanglogin = $this->db->get_where('pmb', array('email'=>$email,'password'=>$password))->row();
-			$data = array('udahlogin'=>true,
-				'nama_lengkap'=> $yanglogin->nama_lengkap,
-				'email'=> $yanglogin->email,
-				'level'=> $yanglogin->level,
-				'id_pmb' => $yanglogin->id_pmb,
-				'email' => $yanglogin->email,
-				'status' => 'login'
-
+		} else 
+		{
+			$data 	= array(
+				'email' 	=> $email, 
+				'password' 	=> $password
 			);
-			$id = $yanglogin->id_pmb;
-			$this->session->set_userdata($data);
-			if ($yanglogin->level == 'pmb_baru') {
-				redirect('page/pmb/'.$id);
-			}elseif ($yanglogin->level == 'pmb_lamah') {
-				redirect('backend/mahasiswa/index/'.$id);
-
-
+			$daftar = $this->m_auth->m_proses_daftar($data);
+			if ($daftar) 
+			{
+				$this->session->set_flashdata('berhasil','<div class="alert alert-success" role="alert">
+						Success  Password anda adalah <br><center>'.$password.'</center>
+				        </div>
+					');
 			}
-		}else{
+		}
+		return redirect('auth/daftar');			
+	}
+	public function login()
+	{
+		return $this->load->view('frontend/auth/v_login');
+	}
+	public function c_proses_login()
+	{
+		$email 		= $this->input->post('email', true);
+		$spassword 	= $this->input->post('password', true);
+		$password 	= $this->hash_password($spassword);
+		$user 		= $this->m_auth->m_proses_login($email, $password);
+		if ($user) 
+		{
+			$session_data = array(
+				'udahlogin'		=> true,
+				'nama_lengkap'	=> $user->nama_lengkap,
+				'email'			=> $user->email,
+				'level'			=> $user->level,
+				'id_pmb' 		=> $user->id_pmb,
+				'email' 		=> $user->email,
+				'status' 		=> 'login'
+			);
+			$this->session->set_userdata($session_data);
+			if ($user->level == 'pmb_baru') 
+			{
+				return redirect('page/pmb/'.$user->id_pmb);
+			} elseif ($user->level == 'pmb_lamah') 
+			{
+				return redirect('backend/mahasiswa/index/'.$user->id_pmb);
+			}
+		} else {
 			$this->session->set_flashdata('gagal','
 				<div class="alert alert-danger" role="alert">
                          Maaf Email atau Password anda Salah !
                        </div>
-
-
-
 				');
-			redirect('auth/login');
+			return redirect('auth/login');
 		}
 	}
 
-	public function c_keluar(){
-			$this->session->sess_destroy();
-			redirect('auth/login');
+	public function c_keluar()
+	{
+		$this->session->sess_destroy();
+		return redirect('auth/login');
 	}
 
+
+	// Method untuk generate random password
+	private function random_pass($length = 8)
+	{
+		return random_string('basic',$length);
+	}
+	// Logika untuk ngehash password
+	private function hash_password($raw_password)
+	{
+		return $raw_password;
+	}
 }
