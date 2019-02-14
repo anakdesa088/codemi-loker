@@ -24,24 +24,8 @@ class Page extends CI_Controller{
 	}
 	public function c_proses_pmb($id){
 		
-		$nama_lengkap = $this->input->post('nama_lengkap');
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
-		$kewarganegaraan = $this->input->post('kewarganegaraan');
-		$jk = $this->input->post('jk');
-		$tinggi_badan = $this->input->post('tinggi_badan');
-		$berat_badan = $this->input->post('berat_badan');
-		$tmpt_lahir = $this->input->post('tmpt_lahir');
-		$tgl_lahir = $this->input->post('tgl_lahir');
-		$alamat = $this->input->post('alamat');
-		$kode_pos = $this->input->post('kode_pos');
-		$nama_ayah = $this->input->post('nama_ayah');
-		$nama_ibu = $this->input->post('nama_ibu');
-		$no_hp1 = $this->input->post('no_hp1');
-		$no_hp2 = $this->input->post('no_hp2');
-		$info_dari = $this->input->post('info_dari');
-		$nama_asal_sekolah = $this->input->post('nama_asal_sekolah');
-		$alamat_asal_sekolah = $this->input->post('alamat_asal_sekolah');
+		
+		$data = $this->getFormData();
 		$foto_ijaza = $_FILES['foto_ijaza']['name'];
 		$foto_kesehatan = $_FILES['foto_kesehatan']['name'];
 		$foto = $_FILES['foto']['name'];
@@ -176,6 +160,30 @@ class Page extends CI_Controller{
 
 
 	}
+
+	private function getFormData()
+	{
+		return [
+			'nama_lengkap' 			=> $this->input->post('nama_lengkap'),
+			'email' 				=> $this->input->post('email'),
+			'password' 				=> $this->input->post('password'),
+			'kewarganegaraan' 		=> $this->input->post('kewarganegaraan'),
+			'jk' 					=> $this->input->post('jk'),
+			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),
+			'berat_badan' 			=> $this->input->post('berat_badan'),
+			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
+			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
+			'alamat' 				=> $this->input->post('alamat'),
+			'kode_pos' 				=> $this->input->post('kode_pos'),
+			'nama_ayah' 			=> $this->input->post('nama_ayah'),
+			'nama_ibu' 				=> $this->input->post('nama_ibu'),
+			'no_hp1' 				=> $this->input->post('no_hp1'),
+			'no_hp2' 				=> $this->input->post('no_hp2'),
+			'info_dari' 			=> $this->input->post('info_dari'),
+			'nama_asal_sekolah' 	=> $this->input->post('nama_asal_sekolah'),
+			'alamat_asal_sekolah'	=> $this->input->post('alamat_asal_sekolah'),
+		];
+	}	
 }
 function pmb_view($id){
 	$data['tampil'] = $this->m_page->m_pmb_view($id);
