@@ -27,7 +27,7 @@ class M_auth extends CI_Model
 		$this->db->where('password',$password);
 		$login = $this->db->get('user');
 		return $login->row();	
-
+	}
 	public function is_email_used($email)
 	{
 		$query = $this->db->where('email', $email)->get('pmb');
