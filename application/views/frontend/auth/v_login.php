@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -113,12 +116,12 @@
         <div class="login-register" style="background-color:url(../images/background/bg_akper.jpg);">
             <div class="login-box card">
                 <div class="card-body">
-                    <form class="form-horizontal form-material" method="POST" id="loginform" action="<?php echo site_url('backend/auth/c_proses_login_admin'); ?>">
-                        <center><h3 class="box-title m-b-20">User Login</h3></center>
+                    <form class="form-horizontal form-material" method="POST" id="loginform" action="<?php echo site_url('auth/c_proses_login'); ?>">
+                        <center><h3 class="box-title m-b-20">Login</h3></center>
                         <?php echo $this->session->flashdata('gagal'); ?>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" name="username" type="text" required="" placeholder="Username"> </div>
+                                <input class="form-control" name="email" type="email" required="" placeholder="Email"> </div>
                         </div>
                          <div class="form-group ">
                             <div class="col-xs-12">
@@ -138,7 +141,7 @@
                         </div>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                
+                                <div>Belum Punya Akun ? <a href="<?php echo site_url('auth/daftar'); ?>" class="text-info m-l-5"><b>Daftar</b></a></div>
                             </div>
                         </div>
                     </form>

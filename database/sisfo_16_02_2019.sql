@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `sisfo_akper`.`mahasiswa` (
   `id_tahun_ajaran` INT NOT NULL,
   `tahun_masuk` INT NOT NULL,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  PRIMARY KEY (`id_mahasiswa`),
   INDEX `fk_mahasiswa_tahun_ajaran1_idx` (`id_tahun_ajaran` ASC),
   INDEX `fk_mahasiswa_tahun_ajaran2_idx` (`tahun_masuk` ASC),
   CONSTRAINT `fk_mahasiswa_tahun_ajaran1`
@@ -123,7 +124,7 @@ ENGINE = InnoDB;
 -- Table `sisfo_akper`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sisfo_akper`.`user` (
-  `id_user` INT NULL AUTO_INCREMENT,
+  `id_user` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(150) NULL,
   `password` VARCHAR(191) NULL,
   `is_active` ENUM('0', '1') NULL DEFAULT '1',

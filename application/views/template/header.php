@@ -17,6 +17,7 @@
     <link href="<?php echo base_url('assets/css/icons.css') ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/responsive.css') ?>" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
   
     </head>
     
@@ -33,8 +34,8 @@
                 <div class="page-header-main">
                 
                     <div class="logo">
-                        <a href="index.html">
-                            <center><h2>AKPER BPC</h2></center>
+                        <a href="">
+                            <h2><center>AKPER BPC</center></h2>
                     </div> <!--/.logo-->
                     
                     <div class="sidebar-main-toggle">

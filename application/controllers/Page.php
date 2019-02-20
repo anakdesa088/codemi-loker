@@ -3,12 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Page extends CI_Controller{
 
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->model('m_page');
+		$this->load->model('m_tahun_ajaran');
+		$this->load->library('akper/auth_akper');
+		if (!$this->auth_akper->is_login('udahlogin')) 
+		{
+			return redirect('auth/login');			
+		}
 	}
 
-	public function index(){
+	public function index()
+	{
 		$php = "apasj.php";
 		$cek = strrchr($php,".php");
 		echo $cek;
@@ -16,22 +24,20 @@ class Page extends CI_Controller{
 		
 	}
 
-	public function pmb($id){
-
+	public function pmb()
+	{
+		$id 			= $this->session->userdata('id_pmb');
 		$data['tampil'] = $this->m_page->m_get_id($id);
+		$data['ta'] 	= $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
 		$this->load->view('frontend/pmb/v_pmb', $data);
-
 	}
-	public function c_proses_pmb($id){
-		
-		
-		$data = $this->getFormData();
+	public function c_proses_pmb()
+	{
+		$id 	= $this->session->userdata('id_pmb');	
+		$data 	= $this->getFormData();
 		$foto_ijaza = $_FILES['foto_ijaza']['name'];
 		$foto_kesehatan = $_FILES['foto_kesehatan']['name'];
 		$foto = $_FILES['foto']['name'];
-
-
-
 		if (empty($foto) || empty($foto_ijaza) || empty($foto_kesehatan)) {
 			
 			$this->session->set_flashdata('foto','<div class="alert alert-danger">Mohon Diisi semua foto</div>');
@@ -140,9 +146,12 @@ class Page extends CI_Controller{
 				
 
 
-
-				$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah,'foto_ijaza'=>$ijaza1,'foto_kesehatan'=>$kesehatan2,'foto'=>$foto3); 				
-				$daftar = $this->m_page->m_proses_pmb($id,$array);
+				$data 					= $this->getFormData();
+				$data['foto_diri'] 		= $foto3;
+				$data['foto_kesehatan'] = $kesehatan2;
+				$data['foto_ijazah'] 	= $ijaza1;
+				// $array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah,'foto_ijaza'=>$ijaza1,'foto_kesehatan'=>$kesehatan2,'foto'=>$foto3); 				
+				$daftar = $this->m_page->m_proses_pmb($id,$data);
 				
 
 
@@ -165,8 +174,6 @@ class Page extends CI_Controller{
 	{
 		return [
 			'nama_lengkap' 			=> $this->input->post('nama_lengkap'),
-			'email' 				=> $this->input->post('email'),
-			'password' 				=> $this->input->post('password'),
 			'kewarganegaraan' 		=> $this->input->post('kewarganegaraan'),
 			'jk' 					=> $this->input->post('jk'),
 			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),

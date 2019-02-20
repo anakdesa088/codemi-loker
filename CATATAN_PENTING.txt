@@ -1,0 +1,7 @@
+Kurang:
+	- Foto Kesehatan dan keterangan tidak buta warna harusnya dipisah
+	- Halaman Profil
+	- Dashboard Management berisi statistik berdasarkan jabatan
+
+	dev4@akper.ac.id
+	1709885148

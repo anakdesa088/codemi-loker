@@ -65,33 +65,21 @@
                             <td><?php echo $r->email; ?></td>
                             <td><?php echo $r->tmpt_lahir.", ".$r->tgl_lahir; ?></td>
                             <td><?php echo $r->jk; ?></td>
-                            <?php 
-                            if ($r->status == "invalid") {
-
-                                ?>
-                                <center><td class="btn-group">
-                                    <button type="button" class="btn btn-danger dropdown-toggle" 
-                                    data-toggle="dropdown"aria-expanded="false"><?php echo $r->status; ?> <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="<?php echo site_url('backend/keuangan/c_status_valid/'.$r->id_pmb); ?>">Valid</a></li>
-                                        <li><a href="<?php echo site_url('backend/keuangan/c_status_invalid/'.$r->id_pmb); ?>">Invalid</a></li>
-
-                                    </ul>
-
-                                </td></center>
-                            <?php  }else{ ?>
-
-                                <center><td class="btn-group">
-                                    <button type="button" class="btn btn-success dropdown-toggle" 
-                                    data-toggle="dropdown"aria-expanded="false"><?php echo $r->status; ?> <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="<?php echo site_url('backend/keuangan/c_status_valid/'.$r->id_pmb); ?>" data-toggle="modal">Valid</a></li>
-                                        <li><a href="<?php echo site_url('backend/keuangan/c_status_invalid/'.$r->id_pmb); ?>">Invalid</a></li>
-
-                                    </ul>
-
-                                </td></center>
-                            <?php } ?>
+                            <?php $btn_validasi_pembayaran = $r->validasi_pembayaran==='0'?'btn-danger':'btn-success'; ?>
+                                <center>
+                                    <td class="btn-group">
+                                        <div class="dropup">
+                                        <button type="button" class="btn <?php echo $btn_validasi_pembayaran ?> dropdown-toggle" 
+                                        data-toggle="dropdown"aria-expanded="false">
+                                            <?php echo ($r->validasi_pembayaran==='0')?'Invalid':'Valid'; ?> 
+                                            <span class="caret"></span></button>
+                                        <ul class="dropdown-menu dropup" role="menu">
+                                            <li><a href="<?php echo site_url('backend/keuangan/c_status_valid/'.$r->id_pmb); ?>">Valid</a></li>
+                                            <li><a href="<?php echo site_url('backend/keuangan/c_status_invalid/'.$r->id_pmb); ?>">Invalid</a></li>
+                                        </ul>
+                                        </div>
+                                    </td>
+                                </center>
 
                             
 

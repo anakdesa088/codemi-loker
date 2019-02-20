@@ -8,7 +8,37 @@ class Auth extends CI_Controller
 		parent::__construct();
 		$this->load->helper('string');
 		$this->load->model('m_auth');	
-		$this->load->library(array('session','form_validation', 'Recaptcha'));
+		// $this->load->library(array('session','form_validation', 'Recaptcha'));
+
+		/* 
+		* Load library akper/auth_akper
+		* param pertama (string): nama library
+		* param kedua (array): [
+			'username' => field username, bisa diganti email, atau apapun yg sifat kolom nya unique, nanti di input harus di isi sama dengan ini
+			'password' => sama kaya username
+		];
+		* note: param 'username' dan 'password' bersifat wajib!!
+		* other note: param kedua tidak usah diisi ketika param nya username dan password nya juga password
+		*/
+		$this->load->library('akper/auth_akper',[
+			'username' => 'email',
+			'password' => 'password'
+		]);
+
+		// Menentukan Base Table (untuk nyari data nya)
+		$this->auth_akper->setBaseTable('pmb');
+		// Session yang dibuat setelah 'auth' berhasil,
+		// Formatnya: 
+		// 		key 	=> nama session key nya
+		// 		value 	=> ketika valuenya string, dia akan ngecek ke database sesuai nama, jika ditemukan dia akan mereturn nilai dari database, jika tidak ada akan mereturn string value nya 
+		$this->auth_akper->setSessionData([
+			'udahlogin' 	=> true,
+			'nama_lengkap'	=> 'nama_lengkap',
+			'email'			=> 'email',
+			'level'			=> 'level',
+			'id_pmb' 		=> 'id_pmb',
+			'status' 		=> 'login'
+		]);
 	}
 	
 	public function daftar()
@@ -23,19 +53,20 @@ class Auth extends CI_Controller
 		$email_is_used 	= $this->m_auth->is_email_used($email);
 		if ($email_is_used) 
 		{
-			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning" role="alert">
+			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning text-center" role="alert">
 				                         Email '.$email.' Sudah Terdaftar
 				                       </div>');
 		} else 
 		{
 			$data 	= array(
-				'email' 	=> $email, 
-				'password' 	=> $password
+				'email' 		=> $email, 
+				'password' 		=> $this->hash_password($password),
+				'tahun_ajaran_id_tahun_ajaran' 	=> '1'
 			);
 			$daftar = $this->m_auth->m_proses_daftar($data);
 			if ($daftar) 
 			{
-				$this->session->set_flashdata('berhasil','<div class="alert alert-success" role="alert">
+				$this->session->set_flashdata('berhasil','<div class="alert alert-success text-center" role="alert">
 						Success  Password anda adalah <br><center>'.$password.'</center>
 				        </div>
 					');
@@ -49,30 +80,22 @@ class Auth extends CI_Controller
 	}
 	public function c_proses_login()
 	{
-		$email 		= $this->input->post('email', true);
-		$spassword 	= $this->input->post('password', true);
-		$password 	= $this->hash_password($spassword);
-		$user 		= $this->m_auth->m_proses_login($email, $password);
-		if ($user) 
+		$data = [
+			'email' 	=> $this->input->post('email'),
+			'password'	=> $this->getPasswordWithPrefix($this->input->post('password'))
+		];
+		$login = $this->auth_akper->login($data);
+		if ($login) 
 		{
-			$session_data = array(
-				'udahlogin'		=> true,
-				'nama_lengkap'	=> $user->nama_lengkap,
-				'email'			=> $user->email,
-				'level'			=> $user->level,
-				'id_pmb' 		=> $user->id_pmb,
-				'email' 		=> $user->email,
-				'status' 		=> 'login'
-			);
-			$this->session->set_userdata($session_data);
-			if ($user->level == 'pmb_baru') 
+			if ($this->session->level == 'pmb_baru') 
 			{
-				return redirect('page/pmb/'.$user->id_pmb);
-			} elseif ($user->level == 'pmb_lamah') 
+				return redirect('page/pmb');
+			} elseif ($this->session->level == 'pmb_lamah') 
 			{
-				return redirect('backend/mahasiswa/index/'.$user->id_pmb);
+				return redirect('backend/mahasiswa/index/'.$this->session->id_pmb);
 			}
-		} else {
+		} else 
+		{
 			$this->session->set_flashdata('gagal','
 				<div class="alert alert-danger" role="alert">
                          Maaf Email atau Password anda Salah !
@@ -89,14 +112,29 @@ class Auth extends CI_Controller
 	}
 
 
+
+
 	// Method untuk generate random password
 	private function random_password($length = 8)
 	{
 		return random_string('basic',$length);
 	}
+
 	// Logika untuk ngehash password
 	private function hash_password($raw_password)
 	{
-		return $raw_password;
+		$this->config->load('setting');
+		$prefix = $this->config->item('password_prefix','security');
+		$new_pass = sprintf("%s%s",$prefix,$raw_password);
+		$hash = password_hash($new_pass,PASSWORD_DEFAULT);
+		return $hash;
 	}
+	private function getPasswordWithPrefix($raw_password)
+	{
+		$this->config->load('setting');
+		$prefix = $this->config->item('password_prefix','security');
+		$new_pass = sprintf("%s%s",$prefix,$raw_password);
+		return $new_pass;
+	}
+
 }

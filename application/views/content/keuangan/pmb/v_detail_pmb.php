@@ -14,7 +14,7 @@
         <a href="<?php echo site_url('backend/keuangan/index'); ?>" class="btn btn-warning">Kembali</a>
         <center><h2 class="header-title">Informasi Detail Peserta Ma Baru</h2>   </center>
         <div class="col-md-12">
-            <center><img src="<?php echo base_url('uploads/'.$tampil->foto); ?>" width="170"></center>
+            <center><img src="<?php echo base_url('uploads/'.$tampil->foto_diri); ?>" width="170"></center>
         </div>
         <div class="col-md-6">
             
@@ -146,7 +146,7 @@
         <div class="form-group  ">
             <label class="col-sm-6 control-label">1. Foto copy Ijazah/ STTB/ Surat Keterangan Lulus</label>
             <div class="col-sm-6">
-                <img src="<?php echo site_url('uploads/'.$tampil->foto_ijaza); ?>" width="160">
+                <img src="<?php echo site_url('uploads/'.$tampil->foto_ijazah); ?>" width="160">
                 
             </div>
         </div>    
