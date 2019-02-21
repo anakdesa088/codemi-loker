@@ -26,5 +26,27 @@ class Mapel extends CI_Controller
 		$data['no'] 	= 1;
 		$data['data'] 	= $this->mapel->get_data_by_tahun();
         return $this->template->render('content/pmb/mapel/index',$data);
-    }
+	}
+	public function tambah()
+	{
+		echo("Enaknya ini di isi apaan yak~");
+	}
+	public function edit($id)
+	{
+		$used_mapel = [];
+
+		$data['data'] 		= $this->mapel->get_data_by_tahun($id);
+
+		if(!is_null($data['data'][0]->mapel))
+		{
+			$used_mapel = array_column($data['data'][0]->mapel,'id_mapel_pmb');			
+		}
+		
+		$data['list_mapel'] = $this->mapel->get_mapel_except($used_mapel);
+
+		// echo "<pre>";
+		// return var_dump($data['list_mapel']);
+
+        return $this->template->render('content/pmb/mapel/edit',$data);
+	}
 }

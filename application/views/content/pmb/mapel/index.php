@@ -14,7 +14,12 @@
 <div class="row">
 <div class="col-sm-12">
     <div class="white-box">
-        <div class="header-title">Data Mata Pelajaran Yang Diujikan</div>
+        <div class="header-title">
+            Data Mata Pelajaran Yang Diujikan
+            <!-- <a href="<?php echo site_url('backend/pmb/mapel/tambah')?>" class="pull-right btn btn-sm btn-success">Tambah</a> -->
+        </div>
+        <div class="clearfix"></div>
+        <br>
         <div class="table-responsive">
         <?php echo $this->session->flashdata('hapus'); ?>
         <table class="display table" id="example">
@@ -43,7 +48,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            Edit / Hapus
+                            <a href="<?php echo site_url('backend/pmb/mapel/edit/'.$mapel->id_tahun_ajaran) ?>" class="btn btn-sm btn-info">Edit</a>
                         </td>
                     </tr>
                 <?php endforeach;?>
