@@ -47,4 +47,30 @@ class M_mapel_pmb extends CI_Model
         $query = $this->db->get('mapel_pmb');
         return $query->result();
     }
+    public function simpan_ujian_pmb($data,$is_batch = FALSE)
+    {
+        $table = 'ujian_pmb';
+        return $this->raw_simpan($table,$data,$is_batch);
+    }
+    public function hapus_ujian_pmb($data)
+    {
+        $this->db->trans_start();
+        $this->db->delete('ujian_pmb',$data);
+        $this->db->trans_complete();
+        return $this->db->trans_status();
+    }
+
+    private function raw_simpan($table,$data,$is_batch)
+    {
+        $this->db->trans_start();
+        if($is_batch === TRUE)
+        {
+            $this->db->insert_batch($table,$data);
+        } else
+        {
+            $this->db->insert($table,$data);
+        }
+        $this->db->trans_complete();
+        return $this->db->trans_status();
+    }
 }

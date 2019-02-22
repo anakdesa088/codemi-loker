@@ -49,4 +49,32 @@ class Mapel extends CI_Controller
 
         return $this->template->render('content/pmb/mapel/edit',$data);
 	}
+
+	// Ini Belum dikasih flash message yak
+	public function update($id)
+	{
+		$data = array_map(function($arr) use($id) {
+			return [
+				'id_tahun_ajaran' 	=> $id,
+				'id_mapel_pmb'		=> $arr
+			];
+		},$this->input->post('mapel'));
+
+		$save = $this->mapel->simpan_ujian_pmb($data,TRUE);
+		if($save)
+		{
+			return redirect('backend/pmb/mapel/edit/'.$id);
+		} else
+		{
+			return redirect('backend/pmb/mapel/edit/'.$id);
+		}
+	}
+	
+	// Ini Belum dikasih flash message yak
+	public function hapus($id_tahun_ajaran,$id_mapel_pmb)
+	{
+		$hapus = $this->mapel->hapus_ujian_pmb(compact("id_tahun_ajaran","id_mapel_pmb"));
+		echo "<pre>";
+		return redirect('backend/pmb/mapel/edit/'.$id_tahun_ajaran);
+	}
 }

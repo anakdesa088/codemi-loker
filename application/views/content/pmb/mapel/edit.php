@@ -18,10 +18,10 @@
 <div class="col-sm-6">
     <div class="white-box">
         <div class="header-title">Tambah Mata Pelajaran</div>
-        <form action="" method="post" role="form">
+        <form action="<?php echo site_url('backend/pmb/mapel/update/'.$data[0]->id_tahun_ajaran)?>" method="post" role="form">
             <div class="form-group">
                 <label for="">Mapel</label>
-                <select name="mapel" class="form-control">
+                <select multiple name="mapel[]" class="form-control">
                     <option value="">Pilih Mapel</option>
                     <?php foreach($list_mapel AS $matpel):?>
                         <option value="<?php echo $matpel->id_mapel_pmb?>"><?php printf("%s - %s",$matpel->mapel_pmb_code,$matpel->mapel_pmb_name)?></option>                    
@@ -53,7 +53,7 @@
                         <tr>
                             <td><?php echo $mapel->mapel_pmb_code?></td>
                             <td><?php echo $mapel->mapel_pmb_name?></td>
-                            <td><a href="" class="btn btn-sm btn-danger">Hapus</a></td>
+                            <td><a href="<?php echo site_url(sprintf("backend/pmb/mapel/hapus/%s/%s",$data[0]->id_tahun_ajaran,$mapel->id_mapel_pmb))?>" class="btn btn-sm btn-danger">Hapus</a></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
