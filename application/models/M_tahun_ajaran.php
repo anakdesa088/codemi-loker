@@ -16,4 +16,26 @@ class M_tahun_ajaran extends CI_Model
 		$data = $this->db->get($this->table);
 		return $data->result();		
 	}
+	public function save($data)
+	{
+		$this->db->trans_start();
+		$this->db->insert($this->table,$data);
+		$this->db->trans_complete();
+		return $this->db->trans_status();
+	}
+	public function update($id,$data)
+	{
+		$this->db->trans_start();
+		$this->db->where('id_tahun_ajaran', $id);
+		$this->db->update($this->table,$data);
+		$this->db->trans_complete();
+		return $this->db->trans_status();
+	}
+	public function delete($id)
+	{
+		$this->db->trans_start();
+		$this->db->delete($this->table,['id_tahun_ajaran' => $id]);
+		$this->db->trans_complete();
+		return $this->db->trans_status();
+	}
 }
