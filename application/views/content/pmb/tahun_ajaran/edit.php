@@ -5,7 +5,7 @@
             <a href="<?php echo site_url('backend/dashboard')?>">Dashboard</a>
         </li>
         <li>
-            Tahun Ajaran
+            <a href="<?php echo site_url('backend/pmb/tahun_ajaran')?>">Tahun Ajaran</a>
         </li>
         <li class="active">
             Edit
