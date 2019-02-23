@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Ifsnop\\' => array($vendorDir . '/ifsnop/mysqldump-php/src/Ifsnop'),
+    'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'Box\\Spout\\' => array($vendorDir . '/box/spout/src/Spout'),
 );

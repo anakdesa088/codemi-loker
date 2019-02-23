@@ -11,6 +11,10 @@ class ComposerStaticInit8807d7ce898cc121d09f60f2da185c7b
         array (
             'Ifsnop\\' => 7,
         ),
+        'F' => 
+        array (
+            'Faker\\' => 6,
+        ),
         'B' => 
         array (
             'Box\\Spout\\' => 10,
@@ -21,6 +25,10 @@ class ComposerStaticInit8807d7ce898cc121d09f60f2da185c7b
         'Ifsnop\\' => 
         array (
             0 => __DIR__ . '/..' . '/ifsnop/mysqldump-php/src/Ifsnop',
+        ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
         'Box\\Spout\\' => 
         array (
