@@ -11,12 +11,20 @@ class ComposerStaticInit8807d7ce898cc121d09f60f2da185c7b
         array (
             'Ifsnop\\' => 7,
         ),
+        'B' => 
+        array (
+            'Box\\Spout\\' => 10,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Ifsnop\\' => 
         array (
             0 => __DIR__ . '/..' . '/ifsnop/mysqldump-php/src/Ifsnop',
+        ),
+        'Box\\Spout\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/box/spout/src/Spout',
         ),
     );
 

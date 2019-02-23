@@ -1,5 +1,6 @@
 {
     "require": {
-        "ifsnop/mysqldump-php": "^2.6"
+        "ifsnop/mysqldump-php": "^2.6",
+        "box/spout": "^2.7"
     }
 }
