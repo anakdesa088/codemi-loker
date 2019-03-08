@@ -7,6 +7,7 @@ use Faker\Factory;
 
 class Ujian extends CI_Controller 
 {
+    private $mapel_line = 4;
     public function __construct()
     {
         parent::__construct();
@@ -29,6 +30,7 @@ class Ujian extends CI_Controller
     {
         return $this->template->render('content/pmb/ujian/index');
     }
+    // Note: Method ini kudu di refactor!!!!
     public function download()
     {
         $faker = Faker\Factory::create();
@@ -61,6 +63,8 @@ class Ujian extends CI_Controller
         }
         echo "</table>";
     }
+    // Note: ini masih makek cara kasar dan belum di refactor
+    // Catatan lain, ini diupload dengan meng over write file yang sudah ada
     public function upload()
     {
         $this->load->library('upload');
@@ -69,25 +73,78 @@ class Ujian extends CI_Controller
             'allowed_types' => '*',
             'file_name'     => 'excel.xlsx'
         ]);
+        $this->upload->overwrite = true;
+        if (!$this->upload->do_upload('excel_file')) 
+        {
+            die(json_encode([
+                'pesan' => 'Upload Gagal',
+                'error' => $this->upload->display_errors()
+            ]));
+        } else {
+        }
+        $upload_data = $this->upload->data();
+
+        // Line ini sebenernya kepake ngga? Wkwkwk
+        // Buat ngubah file permission
         exec('chmod -R 755 '.FCPATH.'excel');
-        $filePath = FCPATH.'excel/excel.xlsx';
-    //     if (!$this->upload->do_upload('excel_file')) {
-    //         $data = array('error' => $this->upload->display_errors());
-    //     } else {
-    //         $data = array('upload_data' => $this->upload->data());
-    //     }
-    // die(var_dump($data));
+        
+        $filePath = $upload_data['full_path'];
+        return $this->readExcelAndInsertToDB($filePath);
+    }
+    private function readExcelAndInsertToDB($filePath)
+    {
         $reader     = ReaderFactory::create(Type::XLSX); // for XLSX files
         //$reader = ReaderFactory::create(Type::CSV); // for CSV files
         //$reader = ReaderFactory::create(Type::ODS); // for ODS files
         
         $reader->open($filePath);
-        
-        foreach ($reader->getSheetIterator() as $sheet) {
-            foreach ($sheet->getRowIterator() as $row) {
-                echo $row[2]."<br>";
+        $mapel = [];        
+        $insert_data_nilai = [];
+        $update_data_lulus = [];
+        foreach ($reader->getSheetIterator() as $sheet) 
+        {
+            foreach ($sheet->getRowIterator() as $current_line => $row) 
+            {
+                if($current_line === $this->mapel_line)
+                {
+                    $db     = $this->db;
+                    $mapel  = array_map(function($row) use($db) 
+                    {
+                        $res    = $db->select('id_mapel_pmb AS id,mapel_pmb_code AS code,mapel_pmb_name AS name')->from('mapel_pmb')->where('mapel_pmb_name',$row)->get()->row();
+                        return $res;
+                    },array_filter($row));
+                } elseif($current_line > $this->mapel_line)
+                {
+                    $status_lulus = strtoupper(end($row)) === 'L'?'1':'0';
+
+
+                    // Set data Lulus
+                    $update_data_lulus[] = [
+                        'id_pmb'    => $row[0],
+                        'is_lulus'  => $status_lulus
+                    ];
+                    foreach ($mapel as $column => $val)
+                    {
+                        $insert_data_nilai[] =  [
+                            'id_pmb'        => $row[0],
+                            'id_mapel_pmb'  => $val->id,
+                            'nilai'         => $row[$column]
+                        ];
+                    }
+                }
             }
         }        
-        $reader->close();        
+        $reader->close();
+        echo json_encode([
+            'nilai' => $insert_data_nilai,
+            'lulus' => $update_data_lulus
+        ]);
+    }
+
+    private function getMapelItemValue($row)
+    {
+        array_splice($row,0,2);
+        array_pop($row);
+        return $row;
     }
 }
