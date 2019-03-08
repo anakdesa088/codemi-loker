@@ -7,6 +7,7 @@ class Keuangan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_keuangan'); 
+		$this->load->model('m_pmb'); 
         $this->load->library('akper/template',[
         'base_view'     => 'template/layout',
         'partial_view'  => [
@@ -55,7 +56,9 @@ class Keuangan extends CI_Controller
 		$data = $this->m_keuangan->m_status_valid($id,$array);
 		if ($data > 0) 
 		{
-			redirect('backend/keuangan/index');
+			$this->m_pmb->is_get_no_ujian($id);
+			// die(var_dump());
+			return redirect('backend/keuangan/index');
 		}
 	}
 	public function c_status_invalid($id){

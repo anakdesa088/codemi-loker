@@ -6,6 +6,7 @@ class Akademik extends CI_Controller
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_akademik'); 
+		$this->load->model('m_pmb'); 
 		$this->load->model('m_keuangan'); 
 		$this->load->library('akper/template',[
 			'base_view'     => 'template/layout',
@@ -34,6 +35,7 @@ class Akademik extends CI_Controller
 		$data = $this->m_keuangan->m_status_valid($id,$array);
 		if ($data > 0) 
 		{
+			die(var_dump($this->m_pmb->is_get_no_ujian($id)));
 			redirect('backend/akademik/index');
 		}
 	}
