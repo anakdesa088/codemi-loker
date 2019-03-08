@@ -12,6 +12,7 @@ class Ujian extends CI_Controller
     {
         parent::__construct();
 		$this->load->model('m_mapel_pmb','mapel'); 
+		$this->load->model('m_pmb'); 
 		$this->load->library('akper/template',[
 			'base_view'     => 'template/layout',
 			'partial_view'  => [
@@ -89,6 +90,7 @@ class Ujian extends CI_Controller
         exec('chmod -R 755 '.FCPATH.'excel');
         
         $filePath = $upload_data['full_path'];
+        // die($filePath);
         return $this->readExcelAndInsertToDB($filePath);
     }
     private function readExcelAndInsertToDB($filePath)
@@ -135,10 +137,16 @@ class Ujian extends CI_Controller
             }
         }        
         $reader->close();
-        echo json_encode([
-            'nilai' => $insert_data_nilai,
-            'lulus' => $update_data_lulus
-        ]);
+
+        // $this->m_pmb->insert_nilai_ujian($insert_data_nilai);
+        // $this->m_pmb->update_status_lulus($update_data_lulus);
+        $raw_new_mhs = array_filter($update_data_lulus, function($arr) {
+            return $arr['is_lulus']==='1';
+        });
+        $new_mhs = array_column($raw_new_mhs,'id_pmb');
+        $list_calon_mhs = $this->m_pmb->generate_mahasiswa($new_mhs);
+        echo "<pre>";
+        die(var_dump($list_calon_mhs));
     }
 
     private function getMapelItemValue($row)

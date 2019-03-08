@@ -56,4 +56,28 @@ class M_pmb extends CI_Model{
             return FALSE;
         }
     }
+    public function insert_nilai_ujian($batch_data)
+    {
+        return $this->db->insert_batch('nilai_ujian_pmb',$batch_data);
+    }
+    public function update_status_lulus($batch_data)
+    {
+        return $this->db->update_batch('pmb',$batch_data,'id_pmb');
+    }
+    public function generate_mahasiswa($batch_ids)
+    {
+        $data = $this->db->select('*')->from('pmb')->where_in('id_pmb',$batch_ids)->get();
+        $new_mhs = array_map(function($r) {
+            // $r = array_filter( $r);
+            // $r->nim                 = $r->no_peserta;
+            $r->nim                 = $r->no_peserta;
+            $r->id_tahun_ajaran     = $r->tahun_ajaran_id_tahun_ajaran;
+            $r->tahun_masuk         = $r->tahun_ajaran_id_tahun_ajaran;
+            $r->first_time_login    = '1';
+            unset($r->id_pmb,$r->is_lulus,$r->no_peserta,$r->is_active,$r->tahun_ajaran_id_tahun_ajaran,$r->status_data);
+            return $r;
+        },$data->result());
+        return $this->db->insert_batch('mahasiswa',$new_mhs);
+        // return $new_mhs;
+    }
 }
