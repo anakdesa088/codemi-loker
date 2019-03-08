@@ -36,10 +36,12 @@ class Mapel extends CI_Controller
 		$used_mapel = [];
 
 		$data['data'] 		= $this->mapel->get_data_by_tahun($id);
-
 		if(!is_null($data['data'][0]->mapel))
 		{
-			$used_mapel = array_column($data['data'][0]->mapel,'id_mapel_pmb');			
+			$arraytmpmapel = array_map(function($r) {
+				return (array) $r;
+			},$data['data'][0]->mapel);
+			$used_mapel = array_column($arraytmpmapel,'id_mapel_pmb');			
 		}
 		
 		$data['list_mapel'] = $this->mapel->get_mapel_except($used_mapel);
@@ -49,7 +51,19 @@ class Mapel extends CI_Controller
 
         return $this->template->render('content/pmb/mapel/edit',$data);
 	}
-
+	private function buat_array_map()
+	{
+		$arr = array('1','2','3','4');
+		$arr = array_map(function($arr) {
+			return 'Nomor '.$arr;
+		}, $arr);
+		// foreach ($arr as $key => $value) 
+		// {
+		// 	$arr[$key] = "Nomor ".$value;
+		// }
+		echo "<pre>";
+		var_dump($arr);
+	}
 	// Ini Belum dikasih flash message yak
 	public function update($id)
 	{

@@ -10,7 +10,10 @@ class M_mapel_pmb extends CI_Model
         }
         $query = $this->db->get('tahun_ajaran');
         $tahun_ajaran_list = $query->result();
-        $implode_tahun_ajaran = array_column($tahun_ajaran_list,'id_tahun_ajaran');
+        $arraytmplist = array_map(function($r) {
+            return (array) $r;
+        },$tahun_ajaran_list);
+        $implode_tahun_ajaran = array_column($arraytmplist,'id_tahun_ajaran');
         $query = $this->db->select('ujian_pmb.id_tahun_ajaran,mapel_pmb.*')
                     ->from('ujian_pmb')
                     ->where_in('id_tahun_ajaran',$implode_tahun_ajaran)
