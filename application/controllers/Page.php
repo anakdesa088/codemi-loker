@@ -13,6 +13,12 @@ class Page extends CI_Controller{
 		{
 			return redirect('auth/login');			
 		}
+
+		// Jika manajemen buka fitu ini maka redirect ke backend/dashboard
+		if($this->auth_akper->is_login('manajemen'))
+		{
+			return redirect('backend/dashboard');							
+		}
 	}
 
 	public function index()

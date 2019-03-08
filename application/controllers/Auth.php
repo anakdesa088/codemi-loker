@@ -37,7 +37,8 @@ class Auth extends CI_Controller
 			'email'			=> 'email',
 			'level'			=> 'level',
 			'id_pmb' 		=> 'id_pmb',
-			'status' 		=> 'login'
+			'status' 		=> 'login',
+			'is_pmb'		=> true
 		]);
 	}
 	
