@@ -35,7 +35,7 @@ class Akademik extends CI_Controller
 		$data = $this->m_keuangan->m_status_valid($id,$array);
 		if ($data > 0) 
 		{
-			die(var_dump($this->m_pmb->is_get_no_ujian($id)));
+			$this->m_pmb->is_get_no_ujian($id);
 			redirect('backend/akademik/index');
 		}
 	}
