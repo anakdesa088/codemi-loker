@@ -73,12 +73,17 @@ class Auth_akper
 	}
 	private function generateMenuListSession($level)
 	{
-		$this->_ci->session->set_userdata('raw_menu',$this->getMenuByLevel($level));
+		$this->_ci->session->set_userdata('raw_menu',$this->getMenuByRole($level));
 	}
 
 	public function setBaseTable($table)
 	{
 		$this->baseTable = $table;
+	}
+	public function getRoleByUser($user_id)
+	{
+		$query = $this->db->select('id_role')->from('role_has_user')->where('id_user',$user_id)->get();
+		return $query->result();
 	}
 	// Aslinya ini bisa ditaro di model
 	private function getUserByUsername($data)
@@ -94,11 +99,11 @@ class Auth_akper
 			return null;
 		}
 	}
-	private function getMenuByLevel($level)
+	private function getMenuByRole($role)
 	{
-		$query = $this->_ci->db->select('menu.*')->from('menu')
-					->join('menu_level','menu.id_menu=menu_level.id_menu','left')
-					->where('id_level',$level)
+		$query = $this->_ci->db->select('menu.*')->from('menu_has_role mhr')
+					->join('menu','mhr.id_menu=menu.id_menu','left')
+					->where_in('id_role',$role)
 					->get();
 		if ($query && $this->_ci->db->affected_rows() > 0) 
 		{
