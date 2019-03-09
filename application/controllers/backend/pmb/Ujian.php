@@ -42,7 +42,7 @@ class Ujian extends CI_Controller
         $total_mapel = count($get_mapel);
         echo "<p>Note: Untuk kolom status isi dengan L apabila lulus dan TL apabila tidak lulus</p>";
         echo "<table border='1'>";
-        echo "<tr><td rowspan='2'>ID</td><td rowspan='2'>Nama</td><td colspan='$total_mapel'>Nilai</td><td rowspan='2'>Status</td>";
+        echo "<tr><td rowspan='2'>ID</td><td rowspan='2'>No Peserta</td><td rowspan='2'>Nama</td><td colspan='$total_mapel'>Nilai</td><td rowspan='2'>Status</td>";
         $data = array_map(function($arr) {
             return "<td>".$arr->mapel_pmb_name."</td>";
         },$get_mapel);
@@ -53,13 +53,9 @@ class Ujian extends CI_Controller
         {
             echo "<tr>";
             echo "<td>".$val->id_pmb."</td>";
+            echo "<td>".$val->no_peserta."</td>";
             echo "<td>".$val->nama_lengkap."</td>";
-            echo "<td>".$faker->numberBetween($min = 50, $max = 100)."</td>";
-            echo "<td>".$faker->numberBetween($min = 50, $max = 100)."</td>";
-            echo "<td>".$faker->numberBetween($min = 50, $max = 100)."</td>";
-            echo "<td>".$faker->numberBetween($min = 50, $max = 100)."</td>";
-            echo "<td>".$faker->randomElement($array = array ('L','TL'))."</td>";
-            // echo str_repeat("<td></td>",$total_mapel+1);
+            echo str_repeat("<td></td>",$total_mapel+1);
             echo "</tr>";
         }
         echo "</table>";
@@ -138,20 +134,21 @@ class Ujian extends CI_Controller
         }        
         $reader->close();
 
-        // $this->m_pmb->insert_nilai_ujian($insert_data_nilai);
-        // $this->m_pmb->update_status_lulus($update_data_lulus);
+        $this->m_pmb->insert_nilai_ujian($insert_data_nilai);
+        $this->m_pmb->update_status_lulus($update_data_lulus);
         $raw_new_mhs = array_filter($update_data_lulus, function($arr) {
             return $arr['is_lulus']==='1';
         });
         $new_mhs = array_column($raw_new_mhs,'id_pmb');
         $list_calon_mhs = $this->m_pmb->generate_mahasiswa($new_mhs);
-        echo "<pre>";
-        die(var_dump($list_calon_mhs));
+        return redirect('backend/pmb/ujian');
+        // echo "<pre>";
+        // die(var_dump($list_calon_mhs));
     }
 
     private function getMapelItemValue($row)
     {
-        array_splice($row,0,2);
+        array_splice($row,0,3);
         array_pop($row);
         return $row;
     }
