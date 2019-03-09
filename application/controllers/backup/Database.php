@@ -10,17 +10,17 @@ class Database extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->library('akper/auth');
+		// $this->load->library('akper/auth');
 		
-		$this->menuListName = [
-			'test_aja' 	=> 'backup.database@test_aja',
-			'test_view' => 'backup.database@test_view',
-		];
+		// $this->menuListName = [
+		// 	'test_aja' 	=> 'backup.database@test_aja',
+		// 	'test_view' => 'backup.database@test_view',
+		// ];
 
-		if(!$this->auth->is_authorized($this->menuListName))
-		{
-			return die('Matio kono, gak oleh buka2 iki rekkkkkk~');
-		}
+		// if(!$this->auth->is_authorized($this->menuListName))
+		// {
+		// 	return die('Matio kono, gak oleh buka2 iki rekkkkkk~');
+		// }
 	}
 	function dump()
 	{
