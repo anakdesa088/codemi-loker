@@ -14,9 +14,10 @@
 <div class="row">
 <div class="col-sm-12">
     <div class="white-box">
-        <!-- <div class="">
-            <a href="<?php echo site_url('backend/surat/pengaturan/tambah') ?>" class="btn btn-sm btn-success">Tambah Format Surat</a>
-        </div> -->
+    <div class="">
+        <a href="<?php echo site_url('backend/surat/pengaturan/tambah') ?>" class="btn btn-sm btn-success">Tambah Format Surat</a>
+    </div>
+    <br>
     <div class="table-responsive">
         <table id="example" class="display table">
             <thead>
@@ -31,14 +32,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>KJBKJBS</td>
-                    <td>KJBKJBS</td>
-                    <td>KJBKJBS</td>
-                    <td>KJBKJBS</td>
-                    <td>KJBKJBS</td>
-                </tr>
+                <?php if(count($list_pengaturan) > 0): ?>
+                    <?php foreach($list_pengaturan AS $pengaturan): ?>
+                    <tr>
+                        <td><?php echo $no++?></td>
+                        <td><?php echo ucwords($pengaturan->nama_surat)?></td>
+                        <td><?php echo $pengaturan->kode_surat?></td>
+                        <td><?php echo $pengaturan->url_surat?></td>
+                        <td><?php echo $pengaturan->lampiran?></td>
+                        <td><?php echo $pengaturan->template_surat?></td>
+                        <td>
+                            <ul>
+                                <li>Edit</li>
+                                <li>Hapus</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td>Data Kosong</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>
