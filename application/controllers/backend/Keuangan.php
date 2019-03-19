@@ -1,27 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Keuangan extends CI_Controller 
+class Keuangan extends Manajemen_only 
 {
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('m_keuangan'); 
 		$this->load->model('m_pmb'); 
-        $this->load->library('akper/template',[
-        'base_view'     => 'template/layout',
-        'partial_view'  => [
-                'header'        => 'template/header',
-                'sidebar'       => 'template/sidebar',
-                'footer'        => 'template/footer',
-        	]
-		]);	
-		
-		$this->load->library('akper/auth_akper');
-        if (!$this->auth_akper->is_login('manajemen')) 
-        {
-        	return redirect('backend/auth');
-        }	
 	}
 	public function index()
 	{
@@ -37,9 +23,11 @@ class Keuangan extends CI_Controller
 		$nama_lengkap = $this->input->view('nama_lengkap');
 		$array = array('nama_lengkap');
 	}
-	public function c_delete($id){
+	public function c_delete($id)
+	{
 		$hapus = $this->m_keuangan->m_delete($id);
-		if ($hapus > 0) {
+		if ($hapus > 0) 
+		{
 			$this->session->set_flashdata('hapus','<div class="alert alert-success">Berhasil Hapus Data</div>');
 			redirect('backend/keuangan/index');
 		}
@@ -61,7 +49,8 @@ class Keuangan extends CI_Controller
 			return redirect('backend/keuangan/index');
 		}
 	}
-	public function c_status_invalid($id){
+	public function c_status_invalid($id)
+	{
 		// $status = "invalid";
 		// $level = "pmb_lamah";
 		// $array = array('status'=>$status,'level'=>$level);

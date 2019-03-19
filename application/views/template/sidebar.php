@@ -39,13 +39,20 @@
                         <?php } ?>
 
 
-                            <li>
+                        <li>
                            <a href="javascript:void(0)"><i class="icon-location-pin"></i> <span class="menu-label">PMB</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="google-map.html"> MAHASISWA</a></li>
                                 <li><a href="vector-map.html"> INFORMASI</a></li>
                                </ul>
                             </li>
+                        <li>
+                           <a href="javascript:void(0)"><i class="ti-email"></i> <span class="menu-label">Layanan Surat</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-sub collapse">
+                                <li><a href="<?php echo site_url('backend/surat/pengaturan/index') ?>"> PENGATURAN</a></li>
+                                <li><a href="vector-map.html"> INFORMASI</a></li>
+                               </ul>
+                        </li>
 
                             <li><a href="widget.html"><i class="icon-docs"></i>  <span class="menu-label">USER </span></a></li>
                             <li><a href="calendar.html"><i class="fa fa-calendar"></i>  <span class="menu-label">DATA USER</span></a></li>

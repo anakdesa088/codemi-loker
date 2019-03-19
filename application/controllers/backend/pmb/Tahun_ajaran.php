@@ -1,25 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tahun_ajaran extends CI_Controller 
+class Tahun_ajaran extends Manajemen_only 
 {
     public function __construct()
     {
         parent::__construct();
 		$this->load->model('m_tahun_ajaran','tahun_ajaran'); 
-		$this->load->library('akper/template',[
-			'base_view'     => 'template/layout',
-			'partial_view'  => [
-					'header'        => 'template/header',
-					'sidebar'       => 'template/sidebar',
-					'footer'        => 'template/footer',
-				]
-			]);		
-		$this->load->library('akper/auth_akper');
-		if (!$this->auth_akper->is_login('manajemen')) 
-		{
-			return redirect('backend/auth');
-		}
     }
     public function index()
     {

@@ -1,26 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Akademik extends CI_Controller 
+class Akademik extends Manajemen_only 
 {
-	public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('m_akademik'); 
 		$this->load->model('m_pmb'); 
 		$this->load->model('m_keuangan'); 
-		$this->load->library('akper/template',[
-			'base_view'     => 'template/layout',
-			'partial_view'  => [
-					'header'        => 'template/header',
-					'sidebar'       => 'template/sidebar',
-					'footer'        => 'template/footer',
-				]
-			]);		
-		$this->load->library('akper/auth_akper');
-		if (!$this->auth_akper->is_login('manajemen')) 
-		{
-			return redirect('backend/auth');
-		}
 	}
 	public function index()
 	{

@@ -5,7 +5,7 @@ use Box\Spout\Reader\ReaderFactory;
 use Box\Spout\Common\Type;
 use Faker\Factory;
 
-class Ujian extends CI_Controller 
+class Ujian extends Manajemen_only 
 {
     private $mapel_line = 4;
     public function __construct()
@@ -13,19 +13,6 @@ class Ujian extends CI_Controller
         parent::__construct();
 		$this->load->model('m_mapel_pmb','mapel'); 
 		$this->load->model('m_pmb'); 
-		$this->load->library('akper/template',[
-			'base_view'     => 'template/layout',
-			'partial_view'  => [
-					'header'        => 'template/header',
-					'sidebar'       => 'template/sidebar',
-					'footer'        => 'template/footer',
-				]
-			]);		
-		$this->load->library('akper/auth_akper');
-		if (!$this->auth_akper->is_login('manajemen')) 
-		{
-			return redirect('backend/auth');
-		}
     }
     public function index()
     {
