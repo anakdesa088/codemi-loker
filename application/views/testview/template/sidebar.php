@@ -2,12 +2,12 @@
               <div class="sidebar-main">
                 <nav class="sidebar-nav">
                   <ul class="metismenu" id="side-menu">
-                   <li class="active">
+                   <li >
                     <a href="javascript:void(0)"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
 
                   </li>
 
-                  <li>
+                  <li class="active">
                    <a href="javascript:void(0)"><i class="fa fa-building"></i> <span class="menu-label">AKADEMIK</span><span class="fa arrow"></span></a>
                    <ul class="nav nav-sub collapse">
                     <li><a href="ui-buttons.html"> PMB</a></li>

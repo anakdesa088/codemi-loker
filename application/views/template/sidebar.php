@@ -2,14 +2,17 @@
                 <div class="sidebar-main">
                     <nav class="sidebar-nav">
                         <ul class="metismenu" id="side-menu">
-                             <li class="active">
+                            <?php $uri_dashboard = $this->uri->segment(2) ?>
+                             <li class="<?php if($uri_dashboard == 'dashboard'){ ?>active<?php } ?>">
                               <a href="javascript:void(0)"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
                                 
                             </li>
                         <?php if ($this->session->userdata('level') !=='keuangan') {
                     # code...
                   ?>
-                          <li>
+                        <?php $uri_akademik = $this->uri->segment(2) ?>
+                          <li class="<?php if($uri_akademik == 'akademik'){ ?> active <?php } ?>">
+
                          <a href="javascript:void(0)"><i class="ti-new-window"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('backend/akademik/index'); ?>">PMB</a></li>
@@ -26,7 +29,8 @@
                 <?php } if ($this->session->userdata('level') !=='akademik') {
                     # code...
                   ?>
-                            <li>
+                  <?php $uri_keuangan = $this->uri->segment(2) ?>
+                            <li class="<?php if($uri_keuangan == 'keuangan'){ ?>active<?php } ?>">
                                 <a href="javascript:void(0)"><i class="ti-email"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('backend/keuangan/index'); ?>">PMB</a></li>
