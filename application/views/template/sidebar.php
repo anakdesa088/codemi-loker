@@ -11,13 +11,14 @@
                     # code...
                   ?>
                         <?php $uri_akademik = $this->uri->segment(2) ?>
-                          <li class="<?php if($uri_akademik == 'akademik'){ ?> active <?php } ?>">
+                          <li class="<?php if($uri_akademik == 'akademik' || 'kelas'){ ?> active <?php } ?>">
 
                          <a href="javascript:void(0)"><i class="ti-new-window"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('backend/akademik/index'); ?>">PMB</a></li>
-                                <li><a href="apa.html">DATA KELAS</a></li>
-                                <li><a href="apa.html">DATA MAHASISWA</a></li>
+
+                                <li><a href="<?php echo site_url('backend/kelas');  ?>">DATA KELAS</a></li>
+                                <li><a href="<?php echo site_url('backend/mahasiswa'); ?>">DATA MAHASISWA</a></li>
                                 <li><a href="apa.html">DATA DOSEN</a></li>
                                 <li><a href="apa.html">DATA MATA KULIAH</a></li>
                                 <li><a href="apa.html">CETAK KRS</a></li>
