@@ -25,7 +25,7 @@ if ($this->session->userdata('id_pmb') !== $id) {
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/frontend/images/favicon.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/favicon.ico') ?>">
     <title>PMB</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('assets/frontend/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">

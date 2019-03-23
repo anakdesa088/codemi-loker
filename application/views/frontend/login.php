@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
   <!--Favicon -->
-  <link rel="icon" href="<?php echo base_url('assets/images/favicon.png'); ?>" type="image/png">
+  <link rel="icon" href="<?php echo base_url('assets/favicon.ico'); ?>" type="image/png">
   
   <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/plugins/metis-menu/metisMenu.min.css'); ?>" rel="stylesheet" type="text/css" />
