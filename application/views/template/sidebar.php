@@ -4,7 +4,7 @@
                         <ul class="metismenu" id="side-menu">
                             <?php $uri_dashboard = $this->uri->segment(2) ?>
                              <li class="<?php if($uri_dashboard == 'dashboard'){ ?>active<?php } ?>">
-                              <a href="javascript:void(0)"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
+                              <a href="<?php echo site_url('backend/dashboard'); ?>"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
                                 
                             </li>
                         <?php if ($this->session->userdata('level') !=='keuangan') {

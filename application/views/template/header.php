@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Sisfo Akper</title>
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-    <link rel="icon" href="<?php echo base_url('assets/images/favicon.png') ?>" type="image/png">
+    <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico') ?>" type="image/png">
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="<?php echo base_url('assets/plugins/morris-chart/morris.css') ?>" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->
@@ -34,8 +34,11 @@
                 <div class="page-header-main">
                 
                     <div class="logo">
-                        <a href="">
-                            <h2><center>AKPER BPC</center></h2>
+                        <div class="row">
+                          <div class="col-sm-4 logo-akper"><img src="<?php echo base_url('assets/images/logo_akper.png'); ?>"></div>
+                          <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div>
+                        </div>
+                            
                     </div> <!--/.logo-->
                     
                     <div class="sidebar-main-toggle">
