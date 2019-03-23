@@ -22,6 +22,13 @@
     <script type="text/javascript" src="<?php echo base_url('assets/pages/dashboard2.js') ?>"></script>  
     <script src="<?php echo base_url('assets/plugins/sweetalert/sweet-alert.js') ?>"></script>
     <script src="<?php echo base_url('assets/pages/jquery.sweet-alert.custom.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/plugins/jquery-multi-select/js/jquery.multi-select.js') ?>"></script> 
+    <script type="text/javascript" src="<?php echo base_url('assets/plugins/jquery-multi-select/js/jquery.quicksearch.js') ?>"></script> 
+    <script type="text/javascript"  src="<?php echo base_url('assets/pages/multi-select-init.js') ?>"></script>
+    
+    <!--select2 plugin-->
+    <script type="text/javascript" src="<?php echo base_url('assets/plugins/select2/js/select2.js') ?>"></script> 
+
 
     
 

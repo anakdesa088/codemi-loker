@@ -27,6 +27,16 @@ class M_kelas extends CI_Model {
 		$hapus = $this->db->delete('kelas');
 		return $hapus; 
 	}
+	public function m_cek_id($id){
+		$query = $this->db->where('id_kelas', $id)->get('kelas');
+		if($query->num_rows() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
 
 }
 

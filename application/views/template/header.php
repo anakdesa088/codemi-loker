@@ -5,6 +5,15 @@
     <title>Sisfo Akper</title>
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
     <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico') ?>" type="image/png">
+
+
+
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/jquery-multi-select/css/multi-select.css') ?>" />
+     <!--Touchspin styles-->
+     <link href="<?php echo base_url('assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') ?>" rel="stylesheet" />
+      <!--Select2 styles-->
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/select2/css/select2.css') ?>" />
+
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="<?php echo base_url('assets/plugins/morris-chart/morris.css') ?>" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->

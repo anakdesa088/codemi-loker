@@ -20,19 +20,36 @@
                            <div class="white-box">
                              <h2 class="header-title">Basic Forms</h2>
                                 <form class="form-horizontal">
+                                 
+                                 <div class="form-group">
+                                    <label class="col-md-2 control-label">Tahun Ajaran</label>
+                                    <div class="col-md-10">
+                                      <select id="select2" class="demo_select2 form-control">
+                                            <optgroup label="Alaskan/Hawaiian Time Zone">
+                                                <option value="AK">Alaska</option>
+                                                <option value="HI">Hawaii</option>
+                                            </optgroup>
+                                        </select>
+
+                                    </div>
+                                  </div>                                  
+
                                   <div class="form-group">
-                                    <label class="col-md-2 control-label">Text</label>
+                                    <label class="col-md-2 control-label">Nama Lengkap</label>
                                     <div class="col-md-10">
                                       <input class="form-control" value="Some text value..." type="text">
                                     </div>
                                   </div>
-                                  
+
                                   <div class="form-group">
-                                    <label class="col-md-2 control-label" for="example-email">Email</label>
+                                    <label class="col-md-2 control-label">Nim</label>
                                     <div class="col-md-10">
-                                      <input id="example-email" name="example-email" class="form-control" placeholder="Email" type="email">
+                                      <input class="form-control" value="Some text value..." type="text">
                                     </div>
                                   </div>
+
+                                  
+                                  
                                   
                                   <div class="form-group">
                                     <label class="col-md-2 control-label">Password</label>
@@ -41,26 +58,6 @@
                                     </div>
                                   </div>
                                   
-                                  <div class="form-group">
-                                    <label class="col-sm-2 control-label">Static control</label>
-                                    <div class="col-sm-10">
-                                      <p class="form-control-static">email@example.com</p>
-                                    </div>
-                                  </div>
-                                  
-                                  <div class="form-group">
-                                    <label class="col-md-2 control-label">Placeholder</label>
-                                    <div class="col-md-10">
-                                      <input class="form-control" placeholder="placeholder" type="text">
-                                    </div>
-                                  </div>
-                                  
-                                    <div class="form-group">
-                                    <label class="col-md-2 control-label">Readonly</label>
-                                    <div class="col-md-10">
-                                      <input class="form-control" readonly value="Readonly value" type="text">
-                                    </div>
-                                  </div>
                                   
                                   <div class="form-group">
                                     <label class="col-md-2 control-label">Disabled</label>
@@ -89,18 +86,6 @@
                                     </div>
                                   </div>
                                   
-                                    <div class="form-group">
-                                    <label class="col-sm-2 control-label">Multiple select</label>
-                                    <div class="col-sm-10">
-                                      <select multiple="" class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                      </select>
-                                    </div>
-                                  </div>                          
                                   
                                   <div class="form-group">
                                     <label class="col-md-2 control-label">Text area</label>
@@ -114,4 +99,3 @@
                           </div>
                       </div>
                      <!--End row-->
-                     

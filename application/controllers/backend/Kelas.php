@@ -32,8 +32,18 @@ class Kelas extends MY_Controller {
 		}
 	}
 	public function edit_kelas($id){
-		$data['tampil'] = $this->m_kelas->m_edit_kelas($id);
-		$this->template->render('kelas/v_edit_kelas',$data);
+		$id_link = $this->m_kelas->m_cek_id($id);
+		if ($id_link) {
+			$data['tampil'] = $this->m_kelas->m_edit_kelas($id);
+			$this->template->render('kelas/v_edit_kelas',$data);
+		}else{
+			redirect('backend/kelas');
+		}
+
+		
+		
+		
+		
 
 	}
 	public function proses_edit_kelas($id){
