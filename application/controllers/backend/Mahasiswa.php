@@ -22,98 +22,76 @@ function __construct(){
 
 	}
 	public function proses_tambah_mahasiswa(){
-		$config['upload_path'] = './uploads'; 
-		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-$tahun_ajaran = $this->input->post('tahun_ajaran');
-$kelas = $this->input->post('kelas');
-$nim = $this->input->post('nim');
-$nama_lengkap = $this->input->post('nama_lengkap');
-$kewarganegaraan = $this->input->post('kewarganegaraan');
-$jk = $this->input->post('jk');
-$tinggi_badan = $this->input->post('tinggi_badan');
-$berat_badan = $this->input->post('berat_badan');
-$tmpt_lahir = $this->input->post('tmpt_lahir');
-$tgl_lahir = $this->input->post('tgl_lahir');
-$email = $this->input->post('email');
-$password = $this->input->post('password');
-$alamat = $this->input->post('alamat');
-$kode_pos = $this->input->post('kode_pos');
-$nama_ayah = $this->input->post('nama_ayah');
-$nama_ibu = $this->input->post('nama_ibu');
-$no_hp1 = $this->input->post('no_hp1');
-$no_hp2 = $this->input->post('no_hp2');
-$info_dari = $this->input->post('info_dari');
-$nama_asal_sekolah = $this->input->post('nama_asal_sekolah');
-$alamat_asal_sekolah = $this->input->post('alamat_asal_sekolah');
-		$foto_diri = $_FILES['foto_diri']['name'];
-		
-		if($foto_diri){
+
+		$config['upload_path'] = './uploads'; //path folder gambar
+		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type gambar bisa disesuaikan
+		$this->upload->initialize($config);
+		if(!empty($_FILES['foto_diri']['name'])){
 			if($this->upload->do_upload('foto_diri')){
-				$foto = $this->upload->data();
+				$gbr = $this->upload->data();
 				// compress image
 				$config['image_library'] = 'gd2';
-				$config['source_image'] = './uploads'.$foto['file_name'];
+				$config['source_image'] = './uploads'.$gbr['file_name'];
 				$config['create_thumb'] = FALSE;
 				$config['maintain_ratio'] = FALSE;
 				$config['quality'] = '50%';
-				$config['new_image'] = './uploads'.$foto['file_name'];
+				$config['new_image'] = './uploads'.$gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
 				$data = array(
-			'id_tahun_ajaran' 			=> $id_tahun_ajaran,
-			'id_kelas' 			=> $kelas,
-			'nim' 			=> $nim,
-			'nama_lengkap' 			=> $nama_lengkap,
-			'kewarganegaraan' 		=> $kewarganegaraan,
-			'jk' 					=> $jk,
-			'tinggi_badan' 			=> $tinggi_badan,
-			'berat_badan' 			=> $berat_badan,
-			'tmpt_lahir' 			=> $tmpt_lahir,
-			'tgl_lahir' 			=> $tgl_lahir,
-			'email'					=> $email,
-			'password'					=> $this->get_pw($password),
-			'alamat' 				=> $alamat,
-			'kode_pos' 				=> $kode_pos,
-			'nama_ayah' 			=> $nama_ayah,
-			'nama_ibu' 				=> $nama_ibu,
-			'foto_diri'   => $foto['file_name'],
-			'no_hp1' 				=> $no_hp1,
-			'no_hp2' 				=> $no_hp2,
-			'info_dari' 			=> $info_dari,
-			'nama_asal_sekolah' 	=> $nama_asal_sekolah,
+			'id_tahun_ajaran' 		=> $this->input->post('tahun_ajaran'),
+			'id_kelas' 				=> $this->input->post('kelas'),
+			'nim' 		        	=> $this->input->post('nim'),
+			'nama_lengkap' 			=> $this->input->post('nama_lengkap'),
+			'kewarganegaraan' 		=> $this->input->post('kewarganegaraan'),
+			'jk' 					=> $this->input->post('jk'),
+			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),
+			'berat_badan' 			=> $this->input->post('berat_badan'),
+			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
+			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
+			'email'					=> $this->input->post('email'),
+			'password'				=> $this->get_pw($password),
+			'alamat' 				=> $this->input->post('alamat'),
+			'kode_pos' 				=> $this->input->post('kode_pos'),
+			'nama_ayah' 			=> $this->input->post('nama_ayah'),
+			'nama_ibu' 				=> $this->input->post('nama_ibu'),
+			"foto_diri" => $gbr['file_name'],
+			'no_hp1' 				=> $this->input->post('no_hp1'),
+			'no_hp2' 				=> $this->input->post('no_hp2'),
+			'info_dari' 			=> $this->input->post('info_dari'),
+			'nama_asal_sekolah' 	=> $this->input->post('nama_asal_sekolah'),
 			'tahun_masuk' => "1",
-			'alamat_asal_sekolah'	=> $alamat_asal_sekolah
+			'alamat_asal_sekolah'	=> $this->input->post('alamat_asal_sekolah')
 				);
-				$array = array_merge($data);
-				$tambah = $this->m_mahasiswa->m_proses_tambah_mahasiswa($array);
+				$arr = array_merge($data);
+				$tambah = $this->m_mahasiswa->m_proses_tambah_mahasiswa($arr);
+				
 				if ($tambah > 0) {
-				$this->session->set_flashdata('sukses','
-				<div class="alert alert-success" role="alert"> <center>Berhasil Tambah Berita</center></div>
-
-				');
-				redirect('backend/bahasiswa');
-				}else{
-				echo "gagal";
+					redirect('backend/mahasiswa');
 				}
-		}else{
-			echo "foto tidak boleh kosong";
+				
+				
+				
+			}else{
+				echo "Image yang diupload kosong..";
+			}
 		}
 
-		//$array = array_merge($data);
-		//$tambah = $this->m_mahasiswa->m_proses_tambah_mahasiswa($array);
-		//if ($tambah > 0) {
-		//	echo "sukses";
-		//}
 
-	}else{
-		echo "apa";
 	}
-}
 	public function edit_mahasiswa(){
 
+	$this->tempalte->render('mahasiswa/v_edit_mabahasiswa');
 	}
 	public function proses_edit_mahasiswa(){
 
+	}
+	public function hapus_mahasiswa($id){
+		$hapus = $this->m_mahasiswa->m_hapus_mahasiswa($id);
+		if ($hapus > 0) {
+			redirect('backend/mahasiswa');
+		}
+		
 	}
 	private function getFormData()
 	{

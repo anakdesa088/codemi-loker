@@ -55,7 +55,7 @@
                                                     <td><?php echo $r->alamat; ?></td>
                                                     <td align="center">
                                                         <a href="" class="btn btn-warning">Edit</a>
-                                                        <a href="" class="btn btn-danger">Hapus</a>
+                                                        <a href="<?php echo site_url('backend/mahasiswa/hapus_mahasiswa/'.$r->id_mahasiswa); ?>" class="btn btn-danger">Hapus</a>
 
                                                     </td>
                                                 </tr>

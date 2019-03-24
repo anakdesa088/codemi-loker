@@ -17,6 +17,11 @@ class M_mahasiswa extends CI_Model {
 		$tambah = $this->db->insert('mahasiswa',$data);
 		return $tambah;
 	}
+	public function m_hapus_mahasiswa($id){
+		$this->db->where('id_mahasiswa',$id);
+		$hapus = $this->db->delete('mahasiswa');
+		return $hapus;
+	}
 
 
 
