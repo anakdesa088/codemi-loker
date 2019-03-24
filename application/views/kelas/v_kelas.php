@@ -25,7 +25,7 @@
                        <div class="white-box">
                         <?php echo $this->session->flashdata('sukses'); ?>
                         <h2 class="header-title">Kelas</h2>
-                        <a href="<?php echo site_url('backend/kelas/tambah_kelas'); ?>" class="btn btn-primary">Tambah</a>
+                        <a href="<?php echo site_url('backend/kelas/tambah_kelas'); ?>" class="btn btn-primary">Tambah</a><hr>
                          <div class="table-wrap">
                                 <table class="table table-condensed">
                                     <thead>
