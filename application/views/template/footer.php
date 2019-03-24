@@ -8,12 +8,14 @@
          <!--End wrapper-->
 
     <!--JQUERY SCRIPTS-->
+    
         <script type="text/javascript" src="<?php echo base_url('assets/dropify/js/dropify.js') ?>"></script>  
     <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/metis-menu/metisMenu.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.nicescroll.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.slimscroll.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js') ?>"></script>
+
     
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/js/jquery.dataTables.min.js') ?>"></script>
     

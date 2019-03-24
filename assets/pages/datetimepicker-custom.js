@@ -40,11 +40,11 @@
 //date picker
 	
    $('.default-date-picker').datepicker({
-        format: 'mm-dd-yyyy',
+        format: 'yyyy-mm-dd',
     });
 	
     $('.default-date-picker-autoclose').datepicker({
-        format: 'mm-dd-yyyy',
+        format: 'yyyy-mm-dd',
         autoclose: true
     });
 

@@ -12,7 +12,8 @@
       <!--Select2 styles-->
       <link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />
      
-
+<script type="text/javascript" src="<?php echo base_url().'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' ?>"></script>
+    
 
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="<?php echo base_url('assets/plugins/morris-chart/morris.css') ?>" rel="stylesheet" type="text/css" />
@@ -27,6 +28,7 @@
     <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/responsive.css') ?>" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+    
   
     </head>
     

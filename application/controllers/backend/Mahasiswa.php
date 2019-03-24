@@ -38,6 +38,8 @@ function __construct(){
 				$config['new_image'] = './uploads'.$gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
+				
+
 				$data = array(
 			'id_tahun_ajaran' 		=> $this->input->post('tahun_ajaran'),
 			'id_kelas' 				=> $this->input->post('kelas'),
@@ -55,7 +57,7 @@ function __construct(){
 			'kode_pos' 				=> $this->input->post('kode_pos'),
 			'nama_ayah' 			=> $this->input->post('nama_ayah'),
 			'nama_ibu' 				=> $this->input->post('nama_ibu'),
-			"foto_diri" => $gbr['file_name'],
+			"foto_diri" => $gbr['tanggal_lahir'],
 			'no_hp1' 				=> $this->input->post('no_hp1'),
 			'no_hp2' 				=> $this->input->post('no_hp2'),
 			'info_dari' 			=> $this->input->post('info_dari'),
@@ -86,12 +88,38 @@ function __construct(){
 	public function proses_edit_mahasiswa(){
 
 	}
-	public function hapus_mahasiswa($id){
-		$hapus = $this->m_mahasiswa->m_hapus_mahasiswa($id);
-		if ($hapus > 0) {
-			redirect('backend/mahasiswa');
+	public function hapus_mahasiswa(){
+	$id_mahasiswa = $this->input->post('id');
+
+		$response = array();
+		if($id_mahasiswa) {
+			$delete = $this->m_mahasiswa->m_hapus_mahasiswa($id_mahasiswa);
+			if($delete == true) {
+				$response['success'] = true;
+				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Well done! </strong> <span>You successfully read this important alert message.</span></div>
+');	
+			}
+			else {
+				$response['success'] = false;
+				$response['messages'] = "Error in the database while removing the brand information";
+			}
 		}
-		
+		else {
+			$response['success'] = false;
+			$response['messages'] = "Refersh the page again!!";
+		}
+
+		echo json_encode($response);
+	}
+
+	public function fetchMahasiswaDataById($id) 
+	{
+		if($id) {
+			$data = $this->m_mahasiswa->getMahasiswaData($id);
+			echo json_encode($data);
+		}
+
+		return false;
 	}
 	private function getFormData()
 	{
@@ -105,6 +133,9 @@ function __construct(){
 		$hash = password_hash($new_pass,PASSWORD_DEFAULT);
 		return $hash;
 	}
+	
+	
+	
 }
 
 

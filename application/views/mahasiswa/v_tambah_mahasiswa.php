@@ -253,4 +253,8 @@
 
                 // Used events
             });
+    $('.default-date-picker-autoclose').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
         </script>
