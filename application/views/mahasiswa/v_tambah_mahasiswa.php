@@ -21,7 +21,7 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Basic Forms</h2>
+     <h2 class="header-title">Tambah Mahasiswa</h2>
      <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/mahasiswa/proses_tambah_mahasiswa'); ?>" class="form-horizontal">
 
          <div class="form-group">
@@ -219,9 +219,11 @@
 
 <div class="form-group">  
   <div class="col-md-12">
-        <div class="col-md-11">
+        <div class="col-md-10">
         </div>
-        <div class="col-md-1">
+        <div class="col-ms-3">
+            
+            <a href="javascript:history.back()" class="btn btn-warning">Kembali</a>
             <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       

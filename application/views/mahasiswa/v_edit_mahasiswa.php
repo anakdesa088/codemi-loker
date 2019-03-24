@@ -21,18 +21,16 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Edit Mahasiswa</h2>
-     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/mahasiswa/proses_edit_mahasiswa'); ?>" class="form-horizontal">
+     <h2 class="header-title">Tambah Mahasiswa</h2>
+     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/mahasiswa/proses_tambah_mahasiswa'); ?>" class="form-horizontal">
 
          <div class="form-group">
             <label class="col-md-2 control-label">Tahun Ajaran</label>
             <div class="col-md-10">
               <select id="select2" name="tahun_ajaran" class="demo_select2 form-control">
-                <?php foreach ($tahun_ajaran as $r) {
-                  
-                ?>
-                <option value="<?php echo $r->id_tahun_ajaran; ?>"><?php echo $r->tahun_ajarancol; ?></option>
-                <?php } ?>
+                
+                <option value="<?php echo $tampil->id_tahun_ajaran; ?>"><?php echo $tampil->tahun_ajarancol; ?></option>
+                
                 
             </select>
 
@@ -43,11 +41,9 @@
         <label class="col-md-2 control-label">Kelas</label>
         <div class="col-md-10">
           <select id="select2"  name="kelas" class="demo_select2 form-control">
-            <?php foreach ($kelas as $r) {
-                  
-                ?>
-                <option value="<?php echo $r->id_kelas; ?>"><?php echo $r->nama_kelas; ?></option>
-                <?php } ?>
+            
+                <option value="<?php echo $tampil->id_kelas; ?>"><?php echo $tampil->nama_kelas; ?></option>
+                
         </select>
 
     </div>
@@ -56,14 +52,14 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Lengkap</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_lengkap"  type="text">
+      <input class="form-control" value="<?php echo $tampil->nama_lengkap; ?>" name="nama_lengkap"  type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">Nim</label>
     <div class="col-md-10">
-      <input class="form-control" name="nim" type="text">
+      <input class="form-control" value="<?php echo $tampil->nim; ?>" name="nim" type="text">
   </div>
 </div>
 
@@ -76,14 +72,14 @@
         <div class="row">
         <div class="col-md-2">
         <div class="radio">
-            <input type="radio" value="WNI" name="kewarganegaraan" id="radio-1">
+            <input type="radio" value="WNI" <?php if($tampil->kewarganegaraan == 'WNI'){ ?> checked=""  <?php } ?> name="kewarganegaraan"  id="radio-1">
             <label for="radio-1">WNI</label>
         </div>
         </div>
         <!-- /.radio -->
         <div class="col-md-2">
         <div class="radio primary">
-          <input type="radio" value="WNA" name="kewarganegaraan" id="radio-2">
+          <input type="radio" value="WNA" <?php if($tampil->kewarganegaraan == 'WNA'){ ?> checked=""  <?php } ?>  name="kewarganegaraan" id="radio-2" >
           <label for="radio-2">WNA</label>
         </div>
       </div>
@@ -98,14 +94,14 @@
         <div class="row">
         <div class="col-md-2">
         <div class="radio">
-            <input type="radio" value="L" name="jk" id="radio-1">
+            <input type="radio" <?php if($tampil->jk == 'L'){ ?> checked=""  <?php } ?> value="L" name="jk" id="radio-1">
             <label for="radio-1">Laki-laki</label>
         </div>
         </div>
         <!-- /.radio -->
         <div class="col-md-2">
         <div class="radio primary">
-          <input type="radio" value="P" name="jk" id="radio-2">
+          <input type="radio" value="P" <?php if($tampil->jk == 'P'){ ?> checked=""  <?php } ?> name="jk" id="radio-2">
           <label for="radio-2">Perempuan</label>
         </div>
       </div>
@@ -116,23 +112,23 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Tempat, Tanggal Lahir</label>
     <div class="col-md-3">
-      <input class="form-control" name="tmpt_lahir"  type="text">
+      <input class="form-control" value="<?php echo $tampil->tmpt_lahir; ?>" name="tmpt_lahir"  type="text">
   </div>
   <div class="col-md-4">
-      <input type="text"  name="tgl_lahir" class="form-control default-date-picker-autoclose" >
+      <input type="text"  name="tgl_lahir"value="<?php echo $tampil->tgl_lahir; ?>" class="form-control default-date-picker-autoclose" >
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Tinggi Badan</label>
     <div class="col-md-10">
-      <input class="form-control" name="tinggi_badan"  type="text">
+      <input class="form-control" value="<?php echo $tampil->tinggi_badan; ?>" name="tinggi_badan"  type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">Berat Badan</label>
     <div class="col-md-10">
-      <input class="form-control" name="berat_badan"  type="text">
+      <input class="form-control" value="<?php echo $tampil->berat_badan; ?>" name="berat_badan"  type="text">
   </div>
 </div>
 
@@ -140,41 +136,41 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Alamat</label>
     <div class="col-md-10">
-      <input class="form-control" name="alamat"  type="text">
+      <textarea class="form-control" name="alamat" ><?php echo $tampil->tmpt_lahir; ?></textarea>
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">Kode Pos</label>
     <div class="col-md-10">
-      <input class="form-control" name="kode_pos"  type="text">
+      <input class="form-control" value="<?php echo $tampil->kode_pos; ?>" name="kode_pos"  type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Ayah</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_ayah"  type="text">
+      <input class="form-control" value="<?php echo $tampil->nama_ayah; ?>" name="nama_ayah"  type="text">
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Ibu</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_ibu"  type="text">
+      <input class="form-control" name="nama_ibu" value="<?php echo $tampil->nama_ibu; ?>"  type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">No Handphone 1</label>
     <div class="col-md-10">
-      <input class="form-control" name="no_hp1"  type="number"> 
+      <input class="form-control" name="no_hp1" value="<?php echo $tampil->no_hp1; ?>" type="number"> 
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">No Handphone 2</label>
     <div class="col-md-10">
-      <input class="form-control" name="no_hp2"  type="number"> 
+      <input class="form-control" name="no_hp2" value="<?php echo $tampil->no_hp2; ?>" type="number"> 
   </div>
 </div>
 
@@ -182,19 +178,19 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Info Dari</label>
     <div class="col-md-10">
-      <input class="form-control" name="info_dari"  type="text"> 
+      <input class="form-control" name="info_dari" value="<?php echo $tampil->info_dari; ?>"  type="text"> 
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Asal Sekolah</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_asal_sekolah"  type="text">
+      <input class="form-control" name="nama_asal_sekolah" value="<?php echo $tampil->nama_asal_sekolah; ?>"  type="text">
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Alamat Asal Sekolah</label>
     <div class="col-md-10">
-      <input class="form-control" name="alamat_asal_sekolah"  type="text">
+      <input class="form-control" name="alamat_asal_sekolah" value="<?php echo $tampil->alamat_asal_sekolah; ?>"  type="text">
   </div>
 </div>
 <div class="form-group">
@@ -207,21 +203,23 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Email</label>
     <div class="col-md-10">
-      <input class="form-control" name="email"  type="email">
+      <input class="form-control" name="email" value="<?php echo $tampil->email; ?>"  type="email">
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Password</label>
     <div class="col-md-10">
-      <input class="form-control" name="password"  type="password">
+      <input class="form-control" name="password" value="<?php echo $tampil->password; ?>"  type="password">
   </div>
 </div>
 
 <div class="form-group">  
   <div class="col-md-12">
-        <div class="col-md-11">
+        <div class="col-md-10">
         </div>
-        <div class="col-md-1">
+        <div class="col-ms-3">
+            
+            <a href="javascript:history.back()" class="btn btn-warning">Kembali</a>
             <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       
@@ -253,4 +251,8 @@
 
                 // Used events
             });
+    $('.default-date-picker-autoclose').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
         </script>

@@ -81,9 +81,10 @@ function __construct(){
 
 
 	}
-	public function edit_mahasiswa(){
+	public function edit_mahasiswa($id){
 
-	$this->tempalte->render('mahasiswa/v_edit_mabahasiswa');
+	$data['tampil'] = $this->m_mahasiswa->m_edit_mahasiswa($id);
+	$this->template->render('mahasiswa/v_edit_mahasiswa',$data);
 	}
 	public function proses_edit_mahasiswa(){
 
