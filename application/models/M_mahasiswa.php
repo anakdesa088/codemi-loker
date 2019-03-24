@@ -46,6 +46,11 @@ class M_mahasiswa extends CI_Model {
 		$data = $this->db->get();
 		return $data->row();
 	}
+	public function m_proses_edit_mahasiswa($id,$data){
+		$this->db->where('id_mahasiswa',$id);
+		$edit = $this->db->update('mahasiswa',$data);
+		return $edit;
+	}
 
 
 

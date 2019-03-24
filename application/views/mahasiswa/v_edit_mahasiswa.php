@@ -22,7 +22,7 @@
  <div class="col-md-12">
    <div class="white-box">
      <h2 class="header-title">Tambah Mahasiswa</h2>
-     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/mahasiswa/proses_tambah_mahasiswa'); ?>" class="form-horizontal">
+     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/mahasiswa/proses_edit_mahasiswa/'.$tampil->id_mahasiswa); ?>" class="form-horizontal">
 
          <div class="form-group">
             <label class="col-md-2 control-label">Tahun Ajaran</label>
@@ -196,10 +196,10 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Foto Mahasiswa</label>
     <div class="col-md-4">
-      <input type="file" name="foto_diri" id="input-file-now" class="dropify" />
+      <input type="file" id="input-file-now-custom-1" name="foto_diri" class="dropify" data-default-file="<?php echo base_url('uploads/'.$tampil->foto_diri); ?>" />
   </div>
 </div>
-
+<input type="hidden" name="foto_lamah" value="<?php echo $tampil->foto_diri; ?>">
 <div class="form-group">
     <label class="col-md-2 control-label">Email</label>
     <div class="col-md-10">

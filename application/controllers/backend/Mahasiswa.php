@@ -52,12 +52,12 @@ function __construct(){
 			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
 			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
 			'email'					=> $this->input->post('email'),
-			'password'				=> $this->get_pw($password),
+			'password'				=> $this->get_pw($this->input->post('password')),
 			'alamat' 				=> $this->input->post('alamat'),
 			'kode_pos' 				=> $this->input->post('kode_pos'),
 			'nama_ayah' 			=> $this->input->post('nama_ayah'),
 			'nama_ibu' 				=> $this->input->post('nama_ibu'),
-			"foto_diri" => $gbr['tanggal_lahir'],
+			"foto_diri" => $gbr['file_name'],
 			'no_hp1' 				=> $this->input->post('no_hp1'),
 			'no_hp2' 				=> $this->input->post('no_hp2'),
 			'info_dari' 			=> $this->input->post('info_dari'),
@@ -69,6 +69,7 @@ function __construct(){
 				$tambah = $this->m_mahasiswa->m_proses_tambah_mahasiswa($arr);
 				
 				if ($tambah > 0) {
+					$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menambah Data Mahasiswa</span></div>');
 					redirect('backend/mahasiswa');
 				}
 				
@@ -86,7 +87,98 @@ function __construct(){
 	$data['tampil'] = $this->m_mahasiswa->m_edit_mahasiswa($id);
 	$this->template->render('mahasiswa/v_edit_mahasiswa',$data);
 	}
-	public function proses_edit_mahasiswa(){
+	public function proses_edit_mahasiswa($id){
+		$config['upload_path'] = './uploads'; //path folder gambar
+		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type gambar bisa disesuaikan
+		$this->upload->initialize($config);
+		if(!empty($_FILES['foto_diri']['name'])){
+			if($this->upload->do_upload('foto_diri')){
+				$gbr = $this->upload->data();
+				// compress image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './uploads'.$gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '50%';
+				$config['new_image'] = './uploads'.$gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+				
+
+				$data = array(
+			'id_tahun_ajaran' 		=> $this->input->post('tahun_ajaran'),
+			'id_kelas' 				=> $this->input->post('kelas'),
+			'nim' 		        	=> $this->input->post('nim'),
+			'nama_lengkap' 			=> $this->input->post('nama_lengkap'),
+			'kewarganegaraan' 		=> $this->input->post('kewarganegaraan'),
+			'jk' 					=> $this->input->post('jk'),
+			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),
+			'berat_badan' 			=> $this->input->post('berat_badan'),
+			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
+			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
+			'email'					=> $this->input->post('email'),
+			'password'				=> $this->get_pw($this->input->post('password')),
+			'alamat' 				=> $this->input->post('alamat'),
+			'kode_pos' 				=> $this->input->post('kode_pos'),
+			'nama_ayah' 			=> $this->input->post('nama_ayah'),
+			'nama_ibu' 				=> $this->input->post('nama_ibu'),
+			"foto_diri" => $gbr['file_name'],
+			'no_hp1' 				=> $this->input->post('no_hp1'),
+			'no_hp2' 				=> $this->input->post('no_hp2'),
+			'info_dari' 			=> $this->input->post('info_dari'),
+			'nama_asal_sekolah' 	=> $this->input->post('nama_asal_sekolah'),
+			'tahun_masuk' => "1",
+			'alamat_asal_sekolah'	=> $this->input->post('alamat_asal_sekolah')
+				);
+				$arr = array_merge($data);
+				$edit = $this->m_mahasiswa->m_proses_edit_mahasiswa($id,$arr);
+				$nama_lengkap = $this->input->post('nama_lengkap');
+				if ($edit > 0) {
+					$foto_lamah = $this->input->post('foto_lamah');
+					unlink('uploads/'.$foto_lamah);
+					$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span>Edit data '.$nama_lengkap.'</span></div>');
+					redirect('backend/mahasiswa');
+				}
+				
+				
+				
+			}else{
+				echo "Gambar tidak boleh kosong";
+			}
+		}else{
+			$data = array(
+			'id_tahun_ajaran' 		=> $this->input->post('tahun_ajaran'),
+			'id_kelas' 				=> $this->input->post('kelas'),
+			'nim' 		        	=> $this->input->post('nim'),
+			'nama_lengkap' 			=> $this->input->post('nama_lengkap'),
+			'kewarganegaraan' 		=> $this->input->post('kewarganegaraan'),
+			'jk' 					=> $this->input->post('jk'),
+			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),
+			'berat_badan' 			=> $this->input->post('berat_badan'),
+			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
+			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
+			'email'					=> $this->input->post('email'),
+			'password'				=> $this->get_pw($this->input->post('password')),
+			'alamat' 				=> $this->input->post('alamat'),
+			'kode_pos' 				=> $this->input->post('kode_pos'),
+			'nama_ayah' 			=> $this->input->post('nama_ayah'),
+			'nama_ibu' 				=> $this->input->post('nama_ibu'),
+			'no_hp1' 				=> $this->input->post('no_hp1'),
+			'no_hp2' 				=> $this->input->post('no_hp2'),
+			'info_dari' 			=> $this->input->post('info_dari'),
+			'nama_asal_sekolah' 	=> $this->input->post('nama_asal_sekolah'),
+			'tahun_masuk' => "1",
+			'alamat_asal_sekolah'	=> $this->input->post('alamat_asal_sekolah')
+				);
+			$nama_lengkap = $this->input->post('nama_lengkap');
+			$arr = array_merge($data);
+			$edit = $this->m_mahasiswa->m_proses_edit_mahasiswa($id,$arr);
+			if ($edit > 0) {
+				$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span>Edit data '.$nama_lengkap.'</span></div>');
+
+				redirect('backend/mahasiswa');
+			}
+		}
 
 	}
 	public function hapus_mahasiswa(){

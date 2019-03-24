@@ -27,7 +27,7 @@
                                    <a href="<?php echo site_url('backend/mahasiswa/tambah_mahasiswa'); ?>" class="btn btn-primary">Tambah</a>
                                    <hr>
                                     <div class="table-responsive">
-                                     <table id="manageTable" class="display table">
+                                     <table id="example" class="display table">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -104,7 +104,7 @@
 </div><!-- /.modal -->
 
 <script type="text/javascript">
-var manageTable;
+var example;
 
 function removeFunc(id_mahasiswa)
 
