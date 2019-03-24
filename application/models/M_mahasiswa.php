@@ -13,6 +13,10 @@ class M_mahasiswa extends CI_Model {
 		return $data->result();
 
 	}
+	public function m_proses_tambah_mahasiswa($data){
+		$tambah = $this->db->insert('mahasiswa',$data);
+		return $tambah;
+	}
 
 
 

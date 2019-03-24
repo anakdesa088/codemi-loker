@@ -38,4 +38,8 @@ class M_tahun_ajaran extends CI_Model
 		$this->db->trans_complete();
 		return $this->db->trans_status();
 	}
+	public function get_tahun_ajaran(){
+		$data = $this->db->get('tahun_ajaran');
+		return $data->result();
+	}
 }
