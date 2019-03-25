@@ -22,7 +22,7 @@
  <div class="col-md-12">
    <div class="white-box">
      <h2 class="header-title">Tambah Dosen</h2>
-     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/dosen/proses_tambah_dosen'); ?>" class="form-horizontal">
+     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/dosen/proses_edit_dosen/'.$tampil->id_dosen); ?>" class="form-horizontal">
 
 
 <div class="form-group">
@@ -90,6 +90,7 @@
       <input type="password"  value="<?php echo $tampil->password; ?>" name="password" class="form-control">
   </div>
 </div>
+<input type="hidden" name="foto_lamah" value="<?php echo $tampil->foto_dosen; ?>">
 <div class="form-group">
     <label class="col-md-2 control-label">Tahun Masuk</label>
     <div class="col-md-10">

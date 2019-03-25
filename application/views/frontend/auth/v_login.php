@@ -117,6 +117,13 @@
             <div class="login-box card">
                 <div class="card-body">
                     <form class="form-horizontal form-material" method="POST" id="loginform" action="<?php echo site_url('auth/c_proses_login'); ?>">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
+                                <img src="<?php echo base_url('assets/frontend/images/logo_akper.png') ?>" width="55">
+                            </div>
+
+                        </div>
+                        
                         <center><h3 class="box-title m-b-20">Login</h3></center>
                         <?php echo $this->session->flashdata('gagal'); ?>
                         <div class="form-group ">
