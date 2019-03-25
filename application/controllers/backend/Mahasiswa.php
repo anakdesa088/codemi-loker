@@ -29,7 +29,7 @@ function __construct(){
 		if(!empty($_FILES['foto_diri']['name'])){
 			if($this->upload->do_upload('foto_diri')){
 				$gbr = $this->upload->data();
-				// compress image
+				// compress images
 				$config['image_library'] = 'gd2';
 				$config['source_image'] = './uploads'.$gbr['file_name'];
 				$config['create_thumb'] = FALSE;

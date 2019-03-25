@@ -19,7 +19,7 @@
 
                                 <li><a href="<?php echo site_url('backend/kelas');  ?>">DATA KELAS</a></li>
                                 <li><a href="<?php echo site_url('backend/mahasiswa'); ?>">DATA MAHASISWA</a></li>
-                                <li><a href="apa.html">DATA DOSEN</a></li>
+                                <li><a href="<?php echo site_url('backend/dosen'); ?>">DATA DOSEN</a></li>
                                 <li><a href="apa.html">DATA MATA KULIAH</a></li>
                                 <li><a href="apa.html">CETAK KRS</a></li>
                                 <li><a href="apa.html">CETAK KHS</a></li>
