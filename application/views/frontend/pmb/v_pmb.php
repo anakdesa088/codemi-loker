@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/frontend/images/es/favicon.png') ?>">
     <title>PMB</title>
     
+    <link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />    
     <link href="<?php echo base_url('assets/frontend/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     
     <link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet">
@@ -402,7 +403,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <span><input type="file"  name="foto"> </span> 
+                                                                    <input type="file" name="foto" id="input-file-now" class="dropify" />
 
 
                                                                     <input type="hidden" name="foto_ijaza2" value="<?php echo $tampil->foto_ijazah; ?>">
@@ -444,6 +445,7 @@
                         <!-- ============================================================== -->
                         <!-- All Jquery -->
                         <!-- ============================================================== -->
+                        <script type="text/javascript" src="<?php echo base_url('assets/dropify/js/dropify.js') ?>"></script>  
                         <script src="<?php echo base_url('assets/frontend/plugins/jquery/jquery.min.js') ?>"></script>
                         <!-- Bootstrap tether Core JavaScript -->
                         <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/popper.min.js') ?>"></script>

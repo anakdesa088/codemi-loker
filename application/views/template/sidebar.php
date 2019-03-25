@@ -20,7 +20,7 @@
                                 <li><a href="<?php echo site_url('backend/kelas');  ?>">DATA KELAS</a></li>
                                 <li><a href="<?php echo site_url('backend/mahasiswa'); ?>">DATA MAHASISWA</a></li>
                                 <li><a href="<?php echo site_url('backend/dosen'); ?>">DATA DOSEN</a></li>
-                                <li><a href="apa.html">DATA MATA KULIAH</a></li>
+                                <li><a href="<?php echo site_url('backend/mapel'); ?>">DATA MATA KULIAH</a></li>
                                 <li><a href="apa.html">CETAK KRS</a></li>
                                 <li><a href="apa.html">CETAK KHS</a></li>
                                     
@@ -32,7 +32,7 @@
                   ?>
                   <?php $uri_keuangan = $this->uri->segment(2) ?>
                             <li class="<?php if($uri_keuangan == 'keuangan'){ ?>active<?php } ?>">
-                                <a href="javascript:void(0)"><i class="ti-email"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
+                                <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('backend/keuangan/index'); ?>">PMB</a></li>
                                 <li><a href="APA.HTML">JENIS BIAYA</a></li>

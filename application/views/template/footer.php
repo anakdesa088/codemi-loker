@@ -2,7 +2,7 @@
                  <!--End footer -->
         
                 </div>  <!--/.wrapper-->
-                                <footer class="footer-main"> 2017 &copy; Marble admin Template. </footer>   
+                                <footer class="footer-main"> 2019 &copy; AKPER BUNTET PESANTREN </footer>   
              </div> <!--/.page-container-->
           </div>
          <!--End wrapper-->

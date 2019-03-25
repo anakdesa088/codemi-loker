@@ -89,12 +89,21 @@ class Dosen extends MY_Controller {
 	}
 
 public function edit_dosen($id){
+	$id_link = $this->m_dosen->m_cek_id($id);
+
+			# code...
+	if($id_link){
 	$data['tampil'] = $this->m_dosen->m_edit_dosen($id);
 	$this->template->render('dosen/v_edit_dosen',$data);
-
+	}else{
+		redirect('backend/dosen');
+	}
 }
 public function proses_edit_dosen($id){
-	$nama_lengkap		= $this->input->post('nama_lengkap');
+	
+		# code...
+	
+		$nama_lengkap		= $this->input->post('nama_lengkap');
 		$jk				 	= $this->input->post('jk');
 		$tmpt_lahir 		= $this->input->post('tmpt_lahir');
 		$tgl_lahir			= $this->input->post('tgl_lahir');
@@ -164,6 +173,7 @@ public function proses_edit_dosen($id){
 				redirect('backend/dosen');
 			}
 		}
+	
 }
 
 	public function hapus_dosen(){

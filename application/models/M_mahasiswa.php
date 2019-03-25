@@ -51,6 +51,17 @@ class M_mahasiswa extends CI_Model {
 		$edit = $this->db->update('mahasiswa',$data);
 		return $edit;
 	}
+	public function m_cek_id($id){
+		
+		$query = $this->db->where('id_mahasiswa', $id)->get('mahasiswa');
+		if($query->num_rows() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
 
 
 

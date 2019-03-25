@@ -60,13 +60,40 @@ class Kelas extends MY_Controller {
 			redirect('backend/kelas');
 		}
 	}
-	public function hapus_kelas($id){
-		$hapus = $this->m_kelas->m_hapus_kelas($id);
-		if ($hapus > 0) {
-			$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil ! </strong> <span>Hapus Kelas </span></div>');
-			return redirect('backend/kelas');
+	public function hapus_kelas(){
+	$id_kelas = $this->input->post('id_kelas');
+
+		$response = array();
+		if($id_kelas) {
+			$delete = $this->m_kelas->m_hapus_kelas($id_kelas);
+			if($delete == true) {
+				$response['success'] = true;
+				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data Kelas</span></div>
+');	
+			}
+			else {
+				$response['success'] = false;
+				$response['messages'] = "Gagal";
+			}
 		}
+		else {
+			$response['success'] = false;
+			redirect('backend/kelas');
+		}
+
+		echo json_encode($response);
 	}
+
+	public function fetchKelasDataById($id) 
+	{
+		if($id) {
+			$data = $this->m_kelas->getKelasData($id);
+			echo json_encode($data);
+		}
+
+		return false;
+	}
+
 
 }
 

@@ -42,6 +42,18 @@ class M_dosen extends CI_Model {
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
+	
+	public function m_cek_id($id){
+		
+		$query = $this->db->where('id_dosen', $id)->get('dosen');
+		if($query->num_rows() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
 
 
 }

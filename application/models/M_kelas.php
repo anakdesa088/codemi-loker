@@ -22,11 +22,7 @@ class M_kelas extends CI_Model {
 		$edit = $this->db->update('kelas',$data);
 		return $edit;
 	}
-	public function m_hapus_kelas($id){
-		$this->db->where('id_kelas',$id);
-		$hapus = $this->db->delete('kelas');
-		return $hapus; 
-	}
+	
 	public function m_cek_id($id){
 		$query = $this->db->where('id_kelas', $id)->get('kelas');
 		if($query->num_rows() > 0)
@@ -37,6 +33,27 @@ class M_kelas extends CI_Model {
 			return false;
 		}
 	}
+		public function m_hapus_kelas($id){
+		
+			$this->db->where('id_kelas', $id);
+			$delete = $this->db->delete('kelas');
+			return ($delete == true) ? true : false;
+		
+	}
+	public function getKelasData($id = null)
+	{
+		if($id) {
+
+			$sql = "SELECT * FROM kelas WHERE id_kelas = ?";
+			$query = $this->db->query($sql, array($id));
+			return $query->row_array();
+		}
+		
+		$sql = "SELECT * FROM kelas";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
 
 }
 
