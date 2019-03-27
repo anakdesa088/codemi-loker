@@ -33,9 +33,20 @@ class Keuangan extends Manajemen_only
 		}
 	}
 	public function detail($id)
+
 	{
+		$link_id = $this->m_keuangan->m_cek_id($id);
+
+
+		if ($link_id) {
+			# code...
+		
 		$data['tampil'] = $this->m_keuangan->m_detail($id);
 		$this->template->render('content/keuangan/pmb/v_detail_pmb_2',$data);
+	}else{
+		redirect('backend/keuangan');
+	}
+
 	}
 	public function c_status_valid($id)
 	{

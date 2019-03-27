@@ -108,7 +108,7 @@
 	display:none;
 	width: 237px;
 	position: fixed;
-	overflow-y: scroll;
+	
 	height: 100%;
 	overflow-x: hidden;
 	top: 0;
@@ -285,9 +285,9 @@
 }
 .right-menu {
     position: absolute;
-    top: 49px;
+    top: 65px;
     text-align: center;
-    background: #1C9193;
+    background: #6a9f1a;
     width: 100%;
 }
 .page-title-box {

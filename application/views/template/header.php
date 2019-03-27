@@ -46,7 +46,7 @@
                     <div class="logo">
                         <div class="row">
                           <div class="col-sm-4 logo-akper"><img src="<?php echo base_url('assets/images/logo_akper.png'); ?>"></div>
-  <!--                          <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div> -->
+                            <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div> 
                         </div>
                             
                     </div> <!--/.logo-->
@@ -240,8 +240,8 @@
 
                              <li class="dropdown dropdown-usermenu">
                                 <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <div class="user-photo"><img src="<?php echo base_url('assets/images/users/avatar-1.jpg') ?>" alt=""></div>
-                                <span class="hidden-sm hidden-xs">John Doe</span>
+                                <div class="user-photo"><i class="fa fa-wrench"></i>John Doe</div>
+                                
                                 <span class="caret hidden-sm hidden-xs"></span>
                                 </a>
                              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">

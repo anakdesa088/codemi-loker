@@ -32,4 +32,14 @@ class M_keuangan extends CI_Model{
 		$status = $this->db->update('pmb',$data);
 		return $data;
 	}
+	public function m_cek_id($id){
+		$query = $this->db->where('id_pmb', $id)->get('pmb');
+		if($query->num_rows() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
 }
