@@ -521,7 +521,7 @@ blockquote {
 	line-height:10px;
 }
 .page-header.navbar .right-menu .navbar-nav > li.dropdown-usermenu > a {
-	padding: 19px 20px;
+	padding: 21px 20px;
 }
 .navbar-right.nav > li > a:hover, .navbar-right.nav > li > a:focus, .right-menu .navbar-right.nav .open > a:focus, .right-menu .navbar-right.nav .open > a:hover, .right-menu .nav .open > a, .nav .open > a:focus, .right-menu .nav .open > a:hover {
 	background-color: rgba(0, 0, 0, .2) !important;
@@ -2832,7 +2832,8 @@ ul.wysihtml5-toolbar {
 /*--------------------------------------------*/
 
 .bg-main {
-	background:url(../images/register-bg.png) repeat;
+	
+	background: #f5f8f3;
 	position:relative;
 	background-attachment:fixed;
 }

@@ -240,9 +240,9 @@
 
                              <li class="dropdown dropdown-usermenu">
                                 <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <div class="user-photo"><i class="fa fa-wrench"></i>John Doe</div>
+                                <div class="user-photo"><i class="fa fa-wrench"></i>John Doe <span class="caret hidden-sm hidden-xs"></span></div>
                                 
-                                <span class="caret hidden-sm hidden-xs"></span>
+                                
                                 </a>
                              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
                                 <li><a href="#"><i class="fa fa-wrench"></i>  Settings</a></li>

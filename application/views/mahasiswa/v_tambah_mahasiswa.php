@@ -1,14 +1,14 @@
 <div class="page-title-box">
-    <h4 class="page-title">Data Mahasiswa coba</h4>
+    <h4 class="page-title">Tambah Data Mahasiswa</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Dashboard</a>
+            <a href="#">Akademik</a>
         </li>
         <li>
-            <a href="#">Table</a>
+            <a href="#">Data Mahasiswa</a>
         </li>
         <li class="active">
-            Data Table
+            Tambah Mahasiswa
         </li>
     </ol>
     <div class="clearfix"></div>

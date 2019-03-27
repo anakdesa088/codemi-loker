@@ -4,16 +4,14 @@
     }
 </style>
                    <div class="page-title-box">
-                        <h4 class="page-title">Data Table</h4>
+                        <h4 class="page-title">DATA PESERTA MAHASISWA BARU</h4>
                         <ol class="breadcrumb">
+                            
                             <li>
-                                <a href="#">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#">Table</a>
+                                <a href="#">Akademik</a>
                             </li>
                             <li class="active">
-                                Data Table
+                                PMB
                             </li>
                         </ol>
                         <div class="clearfix"></div>
@@ -37,7 +35,7 @@
                                                     <th>Jenis Kelamin</th>
                                                     <th>Status Pembayaran</th>
                                                     <th>Status Data</th>
-                                                    <th>Aksi</th>
+                                                    <th><center>Aksi</center></th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
@@ -48,7 +46,7 @@
                                                     <th>Jenis Kelamin</th>
                                                     <th>Status Pembayaran</th>
                                                     <th>Status Data</th>
-                                                    <th>Aksi</th>
+                                                    <th><center>Aksi</center></th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>

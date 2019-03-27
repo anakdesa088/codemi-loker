@@ -1,12 +1,9 @@
                    <div class="page-title-box">
-                        <h4 class="page-title">Dashboard 2</h4>
+                        <h4 class="page-title">Dashboard</h4>
                         <ol class="breadcrumb">
-                            <li>
-                                <a href="#">Dashboard</a>
-                            </li>
-                           
+                            
                             <li class="active">
-                                Dashboard 2
+                                Dashboard
                             </li>
                         </ol>
                         <div class="clearfix"></div>

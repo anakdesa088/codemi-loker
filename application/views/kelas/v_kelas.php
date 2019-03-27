@@ -1,16 +1,14 @@
         
     <!--Start Page Title-->
                <div class="page-title-box">
-                    <h4 class="page-title">Basic Table</h4>
+                    <h4 class="page-title">Data Kelas</h4>
                     <ol class="breadcrumb">
+                        
                         <li>
-                            <a href="#">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#">Table</a>
+                            <a href="#">Akademik</a>
                         </li>
                         <li class="active">
-                            Basic Table
+                            Data Kelas
                         </li>
                     </ol>
                     <div class="clearfix"></div>

@@ -6,9 +6,9 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('string');
+		$this->load->helper('string','form');
 		$this->load->model('m_auth');	
-		// $this->load->library(array('session','form_validation', 'Recaptcha'));
+		$this->load->library(array('session','form_validation', 'Recaptcha'));
 
 		/* 
 		* Load library akper/auth_akper
@@ -49,10 +49,13 @@ class Auth extends CI_Controller
 
 	public function c_proses_daftar()
 	{
+		$this->form_validation->set_rules('email', 'Email', 'trim|required');
+
 		$email 			= $this->input->post('email', true);
 		$password 		= $this->random_password();
 		$email_is_used 	= $this->m_auth->is_email_used($email);
-		if ($email_is_used) 
+		if ($this->form_validation->run() == TRUE){
+			if ($email_is_used) 
 		{
 			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning text-center" role="alert">
 				                         Maaf . Email '.$email.' Sudah Terdaftar
@@ -73,7 +76,15 @@ class Auth extends CI_Controller
 					');
 			}
 		}
-		return redirect('auth/daftar');			
+		return redirect('auth/daftar');	
+		
+	}else{
+		$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning text-center" role="alert">
+				                         Maaf form email Harus di isi
+				                       </div>');
+		return redirect('auth/daftar');	
+	}
+
 	}
 	public function login()
 	{
