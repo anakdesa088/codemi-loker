@@ -18,6 +18,7 @@ class Auth extends MY_Controller
 		$this->auth_akper->setSessionData([
 			'udahlogin' 	=> true,
 			'manajemen' 	=> true,
+
 			'username'		=> 'username',
 			'id_user' 		=> 'id_user',
 			'status' 		=> 'login'
@@ -52,7 +53,7 @@ class Auth extends MY_Controller
 		if ($login) 
 		{
 			return redirect('backend/dashboard/index');
-			// return print_r($this->session);
+			
 		} else
 		{
 				$this->session->set_flashdata('gagal','

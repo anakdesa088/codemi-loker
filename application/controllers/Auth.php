@@ -55,7 +55,7 @@ class Auth extends CI_Controller
 		if ($email_is_used) 
 		{
 			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning text-center" role="alert">
-				                         Email '.$email.' Sudah Terdaftar
+				                         Maaf . Email '.$email.' Sudah Terdaftar
 				                       </div>');
 		} else 
 		{
@@ -99,7 +99,7 @@ class Auth extends CI_Controller
 		{
 			$this->session->set_flashdata('gagal','
 				<div class="alert alert-danger" role="alert">
-                         Maaf Email atau Password anda Salah !
+                         Maaf  Email atau Password anda Salah !
                        </div>
 				');
 			return redirect('auth/login');

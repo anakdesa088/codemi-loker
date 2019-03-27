@@ -55,7 +55,8 @@
                                                     <td><?php echo $r['nama_lengkap']; ?></td>
                                                     <td><?php echo $r['nim']; ?></td>
                                                     <td><?php echo $r['nama_kelas']; ?></td>
-                                                    <td><?php echo $r['tmpt_lahir'] . "-" . $r['tgl_lahir']; ?></td>
+                                                    <?php $tanggal = $r['tgl_lahir']; $date = date_create($tanggal); $tgl = date_format($date,"d-m-Y"); ?>
+                                                    <td><?php echo $r['tmpt_lahir'] . ", ".$tgl; ?></td>
                                                     <td><?php echo $r['jk']; ?></td>
                                                     <td><?php echo $r['alamat']; ?></td>
                                                     <?php $id = $r['id_mahasiswa']; ?>

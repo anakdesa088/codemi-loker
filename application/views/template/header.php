@@ -46,7 +46,7 @@
                     <div class="logo">
                         <div class="row">
                           <div class="col-sm-4 logo-akper"><img src="<?php echo base_url('assets/images/logo_akper.png'); ?>"></div>
-                          <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div>
+  <!--                          <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div> -->
                         </div>
                             
                     </div> <!--/.logo-->

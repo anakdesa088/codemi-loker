@@ -413,7 +413,10 @@ blockquote {
 	padding-right: 20px;
 }
 .page-header.navbar .logo img {
-	margin: 10px 0 0;
+	margin: 10px 10px 0;
+}
+.img{
+	width: 50px;
 }
 .search-top {
 	width: 200px;

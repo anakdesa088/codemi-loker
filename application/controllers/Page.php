@@ -29,13 +29,16 @@ class Page extends CI_Controller{
 		
 		
 	}
+	public function form(){
+		$this->load->view('frontend/pmb/v_pmb');
+	}
 
 	public function pmb()
 	{
 		$id 			= $this->session->userdata('id_pmb');
 		$data['tampil'] = $this->m_page->m_get_id($id);
 		$data['ta'] 	= $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
-		$this->load->view('frontend/pmb/v_pmb', $data);
+		$this->load->view('frontend/pmb/v_pmb',$datas);
 	}
 	public function c_proses_pmb()
 	{

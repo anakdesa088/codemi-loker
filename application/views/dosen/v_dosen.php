@@ -47,8 +47,8 @@
                                                     <tr>
                                                         <td><?php echo $no++; ?></td>
                                                         <td><?php echo $r->nama_lengkap; ?></td>
-                                                        <?php $date = date_create($r->tgl_lahir); $tgl_lahir = date_format($date,"d-m-Y"); ?>
-                                                        <td><?php echo $r->tmpt_lahir ." - ".$tgl_lahir; ?></td>
+                                                        <?php $date = date_create($r->tgl_lahir); $tgl_lahir = date_format($date,"d-M-Y"); ?>
+                                                        <td><?php echo $r->tmpt_lahir .", ".$tgl_lahir; ?></td>
                                                         <td><?php if($r->jk == "1"){
                                                             echo "Laki-laki";
                                                         }else{
