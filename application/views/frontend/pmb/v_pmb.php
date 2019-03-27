@@ -183,52 +183,63 @@
                             <div class="clearfix"></div>
                          </div>
                        <!--End Page Title-->          
+                      <div class="container">  
+                      <div class="row">
+                       <div class="col-md-12">
+                           <div class="white-box">  
 
+                            <center>
+                                            <h4 class="card-title" style="letter-spacing: 10px;">FORMULIR PENDAFTARAN</h4>
+                                            <h3 class="card-title">SELEKSI PENERIMAAN MAHASISWA BARU</h3>
+                                            <h4 class="card-title">TAHUN AKADEMIK 2019/2020</h4>
+                                            <h4 class="card-title">AKPER BUNTET PESANTREN CIREBON   </h4>
+                                        </center>
+                      </div></div></div></div>
            
                      <!--Start row-->
-                      
+                    <div class="container">  
                       <div class="row">
                        <div class="col-md-12">
                            <div class="white-box">  
                            <h2 class="header-title">Form Validation</h2>
                              <form class="js-validation-bootstrap form-horizontal" action="http://mixtheme.com/mixtheme/mercy/base_forms_validation.html" method="post">
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-username">Username <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-username">Username <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="text" id="val-username" name="val-username" placeholder="Enter User Name">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-email">Email <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-email">Email <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="text" id="val-email" name="val-email" placeholder="Enter your  email">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-password">Password <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-password">Password <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="password" id="val-password" name="val-password" placeholder="Enter Password">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="password" id="val-confirm-password" name="val-confirm-password" placeholder="Re-enter Password">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-suggestions">About <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-suggestions">About <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="14" placeholder="About"></textarea>
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-skill">Best Skill <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-skill">Best Skill <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <select class="form-control" id="val-skill" name="val-skill">
                                     <option value="">Please select</option>
@@ -242,35 +253,35 @@
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-website">Website <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-website">Website <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="text" id="val-website" name="val-website" placeholder="http://example.com/">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-digits">Digits <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-digits">Digits <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="text" id="val-digits" name="val-digits" placeholder="3">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-number">Number <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-number">Number <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="text" id="val-number" name="val-number" placeholder="3.0">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label" for="val-range">Range [1, 10] <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-range">Range [1, 10] <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="text" id="val-range" name="val-range" placeholder="3">
                                 </div>
                               </div>
                               
                               <div class="form-group">
-                                <label class="col-md-3 control-label"> Terms <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label"> Terms <span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <div class="checkbox primary">
                                     <input type="checkbox" id="val-terms" name="val-terms" value="1">
@@ -292,6 +303,7 @@
                     </div>
                    <!-- end row --> 
 
+                  </div>
                      <!--End row-->
 
                      

@@ -30,6 +30,8 @@
       <!--Start login Section-->
       <section class="bg-main full-height">
        <div class="container">
+        
+
            <div class="row">
                <div class="reg-wrapper">
                    <div class="reg-inner space-inner">
