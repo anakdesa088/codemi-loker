@@ -2,7 +2,7 @@
     <html lang="en">
     <head>
     <meta charset="utf-8" />
-    <title>Sisfo Akper</title>
+    <title>Sisfo Akper </title>
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
     <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico') ?>" type="image/png">
 
@@ -43,13 +43,18 @@
             <div class="page-header navbar navbar-fixed-top">
                 <div class="page-header-main">
                 
-                    <div class="logo">
+                    <!--<div class="logo">
                         <div class="row">
-                          <div class="col-sm-4 logo-akper"><img src="<?php echo base_url('assets/images/logo_akper.png'); ?>"></div>
+                          <div class="col-sm-4 logo-akper"><img src="<?php echo base_url('assets/images/logo.png'); ?>"></div>
                             <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div> 
                         </div>
                             
+                    </div> -->
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="Logo" class="img-responsive"/> </a>
                     </div> <!--/.logo-->
+
                     
                     <div class="sidebar-main-toggle">
                         <a href="javascript:;" class="navbar-small pull-left "><i class="fa fa-bars"></i></a>
@@ -240,7 +245,7 @@
 
                              <li class="dropdown dropdown-usermenu">
                                 <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <div class="user-photo"><i class="fa fa-wrench"></i>John Doe <span class="caret hidden-sm hidden-xs"></span></div>
+                                <div class="user-photo"> as <span class="caret hidden-sm hidden-xs"></span></div>
                                 
                                 
                                 </a>

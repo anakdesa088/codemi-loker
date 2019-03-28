@@ -204,7 +204,7 @@
                            <h2 class="header-title">Form Validation</h2>
                              <form class="js-validation-bootstrap form-horizontal" action="http://mixtheme.com/mixtheme/mercy/base_forms_validation.html" method="post">
                               <div class="form-group">
-                                <label class="col-md-2 control-label" for="val-username">Username <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="val-username">Nama Lengkap<span class="text-danger">*</span></label>
                                 <div class="col-md-9">
                                   <input class="form-control" type="text" id="val-username" name="val-username" placeholder="Enter User Name">
                                 </div>

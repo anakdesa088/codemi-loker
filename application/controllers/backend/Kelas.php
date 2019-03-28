@@ -10,6 +10,7 @@ class Kelas extends MY_Controller {
 
 	public function index()
 	{
+		
 		$data['tampil']  = $this->m_kelas->m_get_kelas();
 		$this->template->render('kelas/v_kelas',$data);
 	}

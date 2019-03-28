@@ -2,8 +2,9 @@
                  <!--End footer -->
         
                 </div>  <!--/.wrapper-->
-                                <footer class="footer-main"> 2019 &copy; AKPER BUNTET PESANTREN </footer>   
+
              </div> <!--/.page-container-->
+                                             <footer class="footer-main"> 2019 &copy; AKPER BUNTET PESANTREN </footer>   
           </div>
          <!--End wrapper-->
 

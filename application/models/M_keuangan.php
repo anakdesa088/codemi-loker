@@ -42,4 +42,26 @@ class M_keuangan extends CI_Model{
 			return false;
 		}
 	}
+	public function m_hapus_keuangan($id){
+		
+			$this->db->where('id_pmb', $id);
+			$delete = $this->db->delete('pmb');
+			return ($delete == true) ? true : false;
+		
+	}
+	public function getKeuanganData($id = null)
+	{
+		if($id) {
+
+			$sql = "SELECT * FROM pmb WHERE id_pmb = ?";
+			$query = $this->db->query($sql, array($id));
+			return $query->row_array();
+		}
+		
+		$sql = "SELECT * FROM pmb";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+
 }

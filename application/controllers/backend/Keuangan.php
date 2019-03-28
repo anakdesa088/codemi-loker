@@ -23,15 +23,7 @@ class Keuangan extends Manajemen_only
 		$nama_lengkap = $this->input->view('nama_lengkap');
 		$array = array('nama_lengkap');
 	}
-	public function c_delete($id)
-	{
-		$hapus = $this->m_keuangan->m_delete($id);
-		if ($hapus > 0) 
-		{
-			$this->session->set_flashdata('hapus','<div class="alert alert-success">Berhasil Hapus Data</div>');
-			redirect('backend/keuangan/index');
-		}
-	}
+	
 	public function detail($id)
 
 	{
@@ -71,5 +63,39 @@ class Keuangan extends Manajemen_only
 			redirect('backend/keuangan/index');
 		}
 	}
+	public function hapus_keuangan(){
+	$id_pmb = $this->input->post('id_pmb');
+
+		$response = array();
+		if($id_pmb) {
+			$delete = $this->m_keuangan->m_hapus_keuangan($id_pmb);
+			if($delete == true) {
+				$response['success'] = true;
+				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data PMB</span></div>
+');	
+			}
+			else {
+				$response['success'] = false;
+				$response['messages'] = "Gagal";
+			}
+		}
+		else {
+			$response['success'] = false;
+			redirect('backend/keuangan');
+		}
+
+		echo json_encode($response);
+	}
+
+	public function fetchKeuanganDataById($id) 
+	{
+		if($id) {
+			$data = $this->m_keuangan->getKeuanganData($id);
+			echo json_encode($data);
+		}
+
+		return false;
+	}
+
 
 }

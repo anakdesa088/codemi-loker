@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i');
 .logo_akper h4{
 	color: white;
-	padding-top: 13px;
+	/*padding-top: 13px;*/
 }
 
 .hajau_akper{
@@ -413,8 +413,8 @@ blockquote {
 	padding-right: 20px;
 }
 .page-header.navbar .logo img {
-	margin: 10px 10px 0;
-	 max-width: 50px;
+	margin: 10px 0px 0;
+	 max-width: 200px;
 }
 
 }
