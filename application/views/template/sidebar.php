@@ -33,7 +33,10 @@
                                 <li><a href="APA.HTML">JENIS BIAYA</a></li>
                                 <li><a href="APA.HTML">PEMBAYARAN MAHASISWA</a></li>
                                 <li><a href="APA.HTML">GAJI DOSEN</a></li>
-                                
+
+
+                                <li><a href="<?php echo site_url('backend/bau/kode_transaksi'); ?>">KODE TRANSAKSI</a></li>
+                                <li><a href="<?php echo site_url('backend/bau/transaksi'); ?>">TRANSAKSI</a></li>                                
                                 </ul>
                             </li>
                         

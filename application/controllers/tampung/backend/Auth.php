@@ -61,7 +61,7 @@ class Auth extends MY_Controller
 	                         Maaf Email atau Password anda Salah !
 	                       </div>
 					');
-				redirect('auth/login');			
+				return redirect('backend/auth');			
 		}
 			// $email = $this->input->post('email', true);
 			// $spassword = $this->input->post('password', true);
