@@ -62,11 +62,6 @@
                         </div> <!--/.logo-->
 
 
-                        <div class="sidebar-main-toggle">
-                          <a href="javascript:;" class="navbar-small pull-left "><i class="fa fa-bars"></i></a>
-                        </div> <!--/.menu-toggler-->
-
-
                         <!--Start Right Menu-->
                         <div class="right-menu">
                           <ul class="nav navbar-nav navbar-right">
