@@ -836,11 +836,15 @@ body .collapse-navbar .sidebar-nav ul li a:hover, body .collapse-navbar .sidebar
 }
 .page-title-box {
 	margin: 0px -20px 35px -15px;
-	
+	    padding: 20px 20px;
 	box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
 	background-color: #ffffff;
 }
+
+
+
 .page-title-box .page-title {
+
     margin: 0;
     float: left;
     font-size: 16px;

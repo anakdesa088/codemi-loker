@@ -2,7 +2,7 @@
     <html lang="en">
     <head>
       <meta charset="utf-8" />
-      <title>Sisfo Akper </title>
+      <title>PENIREIMAAN MASAHASISWA BARU</title>
       <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
       <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico') ?>" type="image/png">
       <link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />
@@ -71,192 +71,30 @@
                         <div class="right-menu">
                           <ul class="nav navbar-nav navbar-right">
 
-                           <li class="dropdown">
-                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                              <i class="fa fa-bell-o"></i>
-                              <span class="badge">6</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li class="dropdown-header">Notifications</li>
-                              <li class="notification-list scroll list-group">
-                               <!-- list item-->
-                               <a href="javascript:void(0);" class="notification list-group-item">
-                                <div class="notification-icon-main  bg-primary  pull-left">
-                                  <i class="notification-icon fa fa-bolt"></i>
-                                </div>
-                                <div class="notification-box">
-                                  <p class="notification-title">A new order has been placed</p>
-                                  <p class="notification-time">9:15 AM</p>
-                                </div> 
-                              </a>
-
-                              <!-- list item-->
-                              <a href="javascript:void(0);" class="notification list-group-item">
-                                <div class="notification-icon-main bg-success  pull-left">
-                                  <i class="notification-icon fa fa-user-plus"></i>
-                                </div>
-                                <div class="notification-box">
-                                  <p class="notification-title">Databse backup is complete</p>
-                                  <p class="notification-time">10:25 AM</p>
-                                </div>
-                              </a>
-
-                              <!-- list item-->
-                              <a href="javascript:void(0);" class="notification list-group-item">
-                                <div class="notification-icon-main bg-info  pull-left">
-                                  <i class="notification-icon fa fa-user-plus"></i>
-                                </div>
-                                <div class="notification-box">
-                                  <p class="notification-title">New Member Registration</p>
-                                  <p class="notification-time">11:25 AM</p>
-                                </div>
-                              </a>
-
-                              <!-- list item-->
-                              <a href="javascript:void(0);" class="notification list-group-item">
-                                <div class="notification-icon-main  bg-danger  pull-left">
-                                  <i class="notification-icon fa fa-user-plus"></i>
-                                </div>
-                                <div class="notification-box">
-                                  <p class="notification-title">Database Error</p>
-                                  <p class="notification-time">11:45 AM</p>
-                                </div>
-                              </a>
-
-                              <!-- list item-->
-                              <a href="javascript:void(0);" class="notification list-group-item">
-                                <div class="notification-icon-main bg-warning  pull-left">
-                                  <i class="notification-icon fa fa-bolt"></i>
-                                </div>
-                                <div class="notification-box">
-                                  <p class="notification-title">New settings</p>
-                                  <p class="notification-time">12:15 PM</p>
-                                </div>
-                              </a>
-
-                              <!-- list item-->
-                              <a href="javascript:void(0);" class="notification list-group-item">
-                                <div class="notification-icon-main bg-success  pull-left">
-                                  <i class="notification-icon fa fa-user-plus"></i>
-                                </div>
-                                <div class="notification-box">
-                                  <p class="notification-title">New Member Registration</p>
-                                  <p class="notification-time">12:30 PM</p>
-                                </div>
-                              </a>
-
-                              <!-- list item-->
-                              <a href="javascript:void(0);" class="notification list-group-item">
-                                <div class="notification-icon-main  bg-info  pull-left">
-                                  <i class="notification-icon fa fa-bolt"></i>
-                                </div>
-                                <div class="notification-box">
-                                  <p class="notification-title">A new order has been placed</p>
-                                  <p class="notification-time">12:40 PM</p>
-                                </div> 
-                              </a>
-
-                            </li>
-                            <li class="dropdown-footer"><a href="#">View All Notifications</a></li>
-                          </ul>
-                        </li>
+                           
 
 
 
-                        <li class="dropdown">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                          <i class="fa fa-envelope-o"></i>
-                          <span class="badge">5</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                         <li class="dropdown-header">You Have 5 New Message</li>
-                         <li class="notification-list scroll list-group">
-                           <!-- list item-->
-                           <a href="javascript:void(0);" class="notification list-group-item">
-                            <div class="message-icon pull-left">
-                             <img src="<?php echo base_url('assets/images/users/avatar-1.jpg') ?>"  alt=""/>
-                           </div>
-                           <div class="message-info-main">
-                            <span class="message-name">John Doe</span>
-                            <span class="message-text">Payment Confirmation for new sell</span>
-                            <span class="message-time">9:30 AM</span>
-                          </div>
-                        </a>
+                        
 
                         <!-- list item-->
-                        <a href="javascript:void(0);" class="notification list-group-item">
-                          <div class="message-icon pull-left">
-                           <img src="<?php echo base_url('assets/images/users/avatar-2.jpg') ?>"  alt=""/>
-                         </div>
-                         <div class="message-info-main">
-                          <span class="message-name">Johnson </span>
-                          <span class="message-text">New item approved</span>
-                          <span class="message-time">9:35 AM</span>
-                        </div>
-                      </a>
-
-                      <!-- list item-->
-                      <a href="javascript:void(0);" class="notification list-group-item">
-                        <div class="message-icon pull-left">
-                         <img src="<?php echo base_url('assets/images/users/avatar-3.jpg') ?>"  alt=""/>
-                       </div>
-                       <div class="message-info-main">
-                        <span class="message-name">Williams</span>
-                        <span class="message-text">New item sell</span>
-                        <span class="message-time">9:45 AM</span>
-                      </div>
-                    </a>
-
-                    <!-- list item-->
-                    <a href="javascript:void(0);" class="notification list-group-item">
-                      <div class="message-icon pull-left">
-                       <img src="<?php echo base_url('assets/images/users/avatar-4.jpg') ?>"  alt=""/>
-                     </div>
-                     <div class="message-info-main">
-                      <span class="message-name">Mark</span>
-                      <span class="message-text">New changes done</span>
-                      <span class="message-time">10:35 AM</span>
-                    </div>
-                  </a>
-
-                  <!-- list item-->
-                  <a href="javascript:void(0);" class="notification list-group-item">
-                    <div class="message-icon pull-left">
-                     <img src="<?php echo base_url('assets/images/users/avatar-5.jpg') ?>"  alt=""/>
-                   </div>
-                   <div class="message-info-main">
-                    <span class="message-name">Mark </span>
-                    <span class="message-text">Admin template customize</span>
-                    <span class="message-time">11:00 AM</span>
-                  </div>
-                </a>
-
-                <!-- list item-->
-                <a href="javascript:void(0);" class="notification list-group-item">
-                  <div class="message-icon pull-left">
-                   <img src="<?php echo base_url('assets/images/users/avatar-6.jpg') ?>"  alt=""/>
-                 </div>
-                 <div class="message-info-main">
-                  <span class="message-name">David</span>
-                  <span class="message-text">Payment Confirmation for new sell</span>
-                  <span class="message-time">11:45 AM</span>
-                </div>
-              </a>
-
-            </li>
-            <li class="dropdown-footer"><a href="#">View All</a></li>
-          </ul>
-        </li> 
-
-
+                        
         <li class="dropdown dropdown-usermenu">
           <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-            <div class="user-photo"><?php echo $this->session->userdata('email');  ?> <span class="caret hidden-sm hidden-xs"></span></div>
+            <div class="user-photo"><?php 
+                    if ($tampil->foto_diri) { ?>
+                        <img  src="<?php echo base_url('uploads/'.$tampil->foto_diri); ?>">
+                    <?php }else{  ?>
+                    <img  src="<?php echo base_url('assets/images/pmb.png'); ?>">
+               <?PHP }
+
+
+                ?> <span class="caret hidden-sm hidden-xs"></span></div>
 
 
           </a>
           <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-            <li><a href="#"><i class="fa fa-wrench"></i>  Settings</a></li>
+            
             <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
             <li><a href="#"><i class="fa fa-info"></i>  Help</a></li>
             <li class="divider"></li>
@@ -280,15 +118,13 @@
 <div class="content-main container">
 
   <!--Start Page Title-->
+  
+
   <div class="page-title-box ">
-    <h4 class="page-title">Form</h4>
-    <ol class="breadcrumb">
-      <li> <a href="index.html">Dashboard</a> </li>
-      <li> <a href="#">Forms </a> </li>
-      <li class="active">Form Basic </li>
-    </ol>
+    
     <div class="clearfix"></div>
   </div>
+  
   <!--End Page Title-->          
   <div class="container">  
     <div class="row">
@@ -319,8 +155,8 @@
          
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Nama Lengkap</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Nama Lengkap</label>
+    <div class="col-md-9">
       <input class="form-control"  value="<?php echo $tampil->nama_lengkap; ?>" name="nama_lengkap"  type="text">
   </div>
 </div>
@@ -330,8 +166,8 @@
 
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Kewarganegaraan</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Kewarganegaraan</label>
+    <div class="col-md-9">
         <div class="row">
         <div class="col-md-2">
         <div class="radio">
@@ -352,8 +188,8 @@
 </div>
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Jenis Kelamin</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Jenis Kelamin</label>
+    <div class="col-md-9">
         <div class="row">
         <div class="col-md-2">
         <div class="radio">
@@ -373,7 +209,7 @@
   </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Tempat, Tanggal Lahir</label>
+    <label class="col-md-3 control-label">Tempat, Tanggal Lahir</label>
     <div class="col-md-3">
       <input class="form-control" value="<?php echo $tampil->tmpt_lahir; ?>" name="tmpt_lahir"  type="text">
   </div>
@@ -382,77 +218,78 @@
   </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Tinggi Badan</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Tinggi Badan</label>
+    <div class="col-md-9">
       <input class="form-control" name="tinggi_badan" value="<?php echo $tampil->tinggi_badan; ?>"  type="text">
   </div>
 </div>
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Berat Badan</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Berat Badan</label>
+    <div class="col-md-9">
       <input class="form-control" name="berat_badan" value="<?php echo $tampil->berat_badan; ?>" type="text">
   </div>
 </div>
 
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Alamat</label>
-    <div class="col-md-10">
-      <input class="form-control" row="5" name="alamat" value="<?php echo $tampil->alamat; ?>" type="text">
+    <label class="col-md-3 control-label">Alamat</label>
+    <div class="col-md-9">
+      <textarea class="form-control" rows="5" name="alamat"><?php echo $tampil->alamat;  ?></textarea>
   </div>
 </div>
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Kode Pos</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Kode Pos</label>
+    <div class="col-md-9">
       <input class="form-control" name="kode_pos"  value="<?php echo $tampil->kode_pos; ?>" type="text">
   </div>
 </div>
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Nama Ayah</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Nama Ayah <span class="text-danger">*</span></label>
+    
+    <div class="col-md-9">
       <input class="form-control" value="<?php echo $tampil->nama_ayah; ?>" name="nama_ayah"  type="text">
   </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Nama Ibu</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Nama Ibu</label>
+    <div class="col-md-9">
       <input class="form-control" name="nama_ibu" value="<?php echo $tampil->nama_ibu; ?>"  type="text">
   </div>
 </div>
 
 <div class="form-group">
-    <label class="col-md-2 control-label">No Handphone 1</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">No Handphone 1</label>
+    <div class="col-md-9">
       <input class="form-control" name="no_hp1"  value="<?php echo $tampil->no_hp1; ?>" type="number"> 
   </div>
 </div>
 
 <div class="form-group">
-    <label class="col-md-2 control-label">No Handphone 2</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">No Handphone 2</label>
+    <div class="col-md-9">
       <input class="form-control" name="no_hp2" value="<?php echo $tampil->no_hp2; ?>" type="number"> 
   </div>
 </div>
 
 
 <div class="form-group">
-    <label class="col-md-2 control-label">Info Dari</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Info Dari</label>
+    <div class="col-md-9">
       <input class="form-control" name="info_dari" value="<?php echo $tampil->info_dari; ?>"  type="text"> 
   </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Nama Asal Sekolah</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Nama Asal Sekolah</label>
+    <div class="col-md-9">
       <input class="form-control" value="<?php echo $tampil->nama_asal_sekolah; ?>" name="nama_asal_sekolah"  type="text">
   </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Alamat Asal Sekolah</label>
-    <div class="col-md-10">
+    <label class="col-md-3 control-label">Alamat Asal Sekolah</label>
+    <div class="col-md-9">
       <input class="form-control" name="alamat_asal_sekolah" value="<?php echo $tampil->alamat_asal_sekolah; ?>"  type="text">
   </div>
 </div>
@@ -550,9 +387,8 @@
 
 <div class="form-group">  
   <div class="col-md-12">
-        <div class="col-md-10">
-        </div>
-        <div class="col-ms-2">
+        
+        <div class="col-md-2">
             
             
             <button type="submit" class="btn btn-primary">Simpan</button>
