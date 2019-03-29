@@ -1,186 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/favicon.ico') ?>">
-    <title>Halaman Login</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url('assets/frontend/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="<?php echo base_url('assets/frontend/css/colors/blue.css') ?>" id="theme" rel="stylesheet">
-    <!-- H
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') ?>"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js') ?>/1.4.2/respond.min.js') ?>"></script>
-<![endif]-->
-<style type="text/css">
-    .login-box{
-        margin-top : 100px;
-    }
-</style>
-</head>
-
-<body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-        </div>
-        <!-- ============================================================== -->
-        <!-- Main wrapper - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <div id="main-wrapper">
-            <!-- ============================================================== -->
-            <!-- Topbar header - style you can find in pages.scss -->
-            <!-- ============================================================== -->
-            <header class="topbar">
-                <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    
-                    <ul class="navbar-nav mr-auto mt-md-0">
-                        <!-- This is  -->
-                        
-                        <!-- ============================================================== -->
-                        <!-- Comment -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item logo">
-                            <img src="<?php echo base_url('assets/frontend/images/logo_akper.png') ?>" width="55">
-                            
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- End Comment -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Messages -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <h4 class="logo_text">AKPER BPC</h4>
-
-                            </a>
-                            
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- End Messages -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Messages -->
-                        
-                        <!-- ============================================================== -->
-                        <!-- End Messages -->
-                        <!-- ============================================================== -->
-                    </ul>
-                    
-                    <!-- User profile and search -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        
-                        <!-- ============================================================== -->
-                        <!-- Language -->
-                        <!-- ============================================================== -->
-                        
-                        <!-- ============================================================== -->
-                        <!-- Profile -->
-                        <!-- ============================================================== -->
-
-                    </nav>
-                </header>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <title>AKPER BUNTET PESANTREN CIREBON</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <section id="wrapper">
-        <div class="login-register" style="background-color:url(../images/background/bg_akper.jpg);">
-            <div class="login-box card">
-                <div class="card-body">
-                    <form class="form-horizontal form-material" method="POST" id="loginform" action="<?php echo site_url('backend/auth/c_proses_login_admin'); ?>">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                                <img src="<?php echo base_url('assets/frontend/images/logo_akper.png') ?>" width="55">
-                            </div>
-
-                        </div>
-                        
-                        <center><h3 class="box-title m-b-20">Halaman Login</h3></center>
-                        <?php echo $this->session->flashdata('gagal'); ?>
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <input class="form-control" name="username" type="text" required="" placeholder="Username"> </div>
-                        </div>
-                         <div class="form-group ">
-                            <div class="col-xs-12">
-                                <input class="form-control" name="password" type="password" required="" placeholder="Password"> </div>
-                        </div>
-                        
-                        
-                        <div class="form-group text-center m-t-20">
-                            <div class="col-xs-12">
-                                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                                
-                            </div>
-                        </div>
-                        <div class="form-group m-b-0">
-                            <div class="col-sm-12 text-center">
-                                
-                            </div>
-                        </div>
-                    </form>
-                    
-                </div>
+    <!--Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/favicon.ico') ?>">
+    
+    <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/plugins/metis-menu/metisMenu.min.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/nanoscroller.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/icons.css') ?>" rel="stylesheet" type="text/css" >
+    <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/responsive.css') ?>" rel="stylesheet" type="text/css" />
+    
+    </head>
+    
+    <body class="fixed-top">
+      <!--Start Page loader -->
+      <div id="pageloader">   
+            <div class="loader">
+              <img src="<?php echo base_url('assets/images/progress.gif') ?>" alt='loader' />
             </div>
-        </div>
-    </section>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?php echo base_url('assets/frontend/plugins/jquery/jquery.min.js') ?>"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/popper.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/frontend/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url('assets/frontend/js/jquery.slimscroll.js') ?>"></script>
-    <!--Wave Effects -->
-    <script src="<?php echo base_url('assets/frontend/js/waves.js') ?>"></script>
-    <!--Menu sidebar -->
-    <script src="<?php echo base_url('assets/frontend/js/sidebarmenu.js') ?>"></script>
-    <!--stickey kit -->
-    <script src="<?php echo base_url('assets/frontend/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/frontend/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
-    <!--Custom JavaScript -->
-    <script src="<?php echo base_url('assets/frontend/js/custom.min.js') ?>"></script>
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="<?php echo base_url('assets/frontend/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
-</body>
+       </div>
+       <!--End Page loader -->
+ <nav class="page-header navbar ">
+  <div class="page-header-main">
+                
+                    <!--<div class="logo">
+                        <div class="row">
+                          <div class="col-sm-4 logo-akper"><img src="<?php echo base_url('assets/images/logo.png'); ?>"></div>
+                            <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div> 
+                        </div>
+                            
+                    </div> -->
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="Logo" class="img-responsive"/> </a>
+                    </div> <!--/.logo-->
 
+                    
+                    
+  <div class="container-fluid">
+    
+</div>
+</nav>
+  
+      <!--Start login Section-->
+      <section class="bg-main full-height">
+       <div class="container">
+           <div class="row">
+               <div class="reg-wrapper">
+                   <div class="reg-inner space-inner">
+                       
+                       <div class="logo">
+                         <img src="<?php echo base_url('assets/frontend/images/logo_akper.png') ?>" width="75">
+                       </div>
+                        
+                        <h2 class="header-title font-22 text-center m-b-35">Halaman Login Management</h2>
+                        <?php echo $this->session->flashdata('gagal'); ?>
+                       <form method="post" action="<?php echo site_url('backend/auth/c_proses_login_admin'); ?>">
+                           <div class="form-group">
+                               <input type="text" class="form-control" name="username"  placeholder="Username" >
+                           </div>
 
-<!-- Mirrored from themedesigner.in/demo/admin-press/main/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Feb 2019 18:01:01 GMT -->
-</html>
+                           <div class="form-group">
+                               <input type="password" class="form-control" name="password"  placeholder="Password" >
+                           </div>
+
+                        <div class="form-group m-t-30 clearfix">
+                           <div class="pull-left">
+                               <div class="checkbox primary">
+                              <input  id="checkbox-1" type="checkbox">
+                              <label for="checkbox-1">Remember me</label>
+                            </div>
+                           </div>
+                           
+                           <div class="pull-right">
+                               <a  href="" >Lupa Password?</a>
+                           </div>
+                         </div>
+                          
+                           <div class="form-group">
+                               <button type="submit"  class="btn btn-lg btn-primary btn-block" >  <i class="icon-lock "></i>   Login</button>
+                           </div>
+                           
+                           
+                           
+                           
+                           
+                       </form>
+                       
+                   </div>
+               </div>
+               
+           </div>
+       </div>
+     </section>
+    <!--End login Section-->
+
+     <!--JQUERY SCRIPTS-->
+    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/plugins/metis-menu/metisMenu.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.nicescroll.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.slimscroll.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js') ?>"></script>
+
+    </body>
+
+  </html>

@@ -22,11 +22,9 @@ class Page extends CI_Controller{
 	}
 	
 
-	public function index()
-	{
-		
-		
-		
+	public function index(){
+	// ssl://smtp.googlemail.com
+		return redirect('page/pmb');
 	}
 	public function form(){
 		$this->load->view('frontend/pmb/v_pmb');
@@ -65,8 +63,8 @@ class Page extends CI_Controller{
 			}
 			*/
 		}else{
-			$config['upload_path'] = './uploads'; //path folder gambar
-			$config['allowed_types'] = 'gif|jpg|png|jpeg'; //type gambar bisa disesuaikan
+			$config['upload_path'] = './uploads'; 
+			$config['allowed_types'] = 'gif|jpg|png|jpeg'; 
 			$this->upload->initialize($config);
 			$foto_ijaza = $this->upload->do_upload('foto_ijaza');
 			$foto_kesehatan = $this->upload->do_upload('foto_kesehatan');

@@ -26,7 +26,28 @@
             </div>
        </div>
        <!--End Page loader -->
-       
+ <nav class="page-header navbar ">
+  <div class="page-header-main">
+                
+                    <!--<div class="logo">
+                        <div class="row">
+                          <div class="col-sm-4 logo-akper"><img src="<?php echo base_url('assets/images/logo.png'); ?>"></div>
+                            <div class="col-sm-8 logo_akper"><h4>AKPER BPC</h4></div> 
+                        </div>
+                            
+                    </div> -->
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="Logo" class="img-responsive"/> </a>
+                    </div> <!--/.logo-->
+
+                    
+                    
+  <div class="container-fluid">
+    
+</div>
+</nav>
+  
       <!--Start login Section-->
       <section class="bg-main full-height">
        <div class="container">
@@ -40,6 +61,9 @@
                         
                         <h2 class="header-title font-22 text-center m-b-35">Halaman Login</h2>
                         <?php echo $this->session->flashdata('gagal'); ?>
+                        <?php echo $this->session->flashdata('message'); ?>
+                        
+                        
                        <form method="post" action="<?php echo site_url('auth/c_proses_login'); ?>">
                            <div class="form-group">
                                <input type="email" class="form-control" name="email"  placeholder="Email" >

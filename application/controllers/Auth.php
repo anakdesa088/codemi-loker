@@ -119,8 +119,14 @@ class Auth extends CI_Controller
 
 	public function c_keluar()
 	{
+		
 		$this->session->sess_destroy();
-		return redirect('auth/login');
+		return redirect('auth/login');	
+
+
+		
+		
+		
 	}
 
 

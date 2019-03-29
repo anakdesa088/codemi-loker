@@ -43,6 +43,7 @@
                         <h2 class="header-title font-22 text-center m-b-35">Halaman Daftar</h2>
                         <?php echo $this->session->flashdata('berhasil'); ?>
                         <?php echo $this->session->flashdata('email_sudah_ada'); ?>
+                        <?php echo $this->session->flashdata('message'); ?>
                        <form method="post" action="<?php echo site_url('auth/c_proses_daftar'); ?>">
                            <div class="form-group">
                             <label class="col-md-3 control-label" for="val-email"><span class="text-danger"></span></label>
