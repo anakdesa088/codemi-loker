@@ -251,7 +251,7 @@
 
         <li class="dropdown dropdown-usermenu">
           <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-            <div class="user-photo"> as <span class="caret hidden-sm hidden-xs"></span></div>
+            <div class="user-photo"><?php echo $this->session->userdata('email');  ?> <span class="caret hidden-sm hidden-xs"></span></div>
 
 
           </a>
@@ -309,9 +309,11 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
+    <?php echo $this->session->flashdata('sukses'); ?>
      <h2 class="header-title"></h2>
      <h2 class="header-title"></h2>
-     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/mahasiswa/proses_tambah_mahasiswa'); ?>" class="form-horizontal">
+     <?php $id_pmb = $tampil->id_pmb;   ?>
+     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('page/c_proses_pmb/'.$id_pmb); ?>" class="form-horizontal">
 
 
          
@@ -319,7 +321,7 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Lengkap</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_lengkap"  type="text">
+      <input class="form-control"  value="<?php echo $tampil->nama_lengkap; ?>" name="nama_lengkap"  type="text">
   </div>
 </div>
 
@@ -333,14 +335,14 @@
         <div class="row">
         <div class="col-md-2">
         <div class="radio">
-            <input type="radio" value="WNI" name="kewarganegaraan" id="radio-1">
+            <input type="radio" <?php if($tampil->kewarganegaraan == 'WNI'){ ?> checked="" <?php } ?> value="WNI" name="kewarganegaraan" id="radio-1">
             <label for="radio-1">WNI</label>
         </div>
         </div>
         <!-- /.radio -->
         <div class="col-md-2">
         <div class="radio primary">
-          <input type="radio" value="WNA" name="kewarganegaraan" id="radio-2">
+          <input type="radio" value="WNA" <?php if($tampil->kewarganegaraan == 'WNA'){ ?> checked="" <?php } ?> name="kewarganegaraan" id="radio-2">
           <label for="radio-2">WNA</label>
         </div>
       </div>
@@ -355,14 +357,14 @@
         <div class="row">
         <div class="col-md-2">
         <div class="radio">
-            <input type="radio" value="L" name="jk" id="radio-1">
+            <input type="radio" <?php if($tampil->jk == 'L'){ ?> checked="" <?php } ?> value="L" name="jk" id="radio-1">
             <label for="radio-1">Laki-laki</label>
         </div>
         </div>
         <!-- /.radio -->
         <div class="col-md-2">
         <div class="radio primary">
-          <input type="radio" value="P" name="jk" id="radio-2">
+          <input type="radio" value="P" <?php if($tampil->jk == 'P'){ ?> checked="" <?php } ?> name="jk" id="radio-2">
           <label for="radio-2">Perempuan</label>
         </div>
       </div>
@@ -373,23 +375,23 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Tempat, Tanggal Lahir</label>
     <div class="col-md-3">
-      <input class="form-control" name="tmpt_lahir"  type="text">
+      <input class="form-control" value="<?php echo $tampil->tmpt_lahir; ?>" name="tmpt_lahir"  type="text">
   </div>
   <div class="col-md-4">
-      <input type="text"  name="tgl_lahir" class="form-control default-date-picker-autoclose" >
+      <input type="text" value="<?php echo $tampil->tgl_lahir; ?>"  name="tgl_lahir" class="form-control default-date-picker-autoclose" >
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Tinggi Badan</label>
     <div class="col-md-10">
-      <input class="form-control" name="tinggi_badan"  type="text">
+      <input class="form-control" name="tinggi_badan" value="<?php echo $tampil->tinggi_badan; ?>"  type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">Berat Badan</label>
     <div class="col-md-10">
-      <input class="form-control" name="berat_badan"  type="text">
+      <input class="form-control" name="berat_badan" value="<?php echo $tampil->berat_badan; ?>" type="text">
   </div>
 </div>
 
@@ -397,41 +399,41 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Alamat</label>
     <div class="col-md-10">
-      <input class="form-control" row="5" name="alamat"  type="text">
+      <input class="form-control" row="5" name="alamat" value="<?php echo $tampil->alamat; ?>" type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">Kode Pos</label>
     <div class="col-md-10">
-      <input class="form-control" name="kode_pos"  type="text">
+      <input class="form-control" name="kode_pos"  value="<?php echo $tampil->kode_pos; ?>" type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Ayah</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_ayah"  type="text">
+      <input class="form-control" value="<?php echo $tampil->nama_ayah; ?>" name="nama_ayah"  type="text">
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Ibu</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_ibu"  type="text">
+      <input class="form-control" name="nama_ibu" value="<?php echo $tampil->nama_ibu; ?>"  type="text">
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">No Handphone 1</label>
     <div class="col-md-10">
-      <input class="form-control" name="no_hp1"  type="number"> 
+      <input class="form-control" name="no_hp1"  value="<?php echo $tampil->no_hp1; ?>" type="number"> 
   </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-2 control-label">No Handphone 2</label>
     <div class="col-md-10">
-      <input class="form-control" name="no_hp2"  type="number"> 
+      <input class="form-control" name="no_hp2" value="<?php echo $tampil->no_hp2; ?>" type="number"> 
   </div>
 </div>
 
@@ -439,19 +441,19 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Info Dari</label>
     <div class="col-md-10">
-      <input class="form-control" name="info_dari"  type="text"> 
+      <input class="form-control" name="info_dari" value="<?php echo $tampil->info_dari; ?>"  type="text"> 
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Asal Sekolah</label>
     <div class="col-md-10">
-      <input class="form-control" name="nama_asal_sekolah"  type="text">
+      <input class="form-control" value="<?php echo $tampil->nama_asal_sekolah; ?>" name="nama_asal_sekolah"  type="text">
   </div>
 </div>
 <div class="form-group">
     <label class="col-md-2 control-label">Alamat Asal Sekolah</label>
     <div class="col-md-10">
-      <input class="form-control" name="alamat_asal_sekolah"  type="text">
+      <input class="form-control" name="alamat_asal_sekolah" value="<?php echo $tampil->alamat_asal_sekolah; ?>"  type="text">
   </div>
 </div>
 
@@ -467,7 +469,12 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
+                                                                <?php if($tampil->foto_ijazah == ""){ ?>
+
                                                                     <span><input type="file"  id="input-file-now" class="dropify" name="foto_ijaza"> </span> 
+                                                                <?php }else{ ?>
+                                                                    <input type="file" id="input-file-now-custom-1" name="foto_ijaza" class="dropify" data-default-file="<?php echo base_url('uploads/'.$tampil->foto_ijazah); ?>" />
+                                                                <?php } ?>
                                                                     
                                                                 </div>
                                                             </div>
@@ -481,7 +488,12 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <span><input type="file" id="input-file-now" class="dropify" name="foto_kesehatan"> </span> 
+                                                                    <?php if($tampil->foto_kesehatan == ""){ ?>
+
+                                                                    <span><input type="file"  id="input-file-now" class="dropify" name="foto_kesehatan"> </span> 
+                                                                <?php }else{ ?>
+                                                                    <input type="file" id="input-file-now-custom-1" name="foto_kesehatan" class="dropify" data-default-file="<?php echo base_url('uploads/'.$tampil->foto_kesehatan); ?>" />
+                                                                <?php } ?>
                                                                     
                                                                 </div>
                                                             </div>
@@ -494,8 +506,13 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <input type="file" name="foto" id="input-file-now" class="dropify" />
 
+                                                                    <?php if($tampil->foto_diri == ""){ ?>
+
+                                                                    <span><input type="file"  id="input-file-now" class="dropify" name="foto"> </span> 
+                                                                <?php }else{ ?>
+                                                                    <input type="file" id="input-file-now-custom-1" name="foto" class="dropify" data-default-file="<?php echo base_url('uploads/'.$tampil->foto_diri); ?>" />
+                                                                <?php } ?>
 
                                                                     
                                                                 </div>
@@ -509,8 +526,15 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <input type="file" name="bukti_pembayaran" id="input-file-now" class="dropify" />
 
+                                                                    <?php if($tampil->foto_bukti_pembayaran == ""){ ?>
+
+                                                                    <span><input type="file"  id="input-file-now" class="dropify" name="foto_bukti_pembayaran"> </span> 
+                                                                <?php }else{ ?>
+                                                                    <input type="file" id="input-file-now-custom-1" name="foto_bukti_pembayaran" class="dropify" data-default-file="<?php echo base_url('uploads/'.$tampil->foto_bukti_pembayaran); ?>" />
+                                                                <?php } ?>
+
+                                                                
 
                                                                     
                                                                 </div>
@@ -519,11 +543,14 @@
                                                     </div>
 
 
-
+<input type="hidden" name="foto_ijaza2" value="<?php echo $tampil->foto_ijazah; ?>">
+                                                                    <input type="hidden" name="foto_kesehatan2" value="<?php echo $tampil->foto_kesehatan; ?>">
+                                                                    <input type="hidden" name="foto2" value="<?php echo $tampil->foto_diri; ?>">
+                                                                <input type="hidden" name="foto_bukti_pembayaran2" value="<?php echo $tampil->foto_bukti_pembayaran; ?>">
 
 <div class="form-group">  
   <div class="col-md-12">
-        <div class="col-md-11">
+        <div class="col-md-10">
         </div>
         <div class="col-ms-2">
             
