@@ -24,6 +24,7 @@
      <h2 class="header-title">Tambah Mahasiswa</h2>
      <form method="post" enctype="multipart/form-data" action="<?php echo site_url('backend/mahasiswa/proses_tambah_mahasiswa'); ?>" class="form-horizontal">
 
+
          <div class="form-group">
             <label class="col-md-2 control-label">Tahun Ajaran</label>
             <div class="col-md-10">

@@ -37,4 +37,37 @@ class Akademik extends Manajemen_only
 			redirect('backend/akademik/index');
 		}
 	}
+	public function hapus_akademik(){
+	$id_pmb = $this->input->post('id_pmb');
+
+		$response = array();
+		if($id_pmb) {
+			$delete = $this->m_akademik->m_hapus_akademik($id_pmb);
+			if($delete == true) {
+				$response['success'] = true;
+				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data PMB</span></div>
+');	
+			}
+			else {
+				$response['success'] = false;
+				$response['messages'] = "Gagal";
+			}
+		}
+		else {
+			$response['success'] = false;
+			redirect('backend/keuangan');
+		}
+
+		echo json_encode($response);
+	}
+
+	public function fetchAkademikDataById($id) 
+	{
+		if($id) {
+			$data = $this->m_akademik->getAkademikData($id);
+			echo json_encode($data);
+		}
+
+		return false;
+	}
 }

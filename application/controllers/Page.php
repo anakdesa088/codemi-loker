@@ -20,12 +20,11 @@ class Page extends CI_Controller{
 			return redirect('backend/dashboard');							
 		}
 	}
+	
 
 	public function index()
 	{
-		$php = "apasj.php";
-		$cek = strrchr($php,".php");
-		echo $cek;
+		
 		
 		
 	}
@@ -205,3 +204,4 @@ function pmb_view($id){
 	$data['tampil'] = $this->m_page->m_pmb_view($id);
 	$this->load->view('frontend/pmb_view',$data);
 }
+
