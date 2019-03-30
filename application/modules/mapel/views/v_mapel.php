@@ -4,6 +4,7 @@
                             <li>
                                 <a href="#">Akademik</a>
                             </li>
+                            
                             <li class="active">
                                 Mata Pelajaran
                             </li>
@@ -54,7 +55,7 @@
                                                     <?php $id = $r->id_mapel; ?>
                                                     
                                                     <td align="center">
-                                                        <a href="<?php echo site_url('backend/mapel/edit_mapel/'.$r->id_mapel); ?>" class="btn btn-warning">Edit</a>
+                                                        <a href="<?php echo site_url('mapel/edit_mapel/'.$r->id_mapel); ?>" class="btn btn-warning">Edit</a>
                                                         <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
 
                                                     </td>
@@ -75,7 +76,7 @@
         <h4 class="modal-title">Hapus Data Dosen</h4>
       </div>
 
-      <form role="form" action="<?php echo site_url('backend/mapel/hapus_mapel') ?>" method="post" id="removeForm">
+      <form role="form" action="<?php echo site_url('mapel/hapus_mapel') ?>" method="post" id="removeForm">
         <div class="modal-body">
             
             

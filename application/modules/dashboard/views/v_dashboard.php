@@ -20,17 +20,17 @@
                                        <div class="tiles-style1 white-box">
                                            <div class="tiles-icon text-primary"> <i class="icon-basket-loaded"></i>  </div>
                                            <div class="tiles-text text-right">
-                                               <h4>Total Visits</h4>
+                                               <h4>Jumlah PMB</h4>
                                                <span>259</span>
                                            </div>
-               a                        </div>
+                                     </div>
                                    </div><!-- /.col-md-3-->
                                    
                                   <div class="col-md-3 col-sm-6">
                                         <div class="tiles-style1 white-box">
                                            <div class="tiles-icon text-success"> <i class="icon-speech"></i>  </div>
                                            <div class="tiles-text text-right">
-                                               <h4>New Comments</h4>
+                                               <h4>Mahasiswa</h4>
                                                <span>259</span>
                                            </div>
                                        </div>
@@ -40,7 +40,7 @@
                                        <div class="tiles-style1 white-box">
                                             <div class="tiles-icon  text-warning "> <i class="icon-user"></i>  </div>
                                            <div class="tiles-text text-right">
-                                               <h4>New Clients</h4>
+                                               <h4>Dosen</h4>
                                                <span>60</span>
                                            </div>
                                        </div>
@@ -50,8 +50,8 @@
                                         <div class="tiles-style1 white-box">
                                             <div class="tiles-icon text-danger"> <i class="icon-rocket"></i>  </div>
                                            <div class="tiles-text text-right">
-                                               <h4>New Projects</h4>
-                                               <span>82</span>
+                                               <h4>Kelas</h4>
+                                               <span>32</span>
                                            </div>
                                        </div>
                                    </div><!-- /.col-md-3-->

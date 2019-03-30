@@ -5,7 +5,7 @@
 	<ol class="breadcrumb">
 		<li> <a href="index.html">Mata Pelajaran</a> </li>
 		
-		<li class="active">Edit Mata Pelajaran</li>
+		<li class="active">Tambah Mata Pelajaran</li>
 	</ol>
 	<div class="clearfix"></div>
 </div>
@@ -15,26 +15,26 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="white-box">
-			<h2 class="header-title">Edit Mata Pelajaran</h2>
-			<form method="post"  action="<?php echo site_url('mapel/proses_edit_mapel/'.$tampil->id_mapel); ?>"  class="form-horizontal">
+			<h2 class="header-title">Tambah Mata Pelajaran</h2>
+			<form method="post"  action="<?php echo site_url('mapel/proses_tambah_mapel'); ?>"  class="form-horizontal">
 				<div class="form-group">
 					<label class="col-md-2 control-label">Nama</label>
 					<div class="col-md-9">
-						<input class="form-control" value="<?php echo $tampil->nama_mapel; ?>" name="nama_mapel" type="text">
+						<input class="form-control" placeholder="Nama Mata Pelajran" name="nama_mapel" type="text">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-md-2 control-label">Kode </label>
 					<div class="col-md-9">
-						<input class="form-control" value="<?php echo $tampil->kode_mapel; ?>" name="kode_mapel" placeholder="Kode Mata Pelajran" type="text">
+						<input class="form-control" name="kode_mapel" placeholder="Kode Mata Pelajran" type="text">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-md-2 control-label">Keterangan </label>
 					<div class="col-md-9">
-						<textarea class="form-control" name="keterangan_mapel" placeholder="Keterangan Mata Pelajaran" rows="5"><?php echo $tampil->keterangan_mapel; ?></textarea>
+						<textarea class="form-control" name="keterangan_mapel" placeholder="Keterangan Mata Pelajaran" rows="5"></textarea>
 					</div>
 				</div>
 				<div class="form-group">  
