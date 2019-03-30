@@ -1,7 +1,7 @@
 <?php
 class Manajemen_only extends MY_Controller
 {
-    protected $auth_url = 'backend/auth';
+    protected $auth_url = 'auth';
     protected $auth_session_identity = 'manajemen';
     public function __construct()
     {

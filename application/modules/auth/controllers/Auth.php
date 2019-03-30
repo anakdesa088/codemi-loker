@@ -6,10 +6,14 @@ class Auth extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_auth'); 
+		$this->load->model('auth/m_auth'); 
 
 
 		$this->load->library('akper/auth_akper');
+		
+
+		// Jika manajemen buka fitu ini maka redirect ke dashboard
+		
 		// $this->auth_akper->setBaseTable('pmb');
 		// Session yang dibuat setelah 'auth' berhasil,
 		// Formatnya: 
@@ -26,7 +30,10 @@ class Auth extends MY_Controller
 
 	}
 	public function index(){
-		$this->load->view('frontend/auth/v_user_login');
+		$this->load->view('auth/v_user_login');
+	}
+	public function pmb(){
+		$this->load->view('auth/v_login');
 	}
 	public function get_pw($raw_password)
 	{
@@ -52,7 +59,7 @@ class Auth extends MY_Controller
 		$login = $this->auth_akper->login($data);
 		if ($login) 
 		{
-			return redirect('backend/dashboard/index');
+			return redirect('dashboard/index');
 			
 		} else
 		{
@@ -61,7 +68,7 @@ class Auth extends MY_Controller
 	                         Maaf Email atau Password anda Salah !
 	                       </div>
 					');
-				redirect('auth/login');			
+				redirect('auth');			
 		}
 			// $email = $this->input->post('email', true);
 			// $spassword = $this->input->post('password', true);
@@ -81,13 +88,13 @@ class Auth extends MY_Controller
 				
 			// 	$this->session->set_userdata($data);
 			// 	if ($yanglogin->level == 'superadmin') {
-			// 		redirect('backend/dashboard/index');
+			// 		redirect('dashboard/index');
 			// 	}elseif ($yanglogin->level == 'akademik') {
-			// 		redirect('backend/dashboard/index');
+			// 		redirect('dashboard/index');
 
 
 			// 	}elseif ($yanglogin->level == 'keuangan') {
-			// 		redirect('backend/dashboard/index');
+			// 		redirect('dashboard/index');
 			// }else{
 			// 	$this->session->set_flashdata('gagal','
 			// 		<div class="alert alert-danger" role="alert">
@@ -104,8 +111,18 @@ class Auth extends MY_Controller
 
 	}
 	public function c_keluar(){
-				$this->session->sess_destroy();
-				redirect('backend/auth');
+		if($this->auth_akper->is_login('manajemen'))
+		{
+			$this->session->sess_destroy();
+
+			redirect('auth');
+			
+		}else{
+			$this->session->sess_destroy();
+
+			redirect('auth/pmbc_proses_login_admin');
+		}
+				
 	}
 
 }

@@ -11,11 +11,20 @@
                     # code...
                   ?>
                         <?php $uri_akademik = $this->uri->segment(1) ?>
-                          <li class="<?php if($uri_akademik == 'akademik' || 'kelas'){ ?> active <?php } ?>">
+                          
+                          
+                          <li class="<?php  if($uri_akademik == 'akademik'){ ?>active<?php } ?>">
+                          <?php $uri_kelas = $this->uri->segment(1); ?>  
+                            <li class="<?php  if($uri_kelas == 'kelas'){ ?>active<?php } ?>">
+                          <?php $uri_mapel = $this->uri->segment(1); ?>      
+                        <li class="<?php  if($uri_mapel == 'mapel'){ ?>active<?php } ?>">
+
+                        <?php $uri_mahasiswa = $this->uri->segment(1); ?>
+                        <li class="<?php  if($uri_mahasiswa == 'mahasiswa'){ ?>active<?php } ?>">
 
                          <a href="javascript:void(0)"><i class="ti-new-window"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
-                                <li><a href="<?php echo site_url('akademik/index'); ?>">PMB</a></li>
+                                <li><a href="<?php echo site_url('akademik'); ?>">PMB</a></li>
 
                                 <li><a href="<?php echo site_url('kelas');  ?>">DATA KELAS</a></li>
                                 <li><a href="<?php echo site_url('mahasiswa'); ?>">DATA MAHASISWA</a></li>
@@ -34,7 +43,7 @@
                             <li class="<?php if($uri_keuangan == 'keuangan'){ ?>active<?php } ?>">
                                 <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
-                                <li><a href="<?php echo site_url('keuangan/index'); ?>">PMB</a></li>
+                                <li><a href="<?php echo site_url('keuangan'); ?>">PMB</a></li>
                                 <li><a href="APA.HTML">JENIS BIAYA</a></li>
                                 <li><a href="APA.HTML">PEMBAYARAN MAHASISWA</a></li>
                                 <li><a href="APA.HTML">GAJI DOSEN</a></li>

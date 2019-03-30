@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mapel extends MY_Controller {
+class Mapel extends Manajemen_only {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('mapel/m_mapel');

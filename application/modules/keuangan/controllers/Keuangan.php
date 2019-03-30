@@ -6,8 +6,8 @@ class Keuangan extends Manajemen_only
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_keuangan'); 
-		$this->load->model('m_pmb'); 
+		$this->load->model('keuangan/m_keuangan'); 
+		$this->load->model('pmb/m_pmb'); 
 	}
 	public function index()
 	{
@@ -36,7 +36,7 @@ class Keuangan extends Manajemen_only
 		$data['tampil'] = $this->m_keuangan->m_detail($id);
 		$this->template->render('keuangan/v_detail_pmb_2',$data);
 	}else{
-		redirect('backend/keuangan');
+		redirect('keuangan');
 	}
 
 	}
@@ -49,7 +49,7 @@ class Keuangan extends Manajemen_only
 		{
 			$this->m_pmb->is_get_no_ujian($id);
 			// die(var_dump());
-			return redirect('backend/keuangan/index');
+			return redirect('keuangan/index');
 		}
 	}
 	public function c_status_invalid($id)
@@ -60,7 +60,7 @@ class Keuangan extends Manajemen_only
 		$array = array('validasi_pembayaran'=>"0");
 		$data = $this->m_keuangan->m_status_invalid($id,$array);
 		if ($data > 0) {
-			redirect('backend/keuangan/index');
+			redirect('keuangan/index');
 		}
 	}
 	public function hapus_keuangan(){
@@ -81,7 +81,7 @@ class Keuangan extends Manajemen_only
 		}
 		else {
 			$response['success'] = false;
-			redirect('backend/keuangan');
+			redirect('keuangan');
 		}
 
 		echo json_encode($response);

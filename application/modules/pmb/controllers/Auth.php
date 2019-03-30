@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller 
+class Auth extends MY_Controller 
 {
 	public function __construct()
 	{
@@ -41,10 +41,13 @@ class Auth extends CI_Controller
 			'is_pmb'		=> true
 		]);
 	}
+	public function index(){
+		return $this->load->view('auth/v_login');
+	}
 	
 	public function daftar()
 	{	
-		return $this->load->view('frontend/auth/v_daftar');
+		return $this->load->view('auth/v_daftar');
 	}
 
 	public function c_proses_daftar()
@@ -88,7 +91,7 @@ class Auth extends CI_Controller
 	}
 	public function login()
 	{
-		return $this->load->view('frontend/auth/v_login');
+		return $this->load->view('auth/v_login');
 	}
 	public function c_proses_login()
 	{
@@ -104,7 +107,7 @@ class Auth extends CI_Controller
 				return redirect('page/pmb');
 			} elseif ($this->session->level == 'pmb_lamah') 
 			{
-				return redirect('backend/mahasiswa/index/'.$this->session->id_pmb);
+				return redirect('mahasiswa/index/'.$this->session->id_pmb);
 			}
 		} else 
 		{

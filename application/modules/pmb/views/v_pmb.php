@@ -93,7 +93,7 @@
             <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
             <li><a href="#"><i class="fa fa-info"></i>  Help</a></li>
             <li class="divider"></li>
-            <li><a href="<?php echo site_url('backend/auth/c_keluar'); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
+            <li><a href="<?php echo site_url('auth/c_keluar'); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
           </ul>
         </li>                       
       </ul>

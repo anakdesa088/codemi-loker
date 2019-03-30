@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dosen extends MY_Controller {
+class Dosen extends Manajemen_only {
 
 	public function __construct(){
 		parent::__construct();
@@ -14,7 +14,7 @@ class Dosen extends MY_Controller {
 		$this->template->render('dosen/v_dosen',$data);
 	}
 	public function tambah_dosen(){
-		$this->template->render('dosen/v_tambah_dosen');
+		$this->template->render('dosen/v_tambah_desen');
 	}
 	public function proses_tambah_dosen(){
 		$nama_lengkap		= $this->input->post('nama_lengkap');

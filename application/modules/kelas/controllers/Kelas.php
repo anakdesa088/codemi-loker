@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kelas extends MY_Controller {
+class Kelas extends Manajemen_only {
 
 	function __construct(){
 		parent::__construct();

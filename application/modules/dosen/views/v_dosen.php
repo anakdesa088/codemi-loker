@@ -1,14 +1,12 @@
 <div class="page-title-box">
-                        <h4 class="page-title">Data Table</h4>
+                        <h4 class="page-title">Data Dosen</h4>
                         <ol class="breadcrumb">
                             <li>
-                                <a href="#">Dashboard</a>
+                                <a href="#">Akademik</a>
                             </li>
-                            <li>
-                                <a href="#">Table</a>
-                            </li>
+                            
                             <li class="active">
-                                Data Table
+                                Data Dosen
                             </li>
                         </ol>
                         <div class="clearfix"></div>

@@ -1,43 +1,41 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pmb extends CI_Controller{
+class Page extends CI_Controller{
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('pmb/m_page');
+		$this->load->model('m_page');
 		$this->load->model('m_tahun_ajaran');
 		$this->load->library('akper/auth_akper');
 		if (!$this->auth_akper->is_login('udahlogin')) 
 		{
-			return redirect('auth');			
+			return redirect('auth/login');			
 		}
 
-		// Jika manajemen buka fitu ini maka redirect ke dashboard
+		// Jika manajemen buka fitu ini maka redirect ke backend/dashboard
 		if($this->auth_akper->is_login('manajemen'))
 		{
-			return redirect('dashboard');							
+			return redirect('backend/dashboard');							
 		}
 	}
 	
 
 	public function index(){
-	$id 			= $this->session->userdata('id_pmb');
-		$data['tampil'] = $this->m_page->m_get_id($id);
-		$data['ta'] 	= $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
-		$this->load->view('pmb/v_pmb',$data);
+	// ssl://smtp.googlemail.com
+		return redirect('page/pmb');
 	}
 	public function form(){
 		$this->load->view('frontend/pmb/v_pmb');
 	}
 
-	public function c_pmb()
+	public function pmb()
 	{
 		$id 			= $this->session->userdata('id_pmb');
 		$data['tampil'] = $this->m_page->m_get_id($id);
 		$data['ta'] 	= $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
-		$this->load->view('pmb/v_pmb',$data);
+		$this->load->view('frontend/pmb/v_pmb',$data);
 	}
 	public function c_proses_pmb()
 	{
@@ -50,7 +48,7 @@ class Pmb extends CI_Controller{
 		if (empty($foto_bukti_pembayaran) || empty($foto) || empty($foto_ijaza) || empty($foto_kesehatan)) {
 			
 			$this->session->set_flashdata('foto','<div class="alert alert-danger">Mohon Diisi semua foto</div>');
-					redirect('pmb/c_pmb/'.$id);
+					redirect('page/pmb/'.$id);
 
 
 		/*	$array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah); 
@@ -59,7 +57,7 @@ class Pmb extends CI_Controller{
 			$daftar = $this->m_page->m_proses_pmb($id,$array);
 			if ($daftar > 0) {
 				$this->session->set_flashdata('sukses','<div class="alert alert-success">Berhasil Upload Data !</div>');
-				redirect('pmb/pmb/'.$id);
+				redirect('page/pmb/'.$id);
 			}else{
 				echo "salah";
 			}
@@ -172,7 +170,7 @@ class Pmb extends CI_Controller{
 			$cek_foto_bukti_pembayaran = strrchr($foto_bukti_pembayaran4,".php");
 			if ($cek_foto_ijaza AND $cek_foto_bukti_pembayaran AND $cek_foto_kesehatan AND $cek_foto_foto  == ".php") {
 				$this->session->set_flashdata('file_gagal','<div class="alert alert-danger">Foto Gagal Upload !</div>');
-				redirect('pmb/'.$id);
+				redirect('page/pmb/'.$id);
 				
 			}else{
 				
@@ -192,7 +190,7 @@ class Pmb extends CI_Controller{
 				
 				if ($daftar > 0) {
 					$this->session->set_flashdata('sukses','<div class="alert alert-success">Berhasil Upload Data !</div>');
-					redirect('pmb/'.$id);
+					redirect('page/pmb/'.$id);
 				}else{
 					echo "salah";
 				}				
