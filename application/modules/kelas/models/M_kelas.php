@@ -33,7 +33,7 @@ class M_kelas extends CI_Model {
 			return false;
 		}
 	}
-		public function m_hapus_kelas($id){
+	public function m_hapus_kelas($id){
 		
 			$this->db->where('id_kelas', $id);
 			$delete = $this->db->delete('kelas');

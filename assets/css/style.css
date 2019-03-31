@@ -4,7 +4,12 @@
 	color: white;
 	/*padding-top: 13px;*/
 }
-
+.metismenu li:hover{
+	background-color: #f1eeee;
+}
+.nav-sub li{
+	background-color: red;
+}
 .hajau_akper{
 	background-color: #88cb2c;
 }

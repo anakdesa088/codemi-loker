@@ -2,32 +2,20 @@
                 <div class="sidebar-main">
                     <nav class="sidebar-nav">
                         <ul class="metismenu" id="side-menu">
-                            <?php  $uri_dashboard = $this->uri->segment(1); ?>
-                            <li class="<?php if($uri_dashboard == 'dashboard'){ ?> active <?php } ?>">
+                        
+                            <li class="">
                               <a href="<?php echo site_url('dashboard'); ?>"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
                                 
                             </li>
-                        <?php if ($this->session->userdata('level') !=='keuangan') {
-                    # code...
-                  ?>
-                        <?php $uri_akademik = $this->uri->segment(1) ?>
-                          
-                          
-                          <li class="<?php  if($uri_akademik == 'akademik'){ ?>active<?php } ?>">
-                          <?php $uri_kelas = $this->uri->segment(1); ?>  
-                            <li class="<?php  if($uri_kelas == 'kelas'){ ?>active<?php } ?>">
-                          <?php $uri_mapel = $this->uri->segment(1); ?>      
-                        <li class="<?php  if($uri_mapel == 'mapel'){ ?>active<?php } ?>">
 
-                        <?php $uri_mahasiswa = $this->uri->segment(1); ?>
-                        <li class="<?php  if($uri_mahasiswa == 'mahasiswa'){ ?>active<?php } ?>">
 
-                         <a href="javascript:void(0)"><i class="ti-new-window"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
+                            <li >
+                                <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('akademik'); ?>">PMB</a></li>
 
                                 <li><a href="<?php echo site_url('kelas');  ?>">DATA KELAS</a></li>
-                                <li><a href="<?php echo site_url('mahasiswa'); ?>">DATA MAHASISWA</a></li>
+                                <li class="active"><a href="<?php echo site_url('mahasiswa'); ?>">DATA MAHASISWA</a></li>
                                 <li><a href="<?php echo site_url('dosen'); ?>">DATA DOSEN</a></li>
                                 <li><a href="<?php echo site_url('mapel'); ?>">DATA MATA KULIAH</a></li>
                                 <li><a href="apa.html">CETAK KRS</a></li>
@@ -36,11 +24,9 @@
                                 </ul>
                             </li>
 
-                <?php } if ($this->session->userdata('level') !=='akademik') {
-                    # code...
-                  ?>
-                  <?php $uri_keuangan = $this->uri->segment(1) ?>
-                            <li class="<?php if($uri_keuangan == 'keuangan'){ ?>active<?php } ?>">
+                
+                
+                            <li >
                                 <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('keuangan'); ?>">PMB</a></li>
@@ -50,7 +36,7 @@
                                 
                                 </ul>
                             </li>
-                        <?php } ?>
+                        
 
 
                         <li>

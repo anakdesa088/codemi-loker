@@ -120,7 +120,7 @@ function removeFunc(id_kelas)
 
       var form = $(this);
 
-      // remove the text-danger
+      
 
 
       $.ajax({
@@ -136,7 +136,7 @@ function removeFunc(id_kelas)
             response.messages
             
 
-            // hide the modal
+      
             $("#removeModal").modal('hide');
             
 
