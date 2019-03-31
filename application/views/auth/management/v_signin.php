@@ -61,7 +61,7 @@
                         
                         <h2 class="header-title font-22 text-center m-b-35">Halaman Login Management</h2>
                         <?php echo $this->session->flashdata('gagal'); ?>
-                       <form method="post" action="<?php echo site_url('auth/c_proses_login_admin'); ?>">
+                       <form method="post" action="<?php echo site_url('signin/c_proses_login_admin'); ?>">
                            <div class="form-group">
                                <input type="text" class="form-control" name="username"  placeholder="Username" >
                            </div>
