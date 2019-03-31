@@ -93,7 +93,7 @@
             <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
             <li><a href="#"><i class="fa fa-info"></i>  Help</a></li>
             <li class="divider"></li>
-            <li><a href="<?php echo site_url('auth/c_keluar'); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
+            <li><a href="<?php echo site_url('signin/keluar_pmb'); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
           </ul>
         </li>                       
       </ul>
@@ -144,7 +144,7 @@
      <h2 class="header-title"></h2>
      <h2 class="header-title"></h2>
      <?php $id_pmb = $tampil->id_pmb;   ?>
-     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('pmb/c_proses_pmb/'.$id_pmb); ?>" class="form-horizontal">
+     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('page/c_proses_pmb/'.$id_pmb); ?>" class="form-horizontal">
 
 
          

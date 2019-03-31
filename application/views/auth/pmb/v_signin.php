@@ -62,9 +62,11 @@
                         <h2 class="header-title font-22 text-center m-b-35">Halaman Login PMB</h2>
                         <?php echo $this->session->flashdata('gagal'); ?>
                         <?php echo $this->session->flashdata('message'); ?>
+                        <?php echo $this->session->flashdata('berhasil'); ?>
                         
                         
-                       <form method="post" action="<?php echo site_url('auth/c_proses_login'); ?>">
+                        
+                       <form method="post" action="<?php echo site_url('signin/c_proses_login'); ?>">
                            <div class="form-group">
                                <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>
@@ -93,7 +95,7 @@
                            
                            
                            <div class="form-group text-center m-t-30 m-b-0 uppercase">
-                           Belum punya akun ?  <a href="<?php echo site_url('auth/daftar'); ?>" class="btn btn-primary" >Daftar </a>
+                           Belum punya akun ?  <a href="<?php echo site_url('signin/daftar'); ?>" class="btn btn-primary" >Daftar </a>
                            </div>
                            
                        </form>

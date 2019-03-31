@@ -59,12 +59,12 @@
                          <img src="<?php echo base_url('assets/images/logo_akper.png') ?>" width="75">
                        </div>
                         
-                        <h2 class="header-title font-22 text-center m-b-35">HALAMAN LOGIN MAHASISWA</h2>
-                        <?php echo $this->session->flashdata('gagal'); ?>
-                        <?php echo $this->session->flashdata('message'); ?>
+                        <h2 class="header-title font-22 text-center m-b-35">HALAMAN DAFTAR PMB</h2>
+                        <?php echo $this->session->flashdata('email_sudah_ada'); ?>
+                        <?php echo $this->session->flashdata('berhasil'); ?>
                         
                         
-                       <form method="post" action="<?php echo site_url('auth/c_proses_login'); ?>">
+                       <form method="post" action="<?php echo site_url('signin/c_proses_daftar'); ?>">
                            <div class="form-group">
                                <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>
@@ -72,7 +72,7 @@
                         
                           
                            <div class="form-group">
-                               <button type="submit"  class="btn btn-lg btn-primary btn-block" >  <i class="icon-lock "></i>   Login</button>
+                               <button type="submit"  class="btn btn-lg btn-primary btn-block" >  <i class="icon-lock "></i>   Daftar</button>
                            </div>
                            
                            
