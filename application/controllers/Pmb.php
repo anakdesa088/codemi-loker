@@ -29,7 +29,7 @@ class Pmb extends CI_Controller{
 
   public function index(){
   // ssl://smtp.googlemail.com
-    if ($this->session->level == 'pmb_lamah' ) {
+    if ($this->session->level == 'pmb_baru' ) {
    
        $id       = $this->session->userdata('id_pmb');
     $data['tampil'] = $this->m_page->m_get_id($id);
