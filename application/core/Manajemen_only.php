@@ -12,4 +12,9 @@ class Manajemen_only extends MY_Controller
         	return redirect($this->auth_url);
         }
     }
+    public function diag($data)
+    {
+        echo "<pre>";
+        die(var_dump($data));
+    }
 }

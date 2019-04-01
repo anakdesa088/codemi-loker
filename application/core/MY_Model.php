@@ -18,12 +18,26 @@ class MY_Model extends CI_Model
                     ->get();
         return $query->row();
     }
-    public function insert($formattedData)
+    public function insert_data($formattedData)
     {
         $this->db->trans_start();
         $this->db->insert($this->table,$formattedData);
         $this->db->trans_complete();
         return $this->db->trans_status();
+    }
+    public function update_data($formattedData,$id)
+    {
+        $this->db->trans_start();
+        $this->db->update($this->table,$formattedData,[$this->primaryKey => $id]);
+        $this->db->trans_complete();
+        return $this->db->trans_status();        
+    }
+    public function delete_data($id)
+    {
+        $this->db->trans_start();
+        $this->db->delete($this->table,[$this->primaryKey => $id]);
+        $this->db->trans_complete();
+        return $this->db->trans_status();        
     }
 
 

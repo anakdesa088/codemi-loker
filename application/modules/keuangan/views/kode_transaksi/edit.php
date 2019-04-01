@@ -11,7 +11,7 @@
             <a href="<?php echo site_url('keuangan/kode_transaksi')?>">Kode Transaksi</a>
         </li>
         <li class="active">
-            Tambah Data
+            Edit Data
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -23,20 +23,20 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Tambah Kode Transaksi</h2>
-     <form method="post" action="<?php echo site_url('keuangan/kode_transaksi/simpan'); ?>" class="form-horizontal">
+     <h2 class="header-title">Edit Kode Transaksi</h2>
+     <form method="post" action="<?php echo site_url('keuangan/kode_transaksi/update/'.$entity->id_kode_transaksi); ?>" class="form-horizontal">
     
          <div class="form-group">
             <label class="col-md-2 control-label">Kode Transaksi</label>
             <div class="col-md-10">
-                <input class="form-control" name="kode"  type="text" required>
+                <input class="form-control" name="kode" value="<?php echo $entity->kode_transaksi;?>" type="text" disabled>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-2 control-label">Nama Transaksi</label>
             <div class="col-md-10">
-                <input class="form-control" name="nama"  type="text" required>
+                <input class="form-control" name="nama" value="<?php echo $entity->nama_transaksi;?>" type="text" required>
             </div>
         </div>
 
@@ -44,11 +44,11 @@
             <label class="col-md-2 control-label">Tujuan Transaksi</label>
             <div class="col-md-10">
                 <div class="radio">
-                    <input type="radio" name="tujuan" value="mhs" id="radio-1">
+                    <input type="radio" name="tujuan" value="mhs" id="radio-1" <?php echo ($entity->tujuan_transaksi === 'mhs')?'checked':''?>>
                     <label for="radio-1">Mahasiswa</label>
                 </div>
                 <div class="radio">
-                    <input type="radio" name="tujuan" value="dosen" id="radio-2">
+                    <input type="radio" name="tujuan" value="dosen" id="radio-2" <?php echo ($entity->tujuan_transaksi === 'dosen')?'checked':''?>>
                     <label for="radio-2">Dosen</label>
                 </div>
             </div>
@@ -57,13 +57,13 @@
         <div class="form-group">
             <label class="col-md-2 control-label">Jumlah</label>
             <div class="col-md-10">
-                <input class="form-control" name="jumlah"  type="text" required>
+                <input class="form-control" name="jumlah"  type="text" value="<?php echo $entity->jumlah_transaksi;?>" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-2 control-label">Deskripsi</label>
             <div class="col-md-10">
-                <textarea class="form-control" name="deskripsi" rows="5"></textarea>
+                <textarea class="form-control" name="deskripsi" rows="5"><?php echo $entity->deskripsi_transaksi;?></textarea>
             </div>
         </div>
         <div class="form-group">  

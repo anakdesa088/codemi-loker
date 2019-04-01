@@ -25,7 +25,8 @@ class Auth extends MY_Controller
 		]);
 
 	}
-	public function index(){
+	public function index()
+	{
 		$this->load->view('frontend/auth/v_user_login');
 	}
 	public function get_pw($raw_password)

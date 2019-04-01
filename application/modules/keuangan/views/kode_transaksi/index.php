@@ -51,8 +51,8 @@
                                                         <td><?php echo $r->deskripsi_transaksi; ?></td>
                                                         <?php $id = $r->id_kode_transaksi; ?>
                                                         <td align="center">
-                                                            <a href="<?php echo site_url('keuangan/kode_transaksi/edit_kode_transaksi/'.$r->id_kode_transaksi); ?>" class="btn btn-warning">Edit</a>
-                                                            <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+                                                            <a href="<?php echo site_url('keuangan/kode_transaksi/edit/'.$r->id_kode_transaksi); ?>" class="btn btn-warning">Edit</a>
+                                                            <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $r->id_kode_transaksi; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
                                                         </td>
                                                     </tr>
                                                     <?php endforeach; ?>
@@ -71,9 +71,9 @@
         <h4 class="modal-title">Hapus Data Kode Transaksi</h4>
       </div>
 
-      <form role="form" action="<?php echo site_url('keuangan/kode_transaksi/hapus_kode_transaksi') ?>" method="post" id="removeForm">
+      <form role="form" action="<?php echo site_url('keuangan/kode_transaksi/hapus') ?>" method="post" id="removeForm">
         <div class="modal-body">
-            <p>Apakah anda yakin ingin menghapus <b id="nama_hapus"></b>? </p>
+            <p>Apakah anda yakin ingin menghapus kode transaksi: <b id="nama_hapus"></b>? </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -88,60 +88,42 @@
 var example;
 
 function removeFunc(id_kode_transaksi)
-
-
 {
-
-
-
-    
   if(id_kode_transaksi) {
-
-
   $.ajax({
-    url: 'kode_transaksi/fetchKodeTransaksiDataById/'+id_kode_transaksi,
+    url: 'kode_transaksi/api/fetch_data_by_id/'+id_kode_transaksi,
     type: 'post',
     dataType: 'json',
     success:function(response) {
-
-      $("#nama_hapus").html(response.nama_lengkap
-            );
-      
-    $("#removeForm").on('submit', function() {
-
-
+      $("#nama_hapus").html(response.kode_transaksi);
+      $("#removeForm").on('submit', function() 
+      {
       var form = $(this);
-
       // remove the text-danger
-
-
       $.ajax({
         url: form.attr('action'),
         type: form.attr('method'),
         data: { id:id_kode_transaksi}, 
         dataType: 'json',
         success:function(response) {
-
-          location.reload();
-
-          if(response.success === true) {
-            response.messages
-            
-
+          if(response.success === true) 
+          {
+            // response.messages
             // hide the modal
             $("#removeModal").modal('hide');
-            
-
-          } else {
-
+            $("#messages").html(response.message);
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          } else 
+          {
             $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+              '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.message+
             '</div>'); 
           }
         }
-      }); 
-
+      });
       return false;
     });
 
