@@ -18,20 +18,30 @@
                                
                                    <div class="col-md-3 col-sm-6">
                                        <div class="tiles-style1 white-box">
-                                           <div class="tiles-icon text-primary"> <i class="icon-basket-loaded"></i>  </div>
+                                           <div class="tiles-icon text-primary"> <i class="fa fa-users"></i>  </div>
                                            <div class="tiles-text text-right">
-                                               <h4>Jumlah PMB</h4>
-                                               <span>259</span>
+                                            <?php 
+                                            $query = $this->db->query('SELECT * FROM pmb');
+
+                                             $pmb = $query->num_rows();
+                                            ?>
+                                               <h4>PMB</h4>
+                                               <span><?php echo $pmb; ?></span>
                                            </div>
                                      </div>
                                    </div><!-- /.col-md-3-->
                                    
                                   <div class="col-md-3 col-sm-6">
                                         <div class="tiles-style1 white-box">
-                                           <div class="tiles-icon text-success"> <i class="icon-speech"></i>  </div>
+                                           <div class="tiles-icon text-success"> <i class="fa fa-graduation-cap"></i>  </div>
                                            <div class="tiles-text text-right">
+                                               <?php 
+                                            $query = $this->db->query('SELECT * FROM mahasiswa');
+
+                                             $mahasiswa = $query->num_rows();
+                                            ?>
                                                <h4>Mahasiswa</h4>
-                                               <span>259</span>
+                                               <span><?php echo $mahasiswa; ?></span>
                                            </div>
                                        </div>
                                    </div><!-- /.col-md-3-->
@@ -40,18 +50,28 @@
                                        <div class="tiles-style1 white-box">
                                             <div class="tiles-icon  text-warning "> <i class="icon-user"></i>  </div>
                                            <div class="tiles-text text-right">
+                                            <?php 
+                                            $query = $this->db->query('SELECT * FROM dosen');
+
+                                             $dosen = $query->num_rows();
+                                            ?>
                                                <h4>Dosen</h4>
-                                               <span>60</span>
+                                               <span><?php echo $dosen; ?></span>
                                            </div>
                                        </div>
                                    </div><!-- /.col-md-3-->
 
                                   <div class="col-md-3 col-sm-6">
                                         <div class="tiles-style1 white-box">
-                                            <div class="tiles-icon text-danger"> <i class="icon-rocket"></i>  </div>
+                                            <div class="tiles-icon text-danger"> <i class="fa fa-list"></i>  </div>
                                            <div class="tiles-text text-right">
+                                            <?php 
+                                            $query = $this->db->query('SELECT * FROM kelas');
+
+                                             $kelas = $query->num_rows();
+                                            ?>
                                                <h4>Kelas</h4>
-                                               <span>32</span>
+                                               <span><?php echo $kelas; ?></span>
                                            </div>
                                        </div>
                                    </div><!-- /.col-md-3-->

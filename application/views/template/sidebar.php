@@ -10,7 +10,7 @@
 
 
                             <li >
-                                <a href="javascript:void(0)"><i class="fa fa-building"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
+                                <a href="javascript:void(0)"><i class="fa fa-university"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('akademik'); ?>">PMB</a></li>
 

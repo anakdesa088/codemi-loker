@@ -6,6 +6,8 @@
       <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
       <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico') ?>" type="image/png">
       <link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/gallery/css/lightgallery.css') ?>">
+
 
      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/jquery-multi-select/css/multi-select.css') ?>" />
      <!--Touchspin styles-->
@@ -416,8 +418,13 @@
                                                     <td width="3">:</td>
                                                     <td><img width="200" src="<?php echo base_url('uploads/'.$tampil->foto_bukti_pembayaran); ?>"></td>
                                                   <tr>
+                         
+                   
+                       <!--End row-->
+
 
                                               </table>
+
                                             </div>
                                         </div>
                                    </div>
@@ -462,6 +469,25 @@
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/pages/datetimepicker-custom.js') ?>"></script>
+
+
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lightgallery.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lg-fullscreen.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lg-thumbnail.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lg-video.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lg-autoplay.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lg-zoom.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lg-hash.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/gallery/js/lg-pager.js') ?>"></script>
+    <script>
+    $(document).ready(function(){
+      $('#lightgallery').lightGallery();
+      $('#lightgallery1').lightGallery();
+    });
+  </script>
+    <!--END Page Level Plugin-->
+    
+
 
 <!--End row-->
 

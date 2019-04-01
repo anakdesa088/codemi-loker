@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 
 	<title>AKPER BUNTET PESANTREN</title>
-	<link rel="icon" type="image/png" href="<?php echo base_url('assets/portal/ico/favicon.ico') ?>">
+	      <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico') ?>" type="image/png">
 <link href="<?php echo base_url('assets/css/icons.css') ?>" rel="stylesheet" type="text/css">
 	<!-- Bootstrap Core CSS -->
 	<!-- Bootstrap Core CSS -->
