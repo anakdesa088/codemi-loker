@@ -1,11 +1,11 @@
  
 <!--Start Page Title-->
 <div class="page-title-box ">
-	<h4 class="page-title">Mata Pelajaran</h4>
+	<h4 class="page-title">Mahata Kuliah</h4>
 	<ol class="breadcrumb">
-		<li> <a href="index.html">Mata Pelajaran</a> </li>
+		<li> <a href="index.html">Mahata Kuliah</a> </li>
 		
-		<li class="active">Tambah Mata Pelajaran</li>
+		<li class="active">Tambah Mahata Kuliah</li>
 	</ol>
 	<div class="clearfix"></div>
 </div>
@@ -15,7 +15,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="white-box">
-			<h2 class="header-title">Tambah Mata Pelajaran</h2>
+			<h2 class="header-title">Tambah Mahata Kuliah</h2>
 			<form method="post"  action="<?php echo site_url('mapel/proses_tambah_mapel'); ?>"  class="form-horizontal">
 				<div class="form-group">
 					<label class="col-md-2 control-label">Nama</label>
@@ -34,7 +34,7 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label">Keterangan </label>
 					<div class="col-md-9">
-						<textarea class="form-control" name="keterangan_mapel" placeholder="Keterangan Mata Pelajaran" rows="5"></textarea>
+						<textarea class="form-control" name="keterangan_mapel" placeholder="Keterangan Mahata Kuliah" rows="5"></textarea>
 					</div>
 				</div>
 				<div class="form-group">  

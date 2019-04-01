@@ -1,12 +1,12 @@
 <div class="page-title-box">
-                        <h4 class="page-title">Mata Pelajaran</h4>
+                        <h4 class="page-title">Mata Kuliah</h4>
                         <ol class="breadcrumb">
                             <li>
                                 <a href="#">Akademik</a>
                             </li>
                             
                             <li class="active">
-                                Mata Pelajaran
+                                Mata Kuliah
                             </li>
                         </ol>
                         <div class="clearfix"></div>
@@ -21,8 +21,8 @@
                        <div class="row">
                            <div class="col-md-12">
                                <div class="white-box">
-                                   <h2 class="header-title">Mata Pelajaran</h2>
-                                   <a href="<?php echo site_url('mapel/tambah_mapel'); ?>" class="btn btn-primary">Tambah MaPel</a>
+                                   <h2 class="header-title">Mata Kuliah</h2>
+                                   <a href="<?php echo site_url('mapel/tambah_mapel'); ?>" class="btn btn-primary">Tambah</a>
                                    <hr>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">
@@ -63,7 +63,9 @@
                                                 
                                                 <?php } ?>
                                             </tbody>
+                                           
                                            </table>  
+
                                     </div>
                                </div>
                            </div>
@@ -73,7 +75,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Hapus Data Dosen</h4>
+        <h4 class="modal-title">Hapus Mata Kuliah</h4>
       </div>
 
       <form role="form" action="<?php echo site_url('mapel/hapus_mapel') ?>" method="post" id="removeForm">

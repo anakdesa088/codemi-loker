@@ -18,7 +18,7 @@
                                 <li class="active"><a href="<?php echo site_url('mahasiswa'); ?>">DATA MAHASISWA</a></li>
                                 <li><a href="<?php echo site_url('dosen'); ?>">DATA DOSEN</a></li>
                                 <li><a href="<?php echo site_url('mapel'); ?>">DATA MATA KULIAH</a></li>
-                                <li><a href="apa.html">CETAK KRS</a></li>
+                                <li><a href="<?php echo site_url('krs'); ?>">CETAK KRS</a></li>
                                 <li><a href="apa.html">CETAK KHS</a></li>
                                     
                                 </ul>
@@ -40,7 +40,7 @@
 
 
                         <li>
-                           <a href="javascript:void(0)"><i class="icon-location-pin"></i> <span class="menu-label">PMB</span><span class="fa arrow"></span></a>
+                           <a href="javascript:void(0)"><i class="fa fa-users"></i> <span class="menu-label">PMB</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="google-map.html"> MAHASISWA</a></li>
                                 <li><a href="vector-map.html"> INFORMASI</a></li>
@@ -51,6 +51,14 @@
                                 <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> PENGATURAN</a></li>
                                 <li><a href="vector-map.html"> INFORMASI</a></li>
+                               </ul>
+                        </li>
+
+                        <li>
+                           <a href="javascript:void(0)"><i class="fa fa-clipboard"></i> <span class="menu-label">Laporan</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-sub collapse">
+                                <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> Mahasiswa</a></li>
+                                <li><a href="vector-map.html"> PMB</a></li>
                                </ul>
                         </li>
 

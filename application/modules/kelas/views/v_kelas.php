@@ -1,64 +1,72 @@
-        
-    <!--Start Page Title-->
-               <div class="page-title-box">
-                    <h4 class="page-title">Data Kelas</h4>
-                    <ol class="breadcrumb">
-                        
-                        <li>
-                            <a href="#">Akademik</a>
-                        </li>
-                        <li class="active">
-                            Data Kelas
-                        </li>
-                    </ol>
-                    <div class="clearfix"></div>
-                 </div>
-                  <!--End Page Title-->          
-
-    
-                <div class="row">              
-                   <!-- Start  hover  Table-->
-                   
-                   
-                    <div class="col-md-8">
-                       <div class="white-box">
-                        <?php echo $this->session->flashdata('sukses'); ?>
-                        <h2 class="header-title">Kelas</h2>
-                        <a href="<?php echo site_url('kelas/tambah_kelas'); ?>" class="btn btn-primary">Tambah</a><hr>
-                         <div class="table-wrap">
-                                <table class="table table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th width="40">No</th>
-                                            <th>Nama Kelas</th>
-                                            <th>Kode Kelas</th>
-                                            <th width="170"><center>Aksi</center></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <?php 
-                                        $no = 1;
-                                        foreach ($tampil as $r) {
-                                            
-                                        
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $no++; ?></td>
-                                            <td><?php echo $r->nama_kelas; ?></td>
-                                            <td><?php echo $r->kode_kelas; ?></td>
-                                            <?php $id = $r->id_kelas; ?>
-                                            <td align="center">
-                                                <a href="<?php echo site_url('kelas/edit_kelas/'.$r->id_kelas); ?>" class="btn btn-warning">Edit</a>
-                                                <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                             </div>
-                        </div>
+<div class="page-title-box">
+                        <h4 class="page-title">Data Kelas</h4>
+                        <ol class="breadcrumb">
+                            
+                            <li>
+                                <a href="#">Akademik</a>
+                            </li>
+                            <li class="active">
+                                Data Kelas
+                            </li>
+                        </ol>
+                        <div class="clearfix"></div>
                      </div>
+
+        <?php echo $this->session->flashdata('sukses'); ?>
+          
+        
+        <div id="messages"></div>
+<!--Start row-->
+
+                       <div class="row">
+                           <div class="col-md-12">
+                               <div class="white-box">
+                                   <h2 class="header-title">Mahasiswa</h2>
+                                   <a href="<?php echo site_url('mahasiswa/tambah_mahasiswa'); ?>" class="btn btn-primary">Tambah</a>
+                                   <hr>
+                                    <div class="table-responsive">
+                                     <table id="example" class="display table">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Kelas</th>
+                                                    <th>Kode Kelas</th>
+                                                    <th>Ketetangan Kelas</th>
+                                                    
+                                                    <th><center>Aksi</center></th>
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                <?php 
+                                                $no = 1;
+                                                foreach ($tampil as $r) {
+                                                    
+                                                
+
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $no++; ?></td>
+                                                    
+                                                    <td><?php echo $r->nama_kelas; ?></td>
+                                                    <td><?php echo $r->kode_kelas; ?></td>
+                                                    <td><?php echo $r->keterangan_kelas; ?></td>
+                                                    
+                                                    <?php $id = $r->id_kelas; ?>
+                                                    <td align="center">
+                                                        <a href="<?php echo site_url('kelas/edit_kelas/'.$r->id_kelas); ?>" class="btn btn-warning">Edit</a>
+                                                        <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+
+                                                    </td>
+                                                </tr>
+                                                
+                                                <?php } ?>
+                                            </tbody>
+                                           </table>  
+                                    </div>
+                               </div>
+                           </div>
+                       </div>
                    <!-- End  hover Table-->
 
 <div class="modal fade" tabindex="-1" role="dialog" id="removeModal">
