@@ -63,6 +63,7 @@
                         <?php echo $this->session->flashdata('gagal'); ?>
                         <?php echo $this->session->flashdata('message'); ?>
                         <?php echo $this->session->flashdata('berhasil'); ?>
+                        <?php echo $this->session->flashdata('empty'); ?>
                         
                         
                         

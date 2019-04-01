@@ -46,7 +46,7 @@
 					<p class="lead ">Buntet Pesantren Cirebon</p>
 				</div>
 				<div class="col-md-4">
-					<a href="<?php echo site_url('signin/management'); ?>">
+					<a href="<?php echo site_url('auth_management'); ?>">
 					<div class="box">
 						<i class="fa fa-user icon-menu"></i>
 						<br>

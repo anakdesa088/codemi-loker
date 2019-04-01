@@ -89,7 +89,7 @@
 
           </a>
           <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-            
+            <li><a href="#"><i class="fa fa-envelope"></i>  <?php echo $tampil->email; ?></a></li>
             <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
             <li><a href="#"><i class="fa fa-info"></i>  Help</a></li>
             <li class="divider"></li>
@@ -130,7 +130,7 @@
           <h4 class="card-title" style="letter-spacing: 10px;">FORMULIR PENDAFTARAN</h4>
           <h3 class="card-title">SELEKSI PENERIMAAN MAHASISWA BARU</h3>
           <h4 class="card-title">TAHUN AKADEMIK 2019/2020</h4>
-          <h4 class="card-title">AKPER BUNTET PESANTREN CIREBON   </h4>
+          <h4 class="card-title">AKPER BUNTET PESANTREN CIREBON </h4>
         </center>
       </div></div></div></div>
 
@@ -144,7 +144,7 @@
      <h2 class="header-title"></h2>
      <h2 class="header-title"></h2>
      <?php $id_pmb = $tampil->id_pmb;   ?>
-     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('page/c_proses_pmb/'.$id_pmb); ?>" class="form-horizontal">
+     <form method="post" enctype="multipart/form-data" action="<?php echo site_url('pmb/c_proses_pmb'); ?>" class="form-horizontal">
 
 
          

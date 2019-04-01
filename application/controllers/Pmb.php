@@ -19,28 +19,42 @@ class Pmb extends CI_Controller{
     {
       return redirect('dashboard');             
     }
+    $this->load->library('akper/auth_akper');
+    $this->auth_akper->setSessionData([
+      'id_pmb'    => 'id_pmb',
+      'is_active'     => 'is_active'
+    ]);
   }
   
 
   public function index(){
   // ssl://smtp.googlemail.com
-   $id       = $this->session->userdata('id_pmb');
+    if ($this->session->level == 'pmb_lamah' ) {
+   
+       $id       = $this->session->userdata('id_pmb');
     $data['tampil'] = $this->m_page->m_get_id($id);
     $data['ta']   = $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
     $this->load->view('pmb/v_pmb',$data); 
-    
+    }else{
+      redirect('pmb/detail');
+    }
   }
+  public function pmb_view(){
+  $id = $this->session->userdata('id_pmb');
+  $data['tampil'] = $this->m_page->m_pmb_view($id);
+  $this->load->view('pmb/v_view_pmb');
+}
+public function detail(){
+  $id = $this->session->userdata('id_pmb');
+  $data['tampil'] = $this->m_page->m_pmb_view($id);
+  $this->load->view('pmb/v_view_pmb',$data);
+}
+
   public function form(){
     $this->load->view('frontend/pmb/v_pmb');
   }
 
-  public function pmb()
-  {
-    $id       = $this->session->userdata('id_pmb');
-    $data['tampil'] = $this->m_page->m_get_id($id);
-    $data['ta']   = $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
-    $this->load->view('frontend/pmb/v_pmb',$data);
-  }
+  
   public function c_proses_pmb()
   {
     $id   = $this->session->userdata('id_pmb'); 
@@ -52,7 +66,7 @@ class Pmb extends CI_Controller{
     if (empty($foto_bukti_pembayaran) || empty($foto) || empty($foto_ijaza) || empty($foto_kesehatan)) {
       
       $this->session->set_flashdata('foto','<div class="alert alert-danger">Mohon Diisi semua foto</div>');
-          redirect('page/pmb/'.$id);
+          redirect('pmb/'.$id);
 
 
     /*  $array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah); 
@@ -174,7 +188,7 @@ class Pmb extends CI_Controller{
       $cek_foto_bukti_pembayaran = strrchr($foto_bukti_pembayaran4,".php");
       if ($cek_foto_ijaza AND $cek_foto_bukti_pembayaran AND $cek_foto_kesehatan AND $cek_foto_foto  == ".php") {
         $this->session->set_flashdata('file_gagal','<div class="alert alert-danger">Foto Gagal Upload !</div>');
-        redirect('page/pmb/'.$id);
+        redirect('pmb');
         
       }else{
         
@@ -194,7 +208,7 @@ class Pmb extends CI_Controller{
         
         if ($daftar > 0) {
           $this->session->set_flashdata('sukses','<div class="alert alert-success">Berhasil Upload Data !</div>');
-          redirect('page/pmb/'.$id);
+          redirect('pmb/detail');
         }else{
           echo "salah";
         }       
@@ -216,6 +230,7 @@ class Pmb extends CI_Controller{
       'tmpt_lahir'      => $this->input->post('tmpt_lahir'),
       'tgl_lahir'       => $this->input->post('tgl_lahir'),
       'alamat'        => $this->input->post('alamat'),
+      'level'       => 'pmb_lamah',
       'kode_pos'        => $this->input->post('kode_pos'),
       'nama_ayah'       => $this->input->post('nama_ayah'),
       'nama_ibu'        => $this->input->post('nama_ibu'),
@@ -226,9 +241,5 @@ class Pmb extends CI_Controller{
       'alamat_asal_sekolah' => $this->input->post('alamat_asal_sekolah'),
     ];
   } 
-}
-function pmb_view($id){
-  $data['tampil'] = $this->m_page->m_pmb_view($id);
-  $this->load->view('frontend/pmb_view',$data);
 }
 
