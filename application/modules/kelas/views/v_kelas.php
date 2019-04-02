@@ -21,8 +21,8 @@
                        <div class="row">
                            <div class="col-md-12">
                                <div class="white-box">
-                                   <h2 class="header-title">Mahasiswa</h2>
-                                   <a href="<?php echo site_url('mahasiswa/tambah_mahasiswa'); ?>" class="btn btn-primary">Tambah</a>
+                                   <h2 class="header-title">Data Kelas</h2>
+                                   <a href="<?php echo site_url('kelas/tambah_kelas'); ?>" class="btn btn-primary">Tambah</a>
                                    <hr>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">

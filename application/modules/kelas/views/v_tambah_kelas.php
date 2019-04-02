@@ -18,7 +18,7 @@
                   <!--End Page Title-->          
 
                   <div class="row">
-                         <div class="col-md-8">
+                         <div class="col-md-12">
                             <div class="white-box">
                               <h2 class="header-title">Tambah Kelas</h2>
                             <form method="post" action="<?php echo site_url('kelas/proses_tambah_kelas'); ?>">

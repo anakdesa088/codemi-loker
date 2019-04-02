@@ -4,6 +4,9 @@
 	color: white;
 	/*padding-top: 13px;*/
 }
+img.logo_cetak{
+	padding-top: 50px;
+}
 li.sub-active{
 	background-color: black;
 }

@@ -9,7 +9,7 @@ class M_krs extends CI_Model
 
 	
 	public function m_data_krs(){
-		$this->db->select(['a.id_krs','a.semester','a.sks','a.is_active','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
@@ -18,7 +18,58 @@ class M_krs extends CI_Model
 		return $data->result_array();
 	}
 
+	public function m_proses_tambah_krs($data){
+		$tambah = $this->db->insert('krs',$data);
+		return $tambah;
+	}
+	public function m_edit_krs($id){
+		$this->db->where('id_krs',$id);
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->from('krs a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
+		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
+		$data = $this->db->get();
+		return $data->row();
+	}
+	function m_proses_edit_krs($id,$data){
+		$this->db->where('id_krs',$id);
+		$edit = $this->db->update('krs',$data);
+		return $edit;
+	}
+		public function m_cek_id($id){
+		$query = $this->db->where('id_kelas', $id)->get('kelas');
+		if($query->num_rows() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+	public function m_hapus_krs($id){
+		
+			$this->db->where('id_krs', $id);
+			$delete = $this->db->delete('krs');
+			return ($delete == true) ? true : false;
+		
+	}
+	public function getKrsData($id = null)
+	{
+		if($id) {
+
+			$sql = "SELECT * FROM krs WHERE id_krs = ?";
+			$query = $this->db->query($sql, array($id));
+			return $query->row_array();
+		}
+		
+		$sql = "SELECT * FROM krs";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
 	//data kelas
+
 
 	public function m_get_kelas(){
 		$data = $this->db->get('kelas');

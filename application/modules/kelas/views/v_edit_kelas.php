@@ -18,7 +18,7 @@
                   <!--End Page Title-->          
 
                   <div class="row">
-                         <div class="col-md-8">
+                         <div class="col-md-12">
                             <div class="white-box">
                               <h2 class="header-title">Edit Kelas</h2>
                             <form method="post" action="<?php echo site_url('kelas/kelas/proses_edit_kelas/'.$tampil->id_kelas); ?>">
