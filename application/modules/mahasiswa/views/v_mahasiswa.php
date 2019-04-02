@@ -104,7 +104,19 @@
 </div><!-- /.modal -->
 
 <script type="text/javascript">
-var example;
+
+
+
+
+$(document).ready(function() {
+  
+  
+  // initialize the datatable  example
+  $('#example').DataTable();
+
+
+
+
 
 function removeFunc(id_mahasiswa)
 

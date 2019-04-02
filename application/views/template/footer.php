@@ -17,7 +17,9 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.slimscroll.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 
+    <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/js/jquery.dataTables.min.js') ?>"></script>
     
+    <script type="text/javascript" src="<?php echo base_url('assets/pages/table-data.js') ?>"></script><!-- BEGIN PAGE LEVEL SCRIPTS -->
     <!--<script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/js/jquery.dataTables.min.js') ?>"></script>
     
     <script type="text/javascript" src="<?php echo base_url('assets/pages/table-data.js') ?>"></script> BEGIN PAGE LEVEL SCRIPTS -->
