@@ -1,6 +1,16 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style type="text/css">
+
 img.logo_cetak {
-    padding-top: 28px;
+    padding-top: 20px;
 }	
 .garis{
 	height: 15px;
@@ -8,22 +18,39 @@ img.logo_cetak {
 	background-color: #4f81bd;
 
 }
+.judul{
+	text-align: center;
+}
+.nama{
+	padding-top: 40px;
+}
+.coba{
+	padding-left :30px;
+}
+body{
+	margin: 10px;
+	padding: 0pc;
+	
+}
 </style>
+</head>
+<body>
+<div class="container">
 <div class="row">
 	<div class="col-md-12">
 		<div class="white-box">
 
 			<div class="row">
 				<div class="col-md-2">
-					<center><img class="logo_cetak" width="120" src="<?php echo base_url('assets/images/logo_akper.png'); ?>"></center>
+					<center><img class="logo_cetak" width="120" src="https://i.ibb.co/HdQTWyr/logo-akper.png"></center>
 				</div>
 				<div class="col-md-8">
 					
 					<center><h4>AKADEMI KEPERAWATAN BUNTET PESANTREN CIREBON </h4></center>
 				<center><h3>( AKPER BPC )</h3></center>						
-<center>IJIN MENDIKNAS RI NOMOR 47/D/0/2005</center> 						
-<center>AKREDITASI LAM-PTKes No.0228/LAM-PTKes/Akr/Dip/IV/2017</center>
-<center>Jl. Buntet Pesantren Astanajapura PO BOX 251/CN CIREBON 45102  Telp. (0231) 635747 – 636985</center>						
+				<center>IJIN MENDIKNAS RI NOMOR 47/D/0/2005</center> 						
+				<center>AKREDITASI LAM-PTKes No.0228/LAM-PTKes/Akr/Dip/IV/2017</center>
+				<center>Jl. Buntet Pesantren Astanajapura PO BOX 251/CN CIREBON 45102  Telp. (0231) 635747 – 636985</center>						
 
 				</div>
 				<div class="col-md-2">
@@ -35,11 +62,13 @@ img.logo_cetak {
 			<div class="row">
 				<div class="garis"></div>
 			</div>
-			<div class="row">
-				<div class="judul"><CENTER><h3>KARTU RENCANA STUDI</h3></CENTER></div>
+			<div class="row judul">
+				<div class="col-md-12"><center><h3>KARTU RENCANA STUDI</h3></center></div>
 			</div>
-			<div class="row">
-				<table>
+			<div class="row coba">
+
+
+					<table class="nama">
 					<tr>
 						<td width="140">Nama</td>
 						<td width="10">:</td>
@@ -67,6 +96,9 @@ img.logo_cetak {
 					</tr>
 
 				</table>
+
+
+
 			</div>
 			<br>
 			<div class="row">
@@ -163,4 +195,7 @@ img.logo_cetak {
 
 		</div>
 	</div>
-</div>                               	
+</div>                               		
+</div>	
+</body>
+</html>

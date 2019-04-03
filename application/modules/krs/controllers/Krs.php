@@ -10,8 +10,9 @@ class Krs extends Manajemen_only
 
 		
 
-		
+		 
 		$this->load->library('form_validation');
+
 		$this->load->model('krs/m_krs');
 	}
 
@@ -49,7 +50,7 @@ class Krs extends Manajemen_only
 				'id_mapel'=>$mapel,
 				'sks' => $sks,
 				'semester'=>$semester,
-				'id_krs'=>$kelas,
+				'id_kelas'=>$kelas,
 				'id_dosen'=>$dosen
 
 
@@ -57,7 +58,7 @@ class Krs extends Manajemen_only
 			$relasi = array_merge($data);
 			$tambah = $this->m_krs->m_proses_tambah_krs($relasi);
 			if ($tambah > 0) {
-				$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil ! </strong> <span>Edit Krs </span></div>');
+				$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil ! </strong> <span>Tambah KRS </span></div>');
 			return redirect('krs');
 			}else{
 				$this->session->set_flashdata('gagal','<div class="alert alert-danger" role="alert"> <strong>Gagal ! </strong> <span>Edit Krs </span></div>');
@@ -93,7 +94,7 @@ class Krs extends Manajemen_only
 				'id_mapel'=>$mapel,
 				'sks' => $sks,
 				'semester'=>$semester,
-				'id_krs'=>$kelas,
+				'id_kelas'=>$kelas,
 				'id_dosen'=>$dosen
 
 
@@ -150,7 +151,10 @@ class Krs extends Manajemen_only
 		# code...
 	public function cetak()
 	{
-		$this->template->render('krs/v_cetak');
+		
+		$this->load->library('mypdf');
+		$this->mypdf->generate('krs/v_cetak.php');
+		
 	}
 	}
 
