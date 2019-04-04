@@ -233,10 +233,17 @@ class MX_Router extends CI_Router
 		}
 	}
 
+	// Di PHP 7.3 ini menimbulkan warning message wkwkwk, jadi tak ganti, gatau BC atau ngga
 	public function set_class($class)
 	{
-		$suffix = $this->config->item('controller_suffix');
-		if (strpos($class, $suffix) === FALSE)
+		// Before
+		// $suffix = $this->config->item('controller_suffix');
+		// if (strpos($class, $suffix) === FALSE)
+		// Bla bla bla
+		
+		// After
+		$suffix = (string) $this->config->item('controller_suffix');
+		if ($suffix && strpos($class, $suffix) === FALSE)
 		{
 			$class .= $suffix;
 		}
