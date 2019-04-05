@@ -36,6 +36,7 @@ class M_krs extends CI_Model
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
 		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
+		$this->db->order_by('id_kelas','asc');
 		$data = $this->db->get();
 		return $data->row();
 	}
@@ -75,6 +76,28 @@ class M_krs extends CI_Model
 		return $query->result_array();
 	}
 
+	public function m_filter_krs($filter)
+	{
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->from('krs a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
+		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
+		$this->db->like('b.id_kelas',$filter);
+		$data = $this->db->get();
+		return $data->result_array();
+	}
+	public function m_cek_kelas($kelas){
+		$query = $this->db->where('id_kelas', $kelas)->get('krs');
+		if($query->num_rows() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+
 	//data kelas
 
 
@@ -90,5 +113,7 @@ class M_krs extends CI_Model
 		$data = $this->db->get('mapel_mahasiswa');
 		return $data->result_array();
 	}
+
+
 
 }

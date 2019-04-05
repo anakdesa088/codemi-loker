@@ -24,7 +24,7 @@ class Krs extends Manajemen_only
 	*/
 	public function index()
 	{
-
+		$data['kelas'] = $this->m_krs->m_get_kelas();
 		$data['jumlah'] = $this->m_krs->m_jumlah();
 		$data['tampil'] =$this->m_krs->m_data_krs();
 		$this->template->render('krs/v_krs',$data);	
@@ -168,6 +168,21 @@ class Krs extends Manajemen_only
     $this->pdf->filename = "lkok.pdf";
     $this->pdf->load_view('krs/nacak', $data);
 
+	}
+
+	public function filter_krs($filter){
+		$cek = $this->m_krs->m_cek_kelas($filter);
+		if ($cek) {
+				$data['filter'] = $this->m_krs->m_filter_krs($filter);
+				$this->template->render('krs/v_filter_krs',$data);
+			}else{
+				return redirect('krs');
+			}	
+
+
+		
+		
+		
 	}
 	}
 
