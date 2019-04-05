@@ -15,6 +15,7 @@ class M_krs extends CI_Model
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
 		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
+		$this->db->order_by('semester','asc');
 		$data = $this->db->get();
 		return $data->result_array();
 	}

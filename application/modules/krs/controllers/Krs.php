@@ -162,12 +162,13 @@ class Krs extends Manajemen_only
 	$data['jumlah'] = $this->m_krs->m_jumlah();
 	$data['dataku'] = $this->m_krs->m_data_krs();
 
-    $this->load->library('pdf');
+    $this->load->library('mypdf');
+    $this->mypdf->generate('krs/v_cetak');
 
-    $this->pdf->setPaper('A4', 'potrait');
-    $this->pdf->filename = "lkok.pdf";
-    $this->pdf->load_view('krs/nacak', $data);
+	}
 
+	public function cetak_krs(){
+		
 	}
 
 	public function filter_krs($filter){
