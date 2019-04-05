@@ -30,7 +30,7 @@
                                     <a href="<?php echo site_url('krs/tambah_krs'); ?>" class="btn btn-primary">Tambah</a>
                                 </div>
                                     <div class="col-md-2">
-<a href="<?php echo site_url('krs/tambah_krs'); ?>" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</a>
+<a href="<?php echo site_url('krs/cetak'); ?>" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</a>
                                     </div>
 
                                    </div>
@@ -52,6 +52,7 @@
                                                 </tr>
                                             </thead>
                                                 <tbody>
+                                                
                                                     <?php 
                                                         $no = 1;
                                                          foreach ($tampil as $r) {
@@ -72,9 +73,28 @@
                                                         </center></td>
 
                                                     </tr>
+                                                    
 
                                                 <?php } ?>
+                                                   
                                                 </tbody>
+<style type="text/css">
+  .jumlah{
+    text-align: right;
+  }
+</style>
+                                                <tfoot>
+                                                  <tr>
+                                                    <th></th>
+                                                    <th class="jumlah"><b>Jumlah</b></th>
+                                                    <th><?php echo $jumlah; ?></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                  </tr>
+                                                </tfoot>
+
                                             
                                             
                                            </table>  

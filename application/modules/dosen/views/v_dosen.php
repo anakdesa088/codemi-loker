@@ -62,6 +62,24 @@
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
+                                                <tfoot>
+                                                <?php 
+                                                $sql = "SELECT count(id_dosen) as id_dosen from dosen";
+                                                $data = $this->db->query($sql)->row()->id_dosen;
+                                                ?>
+                                              <tr>
+                                                <th>s</th>
+                                                
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th style="text-align: right; font-weight: bold;">Jumlah :</th>
+                                                <th><?php echo $data; ?></th>
+                                                <th></th>
+                                                <th></th>
+                                                
+                                              </tr>
+                                            </tfoot>
                                             </tbody>
                                            </table>  
                                     </div>

@@ -66,7 +66,10 @@
       width: 20%;
       float: left;
     }
-    
+    .wrap_table{
+      width: 100%;
+      float: left;
+    }
     table{
       width: 100%;
       border-collapse: collapse;
@@ -100,7 +103,10 @@
     } .kiri p, .kanan p{
       text-align: center;
     }
-    
+    .kanan{
+      width: 30%;
+      float: right;
+    }
 
     </style>
   </head>
@@ -109,7 +115,7 @@
       <div class="rows">
         <header>
           <div class="logo">
-            <img src="<?php echo base_url('assets/images/logo_akper.png'); ?>">
+            <img src="logo_akper.png">
           </div>
           <div class="judul">
             <h2>AKADEMI KEPERAWATAN BUNTET PESANTREN CIREBON</h2>
@@ -127,8 +133,7 @@
           <p><label>Tingkat/ Semester</label><span>:</span></p>
           <p><label>Tahun Akademik</label><span>: III / V</span></p>
         </div>
-        <div class="wrap_table" style="width: 100%;
-      float: left;">
+        <div class="wrap_table">
           <table>
             <thead>
               <tr>
@@ -151,8 +156,7 @@
               </tr>
               <tr>
                 <td>2</td>
-                <td class="t
-                able_left">Keperawatan Keluarga</td>
+                <td class="table_left">Keperawatan Keluarga</td>
                 <td>3</td>
                 <td>V</td>
                 <td></td>
@@ -165,8 +169,7 @@
           <div class="kiri">
             <p>Mahasiswa</p>
           </div>
-          <div class="kanan" style="width: 30%;
-      float: right;">
+          <div class="kanan">
             <p><span>Cirebon,</span>2019</p>
             <p>Mengetahui dan Menyetujui</p>
             <p>Dosen Wali</p>

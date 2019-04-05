@@ -67,6 +67,24 @@
                                                 
                                                 <?php } ?>
                                             </tbody>
+                                            <?php  
+                                            $sql = "SELECT count(id_mahasiswa) as id_mahasiswa FROM mahasiswa";
+                                            $data = $this->db->query($sql)->row()->id_mahasiswa;
+                                            
+                                             ?>
+                                            <tfoot>
+                                              <tr>
+                                                <th>s</th>
+                                                
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th style="text-align: right; font-weight: bold;">Jumlah :</th>
+                                                <th><?php echo $data; ?></th>
+                                              </tr>
+                                            </tfoot>
                                            </table>  
                                            
                                     </div>

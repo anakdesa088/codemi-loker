@@ -17,14 +17,14 @@ class Mypdf
 
 	$dompdf->loadHtml($html);
 
-	// (Optional) Setup the paper size and orientation
+	
 	$dompdf->setPaper($paper, $orientation);
 
-	// Render the HTML as PDF
+	
 	$dompdf->render();
     ob_clean();
 
-    $dompdf->stream("ckkkko.pdf", array("Attachment" => FALSE));	
+    $dompdf->stream("saskka.pdf", array("Attachment" => FALSE));	
 	}
 
 	

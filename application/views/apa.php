@@ -1,1 +1,1 @@
-hello world!
+<pre><?php print_r($dataku); ?></pre>

@@ -9,6 +9,7 @@ class M_krs extends CI_Model
 
 	
 	public function m_data_krs(){
+
 		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
@@ -17,6 +18,12 @@ class M_krs extends CI_Model
 		$data = $this->db->get();
 		return $data->result_array();
 	}
+	public function m_jumlah(){
+		$sql = "SELECT sum(sks) as sks from krs";
+		$data = $this->db->query($sql);
+		return $data->row()->sks;
+	}
+
 
 	public function m_proses_tambah_krs($data){
 		$tambah = $this->db->insert('krs',$data);

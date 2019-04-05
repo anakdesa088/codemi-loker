@@ -1,6 +1,9 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once('vendor/autoload.php');
+
+
 
 class Krs extends Manajemen_only 
 {
@@ -22,9 +25,14 @@ class Krs extends Manajemen_only
 	public function index()
 	{
 
-		
+		$data['jumlah'] = $this->m_krs->m_jumlah();
 		$data['tampil'] =$this->m_krs->m_data_krs();
 		$this->template->render('krs/v_krs',$data);	
+	}
+	public function cetakk(){
+		$data['jumlah'] = $this->m_krs->m_jumlah();
+		$data['dataku'] = $this->m_krs->m_data_krs();
+		$this->template->render('krs/v_cetak',$data);
 	}	
 	public function tambah_krs(){
 		$data['mapel'] = $this->m_krs->m_get_mapel();
@@ -151,10 +159,15 @@ class Krs extends Manajemen_only
 		# code...
 	public function cetak()
 	{
-		
-		$this->load->library('mypdf');
-		$this->mypdf->generate('krs/v_cetak.php');
-		
+	$data['jumlah'] = $this->m_krs->m_jumlah();
+	$data['dataku'] = $this->m_krs->m_data_krs();
+
+    $this->load->library('pdf');
+
+    $this->pdf->setPaper('A4', 'potrait');
+    $this->pdf->filename = "lkok.pdf";
+    $this->pdf->load_view('krs/nacak', $data);
+
 	}
 	}
 
