@@ -3,7 +3,7 @@
                     <nav class="sidebar-nav">
                         <ul class="metismenu" id="side-menu">
                         
-                            <li class="">
+                            <li class="<?php  echo ($this->uri->segment(1) == 'dashboard') ?  'active' : '' ?>">
                               <a href="<?php echo site_url('dashboard'); ?>"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
                                 
                             </li>
