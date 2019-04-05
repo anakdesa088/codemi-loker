@@ -9,7 +9,7 @@
                             </li>
 
 
-                            <li >
+                            <li class="<?php echo($this->uri->segment(1) == 'akademik' OR $this->uri->segment(1) == 'kelas' OR $this->uri->segment(1) == 'mahasiswa' OR $this->uri->segment(1) == 'dosen' OR $this->uri->segment(1) == 'mapel' OR $this->uri->segment(2) == 'krs') ? 'active' : '' ?>">
                                 <a href="javascript:void(0)"><i class="fa fa-university"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-sub collapse">
                                 <li class="sub-active"><a href="<?php echo site_url('akademik'); ?>">PMB</a></li>
