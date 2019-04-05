@@ -1,57 +1,135 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link href="<?php echo base_url('assets/plugins/datatables/css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="<?php echo base_url('assets/plugins/morris-chart/morris.css') ?>" rel="stylesheet" type="text/css" />
-    <!-- END PAGE LEVEL STYLES -->
-  
-    <link href="<?php echo base_url('assets/plugins/sweetalert/sweetalert.css') ?>" rel="stylesheet"/>
+<div class="page-title-box">
+    <h4 class="page-title">Cetak KRS</h4>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">Akademik</a>
+        </li>
+        <li>
+            <a href="#">KRS</a>
+        </li>
+        <li class="active">
+            Cetak KRS
+        </li>
+    </ol>
+    <div class="clearfix"></div>
+</div>
 
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/plugins/metis-menu/metisMenu.min.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/css/nanoscroller.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/css/icons.css') ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/css/responsive.css') ?>" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js') ?>"></script>
-    <style type="text/css">
-    	body{
-    		width: 100%;
-    		height: 700px;
-    	}
-    </style>
+<div class="row">
+ <div class="col-md-12">
+   <div class="white-box">
+     <h2 class="header-title">Data KHS</h2>
 
-</head>
-<body">
+     <form method="post" action="<?php site_url('krs/filter_krs'); ?>" >
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                
+                                <select class="form-control" name="kelas">
+                                        <?php 
+                                            foreach ($kelas as $r) {
+                                                # code...
+                                            
+                                        ?>
+                                        <option value="<?php echo $r['nama_kelas']; ?>"><?php echo $r['nama_kelas']; ?></option>
+                                        <?php } ?>
 
-	<div class="row">
-		<div class="white-box">
-         
+                                    
 
-         	<div class="col-md-2">
-         		<center>	salk </center>
-         	</div>
-         	<div class="col-md-8">
-         	<center>	salk </center>
-         	</div>
-         	<div class="col-md-2">
-         		<center>	salk </center>
-         	</div>
-
-
-
-	
-	</div>
-	</div>            	
-
-
-
+                                </select>
+                                
+                            </div>
+                        </div>
+                        
+                
+                    
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                
+                                <button type="submit" class="btn btn-primary "><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
 
 
+     </form>
+
+</div>
+</div>
+</div>     
+
+<?php 
+    if ($filter) {
+       
+?>
+<div class="row">
+                   <!-- Start  Bordered  Table-->
+                    <div class="col-md-12">
+                     <div class="white-box">
+                        <h2 class="header-title"> KRS Semester </h2>
 
 
-</body>
-</html>
+                        <div class="row">
+
+                            <div class="col-md-11">
+                                <button onclick="kembali()" class="btn btn-warning">Kembali</button>
+                            </div>
+                            <div class="col-ms-1">
+                                <a href="<?php echo site_url('krs/cetak'); ?>" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</a>
+                            </div>
+
+                        </div>
+                        <br>
+
+                         <div class="table-wrap">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                                    <th>No</th>
+                                                    <th>Mata Kuliah</th>
+                                                    <th>Sks</th>
+                                                    <th>Semester</th>
+                                                    <th>Kelas</th>
+                                                    <th>Dosen</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                        $no = 1;
+                                        foreach ($filter as $r) {
+                                            # code...
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $no++; ?></td>
+                                            <td><?php echo $r['nama_mapel']; ?></td>
+                                            <td><?php echo $r['sks']; ?></td>
+                                            <td><?php echo $r['semester']; ?></td>
+                                            <td><?php echo $r['nama_kelas']; ?></td>
+                                            <td><?php echo $r['nama_lengkap']; ?></td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+
+                             </div>
+                        </div>
+                     </div>
+                   <!-- End  Bordered Table-->
+                     
+                    
+                     
+                    </div> <!--/row-->   
+
+<?php
+        # code...
+    }else{
+
+        ?>
+        <div class="row">
+                   <!-- Start  Bordered  Table-->
+                    <div class="col-md-12">
+                     <div class="white-box">
+                        Data tidak titemukan
+    </div></div></div>
+        <?php
+    }
+    
+?>

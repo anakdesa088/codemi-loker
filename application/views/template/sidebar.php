@@ -22,7 +22,7 @@
                                     <a href="#"><span class="menu-label">KRS</span> <span class="fa arrow"></span></a>
                                     <ul class="nav nav-sub nav-third-level collapse">                                            
                                         <li>  <a href="<?php echo site_url('krs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> DATA KRS</a></li>
-                                        <li>  <a href="<?php echo site_url('cetak_krs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> CETAK KRS</a></li>
+                                        <li>  <a href="<?php echo site_url('krs/cetak_krs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> CETAK KRS</a></li>
                                         
                                     </ul>
                                  </li> 
