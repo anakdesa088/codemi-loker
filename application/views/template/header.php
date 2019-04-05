@@ -26,12 +26,8 @@
     <link href="<?php echo base_url('assets/css/icons.css') ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/responsive.css') ?>" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js') ?>"></script>
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-  <script>
-    $.widget.bridge('uibutton', $.ui.button);
-  </script>
+    
+    
     
     
     

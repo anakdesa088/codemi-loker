@@ -1,3 +1,4 @@
+
                    <div class="page-title-box">
                         <h4 class="page-title">Dashboard</h4>
                         <ol class="breadcrumb">
@@ -86,16 +87,16 @@
                   <div class="row"> 
                        <div class="col-md-8">
                            <div class="white-box">
-                              <h2  class="header-title m-b-10">Sales Analytics</h2 >
+                              <h2  class="header-title m-b-10">Kehadiran Siswa</h2 >
                                  <ul class="list-inline text-right">
                                   <li>
-                                    <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color:#3CB7EB"></i>iPhone</h5>
+                                    <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color:#3CB7EB"></i></h5>
                                   </li>
                                   <li>
-                                    <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color:#6E8CD7"></i>iPad</h5>
+                                    <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color:#6E8CD7"></i></h5>
                                   </li>
                                   <li>
-                                    <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color:#00A5A8"></i>iPod</h5>
+                                    <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color:#00A5A8"></i></h5>
                                   </li>
                                 </ul>
                                  <div id="morris-sales-dash" style="height:320px;"></div>
@@ -104,7 +105,7 @@
                     
                        <div class="col-md-4">
                           <div class="white-box">
-                              <h2 class="header-title">Total Revenue</h2>
+                              <h2 class="header-title">Total </h2>
                               <div id="morris-dash1"></div>
                           </div>
                       </div><!-- /col-md-6-->
@@ -187,4 +188,7 @@
                   </div><!-- /col-md-6-->
 
               </div>
-              <!--End row-->
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/plugins/morris-chart/raphael-min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/plugins/morris-chart/morris.js') ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/pages/dashboard2.js') ?>"></script>  
