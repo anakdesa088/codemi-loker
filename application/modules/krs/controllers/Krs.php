@@ -176,7 +176,7 @@ class Krs extends Manajemen_only
 				$this->template->render('krs/v_cetak',$data);
 			}else{
 				$data['kelas'] = $this->m_krs->m_get_kelas();
-				
+				$data['filter'] = $this->m_krs->m_filter_krs($kelas);
 				$this->template->render('krs/v_cetak',$data);
 			}	
 

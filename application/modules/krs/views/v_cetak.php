@@ -29,7 +29,7 @@
                                                 # code...
                                             
                                         ?>
-                                        <option value="<?php echo $r['nama_kelas']; ?>"><?php echo $r['nama_kelas']; ?></option>
+                                        <option value="<?php echo $r['id_kelas']; ?>"><?php echo $r['nama_kelas']; ?></option>
                                         <?php } ?>
 
                                     
@@ -125,9 +125,7 @@
         ?>
         <div class="row">
                    <!-- Start  Bordered  Table-->
-                    <div class="col-md-12">
-                     <div class="white-box">
-                        Data tidak titemukan
+             
     </div></div></div>
         <?php
     }
