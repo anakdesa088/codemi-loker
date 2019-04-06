@@ -2,13 +2,13 @@
 <html>
 <head>
 	<title></title>
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
 <style type="text/css">
 	    body{
       margin: 0;
       padding: 0;
       background-color: white;
-      
+      font-family: serif;
       font-size: 12px;
     }
     .alamat{
@@ -33,6 +33,14 @@
       width: 90%;
       margin: 0 auto;
     }
+    .rows{
+      width: 94%;
+      margin: 0 auto;
+    }
+    .info{
+    	width: 90%;
+    	margin: 0 auto;
+    }
     header{
       width: 100%;
       float: left;
@@ -43,7 +51,7 @@
     .logo{
       width: 9%;
       position: absolute;
-      left: 20;
+      left: 10;
       top: 30;
     } .logo img{
       max-width: 100%;
@@ -54,28 +62,13 @@
     .judul p, .judul h2, .judul h3{
       text-align: center;
     }
-    .wrap_opsi_data{
-      width: 100%;
-      float: left;
+    .batas{
+    	height: 160px;
     }
-    .wrap_opsi_data h1{
-      text-align: center;
-    }
-    .wrap_opsi_data p{
-      width: 100%;
-      float: left;
-    }
-    .wrap_opsi_data label{
-      width: 20%;
-      float: left;
-    }
-    .wrap_table{
-      width: 100%;
-      float: left;
-    }
-    
+  
 
 </style>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
  
@@ -85,8 +78,8 @@
             <img src="assets/images/logo_akper.png">
           </div>
           <div class="judul">
-            <h3>AKADEMI KEPERAWATAN BUNTET PESANTREN CIREBON</h3>
-            <h2>( AKPER BPC )</h2>
+            <center><h4>AKADEMI KEPERAWATAN BUNTET PESANTREN CIREBON</h4></center>
+            <h3>( AKPER BPC )</h3>
             <p>UIN MENDIKNAS RI NOMOR 47/D/0/2005</p>
             <p>AKREDITASI LAM-PTKes No.0228/LAM-PTKes/Akr/Dip/IV/2017</p>
             <p class="alamat">Jl. Buntet Pesantren Astanajapura PO BOX 251/CN CIREBON 45102 Telp. (0231) 635747 - 636985</p>
@@ -94,14 +87,80 @@
 
 
 </header>
-<br>
-<br>
-
-
-
-
 
 </div>
+<div class="rows batas">
+	
+</div>
+<div class="rows">
+<div class="tabel">
+	<CENTER><h2>KARTU RENCANA STUDI</h2></CENTER>
+	<br>
+	<div class="row">
+		<table>
+			<tr>
+				<td>Nama </td>
+				<td> :</td>
+				<td> Saefudin Hardi</td>
+				
+			</tr>
+			<tr>
+				<td> NIM</td>
+				<td> :</td>
+				<td> 736389</td>
+				
+			</tr>
+			<tr>
+				<td> Dosen Wali</td>
+				<td> :</td>
+				<td> Mubarok</td>
+				
+			</tr>
+			<tr>
+				<td> Tingkat/ Semester</td>
+				<td> :</td>
+				<td> IV</td>
+			</tr>
+			<tr>
+				<td> Tahun Akademik</td>
+				<td> :</td>
+				<td> 2019/2020</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+<div class="table_krs">		
+ <table style="width:100%">
+ 
+  <tr>
+    <th>No</th>
+    <th>Matah Kuliah</th>
+    <th>SKS</th>
+    <th>Semester</th>
+    <th>Kelas</th>
+    <th>Dosen</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Bahasa Indonesia</td>
+    <td>3</td>
+    <td>VA</td>
+    <td>LIma</td>
+    <td>Mubarok</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Bahasa Indonesia</td>
+    <td>3</td>
+    <td>VA</td>
+    <td>LIma</td>
+    <td>Mubarok</td>
+  </tr>
+</table>
 
+</div>
+	</div>
+</div>	
+</div>
 </body>
 </html>

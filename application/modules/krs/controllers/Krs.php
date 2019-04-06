@@ -183,6 +183,9 @@ class Krs extends Manajemen_only
 
 
 	}
+	public function reader(){
+
+	}
 
 
 
