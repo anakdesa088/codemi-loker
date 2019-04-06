@@ -159,11 +159,12 @@ class Krs extends Manajemen_only
 		# code...
 	public function cetak()
 	{
-	$data['jumlah'] = $this->m_krs->m_jumlah();
-	$data['dataku'] = $this->m_krs->m_data_krs();
+	//$data['jumlah'] = $this->m_krs->m_jumlah();
+	//$data['dataku'] = $this->m_krs->m_data_krs();
 
     $this->load->library('mypdf');
-    $this->mypdf->generate('krs/v_cetak');
+    $this->mypdf->generate('krs/v_template');
+	//$this->template->render('krs/v_template');
 
 	}
 
@@ -182,6 +183,7 @@ class Krs extends Manajemen_only
 
 
 	}
+
 
 
 

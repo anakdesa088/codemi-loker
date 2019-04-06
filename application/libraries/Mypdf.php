@@ -24,7 +24,7 @@ class Mypdf
 	$dompdf->render();
     ob_clean();
 
-    $dompdf->stream("cobaki.pdf", array("Attachment" => FALSE));	
+    $dompdf->stream("sa.pdf", array("Attachment" => FALSE));	
 	}
 
 	
