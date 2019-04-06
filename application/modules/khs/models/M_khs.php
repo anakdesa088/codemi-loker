@@ -20,6 +20,41 @@ class M_khs extends CI_Model {
 		$data = $this->db->insert('khs',$data);
 		return $data;
 	}
+	public function m_edit_khs($id){
+		$this->db->where('id_khs',$id);
+		$this->db->select(['a.id_khs','a.sks','a.nilai_mutu','a.nilai_lambang','a.nilai_sks','b.id_mapel','b.nama_mapel']);
+		$this->db->from('khs a');
+		$this->db->join('mapel_mahasiswa b','b.id_mapel = a.id_mapel','left');
+		$data = $this->db->get('');
+		return $data->row();
+	}
+	public function m_proses_edit_khs($id,$data){
+		$this->db->where('id_khs',$id);
+		$edit = $this->db->update('khs',$data);
+		return $edit;
+	}
+	public function m_hapus_khs($id){
+		
+			$this->db->where('id_khs', $id);
+			$delete = $this->db->delete('khs');
+			return ($delete == true) ? true : false;
+		
+	}
+	public function getKhsData($id = null)
+	{
+		if($id) {
+
+			$sql = "SELECT * FROM khs WHERE id_khs = ?";
+			$query = $this->db->query($sql, array($id));
+			return $query->row_array();
+		}
+		
+		$sql = "SELECT * FROM khs";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+
 
 }
 

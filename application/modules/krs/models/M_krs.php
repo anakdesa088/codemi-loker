@@ -47,7 +47,7 @@ class M_krs extends CI_Model
 		return $edit;
 	}
 		public function m_cek_id($id){
-		$query = $this->db->where('id_kelas', $id)->get('kelas');
+		$query = $this->db->where('id_khs', $id)->get('khs');
 		if($query->num_rows() > 0)
 		{
 			return true;

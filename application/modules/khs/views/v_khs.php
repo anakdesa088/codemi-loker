@@ -80,10 +80,10 @@
         <td><?php echo $r->nilai_mutu; ?></td>
         <td><?php echo $r->nilai_lambang; ?></td>
         <td><?php echo $r->nilai_sks; ?></td>
-      
+        <?php $id = $r->id_khs; ?>
         <td><center>
-          <a href="" class="btn btn-warning">Edit</a>
-          <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+          <a href="<?php echo site_url('khs/edit_khs/'.$r->id_khs); ?>" class="btn btn-warning">Edit</a>
+          <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
         </center></td>
 
       </tr>
@@ -110,7 +110,7 @@
         <h4 class="modal-title">Hapus Data KHS</h4>
       </div>
 
-      <form role="form" action="<?php echo site_url('KHS/hapus_KHS') ?>" method="post" id="removeForm">
+      <form role="form" action="<?php echo site_url('khs/hapus_khs') ?>" method="post" id="removeForm">
         <div class="modal-body">
 
 
@@ -136,7 +136,7 @@
 <script type="text/javascript">
   var example;
 
-  function removeFunc(id_KHS)
+  function removeFunc(id_khs)
 
 
   {
@@ -144,16 +144,16 @@
 
 
 
-    if(id_KHS) {
+    if(id_khs) {
 
 
       $.ajax({
-        url: 'KHS/fetchKHSDataById/'+id_KHS,
+        url: 'khs/fetchKhsDataById/'+id_khs,
         type: 'post',
         dataType: 'json',
         success:function(response) {
 
-          $("#nama_hapus").html(response.id_KHS
+          $("#nama_hapus").html(response.id_khs
             );
 
           $("#removeForm").on('submit', function() {
@@ -167,7 +167,7 @@
             $.ajax({
               url: form.attr('action'),
               type: form.attr('method'),
-              data: { id_KHS:id_KHS}, 
+              data: { id_khs:id_khs}, 
               dataType: 'json',
               success:function(response) {
 
