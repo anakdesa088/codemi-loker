@@ -88,16 +88,7 @@ class M_krs extends CI_Model
 		$data = $this->db->get();
 		return $data->result_array();
 	}
-	public function m_cek_kelas($kelas){
-		$query = $this->db->where('id_kelas', $kelas)->get('krs');
-		if($query->num_rows() > 0)
-		{
-			return true;
-		} else
-		{
-			return false;
-		}
-	}
+	
 
 	//data kelas
 

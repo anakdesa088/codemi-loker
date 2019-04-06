@@ -55,14 +55,10 @@
 </div>
 </div>     
 
-<?php 
-if ($filter) {
-    # code...
-    # code...
 
+    
 
-    ?>
-    <div class="row">
+<div class="row">
      <!-- Start  Bordered  Table-->
      <div class="col-md-12">
        <div class="white-box">
@@ -115,22 +111,9 @@ if ($filter) {
         </div>
     </div>
 </div>
-<!-- End  Bordered Table-->
 
 
 
-</div> <!--/row-->   
 
-<?php
-        # code...
-}else{
 
-    ?>
-    <div class="row">
-     <!-- Start  Bordered  Table-->
 
- </div></div></div>
- <?php
-}
-
-?>

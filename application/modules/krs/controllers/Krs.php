@@ -168,34 +168,25 @@ class Krs extends Manajemen_only
 	}
 
 	public function cetak_krs(){
-		$kelas = $this->input->post('kelas');
-		$cek = $this->m_krs->m_cek_kelas($kelas);
-		if ($cek) {
-				$data['kelas'] = $this->m_krs->m_get_kelas();
-				$data['filter'] = $this->m_krs->m_filter_krs($kelas);
-				$this->template->render('krs/v_cetak',$data);
-			}else{
-				$data['kelas'] = $this->m_krs->m_get_kelas();
-				$this->template->render('krs/v_cetak',$data);
-			}	
+		$kelas = "0";
+		$filter = $this->input->post('kelas');
+		if ($filter) {
+			$data['filter'] = $this->m_krs->m_filter_krs($filter);
+			$data['kelas'] = $this->m_krs->m_get_kelas();
+			$this->template->render('krs/v_cetak',$data);
+		}else{
+			$data['filter'] = $this->m_krs->m_filter_krs($kelas);
+			$data['kelas'] = $this->m_krs->m_get_kelas();
+			$this->template->render('krs/v_cetak',$data);
+		}
+
 
 	}
 
-	public function filter_krs(){
-		$kelas = $this->input->post('kelas');
-		$cek = $this->m_krs->m_cek_kelas($kelas);
-		if ($cek) {
-				$data['filter'] = $this->m_krs->m_filter_krs($filter);
-				$this->template->render('krs/v_cetak',$data);
-			}else{
-				return redirect('krs');
-			}	
 
 
-		
-		
-		
-	}
+
+
 	}
 
 	/*
