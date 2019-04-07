@@ -41,7 +41,7 @@
       <!--Start Page loader -->
       <div id="pageloader">   
             <div class="loader">
-             <!-- <img src="<?php echo base_url('assets/images/progress.gif') ?>" alt='loader' />-->
+              <img src="<?php echo base_url('assets/images/progress.gif') ?>" alt='loader' />
             </div>
        </div>
        <!--End Page loader -->

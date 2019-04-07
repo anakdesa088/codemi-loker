@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
       background-color: white;
-      font-family: serif;
+      
       font-size: 12px;
     }
     .alamat{
@@ -20,8 +20,9 @@
     p{
       line-height: 1.3
     }
-    p,h2,h3{
-      margin: 0
+    p,h2,h3,th,td{
+      margin: 0;
+      font-family: serif;
     }
     .wrapper{
       width: 100%;
@@ -42,6 +43,7 @@
     	margin: 0 auto;
     }
     header{
+      font-family: serif;
       width: 100%;
       float: left;
       position: relative;
@@ -52,12 +54,13 @@
       width: 9%;
       position: absolute;
       left: 10;
-      top: 30;
+      top: 50;
     } .logo img{
       max-width: 100%;
     }
     .judul{
       position: relative;
+      font-family: serif;
     }
     .judul p, .judul h2, .judul h3{
       text-align: center;
@@ -94,7 +97,7 @@
 </div>
 <div class="rows">
 <div class="tabel">
-	<CENTER><h2>KARTU RENCANA STUDI</h2></CENTER>
+	<CENTER><h4>KARTU RENCANA STUDI</h4></CENTER>
 	<br>
 	<div class="row">
 		<table>
@@ -130,7 +133,7 @@
 		<br>
 		<br>
 <div class="table_krs">		
- <table style="width:100%">
+ <table class="table table-bordered" style="width:100%">
  
   <tr>
     <th>No</th>
@@ -157,6 +160,23 @@
     <td>Mubarok</td>
   </tr>
 </table>
+
+<br>
+
+<br>
+<div  class="col-md-12">
+	<div class="col-md-4">
+		<center><p>Mahasiswa</p></center>
+	</div>
+	<div class="col-md-4">
+
+	</div>
+	<div class="col-md-4">
+<center><p>Dosen</p></center>
+	</div>
+
+</div>	
+
 
 </div>
 	</div>
