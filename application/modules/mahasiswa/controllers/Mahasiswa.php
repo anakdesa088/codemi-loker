@@ -187,25 +187,39 @@ function __construct(){
 		}
 
 	}
+	
+	private function getFormData()
+	{
+		
+	}
+	public function get_pw($raw_password)
+	{
+		$this->config->load('setting');
+		$prefix = $this->config->item('password_prefix','security');
+		$new_pass = sprintf("%s%s",$prefix,$raw_password);
+		$hash = password_hash($new_pass,PASSWORD_DEFAULT);
+		return $hash;
+	}
+	
 	public function hapus_mahasiswa(){
-	$id_mahasiswa = $this->input->post('id');
+	$id_mahasaiswa = $this->input->post('id_mahasaiswa');
 
 		$response = array();
-		if($id_mahasiswa) {
-			$delete = $this->m_mahasiswa->m_hapus_mahasiswa($id_mahasiswa);
+		if($id_mahasaiswa) {
+			$delete = $this->m_mahasiswa->m_hapus_mahasiswa($id_mahasaiswa);
 			if($delete == true) {
 				$response['success'] = true;
-				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Well done! </strong> <span>You successfully read this important alert message.</span></div>
+				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data Kelas</span></div>
 ');	
 			}
 			else {
 				$response['success'] = false;
-				$response['messages'] = "Error in the database while removing the brand information";
+				$response['messages'] = "Gagal";
 			}
 		}
 		else {
 			$response['success'] = false;
-			$response['messages'] = "Refersh the page again!!";
+			redirect('mahasiswa');
 		}
 
 		echo json_encode($response);
@@ -220,19 +234,8 @@ function __construct(){
 
 		return false;
 	}
-	private function getFormData()
-	{
-		
-	}
-	public function get_pw($raw_password)
-	{
-		$this->config->load('setting');
-		$prefix = $this->config->item('password_prefix','security');
-		$new_pass = sprintf("%s%s",$prefix,$raw_password);
-		$hash = password_hash($new_pass,PASSWORD_DEFAULT);
-		return $hash;
-	}
-	
+
+
 	
 	
 }

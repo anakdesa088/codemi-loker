@@ -29,7 +29,7 @@
                                                 # code...
 
                         ?>
-                        <option value="<?php echo $r['id_kelas']; ?>"><?php echo $r['nama_kelas']; ?></option>
+                        <option value="<?php echo $r['id_kelas']; ?>"><?php echo $r['nama_kelas']; ?> </option>
                     <?php } ?>
 
 
@@ -71,7 +71,7 @@
                 <button onclick="kembali()" class="btn btn-warning">Kembali</button>
             </div>
             <div class="col-ms-1">
-                <a href="<?php echo site_url('krs/cetak'); ?>" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</a>
+                <a href="<?php echo site_url('krs/cetak/'); ?>" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</a>
             </div>
 
         </div>
@@ -111,7 +111,6 @@
         </div>
     </div>
 </div>
-
 
 
 

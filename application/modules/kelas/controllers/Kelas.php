@@ -27,7 +27,7 @@ class Kelas extends Manajemen_only {
 		$kelas = $this->input->post('nama_kelas');
 		$tambah = $this->m_kelas->m_proses_tambah_kelas($array);
 		if ($tambah > 0) {
-			$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil ! </strong> <span>Menambah Kelas '.$kelas.'</span></div>
+			$this->session->set_flashdata('sukses','<div id="alert" class="alert alert-success" role="alert"> <strong>Berhasil ! </strong> <span>Menambah Kelas '.$kelas.'</span></div>
 ');
 			return redirect('kelas');
 		}
@@ -56,7 +56,10 @@ class Kelas extends Manajemen_only {
 		);
 		$kelas = $this->input->post('nama_kelas');
 		$edit = $this->m_kelas->m_proses_edit_kelas($id,$array);
-		$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil ! </strong> <span>Edit Kelas '.$kelas.'</span></div>');
+		$this->session->set_flashdata('sukses','<div id="alert" class="alert alert-success" role="alert"> <strong>Berhasil ! </strong> <span>Edit Kelas '.$kelas.'</span></div>');
+			
+			 
+	
 		if ($edit > 0) {
 			redirect('kelas');
 		}
@@ -69,7 +72,7 @@ class Kelas extends Manajemen_only {
 			$delete = $this->m_kelas->m_hapus_kelas($id_kelas);
 			if($delete == true) {
 				$response['success'] = true;
-				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data Kelas</span></div>
+				$response['messages'] = $this->session->set_flashdata('sukses','<div id="alert" class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data Kelas</span></div>
 ');	
 			}
 			else {

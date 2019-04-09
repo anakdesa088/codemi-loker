@@ -24,7 +24,7 @@ class Mypdf
 	$dompdf->render();
     ob_clean();
 
-    $dompdf->stream("aaas.pdf", array("Attachment" => FALSE));	
+    $dompdf->stream("aaasha.pdf", array("Attachment" => FALSE));	
 	}
 
 	

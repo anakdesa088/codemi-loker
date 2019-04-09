@@ -116,6 +116,25 @@ public function hapus_khs(){
 
 		return false;
 	}
+	public function cetak_khs(){
+		$kelas = "0";
+		$mahasiswa = "0";
+		$kelas1 = $this->input->post('kelas');
+		$mahasiswa2 = $this->input->post('mahasiswa');
+		if ($kelas AND $mahasiswa) {
+		
+		$data['kelas'] = $this->m_khs->m_get_kelas();
+		$data['mahasiswa'] = $this->m_khs->m_get_mahasiswa();
+		$data['tampil'] = $this->m_khs->m_filter($mahasiswa1);
+		}else{
+			$data['kelas'] = $this->m_khs->m_get_kelas();
+		$data['mahasiswa'] = $this->m_khs->m_get_mahasiswa();
+		$data['tampil'] = $this->m_khs->m_filter($mahasiswa);
+		}
+
+		
+		$this->template->render('khs/v_cetak_khs',$data);
+	}
 	
 
 }

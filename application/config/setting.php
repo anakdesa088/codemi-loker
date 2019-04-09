@@ -1,4 +1,2 @@
 <?php
-$config['security'] = [
-		'password_prefix' => 'sisfo_akper_'
-];
+$config['security'] = ['password_prefix' => 'sisfo_akper_'];

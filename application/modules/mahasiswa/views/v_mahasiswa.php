@@ -21,7 +21,7 @@
                        <div class="row">
                            <div class="col-md-12">
                                <div class="white-box">
-                                   <h2 class="header-title">Mahasiswa</h2>
+                                   <h2 class="header-title">Data Mahasiswa</h2>
                                    <a href="<?php echo site_url('mahasiswa/tambah_mahasiswa'); ?>" class="btn btn-primary">Tambah</a>
                                    <hr>
                                     <div class="table-responsive">
@@ -48,7 +48,7 @@
 
                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $no++; ?></td>
+                                                   <td><?php echo $no++; ?></td>
                                                     
                                                     <td><?php echo $r['nama_lengkap']; ?></td>
                                                     <td><?php echo $r['nim']; ?></td>
@@ -57,7 +57,8 @@
                                                     <td><?php echo $r['tmpt_lahir'] . ", ".$tgl; ?></td>
                                                     <td><?php echo $r['jk']; ?></td>
                                                     <td><?php echo $r['alamat']; ?></td>
-                                                    <?php $id = $r['id_mahasiswa']; ?>
+                                                    
+                                                    
                                                     <td align="center">
                                                         <a href="<?php echo site_url('mahasiswa/edit_mahasiswa/'.$r['id_mahasiswa']); ?>" class="btn btn-warning">Edit</a>
                                                         <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
@@ -67,30 +68,13 @@
                                                 
                                                 <?php } ?>
                                             </tbody>
-                                            <?php  
-                                            $sql = "SELECT count(id_mahasiswa) as id_mahasiswa FROM mahasiswa";
-                                            $data = $this->db->query($sql)->row()->id_mahasiswa;
-                                            
-                                             ?>
-                                            <tfoot>
-                                              <tr>
-                                                <th>s</th>
-                                                
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th style="text-align: right; font-weight: bold;">Jumlah :</th>
-                                                <th><?php echo $data; ?></th>
-                                              </tr>
-                                            </tfoot>
                                            </table>  
-                                           
                                     </div>
                                </div>
                            </div>
                        </div>
+                   <!-- End  hover Table-->
+
 <div class="modal fade" tabindex="-1" role="dialog" id="removeModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -111,30 +95,19 @@
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Hapus</button>
         </div>
       </form>
 
 
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+</div><!-- /.modal -->                   
+
 
 <script type="text/javascript">
-
-
-
-
-$(document).ready(function() {
-  
-  
-  // initialize the datatable  example
-  $('#example').DataTable();
-
-
-
-
+var example;
 
 function removeFunc(id_mahasiswa)
 
@@ -161,13 +134,13 @@ function removeFunc(id_mahasiswa)
 
       var form = $(this);
 
-      // remove the text-danger
+      
 
 
       $.ajax({
         url: form.attr('action'),
         type: form.attr('method'),
-        data: { id:id_mahasiswa}, 
+        data: { id_mahasiswa:id_mahasiswa}, 
         dataType: 'json',
         success:function(response) {
 
@@ -177,7 +150,7 @@ function removeFunc(id_mahasiswa)
             response.messages
             
 
-            // hide the modal
+      
             $("#removeModal").modal('hide');
             
 
@@ -209,3 +182,4 @@ function removeFunc(id_mahasiswa)
 
 
 </script>
+

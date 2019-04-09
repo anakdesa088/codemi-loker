@@ -169,22 +169,9 @@ class Krs extends Manajemen_only
 	}
 
 	public function cetak_krs(){
-		$kelas = "0";
-		$filter = $this->input->post('kelas');
-		if ($filter) {
-			$data['filter'] = $this->m_krs->m_filter_krs($filter);
-			$data['kelas'] = $this->m_krs->m_get_kelas();
-			$this->template->render('krs/v_cetak',$data);
-		}else{
-			$data['filter'] = $this->m_krs->m_filter_krs($kelas);
-			$data['kelas'] = $this->m_krs->m_get_kelas();
-			$this->template->render('krs/v_cetak',$data);
-		}
-
-
-	}
-	public function reader(){
-
+		$data['kelas'] = $this->m_krs->m_get_kelas();
+		$data['filter'] = $this->m_krs->m_cetak_krs();
+		$this->template->render('krs/v_cetak',$data);
 	}
 
 

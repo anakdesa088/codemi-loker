@@ -47,7 +47,7 @@
       width: 100%;
       float: left;
       position: relative;
-      padding : 25px 0;
+      padding : 15px 0;
       border-bottom: 10px solid blue;
     }
     .logo{
@@ -67,6 +67,36 @@
     }
     .batas{
     	height: 160px;
+    }
+    .bungkus{
+    	width: 100%;
+    }
+    .kiri{
+    	width: 40%;
+    	float: left;
+    }
+    .kanan{
+    	width: 40%;
+    	float: left;
+    }
+    .tengah{
+    	width: 20%;
+    	float: left;
+    }
+    .bungkuss{
+    	width: 100%;
+    }
+    .kiris{
+    	width: 40%;
+    	float: left;
+    }
+    .kanans{
+    	width: 40%;
+    	float: left;
+    }
+    .tengahs{
+    	width: 20%;
+    	float: left;
     }
   
 
@@ -132,6 +162,9 @@
 		</table>
 		<br>
 		<br>
+
+
+
 <div class="table_krs">		
  <table class="table table-bordered" style="width:100%">
  
@@ -164,18 +197,24 @@
 <br>
 
 <br>
-<div  class="col-md-12">
-	<div class="col-md-4">
-		<center><p>Mahasiswa</p></center>
-	</div>
-	<div class="col-md-4">
 
-	</div>
-	<div class="col-md-4">
-<center><p>Dosen</p></center>
-	</div>
+
+<div class="bungkus">
+
+<div class="kiri">
+	
+</div>
+<div class="tengah">	
 
 </div>	
+
+<div class="kanan">
+	<cemter><p>Cirebon, 04 Februari 2019</p></cemter>
+</div>	
+
+</div>
+
+
 
 
 </div>

@@ -31,7 +31,7 @@
                                     <a href="#"><span class="menu-label">KHS</span> <span class="fa arrow"></span></a>
                                     <ul class="nav nav-sub nav-third-level collapse">                                            
                                         <li>  <a href="<?php echo site_url('khs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> DATA KHS</a></li>
-                                        <li>  <a href="#"> <i class="fa fa-circle-o" aria-hidden="true"></i> CETAK KHS</a></li>
+                                        <li>  <a href="<?php echo site_url('khs/cetak_khs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> CETAK KHS</a></li>
                                         
                                     </ul>
                                  </li> 

@@ -12,7 +12,10 @@
                         <div class="clearfix"></div>
                      </div>
 
-        <?php echo $this->session->flashdata('sukses'); ?>
+        <?php echo
+
+
+         $this->session->flashdata('sukses');?>
           
         
         <div id="messages"></div>
@@ -31,7 +34,7 @@
                                                     <th>No</th>
                                                     <th>Nama Kelas</th>
                                                     <th>Kode Kelas</th>
-                                                    <th>Ketetangan Kelas</th>
+                                                    <th>Keterangan Kelas</th>
                                                     
                                                     <th><center>Aksi</center></th>
                                                 </tr>
@@ -102,6 +105,10 @@
 
 <script type="text/javascript">
 var example;
+
+ 
+  
+ 
 
 function removeFunc(id_kelas)
 
