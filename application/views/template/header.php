@@ -185,53 +185,7 @@
                                           </a>
          
                                            <!-- list item-->
-                                           <a href="javascript:void(0);" class="notification list-group-item">
-                                            <div class="message-icon pull-left">
-                                               <img src="<?php echo base_url('assets/images/users/avatar-2.jpg') ?>"  alt=""/>
-                                            </div>
-                                            <div class="message-info-main">
-                                                <span class="message-name">Johnson </span>
-                                                <span class="message-text">New item approved</span>
-                                                <span class="message-time">9:35 AM</span>
-                                            </div>
-                                        </a>
-         
-                                          <!-- list item-->
-                                           <a href="javascript:void(0);" class="notification list-group-item">
-                                            <div class="message-icon pull-left">
-                                               <img src="<?php echo base_url('assets/images/users/avatar-3.jpg') ?>"  alt=""/>
-                                            </div>
-                                            <div class="message-info-main">
-                                                <span class="message-name">Williams</span>
-                                                <span class="message-text">New item sell</span>
-                                                <span class="message-time">9:45 AM</span>
-                                            </div>
-                                        </a>
-
-                                           <!-- list item-->
-                                           <a href="javascript:void(0);" class="notification list-group-item">
-                                            <div class="message-icon pull-left">
-                                               <img src="<?php echo base_url('assets/images/users/avatar-4.jpg') ?>"  alt=""/>
-                                            </div>
-                                            <div class="message-info-main">
-                                                <span class="message-name">Mark</span>
-                                                <span class="message-text">New changes done</span>
-                                                <span class="message-time">10:35 AM</span>
-                                            </div>
-                                        </a>
-                                        
-                                         <!-- list item-->
-                                           <a href="javascript:void(0);" class="notification list-group-item">
-                                            <div class="message-icon pull-left">
-                                               <img src="<?php echo base_url('assets/images/users/avatar-5.jpg') ?>"  alt=""/>
-                                            </div>
-                                            <div class="message-info-main">
-                                                <span class="message-name">Mark </span>
-                                                <span class="message-text">Admin template customize</span>
-                                                <span class="message-time">11:00 AM</span>
-                                            </div>
-                                        </a>
-                                         
+                                          
                                           <!-- list item-->
                                            <a href="javascript:void(0);" class="notification list-group-item">
                                             <div class="message-icon pull-left">

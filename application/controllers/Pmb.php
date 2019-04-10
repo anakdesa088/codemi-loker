@@ -60,7 +60,14 @@ public function pengumuman(){
   $this->load->view('pmb/template/layout',$data);
 }
 public function view_pengumuman($info){
+
   $this->load->model('pengumuman/m_pengumuman');
+  $id = $this->session->userdata('id_pmb');
+  $read = "1";
+  $array = array('read'=>$read);
+
+
+  $array = $this->m_pengumuman->m_read($info,$array);
   //$id = $this->session->userdata('id_pmb');
   $data['info'] = $this->m_pengumuman->m_view_info($info);
   $data['isi_pmb'] = 'pmb/content/v_view_pengumuman';

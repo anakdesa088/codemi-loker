@@ -82,7 +82,7 @@
                                </ul>
                         </li>
 
-                            <li><a href="widget.html"><i class="fa fa-bullhorn"></i>  <span class="menu-label">Pengumuman</span></a></li>
+                            <li><a href="<?php echo site_url('pengumuman'); ?>"><i class="fa fa-bullhorn"></i>  <span class="menu-label">Pengumuman</span></a></li>
                             
                             
                             

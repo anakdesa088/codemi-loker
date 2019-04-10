@@ -5,7 +5,7 @@ class M_pengumuman extends CI_Model {
 
 	public function m_data_pengumuman(){
 		
-		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
+		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.read','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
 		$this->db->from('pengumuman a');
 		$this->db->join('pmb b','b.id_pmb = a.id_pmb','left');
 		$data = $this->db->get('');
@@ -13,7 +13,7 @@ class M_pengumuman extends CI_Model {
 	}
 	public function m_data_info($id){
 		$this->db->where('b.id_pmb',$id);
-		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
+		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.read','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
 		$this->db->from('pengumuman a');
 		$this->db->join('pmb b','b.id_pmb = a.id_pmb','left');
 		$data = $this->db->get('');
@@ -22,7 +22,7 @@ class M_pengumuman extends CI_Model {
 
 	public function m_all_data_info($id){
 		$this->db->where('b.id_pmb',$id);
-		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
+		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.read','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
 		$this->db->from('pengumuman a');
 		$this->db->join('pmb b','b.id_pmb = a.id_pmb','left');
 		$data = $this->db->get('');
@@ -30,13 +30,17 @@ class M_pengumuman extends CI_Model {
 	}
 	public function m_view_info($id){
 		$this->db->where('a.id_pengumuman',$id);
-		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
+		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.read','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
 		$this->db->from('pengumuman a');
 		$this->db->join('pmb b','b.id_pmb = a.id_pmb','left');
 		$data = $this->db->get('');
 		return $data->row();
 	}
-	
+	public function m_read($id,$data){
+		$this->db->where('id_pengumuman',$id);
+		$edit = $this->db->update('pengumuman',$data);
+		return $edit;
+	}
 	public function m_email_pmb(){
 		$data = $this->db->get('pmb');
 		return $data->result();

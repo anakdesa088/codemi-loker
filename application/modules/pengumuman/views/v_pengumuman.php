@@ -32,7 +32,9 @@
                                                     <th>Judul</th>
                                                     <th>Kepada</th>
                                                     <th>Pesan</th>
+                                                    <th>Info</th>
                                                     <th>tanggal</th>
+
                                                     <th><center>Aksi</center></th>
                                                 </tr>
                                             </thead>
@@ -49,6 +51,13 @@
                                                   
                                                   <td><?php echo $r->email; ?></td>
                                                   <td><?php echo $r->pesan; ?></td>
+                                                  <td>
+                                                    <?php  if ($r->read == "1") {
+                                                    echo "Dibaca";
+                                                  }else{
+                                                    echo " ";
+                                                  }  ?>
+                                                  </td>
                                                   <td><?php echo $r->tanggal_kirim; ?></td>
                                                   <td> <a href="<?php echo site_url('pengumuman/hapus_pengumuman/'.$r->id_pengumuman); ?>" class="btn btn-danger">Hapus</td>
                                                 </tr>

@@ -42,13 +42,14 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody >
 
                                       <?php foreach ($info as $r) {
                                         # code...
                                        ?>
-                                        <tr class="unread">
-                                            <td class="hidden-xs">
+                                      
+                                        <tr class="<?php if($r->read == "0"){ ?> unread <?php }else{ ?> read <?php } ?>">
+                                            <td  class="hidden-xs">
                                                <div class="checkbox">
                                                  <input type="checkbox" class="checkbox-mail" >
                                                   <label></label>
@@ -58,10 +59,10 @@
                                                 <i class="fa fa-star "></i>
                                             </td>
                                             <td class="hidden-xs">
-                                                Sisfo Akper
+                                                <a href="<?php echo site_url('pmb/view_pengumuman/'.$r->id_pengumuman); ?>"> Sisfo Akper</a>
                                             </td>
-                                            <td><a href="<?php echo site_url('pmb/view_pengumuman/'.$r->id_pengumuman); ?>">
-                                                <?php echo $r->judul; ?></a></td>
+                                            <td>
+                                               <a href="<?php echo site_url('pmb/view_pengumuman/'.$r->id_pengumuman); ?>"> <?php echo $r->judul; ?> </a>
                                             <td>
                                             </td>
                                             <td class="date">

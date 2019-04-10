@@ -70,11 +70,45 @@
                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-bell-o"></i>
                                     <span class="badge">
-                                      <?php  ?>
+<?php 
+$id_pmb = $this->session->userdata('id_pmb');
+$read = 0;
+$this->db->where('id_pmb',$id_pmb);
+$this->db->like('read', $read);
+$this->db->from('pengumuman');
+$data = $this->db->count_all_results();
+
+
+
+ echo $data.'<audio controls autoplay loop hidden>
+      <source src="'. base_url('assets/notif.mp3').'">
+</audio>';
+
+
+?>                                      
+
+
+
                                     </span>
+<?php 
+
+$id_pmb = $this->session->userdata('id_pmb');
+$read = 0;
+$this->db->where('id_pmb',$id_pmb);
+$this->db->like('read', $read);
+$info = $this->db->get('pengumuman');
+
+
+
+?>
+
                                 </a>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown-header">Notifications</li>
+                                        
+                                      <?php foreach ($info->result() as $r) {
+                                        # code...
+                                        ?>
+                                        <li class="dropdown-header">Pesan</li>
                                     
                                            <!-- list item-->
                                            <a href="javascript:void(0);" class="notification list-group-item">
@@ -82,19 +116,23 @@
                                                 <i class="notification-icon fa fa-bolt"></i>
                                             </div>
                                             <div class="notification-box">
-                                                <p class="notification-title">pesan</p>
-                                                <p class="notification-time">tangal</p>
+                                                <p class="notification-title"><?php echo $r->judul; ?></p>
+                                                <p class="notification-time"><?php echo $r->tanggal_kirim; ?></p>
                                             </div> 
                                            </a>
                                           
                                         </li>
-                                        <li class="dropdown-footer"><a href="#">View All Notifications</a></li>
+                                      <?php } ?>
+                                        <li class="dropdown-footer"><a href="<?php echo site_url('pmb/pengumuman'); ?>">View All Notifications</a></li>
                                     </ul>
                                 </li>
                            
                            
                            
-                          <li class="dropdown">
+  
+
+
+                          <!--<li class="dropdown">
                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="badge">5</span>
@@ -102,7 +140,7 @@
                                     <ul class="dropdown-menu">
                                        <li class="dropdown-header">You Have 5 New Message</li>
                                         <li class="notification-list scroll list-group">
-                                           <!-- list item-->
+                                           
                                            <a href="javascript:void(0);" class="notification list-group-item">
                                             <div class="message-icon pull-left">
                                                <img src="<?php echo base_url('assets/images/users/avatar-1.jpg') ?>"  alt=""/>
@@ -113,11 +151,6 @@
                                                 <span class="message-time">9:30 AM</span>
                                             </div>
                                           </a>
-         
-                                           <!-- list item-->
-                                        
-                                         
-                                          <!-- list item-->
                                            <a href="javascript:void(0);" class="notification list-group-item">
                                             <div class="message-icon pull-left">
                                                <img src="<?php echo base_url('assets/images/users/avatar-6.jpg') ?>"  alt=""/>
@@ -133,6 +166,7 @@
                                         <li class="dropdown-footer"><a href="#">View All</a></li>
                                     </ul>
                                 </li> 
+                            -->
                            
 
                              <li class="dropdown dropdown-usermenu">
