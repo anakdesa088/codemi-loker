@@ -89,8 +89,8 @@ class M_krs extends CI_Model
 	}
 
 		
-	public function m_cetak_krs($kelas){
-		$this->db->where('id_kelas',$kelas);
+	public function m_cetak_krs(){
+		
 		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
@@ -98,7 +98,7 @@ class M_krs extends CI_Model
 		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
 		$this->db->order_by('semester','asc');
 		$data = $this->db->get();
-		return $data->row();
+		return $data->result();
 	}	
 
 	//data kelas

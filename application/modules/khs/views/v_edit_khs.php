@@ -30,7 +30,7 @@
     <label class="col-md-2 control-label">Mata Kuliah</label>
     <div class="col-md-10">
       <select class="form-control"  name="mapel">
-        <option value="<?php echo $tampil->id_khs; ?>"><?php echo $tampil->nama_mapel; ?></option>
+        <option value="<?php echo $tampil->id_mapel; ?>"><?php echo $tampil->nama_mapel; ?></option>
           <?php foreach ($mapel as $r ) {
             # code...
            ?>

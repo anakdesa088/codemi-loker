@@ -47,7 +47,16 @@ class Pmb extends CI_Controller{
 public function detail(){
   $id = $this->session->userdata('id_pmb');
   $data['tampil'] = $this->m_page->m_pmb_view($id);
-  $this->load->view('pmb/v_view_pmb',$data);
+  $data['isi_pmb'] = 'pmb/content/dashboard';
+  $this->load->view('pmb/template/layout',$data);
+}
+public function pengumuman(){
+  $data['isi_pmb'] = 'pmb/content/v_pengumuman';
+  $this->load->view('pmb/template/layout',$data);
+}
+public function view_pengumuman(){
+  $data['isi_pmb'] = 'pmb/content/v_view_pengumuman';
+  $this->load->view('pmb/template/layout',$data);
 }
 
   public function form(){

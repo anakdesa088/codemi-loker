@@ -190,9 +190,9 @@ class Krs extends Manajemen_only
 	}
 
 	public function cetak_krs(){
-		$kelas = "6";
+		
 		$data['kelas'] = $this->m_krs->m_get_kelas();
-		$data['filter'] = $this->m_krs->m_cetak_krs($kelas);
+		$data['filter'] = $this->m_krs->m_cetak_krs();
 		$this->template->render('krs/v_cetak',$data);
 	}
 

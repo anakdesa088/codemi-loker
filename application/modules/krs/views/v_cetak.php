@@ -29,7 +29,7 @@
                                                 # code...
 
                         ?>
-                        <option value="<?php echo $r['id_kelas']; ?>"><?php echo $r['nama_kelas']; ?> </option>
+                        <option value="<?php echo $r->id_kelas; ?>"><?php echo $r->nama_kelas; ?> </option>
                     <?php } ?>
 
 
@@ -97,11 +97,11 @@
                         ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $r['nama_mapel']; ?></td>
-                            <td><?php echo $r['sks']; ?></td>
-                            <td><?php echo $r['semester']; ?></td>
-                            <td><?php echo $r['nama_kelas']; ?></td>
-                            <td><?php echo $r['nama_lengkap']; ?></td>
+                            <td><?php echo $r->nama_mapel; ?></td>
+                            <td><?php echo $r->sks; ?></td>
+                            <td><?php echo $r->semester; ?></td>
+                            <td><?php echo $r->nama_kelas; ?></td>
+                            <td><?php echo $r->nama_lengkap; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
