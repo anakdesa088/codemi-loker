@@ -31,91 +31,91 @@
       </div>
       <div class="col-md-2">
        <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> 
-        View KRS <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"  aria-expanded="false">Pilih Kelas <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                          <li></li>
+                                            <?php  foreach ($kelas as $r ) {
+                                              ?>
+                                            <li><a href="<?php echo site_url('krs/data_krs/'.$r->id_kelas); ?>"><?php echo $r->nama_kelas; ?></a></li>
+                                            <?php } ?>
+                                            
+                                        </ul>
 
-          <?php 
-          foreach ($kelas as $a ) {
-          
-          
-          ?>
-          <li><a href="<?php echo site_url('krs/filter_krs/'.$a['id_kelas']); ?>"><?php echo $a['nama_kelas']; ?></a></li>
-        <?php } ?>
-        </ul>
+
+        </div>
+
       </div>
 
     </div>
 
-  </div>
 
 
+    <hr>
+    <div class="table-responsive">
+     <table id="example" class="display table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Mata Kuliah</th>
+          <th>Sks</th>
+          <th>Semester</th>
+          <th>Kelas</th>
+          <th>Dosen</th>
+          <th><center>Aksi</center></th>
+        </tr>
+      </thead>
+      <tbody>
 
-  <hr>
-  <div class="table-responsive">
-   <table id="example" class="display table">
-    <thead>
+        <?php 
+        $no = 1;
+        foreach ($tampil as $r) {
+
+         ?>
+
+         <tr>
+          <td><?php echo $no++; ?></td>
+          <td><?php echo $r->nama_mapel; ?></td>
+          <td><?php echo $r->sks; ?></td>
+          <td><?php echo $r->semester; ?></td>
+          <td><?php echo $r->nama_kelas; ?></td>
+          <td><?php echo $r->nama_lengkap; ?></td>
+          <?php $id = $r->id_krs; ?>
+          <td><center>
+          <a href="<?php echo site_url('krs/edit_krs/'.$r->id_krs); ?>" class="btn btn-warning">Edit</a>
+            <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+          </center></td>
+
+        </tr>
+
+
+      <?php } ?>
+
+    </tbody>
+    <style type="text/css">
+      .jumlah{
+        text-align: right;
+      }
+    </style>
+    <tfoot>
       <tr>
-        <th>No</th>
-        <th>Mata Kuliah</th>
-        <th>Sks</th>
-        <th>Semester</th>
-        <th>Kelas</th>
-        <th>Dosen</th>
-        <th><center>Aksi</center></th>
+        <th></th>
+        <th class="jumlah"><b>Jumlah</b></th>
+        <th><?php echo $jumlah; ?></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    </thead>
-    <tbody>
-
-      <?php 
-      $no = 1;
-      foreach ($tampil as $r) {
-
-       ?>
-
-       <tr>
-        <td><?php echo $no++; ?></td>
-        <td><?php echo $r['nama_mapel']; ?></td>
-        <td><?php echo $r['sks']; ?></td>
-        <td><?php echo $r['semester']; ?></td>
-        <td><?php echo $r['nama_kelas']; ?></td>
-        <td><?php echo $r['nama_lengkap']; ?></td>
-        <?php $id = $r['id_krs']; ?>
-        <td><center>
-          <a href="<?php echo site_url('krs/edit_krs/'.$r['id_krs']); ?>" class="btn btn-warning">Edit</a>
-          <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
-        </center></td>
-
-      </tr>
-
-
-    <?php } ?>
-
-  </tbody>
-  <style type="text/css">
-    .jumlah{
-      text-align: right;
-    }
-  </style>
-  <tfoot>
-    <tr>
-      <th></th>
-      <th class="jumlah"><b>Jumlah</b></th>
-      <th><?php echo $jumlah; ?></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </tfoot>
+    </tfoot>
 
 
 
-</table>  
+  </table>  
 </div>
 </div>
 </div>
-</div>
+
+
 <div class="modal fade" tabindex="-1" role="dialog" id="removeModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

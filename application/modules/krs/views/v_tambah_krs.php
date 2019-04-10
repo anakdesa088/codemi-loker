@@ -32,7 +32,7 @@
           <?php foreach ($mapel as $r ) {
             # code...
            ?>
-          <option value="<?php echo $r['id_mapel']; ?>"><?php echo $r['nama_mapel']; ?></option>
+          <option value="<?php echo $r->id_mapel; ?>"><?php echo $r->nama_mapel; ?></option>
         <?php } ?>
       </select>
   </div>
@@ -56,7 +56,7 @@
           <?php foreach ($kelas as $r ) {
             # code...
            ?>
-          <option value="<?php echo $r['id_kelas']; ?>"><?php echo $r['nama_kelas']; ?></option>
+          <option value="<?php echo $r->id_kelas; ?>"><?php echo $r->nama_kelas; ?></option>
         <?php } ?>
       </select>
   </div>
@@ -69,7 +69,7 @@
           <?php foreach ($dosen as $r ) {
             # code...
            ?>
-          <option value="<?php echo $r['id_dosen']; ?>"><?php echo $r['nama_lengkap']; ?></option>
+          <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_lengkap; ?></option>
         <?php } ?>
       </select>
   </div>

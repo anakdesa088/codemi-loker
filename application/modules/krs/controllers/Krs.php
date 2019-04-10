@@ -23,11 +23,32 @@ class Krs extends Manajemen_only
 	* It only redirects to the manage Krs page
 	*/
 	public function index()
-	{
-		$data['kelas'] = $this->m_krs->m_get_kelas();
-		$data['jumlah'] = $this->m_krs->m_jumlah();
-		$data['tampil'] =$this->m_krs->m_data_krs();
-		$this->template->render('krs/v_krs',$data);	
+	{	
+	
+	
+	$data['jumlah'] = $this->m_krs->m_jumlah();
+	$data['tampil'] = $this->m_krs->m_all_data_krs();
+	$data['kelas'] = $this->m_krs->m_get_kelas();
+	$this->template->render('krs/v_krs',$data);
+
+
+	
+	}
+	public function data_krs($kelas)
+	{	
+	
+	if ($kelas) {
+	$data['jumlah'] = $this->m_krs->m_jumlah();
+	$data['tampil'] = $this->m_krs->m_data_krs($kelas);
+	$data['kelas'] = $this->m_krs->m_get_kelas();
+	$this->template->render('krs/v_filter_krs',$data);
+	}else{
+		return redirect('krs');
+	}
+	
+
+
+	
 	}
 	public function cetakk(){
 		$data['jumlah'] = $this->m_krs->m_jumlah();
@@ -169,8 +190,9 @@ class Krs extends Manajemen_only
 	}
 
 	public function cetak_krs(){
+		$kelas = "6";
 		$data['kelas'] = $this->m_krs->m_get_kelas();
-		$data['filter'] = $this->m_krs->m_cetak_krs();
+		$data['filter'] = $this->m_krs->m_cetak_krs($kelas);
 		$this->template->render('krs/v_cetak',$data);
 	}
 

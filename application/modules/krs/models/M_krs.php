@@ -7,9 +7,7 @@ class M_krs extends CI_Model
 		parent::__construct();
 	}
 
-	
-	public function m_data_krs(){
-
+	public function m_all_data_krs(){
 		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
@@ -17,8 +15,21 @@ class M_krs extends CI_Model
 		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
 		$this->db->order_by('semester','asc');
 		$data = $this->db->get();
-		return $data->result_array();
+		return $data->result();
 	}
+	
+	public function m_data_krs($kelas){
+		$this->db->where('b.id_kelas',$kelas);
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->from('krs a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
+		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
+		$this->db->order_by('semester','asc');
+		$data = $this->db->get();
+		return $data->result();
+	}
+	
 	public function m_jumlah(){
 		$sql = "SELECT sum(sks) as sks from krs";
 		$data = $this->db->query($sql);
@@ -78,7 +89,8 @@ class M_krs extends CI_Model
 	}
 
 		
-	public function m_cetak_krs(){
+	public function m_cetak_krs($kelas){
+		$this->db->where('id_kelas',$kelas);
 		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
@@ -86,23 +98,31 @@ class M_krs extends CI_Model
 		$this->db->join('mapel_mahasiswa d','d.id_mapel = a.id_mapel','left');
 		$this->db->order_by('semester','asc');
 		$data = $this->db->get();
-		return $data->result_array();
+		return $data->row();
 	}	
 
 	//data kelas
 
 
 	public function m_get_kelas(){
+
+		
 		$data = $this->db->get('kelas');
-		return $data->result_array();
+		return $data->result();
+	}
+	public function m_kelas(){
+		
+		
+		$data = $this->db->get('kelas');
+		return $data->result();
 	}
 	public function m_get_dosen(){
 		$data = $this->db->get('dosen');
-		return $data->result_array();
+		return $data->result();
 	}
 	public function m_get_mapel(){
 		$data = $this->db->get('mapel_mahasiswa');
-		return $data->result_array();
+		return $data->result();
 	}
 
 

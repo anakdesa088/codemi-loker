@@ -58,7 +58,7 @@
                                                     <td><?php echo $r['jk']; ?></td>
                                                     <td><?php echo $r['alamat']; ?></td>
                                                     
-                                                    
+                                                   <?php $id = $r['id_mahasiswa']; ?>
                                                     <td align="center">
                                                         <a href="<?php echo site_url('mahasiswa/edit_mahasiswa/'.$r['id_mahasiswa']); ?>" class="btn btn-warning">Edit</a>
                                                         <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
