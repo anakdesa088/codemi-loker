@@ -47,7 +47,7 @@
                                                   <td><?php echo $no++; ?></td>
                                                   <td><?php echo $r->judul; ?></td>
                                                   
-                                                  <td><?php echo $r->kepada; ?></td>
+                                                  <td><?php echo $r->email; ?></td>
                                                   <td><?php echo $r->pesan; ?></td>
                                                   <td><?php echo $r->tanggal_kirim; ?></td>
                                                   <td> <a href="<?php echo site_url('pengumuman/hapus_pengumuman/'.$r->id_pengumuman); ?>" class="btn btn-danger">Hapus</td>

@@ -11,7 +11,7 @@ class Pengumuman extends Manajemen_only {
 	public function index()
 	{
 		$data['tampil'] = $this->m_pengumuman->m_data_pengumuman();
-
+		$data['email'] = $this->m_pengumuman->m_email_pmb();
 		$this->template->render('pengumuman/v_pengumuman',$data);
 	}
 	public function tambah_pengumuman(){
@@ -27,11 +27,11 @@ class Pengumuman extends Manajemen_only {
 
 
 
-$array = array('judul'=>$judul,'kepada'=>$kepada,'pesan'=>$pesan,'tanggal_kirim'=>$tanggal_kirim,'read'=>$read);
-
-		$data = $this->m_pengumuman->m_proses_tambah_pengumuman($array);
+$array = array('judul'=>$judul,'id_pmb'=>$kepada,'pesan'=>$pesan,'tanggal_kirim'=>$tanggal_kirim,'read'=>$read);
+		$relasi = array_merge($array);
+		$data = $this->m_pengumuman->m_proses_tambah_pengumuman($relasi);
 		if ($data > 0) {
-					
+			$this->session->set_flashdata('berhasil','berhasil');
 			redirect('pengumuman');
 		}else{
 			redirect('pengumuman');

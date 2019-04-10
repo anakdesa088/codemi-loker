@@ -34,7 +34,9 @@
     <!--select2 plugin-->
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/select2/js/select2.js') ?>"></script> 
 
-
+    
+    
+    
     
 
     <!-- END PAGE LEVEL SCRIPTS -->

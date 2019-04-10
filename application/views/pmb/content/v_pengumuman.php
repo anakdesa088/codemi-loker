@@ -43,6 +43,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                      <?php foreach ($info as $r) {
+                                        # code...
+                                       ?>
                                         <tr class="unread">
                                             <td class="hidden-xs">
                                                <div class="checkbox">
@@ -54,20 +58,20 @@
                                                 <i class="fa fa-star "></i>
                                             </td>
                                             <td class="hidden-xs">
-                                                Jacob
+                                                Sisfo Akper
                                             </td>
-                                            <td>
-                                                There are many variations of passages of Lorem Ipsum </td>
+                                            <td><a href="<?php echo site_url('pmb/view_pengumuman/'.$r->id_pengumuman); ?>">
+                                                <?php echo $r->judul; ?></a></td>
                                             <td>
                                             </td>
                                             <td class="date">
-                                                21 march
+                                                <?php echo $r->tanggal_kirim; ?>
                                             </td>
                                         </tr>
                                       
                                       
                                         
-                                        
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                                 </div>

@@ -69,7 +69,9 @@
                            <li class="dropdown">
                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-bell-o"></i>
-                                    <span class="badge">6</span>
+                                    <span class="badge">
+                                      <?php  ?>
+                                    </span>
                                 </a>
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-header">Notifications</li>
@@ -80,8 +82,8 @@
                                                 <i class="notification-icon fa fa-bolt"></i>
                                             </div>
                                             <div class="notification-box">
-                                                <p class="notification-title">A new order has been placed</p>
-                                                <p class="notification-time">12:40 PM</p>
+                                                <p class="notification-title">pesan</p>
+                                                <p class="notification-time">tangal</p>
                                             </div> 
                                            </a>
                                           

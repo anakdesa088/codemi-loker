@@ -1,53 +1,95 @@
+<link href="<?php echo base_url('assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css') ?>" rel="stylesheet" type="text/css" />
  <div class="page-title-box">
-                        <h4 class="page-title">Data Dosen</h4>
+                        <h4 class="page-title">Compose Mail</h4>
                         <ol class="breadcrumb">
                             <li>
-                                <a href="#">Akademik</a>
+                                <a href="#">Dashboard</a>
                             </li>
-                            
+                            <li>
+                                <a href="#">Email</a>
+                            </li>
                             <li class="active">
-                                Data Dosen
+                                Compose Mail
                             </li>
                         </ol>
                         <div class="clearfix"></div>
                      </div>
+                      <!--End Page Title-->          
+               
+                  <!--Start row-->
+                    <div class="row">
+                       <div class="col-md-12">
+                           <div class="white-box">
+                           
+                            <div class="col-md-3 p-l-0">
+                              <div class="white-box">
+                                  <a href="compose.html" class="btn btn-primary  btn-block m-b-20">Compose</a>
+                                  <ul class="list-unstyled mailbox-nav">
+                                    <li class="active"><a href="inbox.html"><i class="fa fa-inbox"></i>Inbox 
+                                    <span class="badge badge-success pull-right">4</span></a></li>
+                                    <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li>
+                                    <li><a href="#"><i class="fa fa-file-text-o"></i>Draft</a></li>
+                                    <li><a href="#"><i class="fa fa-trash"></i>Trash</a></li>
+                                 </ul>
+                                 
+                                 <ul class="list-group mail-label">
+                                <li><h3 class="header-title">Labels</h3></li>
+                                <li><a class="list-group-item" href="#"><span class="fa fa-circle text-warning m-r-10"></span>Personal</a></li>
+                                <li><a class="list-group-item" href="#"><span class="fa fa-circle text-primary m-r-10"></span> Social</a></li>
+                                <li> <a class="list-group-item disabled" href="#"><span class="fa fa-circle text-success m-r-10"></span> Album</a></li>
+                                <li><a class="list-group-item" href="#"><span class="fa fa-circle text-danger m-r-10"></span> Friends</a></li>
+                                <li><a class="list-group-item" href="#"><span class="fa fa-circle text-info m-r-10"></span> Family</a></li>
+                                </ul>
+                               </div>
+                             </div> <!-- /.col-md-3-->
+                             
+                            <div class="col-md-9 p-r-0">
+                              <div class="white-box">
+                                <center><?php echo $this->session->flashdata('berhasil'); ?></center>
+                                <div class="mailbox-content">
+                                  <div class="compose-body">
+                                    <form action="<?php echo site_url('pengumuman/proses_tambah_pengumuman'); ?>" method="post">
+                                        <div class="form-group clearfix">
+                                            <select name="kepada" class="form-control">
+                                              <?php foreach ($email as $email) {
+                                                # code...
+                                              ?>
+                                              <option value="<?php echo $email->id_pmb; ?>"><?php echo $email->email; ?></option>
 
-
-
-
- <div class="row">
-                         <div class="col-md-6">
-                            <div class="white-box">
-                              <h2 class="header-title">Basic Forms</h2>
-                            <form action="<?php echo site_url('pengumuman/proses_tambah_pengumuman'); ?>" method="post">
-                              <div class="form-group">
-                                <label>Subject</label>
-                                <input class="form-control" name="judul"  placeholder="Enter email" type="text">
+                                            <?php } ?>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group  clearfix">
+                                            <input type="text" name="judul" class="form-control"  placeholder="subject" id="subject">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                <textarea name="pesan" class="textarea form-control wysihtml5-textarea" placeholder="Enter text ..."  style="height:200px; width:100%;"></textarea>
+                             </div>
+                             
+                                    
+                                </div> <!--/.compose-body-->
+                                
+                                <div class="compose-message">
+                                    <div class="summernote"></div>
+                                </div> <!--/.compose-message-->
+                                  
+                                   
+                                    
+                                    
+                                <div class="compose-options">
+                                    <div class="pull-right m-t-10">
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i> Send></button>
+                                    </div>
+                                </div> <!--/.compose-options-->
                               </div>
-                              
-                              <div class="form-group">
-                                <label>Kepada</label>
-                                <select class="form-control" name="kepada">
-                                  <?php foreach ($email as $r) {
-                                    # code...
-                                  ?>
-                                  <option value="<?php echo $r->email; ?>"><?php echo $r->nama_lengkap."-". $r->email; ?></option>
-                                <?php } ?>
-                                </select>
-                              </div>
-                              
-                              <div class="form-group">
-                                <label>Isi Pesan</label>
-                                <textarea class="form-control" name="pesan" ></textarea>
-
-                              </div>
-                              <div class="form-group">
-                                <div class="checkbox primary">
-                                    <input  type="checkbox" id="checkbox1"> <label for="checkbox1"> Remember me </label>
-                                </div>
-                              </div>
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                          </div>
-                       </div> <!--/.col-md-6-->
-</div>
+                              </form>
+                             </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--End row-->
+<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js') ?>"></script>

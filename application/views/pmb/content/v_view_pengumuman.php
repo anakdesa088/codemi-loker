@@ -5,7 +5,7 @@
                                 <a href="#">Dashboard</a>
                             </li>
                             <li>
-                                <a href="#">Email</a>
+                                <a href="#">Pengumunan</a>
                             </li>
                             <li class="active">
                                 Message View
@@ -25,7 +25,7 @@
                                   <div class="white-box">
                                     <div class="mailbox-content">
                                         <div class="message-header">
-                                            <h3>Lorem Ipsum is simply dummy text?</h3>
+                                            <h3><?php echo $info->judul; ?></h3>
                                         </div>
                                         <div class="message-sender">
                                            <div class="media m-b-30 ">
@@ -33,18 +33,16 @@
                                                     <img alt="" src="assets/images/users/avatar-2.jpg" class="media-object thumb-sm img-circle">
                                                 </a>
                                                 <div class="media-body">
-                                                    <span class="media-meta pull-right message-date">08:25 AM</span>
-                                                    <h5 class="m-0">Jonathan Doe</h5>
+                                                    <span class="media-meta pull-right message-date"><?php echo $info->tanggal_kirim; ?></span>
+                                                    <h5 class="m-0">Admin</h5>
                                                     <small class="text-muted">From: jonathan@doe.com</small>
                                                 </div>
                                             </div>
                                         </div>
                                         
                                         <div class="message-content">
-                                        <p class="font-weight-500 m-b-15">Hi jonathan </p>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. scrambled it to make a type specimen book. </p>
-                                            
-                                            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>
+                                        <p class="font-weight-500 m-b-15">Assalamu'alaim <?php echo $info->nama_lengkap; ?> </p>
+                                            <p><?php echo $info->pesan; ?></p>
                                         </div>
                                         
                                         
