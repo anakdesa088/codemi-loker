@@ -1,12 +1,12 @@
 <div class="page-title-box">
-                        <h4 class="page-title">Data Dosen</h4>
+                        <h4 class="page-title">Pengumuman</h4>
                         <ol class="breadcrumb">
                             <li>
                                 <a href="#">Akademik</a>
                             </li>
                             
                             <li class="active">
-                                Data Dosen
+                                Pengumuman
                             </li>
                         </ol>
                         <div class="clearfix"></div>
@@ -21,8 +21,8 @@
                        <div class="row">
                            <div class="col-md-12">
                                <div class="white-box">
-                                   <h2 class="header-title">Data Dosen</h2>
-                                   <a href="<?php echo site_url('pengumuman/tambah_pengumuman'); ?>" class="btn btn-primary">Tambah Dosen</a>
+                                   <h2 class="header-title">Pengumuman</h2>
+                                   <a href="<?php echo site_url('pengumuman/tambah_pengumuman'); ?>" class="btn btn-primary">Pesan</a>
                                    <hr>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">

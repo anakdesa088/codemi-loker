@@ -80,9 +80,7 @@ $data = $this->db->count_all_results();
 
 
 
- echo $data.'<audio controls autoplay loop hidden>
-      <source src="'. base_url('assets/notif.mp3').'">
-</audio>';
+ echo $data;
 
 
 ?>                                      
@@ -111,7 +109,7 @@ $info = $this->db->get('pengumuman');
                                         <li class="dropdown-header">Pesan</li>
                                     
                                            <!-- list item-->
-                                           <a href="javascript:void(0);" class="notification list-group-item">
+                                           <a href="<?php echo site_url('pmb/view_pengumuman/'.$r->id_pengumuman); ?>" class="notification list-group-item">
                                               <div class="notification-icon-main  bg-info  pull-left">
                                                 <i class="notification-icon fa fa-bolt"></i>
                                             </div>

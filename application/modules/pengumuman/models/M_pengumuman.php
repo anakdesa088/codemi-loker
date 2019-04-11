@@ -8,6 +8,7 @@ class M_pengumuman extends CI_Model {
 		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.read','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
 		$this->db->from('pengumuman a');
 		$this->db->join('pmb b','b.id_pmb = a.id_pmb','left');
+		
 		$data = $this->db->get('');
 		return $data->result();
 	}
@@ -15,6 +16,7 @@ class M_pengumuman extends CI_Model {
 		$this->db->where('b.id_pmb',$id);
 		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.read','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
 		$this->db->from('pengumuman a');
+		
 		$this->db->join('pmb b','b.id_pmb = a.id_pmb','left');
 		$data = $this->db->get('');
 		return $data->row();
@@ -24,6 +26,7 @@ class M_pengumuman extends CI_Model {
 		$this->db->where('b.id_pmb',$id);
 		$this->db->select(['a.id_pengumuman','a.judul','a.pesan','a.read','a.tanggal_kirim','b.id_pmb','b.nama_lengkap','b.email']);
 		$this->db->from('pengumuman a');
+		$this->db->order_by('a.tanggal_kirim','desc');
 		$this->db->join('pmb b','b.id_pmb = a.id_pmb','left');
 		$data = $this->db->get('');
 		return $data->result();
