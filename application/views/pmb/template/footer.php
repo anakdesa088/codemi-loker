@@ -1,7 +1,9 @@
+
+                <!--End footer -->
+
+                 </div>  <!--/.main-container-->
 <footer class="footer-main"> 2019 &copy; AKPER BUNTET PESANTREN. </footer> 
                 
-                <!--End footer -->
-                 </div>  <!--/.main-container-->
              </div> <!--/wrapper-->
 
 

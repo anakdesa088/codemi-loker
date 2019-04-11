@@ -24,12 +24,7 @@
       margin: 0;
       font-family: serif;
     }
-    .wrapper{
-      width: 100%;
-      float: left;
-      background-color: white;
-
-    }
+    
     .rows{
       width: 90%;
       margin: 0 auto;
@@ -51,7 +46,7 @@
       border-bottom: 10px solid blue;
     }
     .logo{
-      width: 9%;
+      width: 10%;
       position: absolute;
       left: 10;
       top: 50;
@@ -73,7 +68,7 @@
     }
     .kiri{
     	width: 40%;
-    	float: left;
+    	
     }
     .kanan{
     	width: 40%;
@@ -83,21 +78,7 @@
     	width: 20%;
     	float: left;
     }
-    .bungkuss{
-    	width: 100%;
-    }
-    .kiris{
-    	width: 40%;
-    	float: left;
-    }
-    .kanans{
-    	width: 40%;
-    	float: left;
-    }
-    .tengahs{
-    	width: 20%;
-    	float: left;
-    }
+    
   
 
 </style>
@@ -108,7 +89,7 @@
       <div class="rows">
         <header>
           <div class="logo">
-            <img src="assets/images/logo_akper.png">
+            <img src="assets/images/logo_akper.png" width="175">
           </div>
           <div class="judul">
             <center><h4>AKADEMI KEPERAWATAN BUNTET PESANTREN CIREBON</h4></center>
@@ -196,30 +177,80 @@
 
 <br>
 
+
+
+
+
+
+</div>
+
+
+
+
+	</div>
+
+<div class="rows">
+  <div style="width: 100%">
+    <div style="width: 40%; float: left;">
+      
+    </div>
+    <div style="width: 20%; float: left;">
+      
+    </div>
+    <div style="width: 40%; float: left;">
+      <cemter><p></p></cemter>
+    </div>
+
+  </div>
+
+
+</div>    
 <br>
 
 
-<div class="bungkus">
 
-<div class="kiri">
-	
-</div>
-<div class="tengah">	
+  
+
+</div>    
+
+
+
+
+
 
 </div>	
-
-<div class="kanan">
-	<cemter><p>Cirebon, 04 Februari 2019</p></cemter>
-</div>	
-
 </div>
+<br>
+
+<div class="coba" style="width: 90%; font-family: serif;">
+  <center><p style="width: 40%; float: left;"></p></center>
+  <p style="width: 20%; float: left;"></p>
+  <center><p style="width: 40%; float: left;">Cirebon, 04 Februari 2019</p></center>
+  
+
+</div>  
+
+<br>
+<div class="coba" style="width: 90%; font-family: serif;">
+  <center><p style="width: 40%; float: left;">Mahasiswa<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <u>-----------------------------</u>
+  </p></center>
+  <p style="width: 20%; float: left;"></p>
+  <center><p style="width: 40%; float: left;">Mengetahui dan Menyetujui<br>
+    Dosen Wali
+    <br>
+    <br>
+    <br>
+    <br>
+    <u>-----------------------------</u>
+  </p></center>
+</div>  
 
 
 
-
-</div>
-	</div>
-</div>	
-</div>
 </body>
 </html>

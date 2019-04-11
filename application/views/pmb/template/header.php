@@ -103,11 +103,11 @@ $info = $this->db->get('pengumuman');
                                 </a>
                                     <ul class="dropdown-menu">
                                         
-                                      <?php foreach ($info->result() as $r) {
+                                      
+                                        <li class="dropdown-header">Pesan</li>
+                                    <?php foreach ($info->result() as $r) {
                                         # code...
                                         ?>
-                                        <li class="dropdown-header">Pesan</li>
-                                    
                                            <!-- list item-->
                                            <a href="<?php echo site_url('pmb/view_pengumuman/'.$r->id_pengumuman); ?>" class="notification list-group-item">
                                               <div class="notification-icon-main  bg-info  pull-left">
@@ -118,9 +118,9 @@ $info = $this->db->get('pengumuman');
                                                 <p class="notification-time"><?php echo $r->tanggal_kirim; ?></p>
                                             </div> 
                                            </a>
-                                          
+                                      <?php } ?>    
                                         </li>
-                                      <?php } ?>
+                                      
                                         <li class="dropdown-footer"><a href="<?php echo site_url('pmb/pengumuman'); ?>">View All Notifications</a></li>
                                     </ul>
                                 </li>

@@ -21,6 +21,8 @@
                        <div class="row">
                            <div class="col-md-12">
                                <div class="white-box">
+                                <div class="row">
+                                </div>
                                    <h2 class="header-title">Pengumuman</h2>
                                    <a href="<?php echo site_url('pengumuman/tambah_pengumuman'); ?>" class="btn btn-primary">Pesan</a>
                                    <hr>
