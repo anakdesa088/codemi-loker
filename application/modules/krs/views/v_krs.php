@@ -78,7 +78,7 @@
           <td><?php echo $r->sks; ?></td>
           <td><?php echo $r->semester; ?></td>
           <td><?php echo $r->nama_kelas; ?></td>
-          <td><?php echo $r->nama_lengkap; ?></td>
+          <td><?php echo $r->nama_dosen; ?></td>
           <?php $id = $r->id_krs; ?>
           <td><center>
           <a href="<?php echo site_url('krs/edit_krs/'.$r->id_krs); ?>" class="btn btn-warning">Edit</a>

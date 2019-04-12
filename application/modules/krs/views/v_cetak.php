@@ -17,9 +17,9 @@
 <div class="row">
    <div class="col-md-12">
      <div class="white-box">
-       <h2 class="header-title">Data KHS</h2>
+       <h2 class="header-title">Data KRS</h2>
 
-       <form method="post" action="<?php site_url('krs/filter_krs'); ?>" >
+       <form method="post" action="<?php echo site_url('krs/proses_cetak'); ?>">
         <div class="col-md-4">
             <div class="form-group">
 
@@ -35,6 +35,13 @@
 
 
                 </select>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+
+                <input type="number" name="nim" class="form-control" placeholder="NIM">
 
             </div>
         </div>
@@ -101,7 +108,7 @@
                             <td><?php echo $r->sks; ?></td>
                             <td><?php echo $r->semester; ?></td>
                             <td><?php echo $r->nama_kelas; ?></td>
-                            <td><?php echo $r->nama_lengkap; ?></td>
+                            <td><?php echo $r->nama_dosen; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

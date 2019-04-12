@@ -62,6 +62,10 @@ class M_mahasiswa extends CI_Model {
 			return false;
 		}
 	}
+	public function m_kelas(){
+		$data = $this->db->get('kelas');
+		return $data->result();
+	}
 
 
 

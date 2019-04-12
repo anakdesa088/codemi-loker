@@ -16,7 +16,15 @@
 
                                 <li><a href="<?php echo site_url('kelas');  ?>">DATA KELAS</a></li>
                                 <li class="active"><a href="<?php echo site_url('mahasiswa'); ?>">DATA MAHASISWA</a></li>
-                                <li><a href="<?php echo site_url('dosen'); ?>">DATA DOSEN</a></li>
+                                <li>
+
+                                    <a href="#"><span class="menu-label">DATA DOSEN</span> <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-sub nav-third-level collapse">                                            
+                                        <a href="<?php echo site_url('dosen'); ?>"><i class="fa fa-circle-o" aria-hidden="true"></i> DATA DOSEN</a>
+                                        <li>  <a href="<?php echo site_url('dosen_wali'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> DOSEN WALI</a></li>
+                                        
+                                    </ul>
+                                </li>
                                 <li><a href="<?php echo site_url('mapel'); ?>">DATA MATA KULIAH</a></li>
                                 <li>
                                     <a href="#"><span class="menu-label">KRS</span> <span class="fa arrow"></span></a>

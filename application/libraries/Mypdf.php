@@ -24,7 +24,7 @@ class Mypdf
 	$dompdf->render();
     ob_clean();
 
-    $dompdf->stream("aaasha.pdf", array("Attachment" => FALSE));	
+    $dompdf->stream("cetak_krs.pdf", array("Attachment" => FALSE));	
 	}
 
 	

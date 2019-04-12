@@ -43,7 +43,11 @@
           <select id="select2"  name="kelas" class="demo_select2 form-control">
             
                 <option value="<?php echo $tampil->id_kelas; ?>"><?php echo $tampil->nama_kelas; ?></option>
-                
+                  <?php foreach ($kelas as $r) {
+                    # code...
+                    ?>
+                <option value="<?php echo $r->id_kelas; ?>"><?php echo $r->nama_kelas; ?></option>
+              <?php } ?>
         </select>
 
     </div>

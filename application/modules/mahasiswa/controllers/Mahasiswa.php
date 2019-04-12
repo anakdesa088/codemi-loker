@@ -86,7 +86,7 @@ function __construct(){
 	$id_link = $this->m_mahasiswa->m_cek_id($id);
 	if ($id_link){
 		
-	
+	$data['kelas'] = $this->m_mahasiswa->m_kelas();
 	$data['tampil'] = $this->m_mahasiswa->m_edit_mahasiswa($id);
 	$this->template->render('mahasiswa/v_edit_mahasiswa',$data);
 	}else{

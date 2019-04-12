@@ -8,7 +8,7 @@ class M_krs extends CI_Model
 	}
 
 	public function m_all_data_krs(){
-		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_dosen','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
@@ -20,7 +20,7 @@ class M_krs extends CI_Model
 	
 	public function m_data_krs($kelas){
 		$this->db->where('b.id_kelas',$kelas);
-		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_dosen','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
@@ -43,7 +43,7 @@ class M_krs extends CI_Model
 	}
 	public function m_edit_krs($id){
 		$this->db->where('id_krs',$id);
-		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_dosen','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
@@ -91,7 +91,7 @@ class M_krs extends CI_Model
 		
 	public function m_cetak_krs(){
 		
-		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_lengkap','d.id_mapel','d.nama_mapel']);
+		$this->db->select(['a.id_krs','a.semester','a.sks','a.dibuat_tanggal','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_dosen','d.id_mapel','d.nama_mapel']);
 		$this->db->from('krs a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
@@ -123,6 +123,29 @@ class M_krs extends CI_Model
 	public function m_get_mapel(){
 		$data = $this->db->get('mapel_mahasiswa');
 		return $data->result();
+	}
+	public function m_test($id_kelas){
+	$this->db->where('c.id_kelas',$id_kelas);
+	$this->db->select(['a.id_krs','a.semester','a.sks','b.id_mapel','b.nama_mapel','c.id_kelas','c.nama_kelas','d.id_dosen','d.nama_dosen']);
+	$this->db->from('krs a');
+	$this->db->join('mapel_mahasiswa b','b.id_mapel = a.id_mapel','left');
+	$this->db->join('kelas c','c.id_kelas = a.id_kelas','left');
+	$this->db->join('dosen d','d.id_dosen = a.id_dosen','left');
+	$data = $this->db->get('');
+
+	return $data->result();
+
+	}
+	public function m_mahasiswa($nim){
+		$this->db->where('nim',$nim);
+		$this->db->select(['a.id_mahasiswa','a.nama_lengkap','a.nim','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_dosen','d.id_semester','d.nama_semester','e.id_tahun_ajaran','e.tahun_ajarancol']);
+		$this->db->from('mahasiswa a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$this->db->join('dosen c','c.id_dosen = a.id_dosen','left');
+		$this->db->join('semester d','d.id_semester = a.id_semester','left');
+		$this->db->join('tahun_ajaran e','e.id_tahun_ajaran = a.id_tahun_ajaran','left');
+		$data = $this->db->get('');
+		return $data->row();
 	}
 
 

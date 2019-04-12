@@ -46,7 +46,7 @@
       border-bottom: 10px solid blue;
     }
     .logo{
-      width: 10%;
+      width: 12%;
       position: absolute;
       left: 10;
       top: 50;
@@ -92,11 +92,11 @@
             <img src="assets/images/logo_akper.png" width="175">
           </div>
           <div class="judul">
-            <center><h4>AKADEMI KEPERAWATAN BUNTET PESANTREN CIREBON</h4></center>
+            <center><h4 style="font-size: 16px;">AKADEMI KEPERAWATAN BUNTET PESANTREN CIREBON</h4></center>
             <h3>( AKPER BPC )</h3>
             <p>UIN MENDIKNAS RI NOMOR 47/D/0/2005</p>
             <p>AKREDITASI LAM-PTKes No.0228/LAM-PTKes/Akr/Dip/IV/2017</p>
-            <p class="alamat">Jl. Buntet Pesantren Astanajapura PO BOX 251/CN CIREBON 45102 Telp. (0231) 635747 - 636985</p>
+            <p class="alamat" style="font-size: 12px;">Jl. Buntet Pesantren Astanajapura PO BOX 251/CN CIREBON 45102 Telp. (0231) 635747 - 636985</p>
           </div>
 
 
@@ -105,7 +105,7 @@
 </div>
 <div class="rows batas">
 	
-</div>
+</div><br>
 <div class="rows">
 <div class="tabel">
 	<CENTER><h4>KARTU RENCANA STUDI</h4></CENTER>
@@ -115,30 +115,30 @@
 			<tr>
 				<td>Nama </td>
 				<td> :</td>
-				<td> Saefudin Hardi</td>
+				<td> <?php echo $mahasiswa->nama_lengkap; ?></td>
 				
 			</tr>
 			<tr>
 				<td> NIM</td>
 				<td> :</td>
-				<td> 736389</td>
+				<td> <?php echo $mahasiswa->nim; ?></td>
 				
 			</tr>
 			<tr>
 				<td> Dosen Wali</td>
 				<td> :</td>
-				<td> Mubarok</td>
+				<td> <?php echo $mahasiswa->nama_dosen; ?></td>
 				
 			</tr>
 			<tr>
 				<td> Tingkat/ Semester</td>
 				<td> :</td>
-				<td> IV</td>
+				<td> <?php echo $mahasiswa->nama_kelas." / ".$mahasiswa->nama_semester; ?></td>
 			</tr>
 			<tr>
 				<td> Tahun Akademik</td>
 				<td> :</td>
-				<td> 2019/2020</td>
+				<td> <?php echo $mahasiswa->tahun_ajarancol; ?></td>
 			</tr>
 		</table>
 		<br>
@@ -157,22 +157,23 @@
     <th>Kelas</th>
     <th>Dosen</th>
   </tr>
+  <tbody>
+    <?php
+    $no = 1;
+    foreach ($tampil as $r) {
+      # code...
+    
+      ?>
   <tr>
-    <td>1</td>
-    <td>Bahasa Indonesia</td>
-    <td>3</td>
-    <td>VA</td>
-    <td>LIma</td>
-    <td>Mubarok</td>
+    <td><?php echo $no++; ?></td>
+    <td><?php echo $r->nama_mapel; ?></td>
+    <td><?php echo $r->sks; ?></td>
+    <td><?php echo $r->semester; ?></td>
+    <td><?php echo $r->nama_kelas; ?></td>
+    <td><?php echo $r->nama_mapel; ?></td>
   </tr>
-  <tr>
-    <td>1</td>
-    <td>Bahasa Indonesia</td>
-    <td>3</td>
-    <td>VA</td>
-    <td>LIma</td>
-    <td>Mubarok</td>
-  </tr>
+<?php } ?>
+</tbody>
 </table>
 
 <br>

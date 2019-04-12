@@ -195,6 +195,16 @@ class Krs extends Manajemen_only
 		$data['filter'] = $this->m_krs->m_cetak_krs();
 		$this->template->render('krs/v_cetak',$data);
 	}
+	public function proses_cetak(){
+		$nim = $this->input->post('nim');
+		$kelas = $this->input->post('kelas');
+		$data['mahasiswa']  = $this->m_krs->m_mahasiswa($nim);
+		$data['tampil']  = $this->m_krs->m_test($kelas);
+		$this->load->library('mypdf');
+    	$this->mypdf->generate('krs/v_template',$data);
+		
+
+	}
 
 
 
