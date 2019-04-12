@@ -8,7 +8,8 @@ class Pmb extends CI_Controller{
     parent::__construct();
     $this->load->model('m_page');
     $this->load->model('m_tahun_ajaran');
-    $this->load->library('akper/auth_akper');
+    $this->load->library(array('form_validation', 'Recaptcha','akper/auth_akper'));
+
     if (!$this->auth_akper->is_login('udahlogin')) 
     {
       return redirect('signin/pmb');      

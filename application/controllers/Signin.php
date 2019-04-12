@@ -49,7 +49,12 @@ class Signin extends MY_Controller {
 		$this->load->view('auth/pmb/v_signin');
 	}
 	public function daftar(){
-		$this->load->view('auth/pmb/v_daftar');
+		$data = array(
+          
+            'captcha' => $this->recaptcha->getWidget(), // menampilkan recaptcha
+            'script_captcha' => $this->recaptcha->getScriptTag(), // javascript recaptcha ditaruh di head
+        );
+		$this->load->view('auth/pmb/v_daftar',$data);
 	}
 	// auth management
 	public function get_pw($raw_password)
@@ -71,11 +76,13 @@ class Signin extends MY_Controller {
 	public function c_proses_daftar()
 	{
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
+		$recaptcha = $this->input->post('g-recaptcha-response');
+        $response = $this->recaptcha->verifyResponse($recaptcha);
 
 		$email 			= $this->input->post('email', true);
 		$password 		= $this->random_password();
 		$email_is_used 	= $this->m_auth->is_email_used($email);
-		if ($this->form_validation->run() == TRUE){
+		if ($this->form_validation->run() == TRUE || !isset($response['success']) || $response['success'] <> true){
 			if ($email_is_used) 
 		{
 			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning text-center" role="alert">
@@ -92,8 +99,34 @@ class Signin extends MY_Controller {
 			$daftar = $this->m_auth->m_proses_daftar($data);
 			if ($daftar) 
 			{
+
+
+	$config['protocol']    = 'smtp';
+    $config['smtp_host']    = 'ssl://mail.hardiprojct.web.id';
+    $config['smtp_port']    = '465';
+    $config['smtp_user']    = 'sisfo_akper@hardiprojct.web.id';
+    $config['smtp_pass']    = 'indonesia123A';
+    $config['charset']    = 'utf-8';
+    $config['newline']    = "\r\n";
+    $config['mailtype'] = 'text'; // or html
+    $config['validation'] = TRUE; // bool whether to validate email or not      
+
+    $this->email->initialize($config);
+
+
+    $this->email->from('sisfo_akper@hardiprojct.web.id', 'Sisfo Akper');
+    $this->email->to($email); 
+
+    $this->email->subject('Restrasi Penerimaan Mahasiswa Baru Akper Buntet');
+    $this->email->message('Email :'.$email. ' - Password : '. $password);  
+
+    $this->email->send();
+
+
+
+
 				$this->session->set_flashdata('berhasil','<div class="alert alert-success text-center" role="alert">
-						Success  Password anda adalah <br><center>'.$password.'</center>
+						Berhasil..! Silahkan cek email anda untuk Infomasi akun anda
 				        </div>
 					');
 				return redirect('signin/pmb');	

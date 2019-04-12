@@ -15,7 +15,7 @@
     <link href="<?php echo base_url('assets/css/icons.css') ?>" rel="stylesheet" type="text/css" >
     <link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/responsive.css') ?>" rel="stylesheet" type="text/css" />
-    
+    <?php echo $script_captcha; ?>
     </head>
     
     <body class="fixed-top">
@@ -68,9 +68,9 @@
                            <div class="form-group">
                                <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>
-
-                        
-                          
+                          <div class="form-group">
+                        <?php echo $captcha // tampilkan recaptcha ?>
+                          </div>
                            <div class="form-group">
                                <button type="submit"  class="btn btn-lg btn-primary btn-block" >  <i class="icon-lock "></i>   Daftar</button>
                            </div>

@@ -28,7 +28,7 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Lengkap</label>
     <div class="col-md-10">
-      <input class="form-control" value="<?php echo $tampil->nama_lengkap; ?>" name="nama_lengkap"  type="text">
+      <input class="form-control" value="<?php echo $tampil->nama_dosen; ?>" name="nama_lengkap"  type="text">
   </div>
 </div>
 

@@ -148,6 +148,8 @@ class M_krs extends CI_Model
 		return $data->row();
 	}
 
+	
+
 
 
 }

@@ -44,7 +44,7 @@
                                                 ?>
                                                     <tr>
                                                         <td><?php echo $no++; ?></td>
-                                                        <td><?php echo $r->nama_lengkap; ?></td>
+                                                        <td><?php echo $r->nama_dosen; ?></td>
                                                         <?php $date = date_create($r->tgl_lahir); $tgl_lahir = date_format($date,"d-M-Y"); ?>
                                                         <td><?php echo $r->tmpt_lahir .", ".$tgl_lahir; ?></td>
                                                         <td><?php if($r->jk == "1"){
@@ -138,7 +138,7 @@ function removeFunc(id_dosen)
     dataType: 'json',
     success:function(response) {
 
-      $("#nama_hapus").html(response.nama_lengkap
+      $("#nama_hapus").html(response.nama_dosen
             );
       
     $("#removeForm").on('submit', function() {
