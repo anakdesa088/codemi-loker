@@ -21,6 +21,11 @@ class Pmb extends CI_Controller{
       return redirect('dashboard');             
     }
     $this->load->library('akper/auth_akper');
+    $this->load->library('akper/auth_akper',[
+      
+      'password' => 'password'
+    ]);
+    
     $this->auth_akper->setSessionData([
       'id_pmb'    => 'id_pmb',
       'is_active'     => 'is_active'
@@ -266,5 +271,51 @@ public function view_pengumuman($info){
       'alamat_asal_sekolah' => $this->input->post('alamat_asal_sekolah'),
     ];
   } 
+
+  public function get_pw($raw_password)
+  {
+    $this->config->load('setting');
+    $prefix = $this->config->item('password_prefix','security');
+    $new_pass = sprintf("%s%s",$prefix,$raw_password);
+    $hash = password_hash($new_pass,PASSWORD_DEFAULT);
+    return print($hash);
+  }
+  private function getPasswordWithPrefix($raw_password)
+  {
+    $this->config->load('setting');
+    $prefix = $this->config->item('password_prefix','security');
+    $new_pass = sprintf("%s%s",$prefix,$raw_password);
+    return $new_pass;
+  }
+  public function setting_password(){
+    $data['isi_pmb']  = 'pmb/content/v_ganti_password';
+    $this->load->view('pmb/template/layout',$data);
+  }
+  public function proses_setting_password(){
+   $id = $this->session->userdata('id_pmb');
+    $password_lamah = $this->getPasswordWithPrefix($this->input->post('password_lamah'));
+
+
+
+    $password_baru = $this->input->post('password_baru');
+    $data = [
+      
+      'password'  => $this->getPasswordWithPrefix($this->input->post('password_lamah'))
+    ];
+
+    $cek = $this->auth_akper->logins($data);
+    echo $cek;
+            
+    //$this->db->where('id_pmb', $id);
+    //$this->db->where('password', $password_lamah);
+    //$query = $this->db->get('pmb');
+    //if($query->num_rows() > 0){
+    //    echo "benar";
+    //}else{
+  //      echo "salah";
+//
+    //  }
+    
+  }
 }
 

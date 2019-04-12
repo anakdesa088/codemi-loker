@@ -16,5 +16,21 @@ class M_page extends CI_Model{
 		$tampil = $this->db->get('pmb');
 		return $tampil->row();
 	}
+	public function  m_cek_password($password){
+		$this->db->where('password', $password);
+		$this->db->select('password');
+		$this->db->from('pmb');
+		
+		
+		$query = $this->db->get('');
+		if($query->row() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+
+	}
 	
 }

@@ -14,7 +14,15 @@
                                 <li><a href="vector-map.html"> Vector Map</a></li>
                                </ul>
                             </li>
-
+                            
+                            <li>
+                           <a href="javascript:void(0)"><i class="fa fa-wrench"></i> <span class="menu-label">Setting</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-sub collapse">
+                                <li><a href="<?php echo site_url('pmb/setting_password'); ?>"> Password</a></li>
+                                <li><a href="vector-map.html"> Vector Map</a></li>
+                               </ul>
+                            </li>
+                            
               
                             
                         </ul>

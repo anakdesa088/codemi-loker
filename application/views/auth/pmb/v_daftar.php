@@ -69,7 +69,7 @@
                                <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>
                           <div class="form-group">
-                        <?php echo $captcha // tampilkan recaptcha ?>
+                        <center><?php echo $captcha // tampilkan recaptcha ?></center>
                           </div>
                            <div class="form-group">
                                <button type="submit"  class="btn btn-lg btn-primary btn-block" >  <i class="icon-lock "></i>   Daftar</button>

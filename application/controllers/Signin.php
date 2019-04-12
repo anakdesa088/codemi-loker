@@ -108,13 +108,13 @@ class Signin extends MY_Controller {
     $config['smtp_pass']    = 'indonesia123A';
     $config['charset']    = 'utf-8';
     $config['newline']    = "\r\n";
-    $config['mailtype'] = 'text'; // or html
-    $config['validation'] = TRUE; // bool whether to validate email or not      
+    $config['mailtype'] = 'text'; 
+    $config['validation'] = TRUE; 
 
     $this->email->initialize($config);
 
 
-    $this->email->from('sisfo_akper@hardiprojct.web.id', 'Sisfo Akper');
+    $this->email->from('kantor@hardiprojct.web.id', 'kantor Akper');
     $this->email->to($email); 
 
     $this->email->subject('Restrasi Penerimaan Mahasiswa Baru Akper Buntet');

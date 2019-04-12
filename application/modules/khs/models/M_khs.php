@@ -65,13 +65,14 @@ public function m_get_kelas(){
 
 
 public function m_filter($mahasiswa){
-	$this->db->select(['a.sks','a.nilai_lambang','a.nilai_sks','a.nilai_mutu','a.id_kelas','a.id_khs','b.id_mapel','b.nama_mapel','c.id_mahasiswa','c.nama_lengkap','c.nim','d.id_dosen','d.nama_lengkap']);
+	$this->db->select('c.nim',$mahasiswa);
+	$this->db->select(['a.sks','a.nilai_lambang','a.nilai_sks','a.nilai_mutu','a.id_kelas','a.id_khs','b.id_mapel','b.nama_mapel','c.id_mahasiswa','c.nama_lengkap','c.nim','d.id_dosen','d.nama_dosen']);
 	$this->db->from('khs a');
 	$this->db->join('mapel_mahasiswa b','b.id_mapel = a.id_mapel','left');
 	$this->db->join('mahasiswa c','c.id_mahasiswa = a.id_mahasiswa','left');
 	$this->db->join('dosen d','d.id_dosen = a.id_dosen','left');
 	
-	$this->db->like('c.nim',$mahasiswa);
+	
 	//$this->db->like('c.id_mahasiswa',$mahasiswa);
 	$data = $this->db->get('');
 	return $data->result();

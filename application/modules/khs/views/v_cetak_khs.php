@@ -1,3 +1,5 @@
+
+
 <div class="page-title-box">
     <h4 class="page-title">Cetak KRS</h4>
     <ol class="breadcrumb">
@@ -63,53 +65,122 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-
-<div class="table-responsive">
-   <table id="example" class="display table">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Mata Kuliah</th>
-        <th>Sks</th>
-        <th>Nilai Mutu</th>
-        <th>Lambang Nilai </th>
-        <th>Nilai Sks</th>
-        <th><center>Aksi</center></th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php    
-      $no = 1;
-      foreach ($tampil as $r) {
-        # code...
-      
-      ?>
-    
-       <tr>
-        <td><?php echo $no++; ?></td>
-        <td><?php echo $r->nama_mapel; ?></td>
-        <td><?php echo $r->sks; ?></td>
-        <td><?php echo $r->nilai_mutu; ?></td>
-        <td><?php echo $r->nilai_lambang; ?></td>
-        <td><?php echo $r->nilai_sks; ?></td>
-        <?php $id = $r->id_khs; ?>
-        <td><center>
-          <a href="<?php echo site_url('khs/edit_khs/'.$r->id_khs); ?>" class="btn btn-warning">Edit</a>
-          <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
-        </center></td>
-
-      </tr>
-      <?php } ?>  
-
-
-    
-
-  </tbody>
+    <?php
+function tgl_indo($tanggal){
+  $bulan = array (
+    1 =>   'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember'
+  );
+  $pecahkan = explode('-', $tanggal);
   
+  // variabel pecahkan 0 = tanggal
+  // variabel pecahkan 1 = bulan
+  // variabel pecahkan 2 = tahun
+ 
+  return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+ 
+echo tgl_indo(date('Y-m-d')); 
+ 
+
+?>
+<table>
+  <tr>
+    <td>Nama</td>
+    <td>&ensp;:&ensp;</td>
+    <td>Saefudin Hardi</td>
+  </tr>
+  <tr>
+    <td>Tempat, Tanggal Lahir</td>
+    <td>&ensp;:&ensp;</td>
+    <td>Cirebon, 20-Februari-2019</td>
+  </tr>
+  <tr>
+    <td>Jenis Kelamin</td>
+    <td>&ensp;:&ensp;</td>
+    <td>Laki-laki</td>
+  </tr>
+  <tr>
+    <td>Nomor Induk Mahasiswa</td>
+    <td>&ensp;:&ensp;</td>
+    <td>9393829</td>
+  </tr>
+  <tr>
+    <td>Tingkat/ Semester</td>
+    <td>&ensp;:&ensp;</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Tahun Akademik</td>
+    <td>&ensp;:&ensp;</td>
+    <td>2019/2010</td>
+  </tr>
+</table>
 
 
+  <table class="table table-bordered" id="myTable" data-freezecolumns="2">
+          <thead>
+            <tr>
+              <th style="margin-top: 10px;" rowspan="2"><center>No</center></th>
+              <th rowspan="2"><center> Mata Kuliah</th></center>
+              <th rowspan="2"><center>SKS</center> </th>
+              <th colspan="2"><center>NILAI</center> </th>
+              <th rowspan="2"><center> SKS x Nilai</center> </th>
+              
+            </tr>
+            <tr>
+              <th><center> Mutu </center></th>
+              
+              <th><center>Lambang</center> </th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+              <td>23</td>
+              <td>06</td>
+              
+              <td>Malea</td>
+              
+            </tr>
+             <tr>
+              <td>1</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+              <td>23</td>
+              <td>06</td>
+              
+              <td>Malea</td>
+              
+            </tr>
+             <tr>
+              <td>1</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+              <td>23</td>
+              <td>06</td>
+              
+              <td>Malea</td>
+              
+            </tr>
+           
+          </tbody>
+        </table>
+      
 
-</table>  
 </div>
 </div>
 </div>    

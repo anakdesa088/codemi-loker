@@ -23,6 +23,7 @@ class Auth_management extends CI_Controller
 			'id_user' 		=> 'id_user',
 			'status' 		=> 'login'
 		]);
+	
 
 	}
 	public function index(){
