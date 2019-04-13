@@ -5,7 +5,10 @@ class M_dosen extends CI_Model {
 
 
 	public function m_get_dosen(){
-		$data = $this->db->get('dosen');
+		$this->db->select(['a.id_dosen','a.nama_dosen','a.tmpt_lahir','a.tgl_lahir','a.jk','a.alamat','a.tahun_masuk','b.id_kelas','b.nama_kelas']);
+		$this->db->from('dosen a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$data = $this->db->get('');
 		return $data->result();
 	}
 	public function m_proses_tambah_dosen($data){

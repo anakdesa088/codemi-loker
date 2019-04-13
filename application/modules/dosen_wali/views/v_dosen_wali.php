@@ -30,7 +30,7 @@
                                                     <th>No</th>
                                                     <th>Nama Dosen</th>
                                                     <th>Kelas</th>
-                                                    <th>Keterangan</th>
+                                                    
                                                     
                                                     <th><center>Aksi</center></th>
                                                 </tr>
@@ -40,12 +40,17 @@
                                                 <?php $no = 1; foreach ($tampil as $r) {
                                                     # code...
                                                  ?>
-                                                <tr>
+                                                <?php 
+                                                  if ($r->id_kelas) {
+                                                    
+                                                  
+                                                    ?>
+                                                    <tr>
 
                                                     <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $r->nama_lengkap; ?></td>
+                                                    <td><?php echo $r->nama_dosen; ?></td>
                                                     <td><?php echo $r->nama_kelas; ?></td>
-                                                    <td><?php echo $r->keterangan; ?></td>
+                                                    
                                                     <td align="center">
                                                         <a href="" class="btn btn-warning">Edit</a>
                                                         <a href="" class="btn btn-danger">Hapus</a>
@@ -53,6 +58,10 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                    <?php
+                                                  }
+
+                                                ?>
                                                 <?php } ?>
                                             </tbody>
                                            </table>  

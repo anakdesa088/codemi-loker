@@ -28,7 +28,7 @@
                                   <?php  foreach ($dosen as $r) {
                                   
                                    ?>
-                                    <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_lengkap; ?></option>
+                                    <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_dosen; ?></option>
                                   <?php } ?>
                                 </select>
                               </div>

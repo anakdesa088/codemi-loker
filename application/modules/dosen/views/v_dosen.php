@@ -34,6 +34,7 @@
                                                     <th>JK</th>
                                                     <th>Alamat</th>
                                                     <th>Tahun Masuk</th>
+                                                    <th>Dosen Wali</th>
                                                     <th><center>Aksi</center></th>
                                                 </tr>
                                             </thead>
@@ -54,6 +55,7 @@
                                                         } ?></td>
                                                         <td><?php echo $r->alamat; ?></td>
                                                         <td><?php echo $r->tahun_masuk; ?></td>
+                                                        <td><?php echo $r->nama_kelas; ?></td>
                                                         <?php $id = $r->id_dosen; ?>
                                                         
                                                         <td align="center">

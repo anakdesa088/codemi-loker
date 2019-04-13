@@ -22,7 +22,7 @@ class Dosen_wali extends Manajemen_only {
 		$kelas = $this->input->post('kelas');
 		$keterangan= $this->input->post('keterangan');
 
-		$array = array('id_dosen'=>$dosen,'id_kelas'=>$kelas,'keterangan'=>$keterangan);
+		$array = array('id_dosen'=>$dosen,'id_kelas'=>$kelas);
 		$relasi = array_merge($array);
 		$tambah = $this->m_dosen_wali->m_proses_tambah_dosen_wali($relasi);
 		if ($tambah > 0) {

@@ -58,7 +58,7 @@
                             
                     </div> -->
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="<?php echo site_url('dashboard'); ?>">
                             <img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="Logo" class="img-responsive"/> </a>
                     </div> <!--/.logo-->
 

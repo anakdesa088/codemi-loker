@@ -19,6 +19,7 @@
 <div id="messages"></div>
 <!--Start row-->
 
+
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
@@ -53,18 +54,23 @@
 
   <hr>
   <div class="table-responsive">
-   <table id="example" class="display table">
+  <table class="table table-bordered" id="myTable" data-freezecolumns="2">
     <thead>
-      <tr>
-        <th>No</th>
-        <th>Mata Kuliah</th>
-        <th>Sks</th>
-        <th>Nilai Mutu</th>
-        <th>Lambang Nilai </th>
-        <th>Nilai Sks</th>
-        <th><center>Aksi</center></th>
-      </tr>
-    </thead>
+            <tr>
+              <th rowspan="2"><center>No</center></th>
+              <th rowspan="2"><center> Mata Kuliah</th></center>
+              <th rowspan="2"><center>SKS</center> </th>
+              <th colspan="2"><center>NILAI</center> </th>
+              <th rowspan="2"><center> SKS x Nilai</center> </th>
+              <th rowspan="2"><center> Aksi</center> </th>
+            </tr>
+            <tr>
+              <th><center> Mutu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></th>
+              
+              <th><center>Lambang</center> </th>
+              
+            </tr>
+          </thead>
     <tbody>
       <?php    
       $no = 1;

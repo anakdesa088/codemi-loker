@@ -4,16 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_dosen_wali extends CI_Model {
 
 	public function m_data_dosen_wali(){
-		$this->db->select(['a.id_dosen_wali','a.keterangan','b.id_dosen','b.nama_lengkap','c.id_kelas','c.nama_kelas']);
-		$this->db->from('dosen_wali a');
-		$this->db->join('dosen b','b.id_dosen = a.id_dosen_wali','left');
-		$this->db->join('kelas c','c.id_kelas = a.id_kelas','left');
+		$this->db->select(['a.id_dosen','a.nama_dosen','a.tmpt_lahir','a.tgl_lahir','a.jk','a.alamat','a.tahun_masuk','b.id_kelas','b.nama_kelas']);
+		$this->db->from('dosen a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$data = $this->db->get('');
+		
 		return $data->result();
 	}
 	public function m_proses_tambah_dosen_wali($data)
 	{
-		$tambah = $this->db->insert('dosen_wali',$data);
+		$tambah = $this->db->insert('dosen',$data);
 		return $tambah; 
 	}
 
