@@ -147,6 +147,15 @@ class M_krs extends CI_Model
 		$data = $this->db->get('');
 		return $data->row();
 	}
+	public function m_cek_kelas($nim){
+		$this->db->where('nim',$nim);
+		$this->db->select(['a.id_mahasiswa','a.nama_lengkap','a.nim','b.id_kelas','b.nama_kelas']);
+		$this->db->from('mahasiswa a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$data = $this->db->get('');
+		return $data->row();
+
+	}
 
 	
 

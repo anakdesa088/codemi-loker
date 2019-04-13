@@ -23,18 +23,7 @@
         <div class="col-md-4">
             <div class="form-group">
 
-                <select class="form-control" name="kelas">
-                    <?php 
-                    foreach ($kelas as $r) {
-                                                # code...
-
-                        ?>
-                        <option value="<?php echo $r->id_kelas; ?>"><?php echo $r->nama_kelas; ?> </option>
-                    <?php } ?>
-
-
-
-                </select>
+                
 
             </div>
         </div>
