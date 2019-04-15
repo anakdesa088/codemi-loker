@@ -201,10 +201,10 @@ class Krs extends Manajemen_only
 		
 		$cek_kelas = $this->m_krs->m_cek_kelas($nim);
 		$nim_s =  $cek_kelas->id_kelas;
-		echo $nim_s;
+		
 		$data['mahasiswa']  = $this->m_krs->m_mahasiswa($nim);
 		$data['tampil']  = $this->m_krs->m_test($nim_s);
-
+		//$this->template->render('krs/v_test',$data);
 		$this->load->library('mypdf');
     	$this->mypdf->generate('krs/v_template',$data);
 		

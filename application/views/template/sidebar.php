@@ -25,7 +25,16 @@
                                         
                                     </ul>
                                 </li>
-                                <li><a href="<?php echo site_url('mapel'); ?>">DATA MATA KULIAH</a></li>
+                                <li>
+
+                                    <a href="#"><span class="menu-label">MATA KULIAH</span> <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-sub nav-third-level collapse">                                            
+                                        <a href="<?php echo site_url('mapel'); ?>"><i class="fa fa-circle-o" aria-hidden="true"></i> MATA KULIAH</a>
+                                        <li>  <a href="<?php echo site_url('pembagian_matkul'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> PEMBAGIAN MATKUL</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
                                 <li>
                                     <a href="#"><span class="menu-label">KRS</span> <span class="fa arrow"></span></a>
                                     <ul class="nav nav-sub nav-third-level collapse">                                            

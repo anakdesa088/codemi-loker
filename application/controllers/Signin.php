@@ -82,7 +82,7 @@ class Signin extends MY_Controller {
 		$email 			= $this->input->post('email', true);
 		$password 		= $this->random_password();
 		$email_is_used 	= $this->m_auth->is_email_used($email);
-		if ($this->form_validation->run() == TRUE || !isset($response['success']) || $response['success'] <> true){
+		if ($this->form_validation->run() == TRUE  || !isset($response['success']) || $response['success'] <> true){
 			if ($email_is_used) 
 		{
 			$this->session->set_flashdata('email_sudah_ada','<div class="alert alert-warning text-center" role="alert">
