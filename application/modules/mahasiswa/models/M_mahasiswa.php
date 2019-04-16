@@ -66,8 +66,30 @@ class M_mahasiswa extends CI_Model {
 		$data = $this->db->get('kelas');
 		return $data->result();
 	}
+	public function upload_file($filename){
+		$this->load->library('upload'); // Load librari upload
+		 
+		$config['upload_path'] = './excel/';
+		$config['allowed_types'] = 'xlsx|xls|csv';
+		$config['max_size']	= '2048';
+		$config['overwrite'] = true;
+		$config['file_name'] = $filename;
+	
+		$this->upload->initialize($config); // Load konfigurasi uploadnya
+		if($this->upload->do_upload('file')){ // Lakukan upload dan Cek jika proses upload berhasil
+			// Jika berhasil :
+			$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+			return $return;
+		}else{
+			// Jika gagal :
+			$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+			return $return;
+		}
+	}
 
-
+public function insert_multiple($data){
+		$this->db->insert_batch('mahasiswa', $data);
+	}
 
 
 

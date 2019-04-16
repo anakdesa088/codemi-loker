@@ -7,7 +7,7 @@ function __construct(){
 		$this->load->model(array('mahasiswa/m_mahasiswa','kelas/m_kelas','tahun_ajaran/m_tahun_ajaran'));
 
 	}
-	
+private $filename = "import_data";	
 	public function index()
 	{
 		
@@ -234,11 +234,90 @@ function __construct(){
 
 		return false;
 	}
+	public function import(){
+		$data = array(); // Buat variabel $data sebagai array
+		
+		if(isset($_POST['preview'])){ // Jika user menekan tombol Preview pada form
+			// lakukan upload file dengan memanggil function upload yang ada di SiswaModel.php
+			$upload = $this->m_mahasiswa->upload_file($this->filename);
+			
+			if($upload['result'] == "success"){ // Jika proses upload sukses
+				// Load plugin PHPExcel nya
+				include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+				
+				$excelreader = new PHPExcel_Reader_Excel2007();
+				$loadexcel = $excelreader->load('excel/'.$this->filename.'.xlsx'); // Load file yang tadi diupload ke folder excel
+				$sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
+				
+				// Masukan variabel $sheet ke dalam array data yang nantinya akan di kirim ke file form.php
+				// Variabel $sheet tersebut berisi data-data yang sudah diinput di dalam excel yang sudha di upload sebelumnya
+				$data['sheet'] = $sheet; 
+			}else{ // Jika proses upload gagal
+				$data['upload_error'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
+			}
+		}
+		$this->template->render('mahasiswa/v_import_mahasiswa',$data);
+	}
 
-
-	
-	
+public function proses_import(){
+	include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+		
+		$excelreader = new PHPExcel_Reader_Excel2007();
+		$loadexcel = $excelreader->load('excel/'.$this->filename.'.xlsx'); // Load file yang telah diupload ke folder excel
+		$sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
+		
+		// Buat sebuah variabel array untuk menampung array data yg akan kita insert ke database
+		$data = array();
+		
+		$numrow = 1;
+		foreach($sheet as $row){
+			// Cek $numrow apakah lebih dari 1
+			// Artinya karena baris pertama adalah nama-nama kolom
+			// Jadi dilewat saja, tidak usah diimport
+			if($numrow > 1){
+				// Kita push (add) array data ke variabel data
+				array_push($data, array(
+'nim' =>$row['A'],
+'nama_lengkap' =>$row['B'],
+'email' =>$row['C'],
+'password' =>$row['D'],
+'kewarganegaraan' =>$row['E'],
+'jk' =>$row['F'],
+'tinggi_badan' =>$row['G'],
+'berat_badan' =>$row['H'],
+'alamat' =>$row['I'],
+'kode_pos' =>$row['J'],
+'tmpt_lahir' =>$row['K'],
+'tgl_lahir' =>$row['L'],
+'nama_ayah' =>$row['M'],
+'nama_ibu' =>$row['N'],
+'no_hp1' =>$row['O'],
+'no_hp2' =>$row['P'],
+'info_dari' =>$row['Q'],
+'nama_asal_sekolah' =>$row['R'],
+'alamat_asal_sekolah' =>$row['S'],
+'level' =>$row['T'],
+//'id_tahun_ajaran' =>1,
+'tahun_masuk' =>$row['V'],
+'id_kelas' =>$row['W'],
+'id_dosen' =>$row['X'],
+'id_semester' =>$row['Y'],					
+				));
+			}
+			
+			$numrow++; // Tambah 1 setiap kali looping
+		}
+		
+		$this->m_mahasiswa->insert_multiple($data);
+		
+		redirect("mahasiswa"); 
+	}
 }
+
+
+	
+	
+
 
 
 

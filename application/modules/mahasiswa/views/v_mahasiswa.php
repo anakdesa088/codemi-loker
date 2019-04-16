@@ -1,3 +1,5 @@
+
+
 <div class="page-title-box">
                         <h4 class="page-title">Data Mahasiswa</h4>
                         <ol class="breadcrumb">
@@ -22,7 +24,15 @@
                            <div class="col-md-12">
                                <div class="white-box">
                                    <h2 class="header-title">Data Mahasiswa</h2>
-                                   <a href="<?php echo site_url('mahasiswa/tambah_mahasiswa'); ?>" class="btn btn-primary">Tambah</a>
+                                  <div class="row">
+                                   <div class="col-md-10">
+                                    <a href="<?php echo site_url('mahasiswa/tambah_mahasiswa'); ?>" class="btn btn-primary">Tambah</a>
+                                   </div>
+                                   <div class="col-md-2">
+                                    <a href="<?php echo site_url('mahasiswa/import'); ?>" class="btn btn-success"><i class="fa fa-upload"></i> Import <i class="fa fa-file-excel-o"></i></a>
+
+                                   </div>
+                                  </div>
                                    <hr>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">
@@ -105,6 +115,7 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->                   
 
+  
 
 <script type="text/javascript">
 var example;

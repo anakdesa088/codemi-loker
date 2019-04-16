@@ -33,7 +33,11 @@
     
     <!--select2 plugin-->
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/select2/js/select2.js') ?>"></script> 
-
+<script src="<?php echo base_url('assets/plugins/table-editable/mindmup-editabletable.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/table-editable/numeric-input-example.js') ?>"></script>
+    <script>
+    $('#edit_table').editableTableWidget().numericInputExample().find('td:first').focus();
+    </script>
     
     
     
