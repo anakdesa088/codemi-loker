@@ -13,12 +13,7 @@ class M_pembagian_matkul extends CI_Model {
 		return $data->result();
 	}
 	public function m_tampil(){
-		$this->select(['a.id_pembagian_katkul','b.id_mapel','b.nama_mapel','c.id_kelas','c.nama_kelas']);
-		$this->db->from('pembagian_makul a');
-		$this->db->join('mapel_mahasiswa b','b.id_mapel = a.id_mapel','left');
-		$this->db->join('kelas c','c.id_kelas = a.id_kelas','left');
-		$data = $this->db->get('');
-		return $data->result();
+		
 	}
 
 }

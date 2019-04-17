@@ -13,40 +13,53 @@
 
 
 
-<div class="row">
+                  <div class="row">
                          <div class="col-md-12">
-                           
-                             
-                                  
-                     <div class="white-box">
-                        <h2 class="header-title"> PEMBAGIAN MATKUL</h2>
-                         <div class="table-wrap">
-                                <table class="table table-striped">
-                              
-                              <th></th>
-                              <?php foreach ($kelas as $kelas) {
-                                
-                              ?>
-                              <th><?php echo $kelas->nama_kelas; ?></th>
-                            <?php } ?>
-                            
-                            <tbody>
-                              <?php foreach ($mapel as $r) {
-                                 
-                                 ?>
-                              <tr>
-                                
-                                <td width="380"><?php echo $r->nama_mapel; ?></td>
-                                <?php foreach ($tampil as $e) {
-                                  
-                                ?>
-                                <td><?php echo $e->id_mapel; ?></td>
-                              <?php } ?>
-                              </tr>
-                              <?php } ?>
-                            </tbody>
-                            </table>
+                          <div class="white-box">
+                            <h2 class="header-title"> PEMBAGIAN MATKUL</h2>
 
+                            
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  
+                                <th></th>
+                                  <?php foreach ($kelas as $k) {
+                                    # code...
+                                  ?>
+                                <th><?php echo $k->nama_kelas; ?></th>
+                              <?php } ?>
+                                </tr>
+                               
+
+                              </thead>
+                                
+                              <tbody>
+                                <form action="<?php echo site_url('pembagian_matkul/insert'); ?>" method="post">
+                                <?php foreach ($mapel as $m) {
+                                  # code...
+                                ?>
+                                  <tr>
+                                    <td><?php echo $m->nama_mapel; ?></td>
+                                      <?php foreach ($kelas as $ke ) {
+                                        # code...
+                                          ?>
+                                      <td>
+                                 <div class="checkbox success">
+                                  
+                                  <input name="data_kelas[]" value="<?php echo $ke->id_kelas; ?>" type="checkbox">
+                                  <label><?php echo $ke->nama_kelas."-".$m->nama_mapel;  ?></label>
+                                </div>
+
+                                      </td>
+                                        <?php } ?>
+                                  </tr>
+                                  <?php } ?>                                      
+                              </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-info">Simpan</button>
+                              
+</form>
                           </div>
                         </div>
                      </div>
@@ -54,7 +67,4 @@
                    
 
 
-                           </div>
-                          </div>
-                      </div>
                      <!--End row-->
