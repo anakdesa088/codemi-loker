@@ -40,19 +40,21 @@
                                   # code...
                                 ?>
                                   <tr>
+                                  
                                     <td><?php echo $m->nama_mapel; ?></td>
                                       <?php foreach ($kelas as $ke ) {
                                         # code...
                                           ?>
                                       <td>
+                                                             
+         
                                  <div class="checkbox success">
-                                  
-                                  <input name="data_kelas[]" value="<?php echo $ke->id_kelas; ?>" type="checkbox">
-                                  <label><?php echo $ke->nama_kelas."-".$m->nama_mapel;  ?></label>
+                                  <input name="data_kelas[]" id="custom7" value="<?php echo $ke->id_kelas; ?>" type="checkbox">
+                                  <label><?php echo $ke->nama_kelas;  ?></label>
                                 </div>
 
                                       </td>
-                                        <?php } ?>
+                                        <?php } ?><input type="hidden" name="data_mapel[]" id="hdncustom7" checked="" value="<?php echo $m->id_mapel; ?>" >
                                   </tr>
                                   <?php } ?>                                      
                               </tbody>
@@ -68,3 +70,8 @@
 
 
                      <!--End row-->
+<script type="text/javascript">
+  $('#custom7').on('change', function(){
+   $('#hdncustom7').val(this.checked ? 1 : 0);
+});
+</script>

@@ -19,28 +19,45 @@ class Pembagian_matkul extends Manajemen_only {
 	{
 		
 		$validation = array(
-				array('field' => 'data_kelas[]', 'rules' => 'required')
+				array('field' => 'data_kelas[]', 'rules' => 'required'),
+				array('field' => 'data_mapel[]', 'rules' => 'required')
 				
 		);
 
 		$this->form_validation->set_rules($validation);
 		if ($this->form_validation->run() == true) {
-			$data_kelas = $this->input->post('data_kelas[]');
+			$data_kelas = $this->input->post('data_kelas');
+			$data_mapel = $this->input->post('data_mapel');
+			
 			
 			
 
 			
-			$value = array();
-			foreach ($data_kelas as $key) {
-				array_push($value, array(
-					'id_kelas' => $key,
+		$value = array();
+		for ($i=0; $i < count($data_mapel); $i++) { 
+			$value[$i] = array(
+				'id_kelas' =>$data_kelas[$i],
+				'id_mapel' =>$data_mapel[$i]
+			);
+		
+		}
+		$this->db->insert_batch('pembagian_matkul',$value);
+		//	foreach ($data_kelas as $key) {
+		//		array_push($value, array(
+		//			'id_kelas' => $key,
+					
 			
-				));
-			}
-			$this->db->insert_batch('pembagian_matkul',$value);
+		//		));
+		//	}
+		
 		}
 
 		
+	}
+	public function tampil(){
+		
+		$data['tampil'] = $this->m_pembagian_matkul->m_tampil();
+		$this->template->render('pembagian_matkul/v_tampil',$data);
 	}
 
 }
