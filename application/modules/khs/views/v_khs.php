@@ -18,6 +18,29 @@
 
 <div id="messages"></div>
 <!--Start row-->
+<div class="row">
+ <div class="col-md-12">
+   <div class="white-box">
+              <div class="col-md-4">
+
+              </div>
+              <div class="col-md-4">
+
+              
+
+             <form action="<?php echo site_url('khs/find'); ?>" method="post">
+                              <div class="form-group">
+                                <center><label>NIM</label></center>
+                                <input class="form-control" name="nim"  placeholder="NIM" type="number">
+                              </div>
+            </form>
+          </div>
+          <div class="col-md-4">
+
+              </div>
+
+</div></div></div>
+
 
 
 <div class="row">
@@ -36,13 +59,7 @@
         View KHS <span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu">
 
-          <?php 
-          foreach ($kelas as $a ) {
-          
-          
-          ?>
-          <li><a href="<?php echo site_url('KHS/filter_KHS/'); ?>">></a></li>
-        <?php } ?>
+         
         </ul>
       </div>
 
@@ -50,10 +67,39 @@
 
   </div>
 
+   
+            
 
 
   <hr>
   <div class="table-responsive">
+    <table>
+      <tr>
+        <td>Nama</td>
+        <td> : </td>
+        <td><b><?php echo $mahasiswa->nama_lengkap; ?></b></td>
+      </tr>
+      <tr>
+        <td>Tempat, Tanggal Lahir</td>
+        <td> : </td>
+        <td><?php echo $mahasiswa->tmpt_lahir.", ".$mahasiswa->tgl_lahir; ?></td>
+      </tr>
+      <tr>
+        <td>Nomor Induk Mahasiswa</td>
+        <td> : </td>
+        <td><?php echo $mahasiswa->nim; ?></td>
+      </tr>
+      <tr>
+        <td>Tingkat/ Semester</td>
+        <td> : </td>
+        <td><?php echo $mahasiswa->id_semester; ?></td>
+      </tr>
+      <tr>
+        <td>Tahun Akademik</td>
+        <td> : </td>
+        <td><?php echo $mahasiswa->id_semester; ?></td>
+      </tr>
+    </table>
   <table class="table table-bordered" id="myTable" data-freezecolumns="2">
     <thead>
             <tr>
@@ -62,7 +108,7 @@
               <th rowspan="2"><center>SKS</center> </th>
               <th colspan="2"><center>NILAI</center> </th>
               <th rowspan="2"><center> SKS x Nilai</center> </th>
-              <th rowspan="2"><center> Aksi</center> </th>
+              
             </tr>
             <tr>
               <th><center> Mutu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></th>
@@ -72,149 +118,33 @@
             </tr>
           </thead>
     <tbody>
-      <?php    
-      $no = 1;
-      foreach ($tampil as $r) {
+      <form>
+      <?php $no=1; foreach ($tampil as $r) {
         # code...
-      
       ?>
-    
-       <tr>
+      <tr>
         <td><?php echo $no++; ?></td>
-        <td><?php echo $r->nama_mapel; ?></td>
-        <td><?php echo $r->sks; ?></td>
-        <td><?php echo $r->nilai_mutu; ?></td>
-        <td><?php echo $r->nilai_lambang; ?></td>
-        <td><?php echo $r->nilai_sks; ?></td>
-        <?php $id = $r->id_khs; ?>
-        <td><center>
-          <a href="<?php echo site_url('khs/edit_khs/'.$r->id_khs); ?>" class="btn btn-warning">Edit</a>
-          <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
-        </center></td>
-
+        <td ><?php echo $r->nama_mapel; ?></td>
+        <td width="120"><input type="number" value="<?php echo $r->id_mapel; ?>" class="form-control" name=""></td>
+        <td width="120"><input type="number" value="<?php echo $r->id_mapel; ?>" class="form-control" name=""></td>
+        <td width="120"><input type="text" value="<?php echo $r->id_mapel; ?>"class="form-control" name=""></td>
+        <td width="120"><input type="number" value="<?php echo $r->id_mapel; ?>" class="form-control" name=""></td>
+        
       </tr>
-      <?php } ?>  
+    <?php } ?>
 
-
-    
+        
 
   </tbody>
-  
-
-
 
 </table>  
+
+
+
+
+</div>
+<div class="col-md-11"></div>
+<div class="col-md-1"><button type="submit" class="btn btn-info">Simpan</button></form> </div>
 </div>
 </div>
 </div>
-</div>
-<div class="modal fade" tabindex="-1" role="dialog" id="removeModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Hapus Data KHS</h4>
-      </div>
-
-      <form role="form" action="<?php echo site_url('khs/hapus_khs') ?>" method="post" id="removeForm">
-        <div class="modal-body">
-
-
-
-          <p>Apakah anda yakin ingin menghapus <b id="nama_hapus"></b>? </p>
-
-
-
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-primary">Hapus</button>
-        </div>
-      </form>
-
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->                   
-
-
-<script type="text/javascript">
-  var example;
-
-  function removeFunc(id_khs)
-
-
-  {
-
-
-
-
-    if(id_khs) {
-
-
-      $.ajax({
-        url: 'khs/fetchKhsDataById/'+id_khs,
-        type: 'post',
-        dataType: 'json',
-        success:function(response) {
-
-          $("#nama_hapus").html(response.id_khs
-            );
-
-          $("#removeForm").on('submit', function() {
-
-
-            var form = $(this);
-
-
-
-
-            $.ajax({
-              url: form.attr('action'),
-              type: form.attr('method'),
-              data: { id_khs:id_khs}, 
-              dataType: 'json',
-              success:function(response) {
-
-                location.reload();
-
-                if(response.success === true) {
-                  response.messages
-
-
-
-                  $("#removeModal").modal('hide');
-
-
-                } else {
-
-                  $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-                    '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
-                    '</div>'); 
-                }
-              }
-            }); 
-
-            return false;
-          });
-
-        }
-
-
-
-
-
-      });
-
-    }
-
-  }
-
-
-
-</script>
-
-
-

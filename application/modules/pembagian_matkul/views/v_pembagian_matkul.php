@@ -67,7 +67,23 @@
 <div class="row">
 <div class="col-md-12">
                      <div class="white-box">
+                      <div class="col-md-10">
                         <h2 class="header-title">PEMBAGIAN MATAKULIAH</h2>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="btn-group">
+                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"                                                              aria-expanded="false">PILIH KELAS <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                          <?php foreach ($kelas as $o) {
+                                            # code...
+                                          ?>
+                                            <li><a href="<?php echo site_url('pembagian_matkul/filter/'.$o->id_kelas); ?>"><?php echo $o->nama_kelas; ?></a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+
+                      </div>
+
                          <div class="table-wrap">
                                 <table class="table">
                               <thead>

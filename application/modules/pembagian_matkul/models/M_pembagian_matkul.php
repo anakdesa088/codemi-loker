@@ -35,7 +35,13 @@ class M_pembagian_matkul extends CI_Model {
 		return $hapus;
 	}
 	public function m_cek($kelas,$mapel){
-		$query = $this->db->where('id_kelas',$kelas,'id_mapel',$mapel)->get('pembagian_matkul');
+		//$this->db->where('id_kelas',$kelas,'id_mapel',$mapel);
+		
+		$this->db->select('id_mapel','id_kelas');
+		$this->db->like('id_mapel',$mapel);
+		$this->db->like('id_kelas',$kelas);
+		$query = $this->db->get('pembagian_matkul');
+
 		if($query->num_rows() > 0)
 		{
 			return true;
@@ -43,6 +49,24 @@ class M_pembagian_matkul extends CI_Model {
 		{
 			return false;
 		}
+	}
+	public function m_judul_kelas($kelas){
+		$this->db->where('b.id_kelas',$kelas);
+		$this->db->select(['a.id_pembagian_matkul','b.id_kelas','b.nama_kelas','c.id_mapel','c.nama_mapel']);
+		$this->db->from('pembagian_matkul a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$this->db->join('mapel_mahasiswa c','c.id_mapel = a.id_mapel','left');
+		$data = $this->db->get('');
+		return $data->row();
+	}
+	public function m_filter($kelas){
+		$this->db->where('b.id_kelas',$kelas);
+		$this->db->select(['a.id_pembagian_matkul','b.id_kelas','b.nama_kelas','c.id_mapel','c.nama_mapel']);
+		$this->db->from('pembagian_matkul a');
+		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
+		$this->db->join('mapel_mahasiswa c','c.id_mapel = a.id_mapel','left');
+		$data = $this->db->get('');
+		return $data->result();
 	}
 
 

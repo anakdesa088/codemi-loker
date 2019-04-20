@@ -16,6 +16,13 @@ class Pembagian_matkul extends Manajemen_only {
 	$data['tampil'] = $this->m_pembagian_matkul->m_tampil();
 	$this->template->render('pembagian_matkul/v_pembagian_matkul',$data);
 	}
+	public function filter($kelas){
+	$data['kelas']	 = $this->m_pembagian_matkul->m_kelas();
+	$data['mapel'] = $this->m_pembagian_matkul->m_mapel();
+	$data['tampil'] = $this->m_pembagian_matkul->m_filter($kelas);
+	$data['judul_kelas'] = $this->m_pembagian_matkul->m_judul_kelas($kelas);
+	$this->template->render('pembagian_matkul/v_filter',$data);
+	}
 
 	public function add(){
 		$mapel = $this->input->post('mapel');
