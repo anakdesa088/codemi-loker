@@ -7,13 +7,36 @@ class Pembagian_matkul extends Manajemen_only {
 		parent::__construct();
 		$this->load->model('pembagian_matkul/m_pembagian_matkul');
 	}
-
 	public function index()
 	{
+	
+	
 	$data['kelas']	 = $this->m_pembagian_matkul->m_kelas();
 	$data['mapel'] = $this->m_pembagian_matkul->m_mapel();
 	$data['tampil'] = $this->m_pembagian_matkul->m_tampil();
 	$this->template->render('pembagian_matkul/v_pembagian_matkul',$data);
+	}
+
+	public function add(){
+		$mapel = $this->input->post('mapel');
+		$kelas = $this->input->post('kelas');
+		$data = $this->m_pembagian_matkul->m_cek($kelas,$mapel);
+		if ($data) {
+			$this->session->set_flashdata('sudah_ada','<div class="alert alert-danger" role="alert"> <strong>GAGAL</strong> <span> Maaf data sudah di input</span></div>');
+			redirect('pembagian_matkul');
+		}else{
+			$array = array('id_mapel'=>$mapel,'id_kelas'=>$kelas);
+		$rekasi = array_merge($array);
+		$tambah = $this->m_pembagian_matkul->m_add($rekasi);
+		if ($tambah > 0) {
+			$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menambah </span></div>');
+		redirect('pembagian_matkul');
+
+		}else{
+			echo "gagal";
+	}
+		}
+		
 	}
 	public function insert()
 	{
@@ -34,7 +57,7 @@ class Pembagian_matkul extends Manajemen_only {
 
 			
 		$value = array();
-		for ($i=0; $i < count($data_mapel); $i++) { 
+		for ($i=0; $i < count($data_kelas); $i++) { 
 			$value[$i] = array(
 				'id_kelas' =>$data_kelas[$i],
 				'id_mapel' =>$data_mapel[$i]
@@ -54,8 +77,17 @@ class Pembagian_matkul extends Manajemen_only {
 
 		
 	}
+	public function hapus($id){
+		$hapus = $this->m_pembagian_matkul->m_hapus($id);
+		if ($hapus > 0 ) {
+			redirect('pembagian_matkul');
+		}else{
+			redirect('pembagian_matkul');
+		}
+	}
 	public function tampil(){
-		
+		$data['kelas']  = $this->m_pembagian_matkul->m_kelas();
+		$data['mapel'] = $this->m_pembagian_matkul->m_mapel();
 		$data['tampil'] = $this->m_pembagian_matkul->m_tampil();
 		$this->template->render('pembagian_matkul/v_tampil',$data);
 	}

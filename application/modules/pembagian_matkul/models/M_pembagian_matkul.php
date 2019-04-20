@@ -13,13 +13,38 @@ class M_pembagian_matkul extends CI_Model {
 		return $data->result();
 	}
 	public function m_tampil(){
-		$this->db->select(['a.id_pembagian_matkul','b.id_kelas','b.nama_kelas','c.id_mapel','c.nama_mapel']);
+	
+		$this->db->select(['a.id_pembagian_matkul','a.nilai','b.id_kelas','b.nama_kelas','c.id_mapel','c.nama_mapel']);
 		$this->db->from('pembagian_matkul a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$this->db->join('mapel_mahasiswa c','c.id_mapel = a.id_mapel','left');
 		$data = $this->db->get('');
-		return $data->row();
+		return $data->result();
 	}
+	public function proses_tambah_pembagian_matkul($data){
+		$tambah = $this->db->insert('pembagian_matkul',$data);
+		return $tambah;
+	}
+	public function m_add($data){
+		$tambah = $this->db->insert('pembagian_matkul',$data);
+		return $tambah;
+	}
+	public function m_hapus($id){
+		$this->db->where('id_pembagian_matkul',$id);
+		$hapus = $this->db->delete('pembagian_matkul');
+		return $hapus;
+	}
+	public function m_cek($kelas,$mapel){
+		$query = $this->db->where('id_kelas',$kelas,'id_mapel',$mapel)->get('pembagian_matkul');
+		if($query->num_rows() > 0)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+
 
 }
 

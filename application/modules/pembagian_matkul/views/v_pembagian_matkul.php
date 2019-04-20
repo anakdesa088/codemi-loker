@@ -13,65 +13,86 @@
 
 
 
-                  <div class="row">
+ <div class="row">
                          <div class="col-md-12">
-                          <div class="white-box">
-                            <h2 class="header-title"> PEMBAGIAN MATKUL</h2>
+                           <div class="white-box">
+                             <h2 class="header-title">TAMBAH PEMBAGIAN MATAKULIAH</h2>
+                                <form action="<?php echo site_url('pembagian_matkul/add'); ?>" method="post" class="form-horizontal">
+                                 
+                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">MATA KULIAH</label>
+                                    <div class="col-sm-10">
+                                      <select class="form-control" name="mapel">
+                                      <?php foreach ($mapel as $m) {
+                                        # code...
+                                      ?>
+                                        <option value="<?php echo $m->id_mapel; ?>" ><?php echo $m->nama_mapel; ?></option>
 
-                            
-                            <table class="table">
-                              <thead>
-                                <tr>
+                                      <?php } ?>
+                                      </select>
+                                    </div>
+                                  </div> 
+                                 
+                                  <div class="form-group">
+                                    <label class="col-sm-2 control-label">KELAS</label>
+                                    <div class="col-sm-10">
+                                      <select class="form-control" name="kelas">
+                                      <?php foreach ($kelas as $k) {
+                                        # code...
+                                      ?>
+                                        <option value="<?php echo $k->id_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
+
+                                      <?php } ?>
+                                      </select>
+                                    </div>
+                                  </div>
                                   
-                                <th></th>
-                                  <?php foreach ($kelas as $k) {
-                                    # code...
-                                  ?>
-                                <th><?php echo $k->nama_kelas; ?></th>
-                              <?php } ?>
-                                </tr>
-                               
-
-                              </thead>
+                                                              
+                                 
+                                  <div class="form-group">
+                                    <div class="col-md-11">
+                                      
+                                    </div>
+                                    <div class="col-ms-1">
+                                      <button class="btn btn-info" type="submit">Simpan</button>
+                                    </div>
+                                  </div>
+                                  
+                                </form>
+                           </div>
+                          </div>
+                      </div>
+                      <?php echo $this->session->flashdata('sukses');  ?>
+                      <?php echo $this->session->flashdata('sudah_ada');  ?>
+<div class="row">
+<div class="col-md-12">
+                     <div class="white-box">
+                        <h2 class="header-title">PEMBAGIAN MATAKULIAH</h2>
+                         <div class="table-wrap">
+                                <table class="table">
+                              <thead>
                                 
-                              <tbody>
-                                <form action="<?php echo site_url('pembagian_matkul/insert'); ?>" method="post">
-                                <?php foreach ($mapel as $m) {
+                                <tr>
+                                  <th>Mata Pelajaran</th>
+                                  <th>Kelas</th>
+                                  <th width="25">Aksi</th>
+                                  
+                                </tr>
+                              </thead>
+                                <tbody>
+                                <?php foreach ($tampil as $r) {
                                   # code...
                                 ?>
-                                  <tr>
-                                  
-                                    <td><?php echo $m->nama_mapel; ?></td>
-                                      <?php foreach ($kelas as $ke ) {
-                                        # code...
-                                          ?>
-                                      <td>
-                                                             
-         
-                                 <div class="checkbox success">
-                                  <input name="data_kelas[]" id="custom7" value="<?php echo $ke->id_kelas; ?>" type="checkbox">
-                                  <label><?php echo $ke->nama_kelas;  ?></label>
-                                </div>
-
-                                      </td>
-                                        <?php } ?><input type="hidden" name="data_mapel[]" id="hdncustom7" checked="" value="<?php echo $m->id_mapel; ?>" >
-                                  </tr>
-                                  <?php } ?>                                      
+                                <tr>
+                                  <td><?php echo $r->nama_mapel; ?></td>
+                                  <td><?php echo $r->nama_kelas; ?></td>
+                                  <TD><a href="<?php echo site_url('pembagian_matkul/hapus/'.$r->id_pembagian_matkul);  ?>" class="btn btn-danger">Hapus </a></TD>
+                                </tr>
+                              <?php } ?>
                               </tbody>
                             </table>
-                            <button type="submit" class="btn btn-info">Simpan</button>
-                              
-</form>
-                          </div>
+                         </div>
                         </div>
                      </div>
-                   <!-- End  Striped Table-->
-                   
-
-
-                     <!--End row-->
-<script type="text/javascript">
-  $('#custom7').on('change', function(){
-   $('#hdncustom7').val(this.checked ? 1 : 0);
-});
-</script>
+                   <!-- End Basic Table-->
+                     
