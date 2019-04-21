@@ -35,10 +35,20 @@ public function m_tampil($kelas){
 	$data= $this->db->get('');
 	return $data->result();
 }
-public function m_data_khs($id_mahasiswa){
-	$this->db->where('id_mahasiswa',$id_mahasiswa);
-	$data = $this->db->get('khs');
-	return $data->row();
+public function m_data_khs($nim){
+	$this->db->where('b.nim',$nim);
+	$this->db->select(['a.id_khs','a.sks','a.nilai_mutu','a.nilai_lambang','a.nilai_sks','b.id_mahasiswa','b.nim','b.tmpt_lahir','b.tgl_lahir','b.id_semester','b.nama_lengkap','c.id_mapel','c.nama_mapel']);
+	$this->db->from('khs a');
+	$this->db->join('mahasiswa b','b.id_mahasiswa = a.id_mahasiswa','left');
+	$this->db->join('mapel_mahasiswa c','c.id_mapel = a.id_mapel','left');
+	$data = $this->db->get('');
+	return $data->result();
+
+}
+public function m_hapus_khs($id){
+	$this->db->where('id_khs',$id);
+	$hapus = $this->db->delete('khs');
+	return $hapus;
 }
 }
 

@@ -18,28 +18,6 @@
 
 <div id="messages"></div>
 <!--Start row-->
-<div class="row">
- <div class="col-md-12">
-   <div class="white-box">
-              <div class="col-md-4">
-
-              </div>
-              <div class="col-md-4">
-
-              
-
-             <form action="<?php echo site_url('khs'); ?>" method="post">
-                              <div class="form-group">
-                                <center><label>NIM</label></center>
-                                <input class="form-control" name="nim"  placeholder="NIM" type="number">
-                              </div>
-            </form>
-          </div>
-          <div class="col-md-4">
-
-              </div>
-
-</div></div></div>
 
 
 
@@ -48,16 +26,6 @@
 
 
   
-<?php
-
-if (empty($tampil && $mahasiswa)) {
-  ?>
-
-
-
-<?php
-}else{
-  ?>
 
 <div class="row">
  <div class="col-md-12">
@@ -103,6 +71,7 @@ if (empty($tampil && $mahasiswa)) {
               <th rowspan="2"><center>SKS</center> </th>
               <th colspan="2"><center>NILAI</center> </th>
               <th rowspan="2"><center> SKS x Nilai</center> </th>
+              <th rowspan="2">Aksi</th>
               
             </tr>
             <tr>
@@ -118,13 +87,16 @@ if (empty($tampil && $mahasiswa)) {
         # code...
       ?>
       <tr>
-        <td><?php echo $no++; ?></td>
-        <input type="hidden" value="<?php echo $mahasiswa->id_mahasiswa; ?>" name="data_mahasiswa[]">
-        <td ><?php echo $r->nama_mapel; ?><input type="hidden" value="<?php echo $r->id_mapel; ?>" name="data_mapel[]"></td>
-        <td width="120"><input type="number"  class="form-control" name="data_sks[]"></td>
-        <td width="120"><input type="number"  class="form-control" name="data_nilai_mutu[]"></td>
-        <td width="120"><input type="text" class="form-control" name="data_nilai_lambang[]"></td>
-        <td width="120"><input type="number"  class="form-control" name="data_nilai_sks[]"></td>
+        <td width="7"><?php echo $no++; ?></td>
+        <td width="120" align="center"><?php echo $r->nama_mapel; ?></td>
+        <td width="120" align="center"><?php echo $r->sks; ?></td>
+        <td width="120" align="center"><?php echo $r->nilai_mutu; ?></td>
+        <td width="120" align="center"><?php echo $r->nilai_lambang; ?></td>
+        <td width="120" align="center"><?php echo $r->nilai_sks; ?></td>
+        <td width="110">
+          <a href="" class="btn btn-warning">Edit</a>
+          <a href="<?php echo site_url('khs/hapus_khs/'.$r->id_khs.'-'.$mahasiswa->nim); ?>" class="btn btn-danger">Hapus</a>
+        </td>
         
       </tr>
     <?php } ?>
@@ -135,7 +107,7 @@ if (empty($tampil && $mahasiswa)) {
 
 </table>  
 
-<input type="hidden" name="nim" value="<?php echo $mahasiswa->nim; ?>">
+
 
 
 </div>
@@ -145,9 +117,3 @@ if (empty($tampil && $mahasiswa)) {
 </div>
 </div>
 
-  <?php
-  
-}
-
-
-?>
