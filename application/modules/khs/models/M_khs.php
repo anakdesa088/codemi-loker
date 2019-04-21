@@ -16,7 +16,13 @@ class M_khs extends CI_Model {
 	}
 	public function m_mahasiswa($nim){
 		$this->db->where('nim',$nim);
+
+		//$this->db->where('b.id_mahasiswa',$id_mahasiswa);
+		//$this->db->select(['a.id_khs','a.sks','a.nilai_mutu','a.nilai_lambang','a.nilai_sks','b.id_mahasiswa','b.nim','b.tmpt_lahir','b.tgl_lahir','b.id_semester','b.nama_lengkap']);
+		//$this->db->from('khs a');
+		//$this->db->join('mahasiswa b','b.id_mahasiswa = a.id_mahasiswa','left');
 		$data = $this->db->get('mahasiswa');
+		
 		return $data->row();
 	}
 
@@ -28,6 +34,11 @@ public function m_tampil($kelas){
 	$this->db->join('mapel_mahasiswa c','c.id_mapel = a.id_mapel','left');
 	$data= $this->db->get('');
 	return $data->result();
+}
+public function m_data_khs($id_mahasiswa){
+	$this->db->where('id_mahasiswa',$id_mahasiswa);
+	$data = $this->db->get('khs');
+	return $data->row();
 }
 }
 

@@ -28,7 +28,7 @@
 
               
 
-             <form action="<?php echo site_url('khs/find'); ?>" method="post">
+             <form action="<?php echo site_url('khs'); ?>" method="post">
                               <div class="form-group">
                                 <center><label>NIM</label></center>
                                 <input class="form-control" name="nim"  placeholder="NIM" type="number">
@@ -43,35 +43,30 @@
 
 
 
+
+
+
+
+  
+<?php
+
+if (empty($tampil && $mahasiswa)) {
+  ?>
+
+
+
+<?php
+}else{
+  ?>
+
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
      <h2 class="header-title">Data KHS</h2>
 
-     <div class="row">
-
-      <div class="col-md-10">
-        <a href="<?php echo site_url('khs/tambah_khs'); ?>" class="btn btn-primary">Tambah</a>
-      </div>
-      <div class="col-md-2">
-       <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> 
-        View KHS <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu">
-
-         
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-
-   
-            
+    
 
 
-  <hr>
   <div class="table-responsive">
     <table>
       <tr>
@@ -118,17 +113,18 @@
             </tr>
           </thead>
     <tbody>
-      <form>
+      <form action="<?php echo site_url('khs/proses_tambah_khs'); ?>" method="post">
       <?php $no=1; foreach ($tampil as $r) {
         # code...
       ?>
       <tr>
         <td><?php echo $no++; ?></td>
-        <td ><?php echo $r->nama_mapel; ?></td>
-        <td width="120"><input type="number" value="<?php echo $r->id_mapel; ?>" class="form-control" name=""></td>
-        <td width="120"><input type="number" value="<?php echo $r->id_mapel; ?>" class="form-control" name=""></td>
-        <td width="120"><input type="text" value="<?php echo $r->id_mapel; ?>"class="form-control" name=""></td>
-        <td width="120"><input type="number" value="<?php echo $r->id_mapel; ?>" class="form-control" name=""></td>
+        <input type="hidden" value="<?php echo $mahasiswa->id_mahasiswa; ?>" name="data_mahasiswa[]">
+        <td ><?php echo $r->nama_mapel; ?><input type="hidden" value="<?php echo $r->id_mapel; ?>" name="data_mapel[]"></td>
+        <td width="120"><input type="number"  class="form-control" name="data_sks[]"></td>
+        <td width="120"><input type="number"  class="form-control" name="data_nilai_mutu[]"></td>
+        <td width="120"><input type="text" class="form-control" name="data_nilai_lambang[]"></td>
+        <td width="120"><input type="number" value="<?php echo $r->id_mapel; ?>" class="form-control" name="data_nilai_sks[]"></td>
         
       </tr>
     <?php } ?>
@@ -148,3 +144,10 @@
 </div>
 </div>
 </div>
+
+  <?php
+  
+}
+
+
+?>

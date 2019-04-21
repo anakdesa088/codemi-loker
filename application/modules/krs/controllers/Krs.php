@@ -187,7 +187,9 @@ class Krs extends Manajemen_only
     $this->mypdf->generate('krs/v_template');
 	//$this->template->render('krs/v_template');
 
+
 	}
+	
 
 	public function cetak_krs(){
 		
