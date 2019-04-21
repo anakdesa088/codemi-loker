@@ -3,7 +3,7 @@ class MY_Model extends CI_Model
 {
     protected $primaryKey;
     protected $table;
-
+    protected $selectedColumns = '*';
     // BASIC FUNCTIONALITY
 
     public function get_data()
@@ -13,7 +13,7 @@ class MY_Model extends CI_Model
     }
     public function find_by_id($id)
     {
-        $query = $this->db->select('*')->from($this->table)
+        $query = $this->db->select($this->selectedColumns)->from($this->table)
                     ->where([$this->primaryKey => $id])
                     ->get();
         return $query->row();
@@ -81,6 +81,12 @@ class MY_Model extends CI_Model
     {
         $this->primaryKey = $primaryKey;
 
+        return $this;
+    }
+    
+    public function setSelectedColumns($string)
+    {
+        $this->selectedColumns = $string;
         return $this;
     }
 }
