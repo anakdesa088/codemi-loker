@@ -113,33 +113,30 @@
 	<div class="row">
 		<table>
 			<tr>
-				<td>Nama </td>
-				<td> :</td>
-				<td>Naak</td>
-				
-			</tr>
-			<tr>
-				<td> NIM</td>
-				<td> :</td>
-				<td>Naak</td>
-				
-			</tr>
-			<tr>
-				<td> Dosen Wali</td>
-				<td> :</td>
-				<td>Naak</td>
-				
-			</tr>
-			<tr>
-				<td> Tingkat/ Semester</td>
-				<td> :</td>
-				<td>Naak</td>
-			</tr>
-			<tr>
-				<td> Tahun Akademik</td>
-				<td> :</td>
-				<td>Naak</td>
-			</tr>
+        <td>Nama</td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
+        <td><b><?php echo $mahasiswa->nama_lengkap; ?></b></td>
+      </tr>
+      <tr>
+        <td>Tempat, Tanggal Lahir</td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
+        <td><?php echo $mahasiswa->tmpt_lahir.", ".$mahasiswa->tgl_lahir; ?></td>
+      </tr>
+      <tr>
+        <td>Nomor Induk Mahasiswa</td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
+        <td><?php echo $mahasiswa->nim; ?></td>
+      </tr>
+      <tr>
+        <td>Tingkat/ Semester</td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
+        <td><?php echo $mahasiswa->nama_semester; ?></td>
+      </tr>
+      <tr>
+        <td>Tahun Akademik</td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
+        <td><?php echo $mahasiswa->tahun_ajarancol; ?></td>
+      </tr>
 		</table>
 		<br>
 		<br>
@@ -165,36 +162,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
-              <td>23</td>
-              <td>06</td>
-              
-              <td>Malea</td>
-              
-            </tr>
-             <tr>
-              <td>1</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
-              <td>23</td>
-              <td>06</td>
-              
-              <td>Malea</td>
-              
-            </tr>
-             <tr>
-              <td>1</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
-              <td>23</td>
-              <td>06</td>
-              
-              <td>Malea</td>
-              
-            </tr>
+           <?php $no=1; foreach ($tampil as $r) {
+        # code...
+      ?>
+      <tr>
+        <td width="7"><?php echo $no++; ?></td>
+        <td width="80" align="center"><?php echo $r->nama_mapel; ?></td>
+        <td width="80" align="center"><?php echo $r->sks; ?></td>
+        <td width="80" align="center"><?php echo $r->nilai_mutu; ?></td>
+        <td width="80" align="center"><?php echo $r->nilai_lambang; ?></td>
+        <td width="80" align="center"><?php echo $r->nilai_sks; ?></td>
+        
+        
+      </tr>
+    <?php } ?>
            
           </tbody>
         </table>
@@ -209,7 +190,35 @@
 </div>
 
 
+<?php
+function tgl_indo($tanggal){
+  $bulan = array (
+    1 =>   'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember'
+  );
+  $pecahkan = explode('-', $tanggal);
+  
+  // variabel pecahkan 0 = tanggal
+  // variabel pecahkan 1 = bulan
+  // variabel pecahkan 2 = tahun
+  
+  return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
 
+
+
+
+?>
 
 	</div>
 
@@ -249,24 +258,24 @@
 <div class="coba" style="width: 90%; font-family: serif;">
   <center><p style="width: 40%; float: left;"></p></center>
   <p style="width: 20%; float: left;"></p>
-  <center><p style="width: 40%; float: left;">Cirebon, 04 Februari 2019</p></center>
+  <center><p style="width: 40%; float: left;">Cirebon, <?php echo tgl_indo(date('Y-m-d'));  ?></p></center>
   
 
 </div>  
 
 <br>
 <div class="coba" style="width: 90%; font-family: serif;">
-  <center><p style="width: 40%; float: left;">Mahasiswa<br>
-    <br>
+  <center><p style="width: 40%; float: left;">Mengetahui<br>
+    Direktur
     <br>
     <br>
     <br>
     <u>-----------------------------</u>
   </p></center>
   <p style="width: 20%; float: left;"></p>
-  <center><p style="width: 40%; float: left;">Mengetahui dan Menyetujui<br>
-    Dosen Wali
-    <br>
+  <center><p style="width: 40%; float: left;">Mengetahui<br>
+    Pudir 1
+
     <br>
     <br>
     <br>

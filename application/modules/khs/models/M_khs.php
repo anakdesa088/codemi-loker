@@ -15,13 +15,15 @@ class M_khs extends CI_Model {
 
 	}
 	public function m_mahasiswa($nim){
-		$this->db->where('nim',$nim);
+		$this->db->where('a.nim',$nim);
 
-		//$this->db->where('b.id_mahasiswa',$id_mahasiswa);
-		//$this->db->select(['a.id_khs','a.sks','a.nilai_mutu','a.nilai_lambang','a.nilai_sks','b.id_mahasiswa','b.nim','b.tmpt_lahir','b.tgl_lahir','b.id_semester','b.nama_lengkap']);
-		//$this->db->from('khs a');
-		//$this->db->join('mahasiswa b','b.id_mahasiswa = a.id_mahasiswa','left');
-		$data = $this->db->get('mahasiswa');
+		
+		$this->db->select(['a.id_mahasiswa','a.nama_lengkap','a.nim','a.tmpt_lahir','a.tgl_lahir','b.id_semester','b.nama_semester','c.id_tahun_ajaran','c.tahun_ajarancol']);
+		$this->db->from('mahasiswa a');
+
+		$this->db->join('semester b','b.id_semester = a.id_semester','left');
+	$this->db->join('tahun_ajaran c','c.id_tahun_ajaran = a.id_tahun_ajaran','left');
+		$data = $this->db->get('');
 		
 		return $data->row();
 	}
@@ -41,6 +43,7 @@ public function m_data_khs($nim){
 	$this->db->from('khs a');
 	$this->db->join('mahasiswa b','b.id_mahasiswa = a.id_mahasiswa','left');
 	$this->db->join('mapel_mahasiswa c','c.id_mapel = a.id_mapel','left');
+	
 	$data = $this->db->get('');
 	return $data->result();
 

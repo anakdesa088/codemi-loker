@@ -1,13 +1,16 @@
 
 <div class="page-title-box">
-  <h4 class="page-title">Data KHS</h4>
+  <h4 class="page-title">LIHAT KHS</h4>
   <ol class="breadcrumb">
     <li>
-      <a href="#">Akademik</a>
+      <a href="#">AKADEMIK</a>
+    </li>
+    <li>
+      <a href="#">DATA KHS</a>
     </li>
 
     <li class="active">
-      Data KHS
+      LIHAT KHS
     </li>
   </ol>
   <div class="clearfix"></div>
@@ -21,23 +24,64 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-              <div class="col-md-4">
-
+             <div class="col-md-4">
               </div>
-              <div class="col-md-4">
-
               
 
-             <form action="<?php echo site_url('khs'); ?>" method="post">
-                              <div class="form-group">
-                                <center><label>NIM</label></center>
-                                <input class="form-control" name="nim"  placeholder="NIM" type="number">
+             <div class="col-md-4">
+          
+          
+             <div class="panel-group" id="accordion2">
+                            
+                            
+                            <div class="panel panel-success  panel-color">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapse5">INPUT KHS</a>
+                                </h4>
                               </div>
-            </form>
-          </div>
-          <div class="col-md-4">
-
+                              <div id="collapse5" class="panel-collapse collapse"><br>
+                                <form action="<?php echo site_url('khs'); ?>" method="post">
+                              <div class="form-group">
+                                
+                                <input class="form-control" name="nim"  placeholder="NIM" type="number"><br>
+                              
+                              
+                                <center><button  type="submit" class="btn btn-primary">SUBMIT</button></center>
+                              </div>
+                              </form>
+                              </div>
+                            </div>
+                            
+                            <div class="panel panel-success  panel-color">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapse6">LIHAT KHS</a>
+                                </h4>
+                              </div>
+                              <div id="collapse6" class="panel-collapse collapse"><br>
+                                <form action="<?php echo site_url('khs/data_khs'); ?>" method="post">
+                              <div class="form-group">
+                                
+                                <input class="form-control" name="nim"  placeholder="NIM" type="number"><br>
+                              
+                              
+                                <center><button  type="submit" class="btn btn-primary">SUBMIT</button></center>
+                              
+                              </div>
+                              </form>
+                              </div>
+                            </div>
+                          </div>  
+                       </div> 
+  
+          
+                    <!--/.col-lg-6-->
+             
+           
+              <div class="col-md-4">
               </div>
+
 
 </div></div></div>
 

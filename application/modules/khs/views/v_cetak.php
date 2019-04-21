@@ -27,6 +27,7 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
+    <br>
               <div class="col-md-4">
 
               </div>
@@ -34,10 +35,16 @@
 
               
 
-             <form action="<?php echo site_url('khs/data_khs'); ?>" method="post">
+                                  
+             <form action="<?php echo site_url('khs/cetak_khs'); ?>" class="form-horizontal" method="post">
                               <div class="form-group">
-                                <center><label>NIM</label></center>
-                                <input class="form-control" name="nim"  placeholder="NIM" type="number">
+                                <label class="col-md-2 control-label">NIM</label>
+                                <div class="col-md-8">
+                                      <input class="form-control" name="nim"  type="number">
+                                  </div>
+                                <div class="col-md-2">
+                                  <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                </div>
                               </div>
             </form>
           </div>
@@ -47,12 +54,28 @@
 
 </div></div></div>
   
-  
+
+<?php
+
+
+if (empty($tampil && $mahasiswa)) {
+
+?>
+<?php  
+}else{
+
+  ?>
 
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Data KHS</h2>
+    <div class="row">
+     <div class="col-md-11">
+     </div>
+     <div class="col-ms-1">
+        <a href="<?php echo site_url('khs/proses_cetak_khs/'.$mahasiswa->nim); ?>" class="btn btn-success"><i class="fa fa-print"></i> CETAK</a>
+     </div>
+   </div>
 
     
 
@@ -61,30 +84,31 @@
     <table>
       <tr>
         <td>Nama</td>
-        <td> : </td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
         <td><b><?php echo $mahasiswa->nama_lengkap; ?></b></td>
       </tr>
       <tr>
         <td>Tempat, Tanggal Lahir</td>
-        <td> : </td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
         <td><?php echo $mahasiswa->tmpt_lahir.", ".$mahasiswa->tgl_lahir; ?></td>
       </tr>
       <tr>
         <td>Nomor Induk Mahasiswa</td>
-        <td> : </td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
         <td><?php echo $mahasiswa->nim; ?></td>
       </tr>
       <tr>
         <td>Tingkat/ Semester</td>
-        <td> : </td>
-        <td><?php echo $mahasiswa->id_semester; ?></td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
+        <td><?php echo $mahasiswa->nama_semester; ?></td>
       </tr>
       <tr>
         <td>Tahun Akademik</td>
-        <td> : </td>
-        <td><?php echo $mahasiswa->id_semester; ?></td>
+        <td >&nbsp; :&nbsp;&nbsp; </td>
+        <td><?php echo $mahasiswa->tahun_ajarancol; ?></td>
       </tr>
     </table>
+    <br>
   <table class="table table-bordered" id="myTable" data-freezecolumns="2">
     <thead>
             <tr>
@@ -93,7 +117,7 @@
               <th rowspan="2"><center>SKS</center> </th>
               <th colspan="2"><center>NILAI</center> </th>
               <th rowspan="2"><center> SKS x Nilai</center> </th>
-              <th rowspan="2">Aksi</th>
+              
               
             </tr>
             <tr>
@@ -104,6 +128,7 @@
             </tr>
           </thead>
     <tbody>
+
       <form action="<?php echo site_url('khs/proses_tambah_khs'); ?>" method="post">
       <?php $no=1; foreach ($tampil as $r) {
         # code...
@@ -115,10 +140,7 @@
         <td width="120" align="center"><?php echo $r->nilai_mutu; ?></td>
         <td width="120" align="center"><?php echo $r->nilai_lambang; ?></td>
         <td width="120" align="center"><?php echo $r->nilai_sks; ?></td>
-        <td width="110">
-          <a href="" class="btn btn-warning">Edit</a>
-          <a href="<?php echo site_url('khs/hapus_khs/'.$r->id_khs.'-'.$mahasiswa->nim); ?>" class="btn btn-danger">Hapus</a>
-        </td>
+        
         
       </tr>
     <?php } ?>
@@ -139,3 +161,7 @@
 </div>
 </div>
 
+  <?php
+}
+
+?>

@@ -77,7 +77,8 @@ class Khs extends Manajemen_only {
 
 			$tambah = $this->db->insert_batch('khs',$value);
 			if ($tambah > 0) {
-				redirect('khs/data_khs/'.$nim);
+				redirect('khs/datakhs/'.$nim);
+				
 			}else{
 				echo "gagal";
 			}
@@ -87,7 +88,15 @@ class Khs extends Manajemen_only {
 		}
 
 	}
-	public function data_khs($nim){
+	public function datakhs($nim){
+			
+		$data['tampil'] = $this->m_khs->m_data_khs($nim);
+		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
+		$this->template->render('khs/v_data_khs',$data);
+	}
+
+	public function data_khs(){
+		$nim = $this->input->post('nim');
 		$data['tampil'] = $this->m_khs->m_data_khs($nim);
 		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
 		$this->template->render('khs/v_data_khs',$data);
@@ -100,6 +109,21 @@ class Khs extends Manajemen_only {
 		if ($hapus  > 0) {
 			redirect('khs/data_khs/'.$pisah[1]);
 	}
+	}
+	public function cetak_khs(){
+		$nim = $this->input->post('nim');
+		$data['tampil'] = $this->m_khs->m_data_khs($nim);
+		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
+		
+		$this->template->render('khs/v_cetak',$data);
+	}
+	public function proses_cetak_khs($nim){
+	
+		$data['tampil'] = $this->m_khs->m_data_khs($nim);
+		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
+		$this->load->library('mypdf');
+    	$this->mypdf->generate('khs/v_template',$data);
+		//$this->template->render('khs/v_cetak',$data);
 	}
 
 }
