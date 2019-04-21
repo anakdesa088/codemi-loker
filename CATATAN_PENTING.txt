@@ -5,3 +5,5 @@ Kurang:
 
 	dev4@akper.ac.id
 	1709885148
+Kurang v.2 (21 April 2019)
+	- Pagination lupa dikasih~
