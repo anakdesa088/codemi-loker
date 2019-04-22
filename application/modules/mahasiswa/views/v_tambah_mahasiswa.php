@@ -120,6 +120,7 @@
       <input class="form-control" name="tmpt_lahir"  type="text">
   </div>
   <div class="col-md-4">
+
       <input type="text"  name="tgl_lahir" class="form-control default-date-picker-autoclose" >
   </div>
 </div>
@@ -235,18 +236,6 @@
 </form>
 </div>
 </div>
-
-
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-daterangepicker/moment.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/pages/datetimepicker-custom.js') ?>"></script>
-
-<!--End row-->
-
 <script>
     $(document).ready(function(){
                 // Basic
@@ -256,8 +245,9 @@
 
                 // Used events
             });
-    $('.default-date-picker-autoclose').datepicker({
-        format: 'yyyy-mm-dd',
-        autoclose: true
-    });
+    
         </script>
+    
+
+
+

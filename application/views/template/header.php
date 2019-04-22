@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
     <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico') ?>" type="image/png">
 
-
+    
 
 
 
       <!--Select2 styles-->
-      
+      <link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />
+
      
    
    <link href="<?php echo base_url('assets/plugins/datatables/css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
@@ -30,7 +31,13 @@
     
     
     
-    
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet"/>
+    <link href="assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css" />
+
+
+
+    <link href="assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" />
+
     
 
 
