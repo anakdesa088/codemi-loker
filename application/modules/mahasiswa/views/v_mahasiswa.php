@@ -85,12 +85,13 @@
                        </div>
                    <!-- End  hover Table-->
 
+
 <div class="modal fade" tabindex="-1" role="dialog" id="removeModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Hapus Mahasiswa</h4>
+        <h4 class="modal-title">Hapus Data Mahasiswa</h4>
       </div>
 
       <form role="form" action="<?php echo site_url('mahasiswa/hapus_mahasiswa') ?>" method="post" id="removeForm">
@@ -113,9 +114,7 @@
 
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->                   
-
-  
+</div><!-- /.modal -->
 
 <script type="text/javascript">
 var example;
@@ -145,13 +144,13 @@ function removeFunc(id_mahasiswa)
 
       var form = $(this);
 
-      
+      // remove the text-danger
 
 
       $.ajax({
         url: form.attr('action'),
         type: form.attr('method'),
-        data: { id_mahasiswa:id_mahasiswa}, 
+        data: { id:id_mahasiswa}, 
         dataType: 'json',
         success:function(response) {
 
@@ -161,7 +160,7 @@ function removeFunc(id_mahasiswa)
             response.messages
             
 
-      
+            // hide the modal
             $("#removeModal").modal('hide');
             
 

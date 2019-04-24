@@ -5,7 +5,7 @@
                         <ol class="breadcrumb">
                             
                             <li>
-                                <a href="#">Akademik</a>
+                                <a href="#">AKADEMIK</a>
                             </li>
                             <li class="active">
                                 PMB

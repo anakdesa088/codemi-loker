@@ -51,6 +51,7 @@
                           </tr>
                         </table>
                          <div class="table-wrap">
+                          <a href="<?php echo site_url('krs/print_krs/'.$mahasiswa->nim); ?>" class="btn btn-success">CETAK</a>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>

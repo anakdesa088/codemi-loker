@@ -137,7 +137,7 @@ class M_krs extends CI_Model
 
 	}
 	public function m_mahasiswa($nim){
-		$this->db->where('nim',$nim);
+		$this->db->where('a.nim',$nim);
 		$this->db->select(['a.id_mahasiswa','a.nama_lengkap','a.nim','b.id_kelas','b.nama_kelas','c.id_dosen','c.nama_dosen','d.id_semester','d.nama_semester','e.id_tahun_ajaran','e.tahun_ajarancol']);
 		$this->db->from('mahasiswa a');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');

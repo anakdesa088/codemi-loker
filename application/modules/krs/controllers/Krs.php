@@ -202,15 +202,30 @@ class Krs extends Manajemen_only
 		$nim = $this->input->post('nim');
 		
 		$cek_kelas = $this->m_krs->m_cek_kelas($nim);
-		$nim_s =  $cek_kelas->id_kelas;
 		
-		$data['mahasiswa']  = $this->m_krs->m_mahasiswa($nim);
-		$data['tampil']  = $this->m_krs->m_test($nim_s);
-		//$this->template->render('krs/v_test',$data);
-		$this->load->library('mypdf');
-    	$this->mypdf->generate('krs/v_template',$data);
+		$id_mahasiswa = $cek_kelas->id_mahasiswa;
+		$nim2 = $cek_kelas->nim;
+		$id_kelas = $cek_kelas->id_kelas;		
+		$data['mahasiswa']  = $this->m_krs->m_mahasiswa($nim2);
+		$data['tampil']  = $this->m_krs->m_test($id_kelas);
+		$this->template->render('krs/v_test',$data);
+	//$this->load->library('mypdf');
+    //$this->mypdf->krs('krs/v_template_cetak',$data);
 		
 
+	}
+	public function print_krs($nim){
+		$nim = $this->input->post('nim');
+		
+		$cek_kelas = $this->m_krs->m_cek_kelas($nim);
+		
+		$id_mahasiswa = $cek_kelas->id_mahasiswa;
+		
+		$id_kelas = $cek_kelas->id_kelas;		
+		$data['mahasiswa']  = $this->m_krs->m_mahasiswa($nim);
+		$data['tampil']  = $this->m_krs->m_test($id_kelas);
+	$this->load->library('mypdf');
+    $this->mypdf->krs('krs/v_template',$data);
 	}
 
 

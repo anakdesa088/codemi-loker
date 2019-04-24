@@ -2,16 +2,16 @@
                 <div class="sidebar-main">
                     <nav class="sidebar-nav">
                         <ul class="metismenu" id="side-menu">
-                        
+
                             <li class="<?php  echo ($this->uri->segment(1) == 'dashboard') ?  'active' : '' ?>">
                               <a href="<?php echo site_url('dashboard'); ?>"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
-                                
-                            </li>
+
+                          </li>
 
 
-                            <li class="<?php echo($this->uri->segment(1) == 'akademik' OR $this->uri->segment(1) == 'kelas' OR $this->uri->segment(1) == 'mahasiswa' OR $this->uri->segment(1) == 'dosen' OR $this->uri->segment(1) == 'mapel' OR $this->uri->segment(1) == 'krs' OR $this->uri->segment(1) == 'khs' ) ? 'active' : '' ?>">
-                                <a href="javascript:void(0)"><i class="fa fa-university"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-sub collapse">
+                          <li class="<?php echo($this->uri->segment(1) == 'akademik' OR $this->uri->segment(1) == 'kelas' OR $this->uri->segment(1) == 'mahasiswa' OR $this->uri->segment(1) == 'dosen' OR $this->uri->segment(1) == 'mapel' OR $this->uri->segment(1) == 'krs' OR $this->uri->segment(1) == 'khs' ) ? 'active' : '' ?>">
+                            <a href="javascript:void(0)"><i class="fa fa-university"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-sub collapse">
                                 <li class="sub-active"><a href="<?php echo site_url('akademik'); ?>">PMB</a></li>
 
                                 <li><a href="<?php echo site_url('kelas');  ?>">DATA KELAS</a></li>
@@ -42,70 +42,66 @@
                                         <li>  <a href="<?php echo site_url('krs/cetak_krs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> CETAK KRS</a></li>
                                         
                                     </ul>
-                                 </li> 
+                                </li> 
 
-                                 <li>
+                                <li>
                                     <a href="#"><span class="menu-label">KHS</span> <span class="fa arrow"></span></a>
                                     <ul class="nav nav-sub nav-third-level collapse">                                            
                                         <li>  <a href="<?php echo site_url('khs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> DATA KHS</a></li>
                                         <li>  <a href="<?php echo site_url('khs/cetak_khs'); ?>"> <i class="fa fa-circle-o" aria-hidden="true"></i> CETAK KHS</a></li>
                                         
                                     </ul>
-                                 </li> 
+                                </li> 
 
                                 
-                                    
-                                </ul>
-                            </li>
 
-                
-                
-                            <li >
-                                <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-sub collapse">
+                            </ul>
+                        </li>
+
+                        <li >
+                            <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('keuangan'); ?>">PMB</a></li>
-                                <li><a href="APA.HTML">JENIS BIAYA</a></li>
-                                <li><a href="APA.HTML">PEMBAYARAN MAHASISWA</a></li>
-                                <li><a href="APA.HTML">GAJI DOSEN</a></li>
-
-
-                                <li><a href="<?php echo site_url('backend/bau/kode_transaksi'); ?>">KODE TRANSAKSI</a></li>
-                                <li><a href="<?php echo site_url('backend/bau/transaksi'); ?>">TRANSAKSI</a></li>                                
-                                </ul>
-                            </li>
-                        
-
-
-                        <li>
-                           <a href="javascript:void(0)"><i class="fa fa-users"></i> <span class="menu-label">PMB</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-sub collapse">
-                                <li><a href="google-map.html"> MAHASISWA</a></li>
-                                <li><a href="vector-map.html"> INFORMASI</a></li>
-                               </ul>
-                            </li>
-                        <li>
-                           <a href="javascript:void(0)"><i class="ti-email"></i> <span class="menu-label">Layanan Surat</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-sub collapse">
-                                <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> PENGATURAN</a></li>
-                                <li><a href="vector-map.html"> INFORMASI</a></li>
-                               </ul>
+                                <li><a href="<?php echo site_url('jenis_pembayaran'); ?>">JENIS PEMBAYARAN</a></li>
+                                <li><a href="<?php echo site_url('pembayaran_mhs'); ?>">PEMBAYARAN MAHASISWA</a></li>
+                                <li><a href="<?php echo site_url(''); ?>">KODE TRANSAKSI</a></li>
+                                <li><a href="<?php echo site_url('transaksi'); ?>">TRANSAKSI</a></li>                                
+                            </ul>
                         </li>
 
                         <li>
-                           <a href="javascript:void(0)"><i class="fa fa-clipboard"></i> <span class="menu-label">Laporan</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-sub collapse">
-                                <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> Mahasiswa</a></li>
-                                <li><a href="vector-map.html"> PMB</a></li>
-                               </ul>
-                        </li>
-
-                            <li class="<?php echo($this->uri->segment(1) == 'pengumuman' ) ? 'active' : '' ?>"><a href="<?php echo site_url('pengumuman'); ?>"><i class="fa fa-bullhorn"></i>  <span class="menu-label">Pengumuman</span></a></li>
-                            
-                            
-                            
+                         <a href="javascript:void(0)"><i class="fa fa-users"></i> <span class="menu-label">PMB</span><span class="fa arrow"></span></a>
+                         <ul class="nav nav-sub collapse">
+                            <li><a href="google-map.html"> MAHASISWA</a></li>
+                            <li><a href="vector-map.html"> INFORMASI</a></li>
                         </ul>
-                    </nav>
-                </div>
-               <!-- End Sidebar Main-->
+                    </li>
+                    <li>
+                     <a href="javascript:void(0)"><i class="ti-email"></i> <span class="menu-label">LAYANAN SURAT</span><span class="fa arrow"></span></a>
+                     <ul class="nav nav-sub collapse">
+                        <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> PENGATURAN</a></li>
+                        <li><a href="vector-map.html"> INFORMASI</a></li>
+                    </ul>
+                </li>
 
-                <!--Start wrapperr-->
+                <li>
+                 <a href="javascript:void(0)"><i class="fa fa-clipboard"></i> <span class="menu-label">LAPORAN</span><span class="fa arrow"></span></a>
+                 <ul class="nav nav-sub collapse">
+                    <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> MAHASISWA</a></li>
+                    <li><a href="vector-map.html"> PMB</a></li>
+                </ul>
+            </li>
+
+            <li class="<?php echo($this->uri->segment(1) == 'pengumuman' ) ? 'active' : '' ?>"><a href="<?php echo site_url('pengumuman'); ?>"><i class="fa fa-bullhorn"></i>  <span class="menu-label">PENGUMUMAN</span></a></li>
+
+            <li class="<?php echo($this->uri->segment(1) == 'pengumuman' ) ? 'active' : '' ?>"><a href="<?php echo site_url('pengumuman'); ?>"><i class="fa fa-user"></i>  <span class="menu-label">PENGGUNA</span></a></li>
+            <li class="<?php echo($this->uri->segment(1) == 'pengumuman' ) ? 'active' : '' ?>"><a href="<?php echo site_url('pengumuman'); ?>"><i class="fa fa-wrench"></i>  <span class="menu-label">PENGATURAN</span></a></li>
+
+
+
+        </ul>
+    </nav>
+</div>
+<!-- End Sidebar Main-->
+
+<!--Start wrapperr-->

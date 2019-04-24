@@ -15,8 +15,8 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.nicescroll.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.slimscroll.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js') ?>"></script>
-<script type="text/javascript" src="<<?php echo base_url('assets/dropify/js/dropify.js') ?>"></script>  
 
+   
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') ?>"></script>
@@ -31,6 +31,9 @@
     <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/js/jquery.dataTables.min.js') ?>"></script>
     
     <script type="text/javascript" src="<?php echo base_url('assets/pages/table-data.js') ?>"></script><!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+
+
     
     
     

@@ -202,14 +202,14 @@ private $filename = "import_data";
 	}
 	
 	public function hapus_mahasiswa(){
-	$id_mahasaiswa = $this->input->post('id_mahasaiswa');
+	$id_mahasiswa = $this->input->post('id');
 
 		$response = array();
-		if($id_mahasaiswa) {
-			$delete = $this->m_mahasiswa->m_hapus_mahasiswa($id_mahasaiswa);
+		if($id_mahasiswa) {
+			$delete = $this->m_mahasiswa->m_hapus_mahasiswa($id_mahasiswa);
 			if($delete == true) {
 				$response['success'] = true;
-				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data Kelas</span></div>
+				$response['messages'] = $this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong>Berhasil</strong> <span> Menghapus data Mahasiswa</span></div>
 ');	
 			}
 			else {

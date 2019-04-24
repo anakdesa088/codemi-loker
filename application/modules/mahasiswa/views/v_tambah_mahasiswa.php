@@ -1,3 +1,5 @@
+
+<link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />
 <div class="page-title-box">
     <h4 class="page-title">Tambah Data Mahasiswa</h4>
     <ol class="breadcrumb">
@@ -13,10 +15,9 @@
     </ol>
     <div class="clearfix"></div>
 </div>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/jquery-multi-select/css/multi-select.css') ?>" />
 
-<link href="<?php echo base_url('assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') ?>" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/select2/css/select2.css') ?>" />
+
+
 
 <div class="row">
  <div class="col-md-12">
@@ -236,6 +237,10 @@
 </form>
 </div>
 </div>
+<script src="<?php echo base_url().'assets/ui/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/dropify/js/dropify.js') ?>"></script>  
+
+
 <script>
     $(document).ready(function(){
                 // Basic
@@ -247,7 +252,4 @@
             });
     
         </script>
-    
-
-
 

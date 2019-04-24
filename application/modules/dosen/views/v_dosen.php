@@ -1,3 +1,4 @@
+<link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />
 <div class="page-title-box">
                         <h4 class="page-title">Data Dosen</h4>
                         <ol class="breadcrumb">
@@ -196,4 +197,20 @@ function removeFunc(id_dosen)
 
 
 </script>
+
+<script src="<?php echo base_url().'assets/ui/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/dropify/js/dropify.js') ?>"></script>  
+
+
+<script>
+    $(document).ready(function(){
+                // Basic
+                $('.dropify').dropify();
+
+                // Translated
+
+                // Used events
+            });
+    
+        </script>
 

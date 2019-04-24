@@ -26,6 +26,22 @@ class Mypdf
 
     $dompdf->stream("cetak_krs".rand().".pdf", array("Attachment" => FALSE));	
 	}
+	public function krs($view,$data = array(),$paper ='A4',$orientation ='portrait'){
+	$dompdf = new Dompdf();
+
+		$html = $this->ci->load->view($view,$data, TRUE);
+
+	$dompdf->loadHtml($html);
+
+	
+	$dompdf->setPaper($paper, $orientation);
+
+	
+	$dompdf->render();
+    ob_clean();
+
+    $dompdf->stream("krs".rand().".pdf", array("Attachment" => FALSE));	
+	}
 
 	
 
