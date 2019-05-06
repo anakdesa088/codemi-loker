@@ -73,6 +73,8 @@ class Signin extends MY_Controller {
            			$this->data['errors'] = 'Incorrect username/password combination';
            			$this->load->view('auth/mahasiswa/v_signin', $this->data);
            		}
+           	}else{
+           		redirect('signin/mahasiswa','refresh');
            	}
 	}
 }
