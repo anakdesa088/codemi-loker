@@ -35,7 +35,7 @@
      <div class="col-md-11">
      </div>
      <div class="col-ms-1">
-        <a href="" class="btn btn-success"><i class="fa fa-print"></i> CETAK</a>
+        <a href="" class="btn btn-success"><i class="fa fa-print"></i> COBA</a>
      </div>
    </div>
 
