@@ -7,10 +7,10 @@
 	
 
  $('input[name="daterangetime"]').daterangepicker({
-	 format: 'MM/DD/YYYY',
+	 format: 'MM-DD-YYYY',
     "timePicker": true,
-    "startDate": "03/19/2017",
-    "endDate": "03/25/2017"
+    "startDate": "03-19-2017",
+    "endDate": "03-25-2017"
 
 	});
 	

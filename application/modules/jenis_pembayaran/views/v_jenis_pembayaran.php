@@ -91,8 +91,8 @@
                                                     <td><?php echo $r->keterangan_jp; ?></td>
                                                     <?php $id = $r->id_jp; ?>
                                                     <td align="center">
-                                                        <a href="<?php echo site_url('jenis_pembayaran/edit_jenis_pembayaran/'.$r->id_jp); ?>" class="btn btn-warning">Edit</a>
-                                                       <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+                                                        <a href="<?php echo site_url('jenis_pembayaran/edit_jenis_pembayaran/'.$r->id_jp); ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                       <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>
                                                     </td>
                                                 </tr>
                                             <?php } ?>

@@ -17,6 +17,7 @@ class Krs extends Manajemen_only
 		$this->load->library('form_validation');
 
 		$this->load->model('krs/m_krs');
+		$this->not_logged_in();
 	}
 
 	/* 
@@ -78,7 +79,7 @@ class Krs extends Manajemen_only
 			$data = array(
 				'id_mapel'=>$mapel,
 				'sks' => $sks,
-				'semester'=>$semester,
+				'id_semester'=>$semester,
 				'id_kelas'=>$kelas,
 				'id_dosen'=>$dosen
 
@@ -122,7 +123,7 @@ class Krs extends Manajemen_only
 			$data = array(
 				'id_mapel'=>$mapel,
 				'sks' => $sks,
-				'semester'=>$semester,
+				'id_semester'=>$semester,
 				'id_kelas'=>$kelas,
 				'id_dosen'=>$dosen
 
@@ -194,38 +195,56 @@ class Krs extends Manajemen_only
 	public function cetak_krs(){
 		
 		$data['kelas'] = $this->m_krs->m_get_kelas();
-		$data['filter'] = $this->m_krs->m_cetak_krs();
+		
 		$this->template->render('krs/v_cetak',$data);
 	}
-	public function proses_cetak(){
-
+	public function filter(){
 		$nim = $this->input->post('nim');
+		$cek_kelas = $this->m_krs->m_mahasiswa($nim);
+		foreach ($cek_kelas as $r) {
+			$a = $r->id_kelas;
+		}
+		$data['info'] = $this->m_krs->m_info($nim);
+		$data['tampil'] = $this->m_krs->m_cetak_krs_ya($a);
+		$this->template->render('krs/v_cetak_krs',$data);
+	}
+	public function proses_cetak($nim){
 		
-		$cek_kelas = $this->m_krs->m_cek_kelas($nim);
-		
-		$id_mahasiswa = $cek_kelas->id_mahasiswa;
-		$nim2 = $cek_kelas->nim;
-		$id_kelas = $cek_kelas->id_kelas;		
-		$data['mahasiswa']  = $this->m_krs->m_mahasiswa($nim2);
-		$data['tampil']  = $this->m_krs->m_test($id_kelas);
-		$this->template->render('krs/v_test',$data);
-	//$this->load->library('mypdf');
-    //$this->mypdf->krs('krs/v_template_cetak',$data);
-		
+		$cek_kelas = $this->m_krs->m_mahasiswa($nim);
+		foreach ($cek_kelas as $r) {
+			$a = $r->id_kelas;
+		}
+		$data['mahasiswa'] = $this->m_krs->m_info($nim);
+		$data['tampil'] = $this->m_krs->m_cetak_krs_ya($a);
+		$this->load->library('mypdf');
+    	$this->mypdf->generate('krs/v_template',$data);
+	}
+//mahalaman mahasiswa 
+
+	public function mhs(){
+
+		$id_mahasiswa = $this->session->userdata('id_mahasiswa');
+		$cek_kelas = $this->m_krs->m_krs_mahasiswa($id_mahasiswa);
+		foreach ($cek_kelas as $r) {
+			$a = $r->id_kelas;
+		}
+		$data['info'] = $this->m_krs->m_info_mhs($id_mahasiswa);
+		$data['tampil'] = $this->m_krs->m_cetak_krs_ya($a);
+		$this->template->render('krs/v_krs_mhs',$data);
 
 	}
-	public function print_krs($nim){
-		$nim = $this->input->post('nim');
-		
-		$cek_kelas = $this->m_krs->m_cek_kelas($nim);
-		
-		$id_mahasiswa = $cek_kelas->id_mahasiswa;
-		
-		$id_kelas = $cek_kelas->id_kelas;		
-		$data['mahasiswa']  = $this->m_krs->m_mahasiswa($nim);
-		$data['tampil']  = $this->m_krs->m_test($id_kelas);
-	$this->load->library('mypdf');
-    $this->mypdf->krs('krs/v_template',$data);
+	public function cetak_krs_mhs(){
+
+		$id_mahasiswa = $this->session->userdata('id_mahasiswa');
+		$cek_kelas = $this->m_krs->m_krs_mahasiswa($id_mahasiswa);
+		foreach ($cek_kelas as $r) {
+			$a = $r->id_kelas;
+		}
+		$data['info'] = $this->m_krs->m_info_mhs($id_mahasiswa);
+		$data['tampil'] = $this->m_krs->m_cetak_krs_ya($a);
+		$this->load->library('mypdf');
+    	$this->mypdf->generate('krs/v_template_cetak',$data);
+
 	}
 
 

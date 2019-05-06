@@ -6,6 +6,7 @@ class Jenis_pembayaran extends Manajemen_only {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_jenis_pembayaran');
+		$this->not_logged_in();
 	}
 	public function index()
 	{

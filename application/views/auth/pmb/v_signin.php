@@ -67,12 +67,14 @@
                         
                         
                         
-                       <form method="post" action="<?php echo site_url('signin/c_proses_login'); ?>">
+                       <form method="post" action="<?php echo site_url('signin/proses_login_pmb'); ?>">
                            <div class="form-group">
+                              <label >Email</label>
                                <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>
 
                            <div class="form-group">
+                            <label>Password</label>
                                <input type="password" class="form-control" name="password"  placeholder="Password" >
                            </div>
 

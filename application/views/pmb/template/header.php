@@ -169,14 +169,13 @@ $info = $this->db->get('pengumuman');
 
                              <li class="dropdown dropdown-usermenu">
                                 <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <div class="user-photo"><img src="<?php echo base_url('assets/images/users/avatar-1.jpg') ?>" alt=""></div>
+                                <div class="user-photo"><?php echo $this->session->userdata('email'); ?></div>
                                 <span class="hidden-sm hidden-xs"></span>
                                 <span class="caret hidden-sm hidden-xs"></span>
                                 </a>
                              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
                                 <li><a href="#"><i class="fa fa-wrench"></i>  Settings</a></li>
-                                <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
-                                <li><a href="#"><i class="fa fa-info"></i>  Help</a></li>
+                                
                                 <li class="divider"></li>
                                 <li><a href="<?php echo site_url('signin/keluar_pmb'); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
                             </ul>

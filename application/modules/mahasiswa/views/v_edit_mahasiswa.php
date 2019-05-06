@@ -1,14 +1,14 @@
 <div class="page-title-box">
-    <h4 class="page-title">Data Table</h4>
+    <h4 class="page-title">EDIT MAHASIWA</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Dashboard</a>
+            <a href="#">AKADEMIK</a>
         </li>
         <li>
-            <a href="#">Table</a>
+            <a href="<?php echo site_url('mahasiswa'); ?>">DATA MAHASISWA</a>
         </li>
         <li class="active">
-            Data Table
+            EDIT MAHASISWA
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -21,7 +21,7 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Tambah Mahasiswa</h2>
+     <h2 class="header-title">EDIT MAHASISWA</h2>
      <form method="post" enctype="multipart/form-data" action="<?php echo site_url('mahasiswa/proses_edit_mahasiswa/'.$tampil->id_mahasiswa); ?>" class="form-horizontal">
 
          <div class="form-group">
@@ -36,7 +36,20 @@
 
         </div>
     </div>
+<div class="form-group">
+        <label class="col-md-2 control-label">Semester / Tingkat</label>
+        <div class="col-md-10">
+          <select id="select2"  name="semester" class="demo_select2 form-control">
+            <option value="<?php echo $tampil->id_semester; ?>"><?php echo $tampil->nama_semester; ?></option>
+            <?php foreach ($semester as $r) {
+                  
+                ?>
+                <option value="<?php echo $r->id_semester; ?>"><?php echo $r->nama_semester; ?></option>
+                <?php } ?>
+        </select>
 
+    </div>
+</div>
     <div class="form-group">
         <label class="col-md-2 control-label">Kelas</label>
         <div class="col-md-10">
@@ -52,7 +65,20 @@
 
     </div>
 </div>                                  
+<div class="form-group">
+        <label class="col-md-2 control-label">Dosen Wali</label>
+        <div class="col-md-10">
+          <select id="select2"  name="dosen" class="demo_select2 form-control">
+            <option value="<?php echo $tampil->id_dosen; ?>"><?php echo $tampil->nama_dosen; ?></option>
+            <?php foreach ($dosen as $r) {
+                  
+                ?>
+                <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_dosen; ?></option>
+                <?php } ?>
+        </select>
 
+    </div>
+</div>
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Lengkap</label>
     <div class="col-md-10">
@@ -110,7 +136,7 @@
         </div>
       </div>
   </div>
-
+<?php $tanggal = $tampil->tgl_lahir; $date = date_create($tanggal); $tgl = date_format($date,"d-m-Y"); ?>
   </div>
 </div>
 <div class="form-group">
@@ -119,7 +145,7 @@
       <input class="form-control" value="<?php echo $tampil->tmpt_lahir; ?>" name="tmpt_lahir"  type="text">
   </div>
   <div class="col-md-4">
-      <input type="text"  name="tgl_lahir"value="<?php echo $tampil->tgl_lahir; ?>" class="form-control default-date-picker-autoclose" >
+      <input type="text"  name="tgl_lahir"value="<?php echo $tgl; ?>" class="form-control default-date-picker-autoclose" >
   </div>
 </div>
 <div class="form-group">
@@ -213,7 +239,7 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Password</label>
     <div class="col-md-10">
-      <input class="form-control" name="password" value="<?php echo $tampil->password; ?>"  type="password">
+      <input class="form-control" name="password"   type="password">
   </div>
 </div>
 

@@ -1,45 +1,28 @@
-<?php 
-/**
- * 
- */
-class M_tahun_ajaran extends CI_Model
-{
-	protected $table = 'tahun_ajaran';
-	function find($id)
-	{
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class M_tahun_ajaran extends CI_Model {
+
+	public function m_data_tahun_ajaran(){
+		$data = $this->db->get('tahun_ajaran');
+		return $data->result();
+	}
+	public function m_proses_tambah_tahun_ajaran($data){
+		$tambah = $this->db->insert('tahun_ajaran',$data);
+		return $tambah;
+	}
+	public function m_edit_tahun_ajaran($id){
 		$this->db->where('id_tahun_ajaran',$id);
 		$data = $this->db->get('tahun_ajaran');
 		return $data->row();
 	}
-	public function get_data()
-	{
-		$data = $this->db->get($this->table);
-		return $data->result();		
+	public function m_proses_edit_tahun_ajaran($id,$data){
+		$this->db->where('id_tahun_ajaran',$id);
+		$edit = $this->db->update('tahun_ajaran',$data);
+		return $edit;
 	}
-	public function save($data)
-	{
-		$this->db->trans_start();
-		$this->db->insert($this->table,$data);
-		$this->db->trans_complete();
-		return $this->db->trans_status();
-	}
-	public function update($id,$data)
-	{
-		$this->db->trans_start();
-		$this->db->where('id_tahun_ajaran', $id);
-		$this->db->update($this->table,$data);
-		$this->db->trans_complete();
-		return $this->db->trans_status();
-	}
-	public function delete($id)
-	{
-		$this->db->trans_start();
-		$this->db->delete($this->table,['id_tahun_ajaran' => $id]);
-		$this->db->trans_complete();
-		return $this->db->trans_status();
-	}
-	public function get_tahun_ajaran(){
-		$data = $this->db->get('tahun_ajaran');
-		return $data->result();
-	}
+
 }
+
+/* End of file m_tahun_ajaran.php */
+/* Location: ./application/modules/tahun_ajaran/models/m_tahun_ajaran.php */

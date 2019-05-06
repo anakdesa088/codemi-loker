@@ -64,7 +64,7 @@
                         <?php echo $this->session->flashdata('message'); ?>
                         
                         
-                       <form method="post" action="<?php echo site_url('auth/c_proses_login'); ?>">
+                       <form method="post" action="<?php echo site_url('signin/proses_login_mhs'); ?>">
                            <div class="form-group">
                                <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>

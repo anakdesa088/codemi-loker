@@ -52,6 +52,7 @@
       <section class="bg-main full-height">
        <div class="container">
            <div class="row">
+            
                <div class="reg-wrapper">
                    <div class="reg-inner space-inner">
                        
@@ -61,9 +62,9 @@
                         
                         <h2 class="header-title font-22 text-center m-b-35">Halaman Login Management</h2>
                         <?php echo $this->session->flashdata('gagal'); ?>
-                       <form method="post" action="<?php echo site_url('auth_management/c_proses_login_admin'); ?>">
+                       <form method="post" action="<?php echo site_url('auth_management/login'); ?>">
                            <div class="form-group">
-                               <input type="text" class="form-control" name="username"  placeholder="Username" >
+                               <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>
 
                            <div class="form-group">

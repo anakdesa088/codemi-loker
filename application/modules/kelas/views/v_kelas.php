@@ -25,7 +25,9 @@
                            <div class="col-md-12">
                                <div class="white-box">
                                    <h2 class="header-title">Data Kelas</h2>
+                                   
                                    <a href="<?php echo site_url('kelas/tambah_kelas'); ?>" class="btn btn-primary">Tambah</a>
+                                  
                                    <hr>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">
@@ -35,8 +37,10 @@
                                                     <th>Nama Kelas</th>
                                                     <th>Kode Kelas</th>
                                                     <th>Keterangan Kelas</th>
-                                                    
+                                            
+                                            
                                                     <th><center>Aksi</center></th>
+                                            
                                                 </tr>
                                             </thead>
                                             
@@ -56,14 +60,22 @@
                                                     <td><?php echo $r->keterangan_kelas; ?></td>
                                                     
                                                     <?php $id = $r->id_kelas; ?>
+                                                    
                                                     <td align="center">
+                                                    
+
                                                         <a href="<?php echo site_url('kelas/edit_kelas/'.$r->id_kelas); ?>" class="btn btn-warning">Edit</a>
+                                                    
+
                                                         <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+                                                      
 
                                                     </td>
+
+                                                  
                                                 </tr>
-                                                
                                                 <?php } ?>
+                                                
                                             </tbody>
                                            </table>  
                                     </div>

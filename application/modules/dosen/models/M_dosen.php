@@ -7,6 +7,7 @@ class M_dosen extends CI_Model {
 	public function m_get_dosen(){
 		$this->db->select(['a.id_dosen','a.nama_dosen','a.tmpt_lahir','a.tgl_lahir','a.jk','a.alamat','a.tahun_masuk','b.id_kelas','b.nama_kelas']);
 		$this->db->from('dosen a');
+		$this->db->order_by('id_dosen','desc');
 		$this->db->join('kelas b','b.id_kelas = a.id_kelas','left');
 		$data = $this->db->get('');
 		return $data->result();
@@ -14,6 +15,10 @@ class M_dosen extends CI_Model {
 	public function m_proses_tambah_dosen($data){
 		$tambah = $this->db->insert('dosen',$data);
 		return $tambah;
+	}
+	public function m_kelas(){
+		$data = $this->db->get('kelas');
+		return $data->result();
 	}
 	public function m_edit_dosen($id){
 		$this->db->where('id_dosen',$id);
@@ -56,6 +61,15 @@ class M_dosen extends CI_Model {
 		{
 			return false;
 		}
+	}
+	public function m_biodata($id){
+		$this->db->where('id_dosen',$id);
+		$this->db->select('*');
+		$this->db->from('dosen');
+		$this->db->join('kelas','kelas.id_kelas = dosen.id_kelas','left');
+		$data = $this->db->get('');
+		return $data->row();
+
 	}
 
 

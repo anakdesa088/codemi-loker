@@ -29,6 +29,7 @@
                                          <div class="m-b-10 text-center">
                                              <h4><?php echo $tampil->nama_lengkap; ?></h4>
                                              <p>Perserta Mahasiswa Baru</p>
+                                             <h4><?php echo $tampil->no_peserta; ?></h4>
                                          </div>
                                          
                                      </div>

@@ -76,7 +76,7 @@
           <td><?php echo $no++; ?></td>
           <td><?php echo $r->nama_mapel; ?></td>
           <td><?php echo $r->sks; ?></td>
-          <td><?php echo $r->semester; ?></td>
+          <td><?php echo $r->nama_semester; ?></td>
           <td><?php echo $r->nama_kelas; ?></td>
           <td><?php echo $r->nama_dosen; ?></td>
           <?php $id = $r->id_krs; ?>

@@ -55,8 +55,8 @@
                                                     <?php $id = $r->id_mapel; ?>
                                                     
                                                     <td align="center">
-                                                        <a href="<?php echo site_url('mapel/edit_mapel/'.$r->id_mapel); ?>" class="btn btn-warning">Edit</a>
-                                                        <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+                                                        <a href="<?php echo site_url('mapel/edit_mapel/'.$r->id_mapel); ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                        <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>
 
                                                     </td>
                                                 </tr>

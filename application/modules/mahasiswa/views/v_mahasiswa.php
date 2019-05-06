@@ -1,14 +1,14 @@
 
 
 <div class="page-title-box">
-                        <h4 class="page-title">Data Mahasiswa</h4>
+                        <h4 class="page-title">DATA MAHASISWA</h4>
                         <ol class="breadcrumb">
                             
                             <li>
-                                <a href="#">Akademik</a>
+                                <a href="#">AKADEMIK</a>
                             </li>
                             <li class="active">
-                                Data Mahasiswa
+                                DATA MAHASISWA
                             </li>
                         </ol>
                         <div class="clearfix"></div>
@@ -23,15 +23,24 @@
                        <div class="row">
                            <div class="col-md-12">
                                <div class="white-box">
-                                   <h2 class="header-title">Data Mahasiswa</h2>
+                                   <h2 class="header-title">DATA MAHASIWA</h2>
                                   <div class="row">
-                                   <div class="col-md-10">
+                                   <div class="col-md-9 ">
                                     <a href="<?php echo site_url('mahasiswa/tambah_mahasiswa'); ?>" class="btn btn-primary">Tambah</a>
                                    </div>
-                                   <div class="col-md-2">
-                                    <a href="<?php echo site_url('mahasiswa/import'); ?>" class="btn btn-success"><i class="fa fa-upload"></i> Import <i class="fa fa-file-excel-o"></i></a>
+                                   <div class="col-md-3" align="right">
+                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"                                                              aria-expanded="false">Kelas <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                          <?php foreach ($kelas as $k) {
+                                            # code...
+                                          ?>
+                                            <li><a href="<?php echo site_url('mahasiswa/kelas/'.$k->id_kelas); ?>"><?php echo $k->nama_kelas; ?></a></li>
+                                            <?php } ?>
+                                        </ul>
+                                        <a href="<?php echo site_url('mahasiswa/import'); ?>" class="btn btn-success"><i class="fa fa-upload"></i> Import <i class="fa fa-file-excel-o"></i></a>
 
                                    </div>
+                                   
                                   </div>
                                    <hr>
                                     <div class="table-responsive">
@@ -70,8 +79,9 @@
                                                     
                                                    <?php $id = $r['id_mahasiswa']; ?>
                                                     <td align="center">
-                                                        <a href="<?php echo site_url('mahasiswa/edit_mahasiswa/'.$r['id_mahasiswa']); ?>" class="btn btn-warning">Edit</a>
-                                                        <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+                                                        <a href="<?php echo site_url('mahasiswa/edit_mahasiswa/'.$r['id_mahasiswa']); ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                        <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>
+                                                        <a href="<?php echo site_url('mahasiswa/detail_mahasiswa/'.$id); ?>" class="btn btn-primary">Detail</a>
 
                                                     </td>
                                                 </tr>

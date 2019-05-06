@@ -69,7 +69,7 @@
           <?php foreach ($dosen as $r ) {
             # code...
            ?>
-          <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_lengkap; ?></option>
+          <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_dosen; ?></option>
         <?php } ?>
       </select>
   </div>

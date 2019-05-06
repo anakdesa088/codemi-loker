@@ -116,76 +116,66 @@
               
                <!--Start row-->
                <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="white-box">
-                          <h2 class="header-title"> Last orders </h2>
+                          <h2 class="header-title">Terakhir Transaksi Pembayaran </h2>
                             <div class="table-responsive">
                                 <table class="table table-hover m-b-0">
                                   <thead>
                                     <tr>
-                                      <th>Order ID</th>
-                                      <th>Date</th>
-                                      <th>Customer</th>
-                                      <th class="text-center">Status</th>
-                                      <th class="text-right">Price</th>
+                                                    
+                                                    <th>Nama</th>
+                                                    <th>Nim</th>
+                                                    <th>Kode</th>
+                                                    <th>Jenis Pembayaran</th>
+                                                    <th>Nominal</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Keterangan</th>
+                                                    <th><center>Status</center></th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
-                                      <td>#8564</td>
-                                      <td> 2016/01/07 </td>
-                                      <td>Jonathan Doe</td>
-                                      <td class="text-center"><span class="label round label-primary">Completed</span></td>
-                                      <td class="text-right"> $ 580 </td>
-                                    </tr>
-                                    <tr>
-                                      <td>#3528</td>
-                                      <td> 2016/01/07 </td>
-                                      <td>Jonathan Doe</td>
-                                      <td class="text-center"><span class="label round label-warning">On hold</span></td>
-                                      <td class="text-right"> $ 967 </td>
-                                    </tr>
-                                    <tr>
-                                      <td>#9654</td>
-                                      <td> 2016/01/07 </td>
-                                      <td>Anthony</td>
-                                      <td class="text-center"><span class="label round label-info">Pending</span></td>
-                                      <td class="text-right"> $ 5820 </td>
-                                    </tr>
-                                    <tr>
-                                      <td>#7528</td>
-                                      <td> 2016/01/07 </td>
-                                      <td>Jonathan Doe</td>
-                                      <td class="text-center"><span class="label round label-danger">Cancelled</span></td>
-                                      <td class="text-right"> $ 203 </td>
-                                    </tr>
-                                    <tr>
-                                      <td>#3526</td>
-                                      <td> 2016/01/07 </td>
-                                      <td>Jonathan Doe</td>
-                                      <td class="text-center"><span class="label round label-primary">Completed</span></td>
-                                      <td class="text-right"> $ 864 </td>
-                                    </tr>
+                                      <?php
+                                                $no = 1;
+                                                 foreach ($tampil as $r) {
+                                                    # code...
+                                                ?>
+                                                <tr>
+                                                  <?php
+                                                  $date=date_create($r->tanggal_transaksi);
+                                                  $tanggal_transaksi = date_format($date,"d-m-Y");
+                                                   ?>
+                                                    
+                                                    <td><?php echo $r->nama_lengkap; ?></td>
+                                                    <td><?php echo $r->nim; ?></td>
+                                                    <td><?php echo $r->kode_transaksi; ?></td>
+                                                    <td><?php echo $r->nama_jp; ?></td>
+                                                    <td><?php echo "Rp. ".$r->nominal_bayar; ?></td>
+                                                    <td><?php $id  = $r->id_transaksi; echo $tanggal_transaksi ?></td>
+                                                    <td><?php echo $r->keterangan; ?></td>
+                                                    <td align="center">
+                                                      <?php 
+                                                      if ($r->status == "LUNAS") {
+                                                        ?>
+                                                        <span class="label round label-success">LUNAS</span>
+                                                        <?php
+                                                      }else{
+                                                        ?>
+                                                        <span class="label round label-danger">BELUM LUNAS</span>
+                                                        <?php
+                                                      }
+                                                      ?>
+                                                    </td>
+                                                    
+                                                </tr>
+                                            <?php } ?>
                                   </tbody>
                                 </table>
                             </div>
                         </div>
                    </div> <!--/.col-md-8-->
                  
-                   <div class="col-md-6">
-                      <div class="white-box">
-                          <h2 class="header-title">Total Sales</h2>
-                            <ul class="list-inline text-center m-t-10">
-                              <li>
-                                <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color:#00A5A8;"></i>Laptops</h5>
-                              </li>
-                              <li>
-                                <h5 class="font-normal"><i class="fa fa-circle m-r-5" style="color: #3CB7EB;"></i>Mobiles</h5>
-                              </li>
-                            </ul>
-                            <div id="total-revenue"  style="height:260px;"></div>
-                        </div>
-                  </div><!-- /col-md-6-->
+                   
 
               </div>
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>

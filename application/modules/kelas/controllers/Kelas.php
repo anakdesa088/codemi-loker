@@ -6,6 +6,7 @@ class Kelas extends Manajemen_only {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('kelas/m_kelas');
+		$this->not_logged_in();
 	}
 
 	public function index()
@@ -15,9 +16,11 @@ class Kelas extends Manajemen_only {
 		$this->template->render('kelas/v_kelas',$data);
 	}
 	public function tambah_kelas(){
+		
 		$this->template->render('kelas/v_tambah_kelas');
 	}
 	public function proses_tambah_kelas(){
+		
 		$array = array(
 			'nama_kelas'=>$this->input->post('nama_kelas', true),
 			'kode_kelas'=>$this->input->post('kode_kelas', true),

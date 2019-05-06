@@ -85,9 +85,16 @@
   </div>
 </div>
 <div class="form-group">
+                                    <label class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                    <div class="alert alert-info" role="alert">  <span>Biarkan Form kata sandi kosong jika Anda tidak ingin mengubahnya.</span></div>
+                                  </div>
+                                  </div>
+
+<div class="form-group">
     <label class="col-md-2 control-label">Password</label>
     <div class="col-md-10">
-      <input type="password"  value="<?php echo $tampil->password; ?>" name="password" class="form-control">
+      <input type="password"   name="password" class="form-control">
   </div>
 </div>
 <input type="hidden" name="foto_lamah" value="<?php echo $tampil->foto_dosen; ?>">

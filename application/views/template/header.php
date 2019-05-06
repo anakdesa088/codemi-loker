@@ -213,16 +213,57 @@
 
                              <li class="dropdown dropdown-usermenu">
                                 <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <div class="user-photo"> as <span class="caret hidden-sm hidden-xs"></span></div>
+                                <div class="user-photo"> <?php 
+                                  if ($this->session->userdata('mahasiswa')) {
+                                    echo $this->session->userdata('nama_lengkap');
+                                  }elseif($this->session->userdata('management')){
+                                    echo $this->session->userdata('username');
+                                  }elseif($this->session->userdata('dosen')){
+                                    echo $this->session->userdata('nama_dosen');
+                                  }
+
+
+                                 ?> <span class="caret hidden-sm hidden-xs"></span></div>
                                 
-                                
+                                <?php 
+                                $id = $this->session->userdata('id');
+                                $id_dosen = $this->session->userdata('id_dosen');
+                                $id_mahasiswa = $this->session->userdata('id_mahasiswa');
+                                 ?>
                                 </a>
                              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                                <li><a href="#"><i class="fa fa-wrench"></i>  Settings</a></li>
-                                <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
+                                <li><a href="<?php 
+                                  if($this->session->userdata('dosen')){
+                                    echo site_url('users/setting/'.$id_dosen);
+                                  }
+                                  if($this->session->userdata('management')){
+                                   echo site_url('users/setting/'.$id); 
+                                  }
+                                  if($this->session->userdata('mahasiswa')){
+                                   echo site_url('mahasiswa/setting'); 
+                                  }
+                                 ?>"><i class="fa fa-wrench"></i>  Setting</a></li>
+                                
+                                <li><a href="<?php if($this->session->userdata('management')){
+                                  echo site_url('users/profile/'.$id);
+                                }
+                                if($this->session->userdata('dosen')){
+                                  echo site_url('users/profile/'.$id_dosen);
+                                }
+                                if($this->session->userdata('mahasiswa')){
+                                   echo site_url('mahasiswa/biodata/'.$id_mahasiswa); 
+                                  }
+
+                                 ?>"><i class="fa fa-user"></i>  Profile</a></li>
                                 <li><a href="#"><i class="fa fa-info"></i>  Help</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?php echo site_url('auth_management/c_keluar'); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                                <li><a href="<?php if($this->session->userdata('management') ||  $this->session->userdata('dosen')){
+                                  echo site_url('auth_management/logout');
+                                }
+                                  if($this->session->userdata('mahasiswa')){
+                                    echo site_url('auth_management/logout_mhs');
+                                  }
+                                 ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
                             </ul>
                         </li>                       
                     </ul>

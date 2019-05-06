@@ -7,8 +7,6 @@ class Signin extends MY_Controller {
 		parent::__construct();
 		$this->load->model('m_auth'); 
 		$this->load->helper('string','form');
-		
-		$this->load->library(array('session','form_validation', 'Recaptcha'));
 
 		$this->load->library('akper/auth_akper',[
 			'username' => 'email',
@@ -32,6 +30,9 @@ class Signin extends MY_Controller {
 			'status' 		=> 'login',
 			'is_pmb'		=> true
 		]);
+		
+	
+    
 
 	}
 
@@ -42,10 +43,44 @@ class Signin extends MY_Controller {
 	public function mahasiswa(){
 		$this->load->view('auth/mahasiswa/v_signin');
 	}
+	public function proses_login_mhs(){
+		$this->load->model('model_auth');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if ($this->form_validation->run() == TRUE) {
+            // true case
+           	$email_exists = $this->model_auth->check_email_mhs($this->input->post('email'));
+
+           	if($email_exists == TRUE) {
+           		$login = $this->model_auth->login_user_mhs($this->input->post('email'), $this->input->post('password'));
+
+           		if($login) {
+
+           			$logged_in_sess = array(
+           				'id_mahasiswa' => $login['id_mahasiswa'],
+				        'nama_lengkap'=>$login['nama_lengkap'],
+				        'email'     => $login['email'],
+				        'mahasiswa' => TRUE,
+
+				        'logged_in' => TRUE
+					);
+
+					$this->session->set_userdata($logged_in_sess);
+           			redirect('dashboard', 'refresh');
+           		}
+           		else {
+           			$this->data['errors'] = 'Incorrect username/password combination';
+           			$this->load->view('auth/mahasiswa/v_signin', $this->data);
+           		}
+           	}
+	}
+}
 	public function management(){
 		$this->load->view('auth/management/v_signin');
 	}
 	public function pmb(){
+
 		$this->load->view('auth/pmb/v_signin');
 	}
 	public function daftar(){
@@ -94,7 +129,7 @@ class Signin extends MY_Controller {
 			$data 	= array(
 				'email' 		=> $email, 
 				'password' 		=> $this->hash_password($password),
-				'tahun_ajaran_id_tahun_ajaran' 	=> '1'
+				'id_tahun_ajaran' 	=> '1'
 			);
 			$daftar = $this->m_auth->m_proses_daftar($data);
 			if ($daftar) 
@@ -102,10 +137,10 @@ class Signin extends MY_Controller {
 
 
 	$config['protocol']    = 'smtp';
-    $config['smtp_host']    = 'ssl://mail.hardiprojct.web.id';
+    $config['smtp_host']    = 'ssl://mail.cirebonwebhost.com';
     $config['smtp_port']    = '465';
-    $config['smtp_user']    = 'sisfo_akper@hardiprojct.web.id';
-    $config['smtp_pass']    = 'indonesia123A';
+    $config['smtp_user']    = 'dev@cirebonwebhost.com';
+    $config['smtp_pass']    = 'Apakarep1!';
     $config['charset']    = 'utf-8';
     $config['newline']    = "\r\n";
     $config['mailtype'] = 'text'; 
@@ -114,7 +149,7 @@ class Signin extends MY_Controller {
     $this->email->initialize($config);
 
 
-    $this->email->from('kantor@hardiprojct.web.id', 'kantor Akper');
+    $this->email->from('akperbpc@hardiprojct.web.id', 'kantor Akper');
     $this->email->to($email); 
 
     $this->email->subject('Restrasi Penerimaan Mahasiswa Baru Akper Buntet');
@@ -126,7 +161,7 @@ class Signin extends MY_Controller {
 
 
 				$this->session->set_flashdata('berhasil','<div class="alert alert-success text-center" role="alert">
-						Berhasil..! Silahkan cek email anda untuk Infomasi akun anda
+						Berhasil..! Silahkan cek email anda untuk Infomasi akun anda - '.$password.'
 				        </div>
 					');
 				return redirect('signin/pmb');	
@@ -142,6 +177,43 @@ class Signin extends MY_Controller {
 	}
 
 	}
+	public function proses_login_pmb(){
+			$this->form_validation->set_rules('email', 'Email', 'trim|required');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+		if ($this->form_validation->run() == TRUE) {
+			$data = [
+			'email' 	=> $this->input->post('email'),
+			'password'	=> $this->getPasswordWithPrefix($this->input->post('password'))
+		];
+		$login = $this->auth_akper->login($data);
+		if ($login) 
+		{
+			if ($this->session->level == 'pmb_baru' ) 
+			{
+				return redirect('pmb');
+			} elseif ($this->session->level == 'pmb_lamah') 
+			{
+				
+				return redirect('pmb/detail');
+			}
+		} else 
+		{
+			$this->session->set_flashdata('gagal','
+				<div class="alert alert-danger" role="alert">
+                         <center>Maaf email atau password anda Salah !</center>
+                       </div>
+				');
+			return redirect('signin/pmb');
+		}
+	}else{
+		$this->session->set_flashdata('empty','<div class="alert alert-warning text-center" role="alert">
+				                         Masukan Email atau Password untuk Login kehalaman PMB
+				                       </div>');
+		redirect('signin/pmb'); 
+	}
+
+	}
+
 	public function c_proses_login()
 	{
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
@@ -189,6 +261,15 @@ class Signin extends MY_Controller {
 		
 		
 	}
+	public function password_hashi($pass = '')
+	{
+		if($pass) {
+			$password = password_hash($pass, PASSWORD_DEFAULT);
+			return $password;
+		}
+	}
+
+
 
 
 
@@ -208,7 +289,7 @@ class Signin extends MY_Controller {
 		$hash = password_hash($new_pass,PASSWORD_DEFAULT);
 		return $hash;
 	}
-	
+
 
 }
 

@@ -22,7 +22,7 @@ class M_pmb extends CI_Model{
         $data = $this->db->select('ta.*')
                     ->where('id_pmb',$id)
                     ->from('pmb')
-                    ->join('tahun_ajaran ta','pmb.tahun_ajaran_id_tahun_ajaran=ta.id_tahun_ajaran')
+                    ->join('tahun_ajaran ta','pmb.id_tahun_ajaran=ta.id_tahun_ajaran')
                     ->get()->row();
         $no_peserta = sprintf("%s%04d",explode('/',$data->tahun_ajarancol)[0],random_int(1,9999));
         if($this->not_have_no_peserta($id))
@@ -71,10 +71,10 @@ class M_pmb extends CI_Model{
             // $r = array_filter( $r);
             // $r->nim                 = $r->no_peserta;
             $r->nim                 = $r->no_peserta;
-            $r->id_tahun_ajaran     = $r->tahun_ajaran_id_tahun_ajaran;
-            $r->tahun_masuk         = $r->tahun_ajaran_id_tahun_ajaran;
+            $r->id_tahun_ajaran     = $r->id_tahun_ajaran;
+            $r->tahun_masuk         = $r->id_tahun_ajaran;
             $r->first_time_login    = '1';
-            unset($r->id_pmb,$r->is_lulus,$r->no_peserta,$r->is_active,$r->tahun_ajaran_id_tahun_ajaran,$r->status_data);
+            unset($r->id_pmb,$r->is_lulus,$r->no_peserta,$r->is_active,$r->id_tahun_ajaran,$r->status_data);
             return $r;
         },$data->result());
         return $this->db->insert_batch('mahasiswa',$new_mhs);

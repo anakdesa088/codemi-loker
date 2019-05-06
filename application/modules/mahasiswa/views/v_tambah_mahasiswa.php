@@ -1,16 +1,16 @@
 
 <link href="<?php echo base_url('assets/dropify/css/dropify.css') ?>" rel="stylesheet" type="text/css" />
 <div class="page-title-box">
-    <h4 class="page-title">Tambah Data Mahasiswa</h4>
+    <h4 class="page-title">TAMBAH DATA MAHASISWA</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Akademik</a>
+            <a href="#">AKADEMIK</a>
         </li>
         <li>
-            <a href="#">Data Mahasiswa</a>
+            <a href="#">DATA MAHASISWA</a>
         </li>
         <li class="active">
-            Tambah Mahasiswa
+            TAMBAH MAHASISWA
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -22,7 +22,7 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Tambah Mahasiswa</h2>
+     <h2 class="header-title">TAMBAH MAHASISWA</h2>
      <form method="post" enctype="multipart/form-data" action="<?php echo site_url('mahasiswa/proses_tambah_mahasiswa'); ?>" class="form-horizontal">
 
 
@@ -40,7 +40,19 @@
 
         </div>
     </div>
+<div class="form-group">
+        <label class="col-md-2 control-label">Semester / Tingkat</label>
+        <div class="col-md-10">
+          <select id="select2"  name="semester" class="demo_select2 form-control">
+            <?php foreach ($semester as $r) {
+                  
+                ?>
+                <option value="<?php echo $r->id_semester; ?>"><?php echo $r->nama_semester; ?></option>
+                <?php } ?>
+        </select>
 
+    </div>
+</div>
     <div class="form-group">
         <label class="col-md-2 control-label">Kelas</label>
         <div class="col-md-10">
@@ -53,7 +65,20 @@
         </select>
 
     </div>
-</div>                                  
+</div>      
+<div class="form-group">
+        <label class="col-md-2 control-label">Dosen Wali</label>
+        <div class="col-md-10">
+          <select id="select2"  name="dosen" class="demo_select2 form-control">
+            <?php foreach ($dosen as $r) {
+                  
+                ?>
+                <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_dosen; ?></option>
+                <?php } ?>
+        </select>
+
+    </div>
+</div>                            
 
 <div class="form-group">
     <label class="col-md-2 control-label">Nama Lengkap</label>

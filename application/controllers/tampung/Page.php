@@ -34,7 +34,7 @@ class Page extends CI_Controller{
 	{
 		$id 			= $this->session->userdata('id_pmb');
 		$data['tampil'] = $this->m_page->m_get_id($id);
-		$data['ta'] 	= $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
+		$data['ta'] 	= $this->m_tahun_ajaran->find($data['tampil']->id_tahun_ajaran);
 		$this->load->view('frontend/pmb/v_pmb',$data);
 	}
 	public function c_proses_pmb()

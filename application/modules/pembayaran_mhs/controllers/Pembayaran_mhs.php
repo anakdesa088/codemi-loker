@@ -6,6 +6,7 @@ class Pembayaran_mhs extends Manajemen_only {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_pembayaran_mhs');
+		$this->not_logged_in();
 	}
 	public function index()
 	{

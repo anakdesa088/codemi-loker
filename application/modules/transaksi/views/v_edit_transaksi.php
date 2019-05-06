@@ -9,7 +9,7 @@
                          </div>
                        <!--End Page Title-->          
 
-           
+           <?php echo $this->session->flashdata('gagal'); ?>
                      <!--Start row-->
                      <div class="row">
                          <div class="col-md-12">
@@ -17,6 +17,12 @@
                              <h2 class="header-title">EDIT TRANSAKSI</h2>
                                 <form action="<?php echo site_url('transaksi/proses_edit_transaksi/'.$tampil->id_transaksi); ?>"  method="post" class="form-horizontal">
 
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Kode Transaksi</label>
+                                    <div class="col-md-9">
+                                    <input type="text" class="form-control"  name="kode_transaksi" value="<?php echo $tampil->kode_transaksi; ?>" readonly="">
+                                </div>
+                                  </div>
                                    <div class="form-group">
                                     <label class="col-md-3 control-label">JENIS PEMBAYARAN</label>
                                     <div class="col-md-9">
@@ -35,7 +41,7 @@
                                   <div class="form-group">
                                     <label class="col-md-3 control-label">Jumlah Bayar</label>
                                     <div class="col-md-9">
-                                    <input type="text" class="form-control apa  numeric" readonly="" name="kembalian" id="jumlah" onfocus="startCalculate()" onblur="stopCalc()"> 
+                                    <input type="text" value="<?php echo $tampil->nominal; ?>" class="form-control apa  numeric" readonly="" name="nominal_bayar" id="jumlah" onfocus="startCalculate()" onblur="stopCalc()"> 
                                 </div>
                                   </div>
 
@@ -56,18 +62,27 @@
                                   <div class="form-group">
                                     <label class="col-md-3 control-label">Hutang</label>
                                     <div class="col-md-9">
-                                    <input type="text" class="form-control  numeric" readonly="" name="hutang" id="kembalian" onblur="stopCalc()"></div>
+                                    <input type="text" class="form-control numeric" value="<?php echo $tampil->hutang; ?>" readonly="" name="hutang" id="kembalian" onblur="stopCalc()"></div>
                                   </div>
 
                                   <div class="form-group">
                                     <label class="col-md-3 control-label">Tanggal</label>
                                     <div class="col-md-9">
-                                      <input  name="tanggal" id="hapus_nama" <?php echo $tampil->tanggal_transaksi; ?> class="form-control default-date-picker-autoclose">
+                                      <input  name="tanggal" id="hapus_nama" value="<?php echo $tampil->tanggal_transaksi; ?>" class="form-control default-date-picker-autoclose">
                                     </div>
                                   </div>
 
                                   
-                                  
+                                  <div class="form-group">
+                                    <label class="col-md-3  control-label">Status</label>
+                                    <div class="col-md-9">
+                                      <select name="status" class="form-control" >
+                                        <option value="<?php echo $tampil->status; ?>"><?php echo $tampil->status; ?></option>
+                                        <option value="LUNAS">LUNAS</option>
+                                        <option value="BELUM LUNAS">BELUM LUNAS</option>
+                                      </select>
+                                    </div>
+                                  </div>
                                   
                                   <div class="form-group">
                                     <label class="col-md-3 control-label">Keterangan</label>

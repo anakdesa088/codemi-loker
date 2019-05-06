@@ -266,7 +266,8 @@ function tgl_indo($tanggal){
     <br>
     <br>
     <br>
-    <u>-----------------------------</u>
+    <u><?php echo $mahasiswa->nama_lengkap; ?></u><
+
   </p></center>
   <p style="width: 20%; float: left;"></p>
   <center><p style="width: 40%; float: left;">Mengetahui dan Menyetujui<br>

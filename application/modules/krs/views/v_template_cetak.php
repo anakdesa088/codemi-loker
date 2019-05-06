@@ -115,30 +115,30 @@
        <tr>
         <td>Nama </td>
         <td> :</td>
-        <td> <?php echo $mahasiswa->nama_lengkap; ?></td>
+        <td> <?php echo $info->nama_lengkap; ?></td>
         
       </tr>
       <tr>
         <td> NIM</td>
         <td> :</td>
-        <td> <?php echo $mahasiswa->nim; ?></td>
+        <td> <?php echo $info->nim; ?></td>
         
       </tr>
       <tr>
         <td> Dosen Wali</td>
         <td> :</td>
-        <td> <?php echo $mahasiswa->nama_dosen; ?></td>
+        <td> <?php echo $info->nama_dosen; ?></td>
         
       </tr>
       <tr>
         <td> Tingkat/ Semester</td>
         <td> :</td>
-        <td> <?php echo $mahasiswa->nama_kelas." / ".$mahasiswa->nama_semester; ?></td>
+        <td> <?php echo $info->nama_kelas." / ".$info->nama_semester; ?></td>
       </tr>
       <tr>
         <td> Tahun Akademik</td>
         <td> :</td>
-        <td> <?php echo $mahasiswa->tahun_ajarancol; ?></td>
+        <td> <?php echo $info->tahun_ajarancol; ?></td>
       </tr>
     </table>
     <br>
@@ -168,7 +168,7 @@
             <td><?php echo $no++; ?></td>
             <td><?php echo $r->nama_mapel; ?></td>
             <td><?php echo $r->sks; ?></td>
-            <td><?php echo $r->semester; ?></td>
+            <td><?php echo $r->nama_semester; ?></td>
             <td><?php echo $r->nama_kelas; ?></td>
             <td><?php echo $r->nama_mapel; ?></td>
           </tr>

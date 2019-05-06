@@ -6,9 +6,12 @@ class Akademik extends Manajemen_only
 	public function __construct()
 	{
 		parent::__construct();
+		$this->not_logged_in();
 		$this->load->model('akademik/m_akademik'); 
 		$this->load->model('m_pmb'); 
 		$this->load->model('keuangan/m_keuangan'); 
+		$this->load->model('pengumuman/m_pengumuman');
+
 	}
 	public function index()
 	{
@@ -19,19 +22,36 @@ class Akademik extends Manajemen_only
 	public function c_status_valid($id)
 	{
 		// $status = "valid";
-		$array = array('status_data'=>"1");
+		
+		$array = array('status_data'=>"1",'validasi_pembayaran'=>"1");
 		$data = $this->m_keuangan->m_status_valid($id,$array);
 		if ($data > 0) 
 		{
 			$this->m_pmb->is_get_no_ujian($id);
+			$read = "0";
+		$tanggal_kirim = date("Y-m-d"); 
+		$judul = "Informasi Pendaftaran PMB";
+		$get_no_peserta = $this->m_akademik->m_get_no_peserta($id);
+		$pesan = "Selamat Pendaftaran anda di konfirmasi".'</br> Nomor Peserta Ujian anda adalah <b>'.$get_no_peserta->no_peserta.'<b>';
+		$kirim = array('judul'=>$judul,'id_pmb'=>$id,'pesan'=>$pesan,'tanggal_kirim'=>$tanggal_kirim,'read'=>$read);
+		$relasi = array_merge($kirim);
+		$data = $this->m_pengumuman->m_proses_tambah_pengumuman($relasi);
 			redirect('akademik/index');
 		}
+	}
+	public function proses_tambah_pengumuman(){
+		
+		
+		
+		
+
+
 	}
 	public function c_status_invalid($id){
 		// $status = "invalid";
 		// $level = "pmb_lamah";
 		// $array = array('status'=>$status,'level'=>$level);
-		$array = array('status_data'=>"0");
+		$array = array('status_data'=>"0",'validasi_pembayaran'=>"0");
 		$data = $this->m_keuangan->m_status_invalid($id,$array);
 		if ($data > 0) {
 			redirect('akademik/index');

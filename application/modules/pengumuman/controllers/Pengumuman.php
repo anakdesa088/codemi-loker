@@ -7,6 +7,7 @@ class Pengumuman extends Manajemen_only {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('pengumuman/m_pengumuman');
+		$this->not_logged_in();
 	}
 	public function index()
 	{
@@ -23,7 +24,7 @@ class Pengumuman extends Manajemen_only {
 		$kepada = $this->input->post('kepada');
 		$pesan = $this->input->post('pesan');
 		$read = "0";
-		$tanggal_kirim = date("Y/m/d"); 
+		$tanggal_kirim = date("Y-m-d"); 
 
 
 

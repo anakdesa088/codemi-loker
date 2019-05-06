@@ -1,14 +1,14 @@
 <div class="page-title-box">
-    <h4 class="page-title">Edit Krs</h4>
+    <h4 class="page-title">EDIT KRS</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Akademik</a>
+            <a href="#">AKADEMIK</a>
         </li>
         <li>
-            <a href="#">Data Krs</a>
+            <a href="<?php echo site_url('krs'); ?>">DATA KRS</a>
         </li>
         <li class="active">
-            Edit Krs
+            EDIT KRS
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -21,7 +21,7 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Edit Krs</h2>
+     <h2 class="header-title">EDIT KRS</h2>
      <form method="post" enctype="multipart/form-data" action="<?php echo site_url('krs/proses_edit_krs/'.$tampil->id_krs); ?>" class="form-horizontal">
 
 
@@ -33,7 +33,7 @@
             # code...
            ?>
            <option value="<?php echo $tampil->id_mapel; ?>"><?php echo $tampil->nama_mapel; ?></option>
-          <option value="<?php echo $r['id_mapel']; ?>"><?php echo $r['nama_mapel']; ?></option>
+          <option value="<?php echo $r->id_mapel; ?>"><?php echo $r->nama_mapel; ?></option>
         <?php } ?>
       </select>
   </div>
@@ -47,7 +47,7 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Semester</label>
     <div class="col-md-10">
-      <input type="text" class="form-control" value="<?php echo $tampil->semester; ?>" name="semester">
+      <input type="text" class="form-control" value="<?php echo $tampil->nama_semester; ?>" name="semester">
   </div>
 </div>
 <div class="form-group">
@@ -58,7 +58,7 @@
             # code...
            ?>
            <option value="<?php echo $tampil->id_kelas; ?>"><?php echo $tampil->nama_kelas; ?></option>
-          <option value="<?php echo $r['id_kelas']; ?>"><?php echo $r['nama_kelas']; ?></option>
+          <option value="<?php echo $r->id_kelas; ?>"><?php echo $r->nama_kelas; ?></option>
         <?php } ?>
       </select>
   </div>
@@ -71,8 +71,8 @@
           <?php foreach ($dosen as $r ) {
             # code...
            ?>
-           <option value="<?php echo $tampil->id_dosen; ?>"><?php echo $tampil->nama_lengkap; ?></option>
-          <option value="<?php echo $r['id_dosen']; ?>"><?php echo $r['nama_lengkap']; ?></option>
+           <option value="<?php echo $tampil->id_dosen; ?>"><?php echo $tampil->nama_dosen; ?></option>
+          <option value="<?php echo $r->id_dosen; ?>"><?php echo $r->nama_dosen; ?></option>
         <?php } ?>
       </select>
   </div>

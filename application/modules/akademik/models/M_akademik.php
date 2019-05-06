@@ -26,5 +26,10 @@ class M_akademik extends CI_Model{
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
+	public function m_get_no_peserta($id){
+		$this->db->where('id_pmb',$id);
+		$data = $this->db->get('pmb');
+		return $data->row();
+	}
 	
 }

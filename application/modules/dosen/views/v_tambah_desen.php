@@ -1,14 +1,14 @@
 <div class="page-title-box">
-    <h4 class="page-title">Tambah Dosen</h4>
+    <h4 class="page-title">TAMBAH DOSEN</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Akademik</a>
+            <a href="#">AKADEMIK</a>
         </li>
         <li>
-            <a href="#">Data Dosen</a>
+            <a href="#">DATA DOSEN</a>
         </li>
         <li class="active">
-            Tambah Dosen
+            TAMBAH DOSEN
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -21,7 +21,7 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Tambah Dosen</h2>
+     <h2 class="header-title">TAMBAH DOSEN</h2> <hr>
      <form method="post" enctype="multipart/form-data" action="<?php echo site_url('dosen/proses_tambah_dosen'); ?>" class="form-horizontal">
 
 
@@ -88,6 +88,26 @@
     <label class="col-md-2 control-label">Password</label>
     <div class="col-md-10">
       <input type="password" name="password" class="form-control">
+  </div>
+</div>
+<div class="form-group">
+      <label class="col-md-2 control-label"></label>
+      <div class="col-md-10">
+      <div class="alert alert-info" role="alert"> <center> <span>Biarkan Form Dosen Wali kosong jika Anda tidak ingin Menambahnya.</center></span></div>
+      </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-2 control-label">Dosen Wali</label>
+    <div class="col-md-10">
+      <select class="form-control" name="kelas">
+          <option value="">Pilih Dosen Wali</option>
+        <?php foreach ($kelas as $r): ?>
+          
+          
+          <option value="<?php echo $r->id_kelas; ?>"><?php echo $r->nama_kelas; ?></option>
+          <?php endforeach ?>
+      </select>
   </div>
 </div>
 <div class="form-group">

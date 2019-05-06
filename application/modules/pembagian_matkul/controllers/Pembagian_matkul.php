@@ -6,6 +6,7 @@ class Pembagian_matkul extends Manajemen_only {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('pembagian_matkul/m_pembagian_matkul');
+		$this->not_logged_in();
 	}
 	public function index()
 	{

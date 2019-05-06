@@ -16,17 +16,19 @@
                            <div class="white-box">
                              <h2 class="header-title">Setting Password</h2>
                                 <form method="post" action="<?php echo site_url('pmb/proses_setting_password'); ?>" class="form-horizontal">
-                                  <div class="form-group">
-                                    <label class="col-md-2 control-label">Password Lamah</label>
-                                    <div class="col-md-10">
-                                      <input class="form-control" name="password_lamah" type="password">
-                                    </div>
-                                  </div>
+                                  
                                   
                                   <div class="form-group">
                                     <label class="col-md-2 control-label">Password Baru</label>
                                     <div class="col-md-10">
                                       <input type="password"  class="form-control" name="password_baru">
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="col-md-2 control-label">Konfirmasi Password</label>
+                                    <div class="col-md-10">
+                                      <input class="form-control" name="cpassword" type="password">
                                     </div>
                                   </div>
                                   

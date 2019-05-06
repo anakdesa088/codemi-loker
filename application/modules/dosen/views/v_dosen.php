@@ -36,7 +36,7 @@
                                                     <th>Alamat</th>
                                                     <th>Tahun Masuk</th>
                                                     <th>Dosen Wali</th>
-                                                    <th><center>Aksi</center></th>
+                                                    <th width="100"><center>Aksi</center></th>
                                                 </tr>
                                             </thead>
                                             
@@ -47,7 +47,7 @@
                                                     <tr>
                                                         <td><?php echo $no++; ?></td>
                                                         <td><?php echo $r->nama_dosen; ?></td>
-                                                        <?php $date = date_create($r->tgl_lahir); $tgl_lahir = date_format($date,"d-M-Y"); ?>
+                                                        <?php $date = date_create($r->tgl_lahir); $tgl_lahir = date_format($date,"d-m-Y"); ?>
                                                         <td><?php echo $r->tmpt_lahir .", ".$tgl_lahir; ?></td>
                                                         <td><?php if($r->jk == "1"){
                                                             echo "Laki-laki";
@@ -60,8 +60,8 @@
                                                         <?php $id = $r->id_dosen; ?>
                                                         
                                                         <td align="center">
-                                                            <a href="<?php echo site_url('dosen/edit_dosen/'.$r->id_dosen); ?>" class="btn btn-warning">Edit</a>
-                                                            <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal">Hapus</button>
+                                                            <a href="<?php echo site_url('dosen/edit_dosen/'.$r->id_dosen); ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                            <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i> </button>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>

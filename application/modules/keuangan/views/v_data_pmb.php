@@ -2,16 +2,14 @@
 
 </style>
 <div class="page-title-box">
-    <h4 class="page-title">Data Table</h4>
+    <h4 class="page-title">PMB</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Dashboard</a>
+            <a href="#">KEUANGAN</a>
         </li>
-        <li>
-            <a href="#">Table</a>
-        </li>
+        
         <li class="active">
-            Data Table
+            PMB
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -58,10 +56,13 @@
 
                         ?>
                         <tr>
+                          <?php  $date = date_create($r->tgl_lahir);
+                            $tanggal_lahir = date_format($date,'d-m-Y');
+                             ?>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $r->nama_lengkap; ?></td>
                             <td><?php echo $r->email; ?></td>
-                            <td><?php echo $r->tmpt_lahir.", ".$r->tgl_lahir; ?></td>
+                            <td><?php echo $r->tmpt_lahir.", ".$tanggal_lahir; ?></td>
                             <td><?php echo $r->jk; ?></td>
                             <?php $btn_validasi_pembayaran = $r->validasi_pembayaran==='0'?'btn-danger':'btn-success'; ?>
                             <?php  $id = $r->id_pmb; ?>  

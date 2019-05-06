@@ -19,7 +19,7 @@
      <div class="white-box">
        <h2 class="header-title">Data KRS</h2>
 
-       <form method="post" action="<?php echo site_url('krs/proses_cetak'); ?>">
+       <form method="post" action="<?php echo site_url('krs/filter'); ?>">
         <div class="col-md-4">
             <div class="form-group">
 
@@ -52,7 +52,6 @@
 </div>     
 
 
-    
 
 <div class="row">
      <!-- Start  Bordered  Table-->
@@ -86,20 +85,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
-                    $no = 1;
-                    foreach ($filter as $r) {
-                                            # code...
-                        ?>
-                        <tr>
-                            <td><?php echo $no++; ?></td>
-                            <td><?php echo $r->nama_mapel; ?></td>
-                            <td><?php echo $r->sks; ?></td>
-                            <td><?php echo $r->semester; ?></td>
-                            <td><?php echo $r->nama_kelas; ?></td>
-                            <td><?php echo $r->nama_dosen; ?></td>
-                        </tr>
-                    <?php } ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
 

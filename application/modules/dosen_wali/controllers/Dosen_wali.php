@@ -5,6 +5,7 @@ class Dosen_wali extends Manajemen_only {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('dosen_wali/m_dosen_wali');
+		$this->not_logged_in();
 	}
 	public function index()
 	{

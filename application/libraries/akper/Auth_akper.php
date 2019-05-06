@@ -89,8 +89,8 @@ class Auth_akper
 	private function getUserByUsername($data)
 	{
 		$query = $this->_ci->db->select('*')->from($this->baseTable)->where([
-			$this->config['username'] => $data[$this->config['username']]
-		])->get();
+					$this->config['username'] => $data[$this->config['username']]
+				])->get();
 		if ($query && $this->_ci->db->affected_rows() > 0) 
 		{
 			return $query->row();
@@ -102,9 +102,9 @@ class Auth_akper
 	private function getMenuByRole($role)
 	{
 		$query = $this->_ci->db->select('menu.*')->from('menu_has_role mhr')
-		->join('menu','mhr.id_menu=menu.id_menu','left')
-		->where_in('id_role',$role)
-		->get();
+					->join('menu','mhr.id_menu=menu.id_menu','left')
+					->where_in('id_role',$role)
+					->get();
 		if ($query && $this->_ci->db->affected_rows() > 0) 
 		{
 			return $query->result();

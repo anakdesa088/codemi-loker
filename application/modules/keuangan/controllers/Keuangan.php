@@ -8,6 +8,7 @@ class Keuangan extends Manajemen_only
 		parent::__construct();
 		$this->load->model('keuangan/m_keuangan'); 
 		$this->load->model('m_pmb'); 
+		$this->not_logged_in();
 	}
 	public function index()
 	{

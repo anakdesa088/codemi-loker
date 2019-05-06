@@ -5,21 +5,34 @@ class Mahasiswa extends Manajemen_only {
 function __construct(){
 		parent::__construct();
 		$this->load->model(array('mahasiswa/m_mahasiswa','kelas/m_kelas','tahun_ajaran/m_tahun_ajaran'));
+		$this->not_logged_in();
+
 
 	}
 private $filename = "import_data";	
 	public function index()
 	{
-		
+		$this->sesi_mahasiswa();		
+
+		$data['kelas'] = $this->m_kelas->m_get_kelas();
 		$data['tampil'] = $this->m_mahasiswa->m_get_mahasiswa();
 		$this->template->render('mahasiswa/v_mahasiswa',$data);
 
 	}
 	public function tambah_mahasiswa(){
-		$data['tahun_ajaran'] = $this->m_tahun_ajaran->get_tahun_ajaran();
+		$this->sesi_mahasiswa();
+		$data['tahun_ajaran'] = $this->m_tahun_ajaran->m_data_tahun_ajaran();
 		$data['kelas'] = $this->m_kelas->m_get_kelas();
+		$data['semester'] = $this->m_mahasiswa->m_semester();
+		$data['dosen'] = $this->m_mahasiswa->m_dosen();
 		$this->template->render('mahasiswa/v_tambah_mahasiswa',$data);
 
+	}
+	public function kelas($kelas){
+
+		$data['kelas'] = $this->m_kelas->m_get_kelas();
+		$data['tampil'] = $this->m_mahasiswa->m_get_kelas_mahasiswa($kelas);
+		$this->template->render('mahasiswa/v_mahasiswa_kelas',$data);
 	}
 	public function proses_tambah_mahasiswa(){
 
@@ -38,7 +51,9 @@ private $filename = "import_data";
 				$config['new_image'] = './uploads'.$gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
-				
+				$tanggal = $this->input->post('tgl_lahir');
+				$date=date_create($tanggal);
+				$tanggal_lahir = date_format($date,"Y-m-d");
 
 				$data = array(
 			'id_tahun_ajaran' 		=> $this->input->post('tahun_ajaran'),
@@ -49,8 +64,9 @@ private $filename = "import_data";
 			'jk' 					=> $this->input->post('jk'),
 			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),
 			'berat_badan' 			=> $this->input->post('berat_badan'),
+			'id_semester' 			=> $this->input->post('semester'),
 			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
-			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
+			'tgl_lahir' 			=> $tanggal_lahir,
 			'email'					=> $this->input->post('email'),
 			'password'				=> $this->get_pw($this->input->post('password')),
 			'alamat' 				=> $this->input->post('alamat'),
@@ -83,10 +99,13 @@ private $filename = "import_data";
 
 	}
 	public function edit_mahasiswa($id){
+		$this->sesi_mahasiswa();		
 	$id_link = $this->m_mahasiswa->m_cek_id($id);
 	if ($id_link){
 		
 	$data['kelas'] = $this->m_mahasiswa->m_kelas();
+	$data['dosen'] = $this->m_mahasiswa->m_dosen();
+	$data['semester'] = $this->m_mahasiswa->m_semester();
 	$data['tampil'] = $this->m_mahasiswa->m_edit_mahasiswa($id);
 	$this->template->render('mahasiswa/v_edit_mahasiswa',$data);
 	}else{
@@ -110,6 +129,9 @@ private $filename = "import_data";
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
 				
+				$tanggal = $this->input->post('tgl_lahir');
+				$date=date_create($tanggal);
+				$tanggal_lahir = date_format($date,"Y-m-d");
 
 				$data = array(
 			'id_tahun_ajaran' 		=> $this->input->post('tahun_ajaran'),
@@ -121,11 +143,12 @@ private $filename = "import_data";
 			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),
 			'berat_badan' 			=> $this->input->post('berat_badan'),
 			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
-			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
+			'tgl_lahir' 			=> $tanggal_lahir,
 			'email'					=> $this->input->post('email'),
-			'password'				=> $this->get_pw($this->input->post('password')),
+			
 			'alamat' 				=> $this->input->post('alamat'),
 			'kode_pos' 				=> $this->input->post('kode_pos'),
+			'id_semester' 				=> $this->input->post('semester'),
 			'nama_ayah' 			=> $this->input->post('nama_ayah'),
 			'nama_ibu' 				=> $this->input->post('nama_ibu'),
 			"foto_diri" => $gbr['file_name'],
@@ -152,6 +175,10 @@ private $filename = "import_data";
 				echo "Gambar tidak boleh kosong";
 			}
 		}else{
+			$tanggal = $this->input->post('tgl_lahir');
+				$date=date_create($tanggal);
+				$tanggal_lahir = date_format($date,"Y-m-d");
+
 			$data = array(
 			'id_tahun_ajaran' 		=> $this->input->post('tahun_ajaran'),
 			'id_kelas' 				=> $this->input->post('kelas'),
@@ -162,11 +189,12 @@ private $filename = "import_data";
 			'tinggi_badan' 			=> $this->input->post('tinggi_badan'),
 			'berat_badan' 			=> $this->input->post('berat_badan'),
 			'tmpt_lahir' 			=> $this->input->post('tmpt_lahir'),
-			'tgl_lahir' 			=> $this->input->post('tgl_lahir'),
+			'tgl_lahir' 			=> $tanggal_lahir,
 			'email'					=> $this->input->post('email'),
-			'password'				=> $this->get_pw($this->input->post('password')),
+			
 			'alamat' 				=> $this->input->post('alamat'),
 			'kode_pos' 				=> $this->input->post('kode_pos'),
+			'id_semester' 				=> $this->input->post('semester'),
 			'nama_ayah' 			=> $this->input->post('nama_ayah'),
 			'nama_ibu' 				=> $this->input->post('nama_ibu'),
 			'no_hp1' 				=> $this->input->post('no_hp1'),
@@ -311,6 +339,108 @@ public function proses_import(){
 		$this->m_mahasiswa->insert_multiple($data);
 		
 		redirect("mahasiswa"); 
+	}
+	public function detail_mahasiswa($id){
+		$id_link = $this->m_mahasiswa->m_cek_id($id);
+
+		
+		if (!$id_link) {
+		redirect('mahasiswa');
+		}else{
+			
+			$data['tampil'] = $this->m_mahasiswa->m_detail_mahasiswa($id);
+		$this->template->render('mahasiswa/v_detail_mahasiswa',$data);
+		}
+
+		
+	}
+	public function biodata(){
+		$id = $this->session->userdata('id_mahasiswa'); 
+		$id_link = $this->m_mahasiswa->m_cek_id($id);
+
+		
+		if (!$id_link) {
+		redirect('mahasiswa');
+		}else{
+			
+			$data['tampil'] = $this->m_mahasiswa->m_detail_mahasiswa($id);
+		$this->template->render('mahasiswa/v_biodata_mahasiswa',$data);
+		}
+
+		
+	}
+	public function setting(){
+		$this->template->render('mahasiswa/v_setting');
+
+	}
+	public function password_hash($id_mahasiswa,$password)
+	{
+		if($id_mahasiswa && $password) {
+			$sql = "SELECT * FROM mahasiswa WHERE id_mahasiswa = ?";
+			$query = $this->db->query($sql, array($id_mahasiswa));
+
+			if($query->num_rows() == 1) {
+				$result = $query->row_array();
+
+				$hash_password = password_verify($password, $result['password']);
+				if($hash_password === true) {
+					return $result;	
+				}
+				else {
+					return false;
+				}
+
+				
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	public function proses_setting()
+	{	
+		$id = $this->session->userdata('id_mahasiswa');
+		$password_lama = $this->password_hash($id,$this->input->post('password_lama'));
+		$cek = $this->m_mahasiswa->check_passsword_mhs($id,$password_lama);
+		if ($password_lama) {
+		
+
+		
+		
+			# code...
+		$this->form_validation->set_rules('password_baru', 'Password Baru', 'trim|required');
+		$this->form_validation->set_rules('cpassword', 'Konfirmasi password', 'trim|required|matches[password_baru]');
+		if ($this->form_validation->run()) {
+			# code...
+		
+		$password = $this->password_hashi($this->input->post('password_baru'));
+		$array = array('password'=>$password);
+		
+		
+		$ganti = $this->m_mahasiswa->m_setting($id,$array);
+		if ($ganti > 0) {
+			$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong></strong> <span> <center>Berhasil Ganti Password </center></span></div>');
+			redirect('mahasiswa/setting','refresh');
+
+		}else{
+			$this->session->set_flashdata('sukses','<div class="alert alert-danger" role="alert"> <strong></strong> <span><center>Ganti Password tidak berhasil :-( </center></span></div>');
+			redirect('mahasiswa/setting','refresh');
+		}
+	}else{
+		$this->session->set_flashdata('sukses','<div class="alert alert-danger" role="alert"><center> <strong></strong> <span>Passowrd baru harus sama dengan Konfirmasi Password :-( </center></span></div>');
+			redirect('mahasiswa/setting','refresh');
+	}
+}else{
+	$this->session->set_flashdata('sukses','<div class="alert alert-danger" role="alert"> <strong></strong> <span> Password lama anda Salah </span></div>');
+		redirect('mahasiswa/setting','refresh');
+	}
+}
+public function password_hashi($pass = '')
+	{
+		if($pass) {
+			$password = password_hash($pass, PASSWORD_DEFAULT);
+			return $password;
+		}
 	}
 }
 

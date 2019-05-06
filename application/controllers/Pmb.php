@@ -8,19 +8,16 @@ class Pmb extends CI_Controller{
     parent::__construct();
     $this->load->model('m_page');
     $this->load->model('m_tahun_ajaran');
+    $this->load->model('m_pmb');
     $this->load->library(array('form_validation', 'Recaptcha','akper/auth_akper'));
 
     if (!$this->auth_akper->is_login('udahlogin')) 
     {
       return redirect('signin/pmb');      
     }
-
+$this->load->library('akper/auth_akper');
     // Jika manajemen buka fitu ini maka redirect ke backend/dashboard
-    if($this->auth_akper->is_login('manajemen'))
-    {
-      return redirect('dashboard');             
-    }
-    $this->load->library('akper/auth_akper');
+    
     $this->load->library('akper/auth_akper',[
       
       'password' => 'password'
@@ -28,8 +25,11 @@ class Pmb extends CI_Controller{
     
     $this->auth_akper->setSessionData([
       'id_pmb'    => 'id_pmb',
-      'is_active'     => 'is_active'
+      'is_active'     => 'is_active',
+      'manajemen' => true,
+      'status' => 'login'
     ]);
+    
   }
   
 
@@ -39,7 +39,7 @@ class Pmb extends CI_Controller{
    
        $id       = $this->session->userdata('id_pmb');
     $data['tampil'] = $this->m_page->m_get_id($id);
-    $data['ta']   = $this->m_tahun_ajaran->find($data['tampil']->tahun_ajaran_id_tahun_ajaran);
+    $data['ta']   = $this->m_tahun_ajaran->find($data['tampil']->id_tahun_ajaran);
     $this->load->view('pmb/v_pmb',$data); 
     }else{
       redirect('pmb/detail');
@@ -96,20 +96,39 @@ public function view_pengumuman($info){
     if (empty($foto_bukti_pembayaran) || empty($foto) || empty($foto_ijaza) || empty($foto_kesehatan)) {
       
       $this->session->set_flashdata('foto','<div class="alert alert-danger">Mohon Diisi semua foto</div>');
-          redirect('pmb/'.$id);
+      
 
+      $data = date_create($this->input->post('tgl_lahir'));
+    $tanggal = date_format($data,'Y-m-d');
 
-    /*  $array = array('nama_lengkap'=>$nama_lengkap,'kewarganegaraan'=>$kewarganegaraan,'jk'=>$jk,'tinggi_badan'=>$tinggi_badan,'berat_badan'=>$berat_badan,'tmpt_lahir'=>$tmpt_lahir,'tgl_lahir'=>$tgl_lahir,'alamat'=>$alamat,'kode_pos'=>$kode_pos,'nama_ayah'=>$nama_ayah,'nama_ibu'=>$nama_ibu,'no_hp1'=>$no_hp1,'no_hp2'=>$no_hp2,'info_dari'=>$info_dari,'nama_asal_sekolah'=>$nama_asal_sekolah,'alamat_asal_sekolah'=>$alamat_asal_sekolah); 
+      $array = array('nama_lengkap'      => $this->input->post('nama_lengkap'),
+      'kewarganegaraan'     => $this->input->post('kewarganegaraan'),
+      'jk'          => $this->input->post('jk'),
+      'tinggi_badan'      => $this->input->post('tinggi_badan'),
+      'berat_badan'       => $this->input->post('berat_badan'),
+      'tmpt_lahir'      => $this->input->post('tmpt_lahir'),
+      'tgl_lahir'       => $tanggal,
+      'alamat'        => $this->input->post('alamat'),
+      'level'       => 'pmb_lamah',
+      'kode_pos'        => $this->input->post('kode_pos'),
+      'nama_ayah'       => $this->input->post('nama_ayah'),
+      'nama_ibu'        => $this->input->post('nama_ibu'),
+      'no_hp1'        => $this->input->post('no_hp1'),
+      'no_hp2'        => $this->input->post('no_hp2'),
+      'info_dari'       => $this->input->post('info_dari'),
+      'nama_asal_sekolah'   => $this->input->post('nama_asal_sekolah'),
+      'alamat_asal_sekolah' => $this->input->post('alamat_asal_sekolah'));
+
 
       
       $daftar = $this->m_page->m_proses_pmb($id,$array);
       if ($daftar > 0) {
         $this->session->set_flashdata('sukses','<div class="alert alert-success">Berhasil Upload Data !</div>');
-        redirect('page/pmb/'.$id);
+        redirect('pmb');
       }else{
         echo "salah";
       }
-      */
+      
     }else{
       $config['upload_path'] = './uploads'; 
       $config['allowed_types'] = 'gif|jpg|png|jpeg'; 
@@ -251,6 +270,8 @@ public function view_pengumuman($info){
 
   private function getFormData()
   {
+    $data = date_create($this->input->post('tgl_lahir'));
+    $tanggal = date_format($data,'Y-m-d');
     return [
       'nama_lengkap'      => $this->input->post('nama_lengkap'),
       'kewarganegaraan'     => $this->input->post('kewarganegaraan'),
@@ -258,7 +279,7 @@ public function view_pengumuman($info){
       'tinggi_badan'      => $this->input->post('tinggi_badan'),
       'berat_badan'       => $this->input->post('berat_badan'),
       'tmpt_lahir'      => $this->input->post('tmpt_lahir'),
-      'tgl_lahir'       => $this->input->post('tgl_lahir'),
+      'tgl_lahir'       => $tanggal,
       'alamat'        => $this->input->post('alamat'),
       'level'       => 'pmb_lamah',
       'kode_pos'        => $this->input->post('kode_pos'),
@@ -293,29 +314,31 @@ public function view_pengumuman($info){
   }
   public function proses_setting_password(){
    $id = $this->session->userdata('id_pmb');
-    $password_lamah = $this->getPasswordWithPrefix($this->input->post('password_lamah'));
+    $password = $this->hash_password($this->input->post('password_lamah'));
 
+    $array = array('password'=>$password);
+    $edit = $this->m_pmb->m_setting_password($id,$array);
 
-
-    $password_baru = $this->input->post('password_baru');
-    $data = [
-      
-      'password'  => $this->getPasswordWithPrefix($this->input->post('password_lamah'))
-    ];
-
-    $cek = $this->auth_akper->logins($data);
-    echo $cek;
-            
-    //$this->db->where('id_pmb', $id);
-    //$this->db->where('password', $password_lamah);
-    //$query = $this->db->get('pmb');
-    //if($query->num_rows() > 0){
-    //    echo "benar";
-    //}else{
-  //      echo "salah";
-//
-    //  }
+    if($edit > 0){
+      redirect('pmb/detail');
+    }else{
+      redirect('pmb/detail');
+    }
     
+            
+    
+    
+    
+    
+  }
+
+  private function hash_password($raw_password)
+  {
+    $this->config->load('setting');
+    $prefix = $this->config->item('password_prefix','security');
+    $new_pass = sprintf("%s%s",$prefix,$raw_password);
+    $hash = password_hash($new_pass,PASSWORD_DEFAULT);
+    return $hash;
   }
 }
 

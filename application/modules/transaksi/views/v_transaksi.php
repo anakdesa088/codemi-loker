@@ -1,3 +1,8 @@
+<style type="text/css">
+  thead,th,td,{
+    font-size: 12px;
+  }
+</style>
 <div class="page-title-box">
                         <h4 class="page-title">TRANSAKSI</h4>
                         <ol class="breadcrumb">
@@ -20,7 +25,23 @@
 
                                <div class="white-box">
                                    <h2 class="header-title">DATA TRANSAKSI</h2>
-                                   <a href="<?php echo site_url('transaksi/tambah_transaksi'); ?>" class="btn btn-primary" >TAMBAH</a>
+                                   <div class="row">
+                                   <div class="col-md-9">
+<a href="<?php echo site_url('transaksi/tambah_transaksi'); ?>" class="btn btn-primary" >TAMBAH</a>
+                                    </div>
+                                    <div class="col-md-2">
+ <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"                                                              aria-expanded="false">Jenis Pembayaran <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                          <?php foreach ($jenis_pembayaran as $r): ?>
+                                            
+                                          
+                                            <li><a href="<?php echo site_url('transaksi/jenis_pembayaran/'.$r->id_jp); ?>"><?php echo $r->nama_jp; ?></a></li>
+                                            <?php endforeach ?>
+                                        </ul>
+
+                                    </div>
+                                  </div>
+                                   <hr>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">
                                             <thead>
@@ -32,21 +53,12 @@
                                                     <th>Jenis Pembayaran</th>
                                                     <th>Nominal</th>
                                                     <th>Tanggal</th>
-                                                    <th><center>Aksi</center></th>
+                                                    <th>Keterangan</th>
+                                                    <th>Status</th>
+                                                    <th width="200"><center>Aksi</center></th>
                                                 </tr>
                                             </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Nim</th>
-                                                    <th>Kode</th>
-                                                    <th>Jenis Pembayaran</th>
-                                                    <th>Nominal</th>
-                                                    <th>Tanggal</th>
-                                                    <th><center>Aksi</center></th>
-                                                </tr>
-                                            </tfoot>
+                                            
                                             <tbody>
                                                 <?php
                                                 $no = 1;
@@ -65,11 +77,25 @@
                                                     <td><?php echo $r->nama_jp; ?></td>
                                                     <td><?php echo "Rp. ".$r->nominal_bayar; ?></td>
                                                     <td><?php $id = $r->id_transaksi; echo $tanggal_transaksi ?></td>
+                                                    <td><?php echo $r->keterangan; ?></td>
+                                                     <td class="text-center">
+                                                      <?php 
+                                                      if ($r->status == "LUNAS") {
+                                                        ?>
+                                                        <span class="label round label-success">LUNAS</span>
+                                                        <?php
+                                                      }else{
+                                                        ?>
+                                                        <span class="label round label-danger">BELUM LUNAS</span>
+                                                        <?php
+                                                      }
+                                                      ?>
+                                                    </td>
 
                                                     <td align="center">
                                                         <a href="<?php echo site_url('transaksi/edit_transaksi/'.$r->id_transaksi); ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                         <button type="button" class="btn btn-classic btn-danger mb-4 mr-2" onclick="removeFunc('<?php echo $id; ?>')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>
-                                                        <a href="" class="btn btn-success"><i class="fa fa-print"></i></a>
+                                                        <a href="<?php echo site_url('transaksi/cetak/'.$id); ?>" class="btn btn-success"><i class="fa fa-print"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
