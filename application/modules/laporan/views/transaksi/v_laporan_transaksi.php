@@ -25,7 +25,7 @@
                                  <div class="col-md-8">
                                  
                                   <div class="form-group">
-                                    <label class="col-md-2 control-label">KODE </label>
+                                    <label class="col-md-2 control-label"> </label>
                                     <div class="col-md-7">
                                       
                                       <div class="input-daterange input-group" id="date-range">
@@ -67,7 +67,7 @@
                                  <div class="col-md-8">
                                  
                                   <div class="form-group">
-                                    <label class="col-md-2 control-label">KODE </label>
+                                    <label class="col-md-2 control-label"> </label>
                                     <div class="col-md-7">
                                       
                                       <div class="input-daterange input-group" id="date-range">

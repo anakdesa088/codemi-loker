@@ -6,6 +6,7 @@ class Laporan extends Manajemen_only {
 		parent::__construct();
 		$this->load->model('m_laporan');
 		$this->not_logged_in();
+		$this->sesi_mahasiswa();
 	}
 	public function index()
 	{

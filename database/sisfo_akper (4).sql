@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Bulan Mei 2019 pada 00.14
+-- Waktu pembuatan: 08 Bulan Mei 2019 pada 00.24
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -49,8 +49,8 @@ CREATE TABLE `dosen` (
 
 INSERT INTO `dosen` (`id_dosen`, `nama_dosen`, `jk`, `tmpt_lahir`, `tgl_lahir`, `alamat`, `foto_dosen`, `tahun_masuk`, `email`, `password`, `no_hp`, `id_kelas`) VALUES
 (1, 'Alejandro Martin', '1', 'cirebon', '2004-04-28', '533 Mount Kemble Ave', 'foto_dosen.jpg', '2011', 'mikarta@yahoo.com', 'administrator', '089828271', 0),
-(3, 'Asep', '2', 'CIREBON', '2019-04-01', 'Jembatan besi jaya no. 3', 'foto_dosen.jpg', '2011', 'asep@gmail.com', '$2y$10$fSabjHoCZjPM0Q/N8GHuqOv7SYlbzXYJwls3QPTKJj1MexIiV7JZe', '0898287272', 6),
-(4, 'Arul', '1', 'CIREBON', '2019-05-14', 'RT/RW 07/01 Desa Cikeusal kidul kecamatan Ketanggungan', '65a1cd99-e095-4289-b79f-64454b049a331.jpg', '2011', 'arul@gmail.com', 'indonesia123', '', 13);
+(3, 'Asep', '2', 'CIREBON', '2019-04-01', 'Jembatan besi jaya no. 3 yy ta\r\n', 'foto_dosen.jpg', '2011', 'asep@gmail.com', '$2y$10$fSabjHoCZjPM0Q/N8GHuqOv7SYlbzXYJwls3QPTKJj1MexIiV7JZe', '0898287272', 6),
+(4, 'Arul', '1', 'CIREBON', '2019-05-14', 'RT/RW 07/01 Desa Cikeusal kidul kecamatan Ketanggungan', '65a1cd99-e095-4289-b79f-64454b049a331.jpg', '2011', 'arul@gmail.com', '$2y$10$IFqCGRC5AjNa0zbbbQZY1OImSRGWmqivVOxxzSt.AQwgiBkh0xsKG', '087828272727', 13);
 
 -- --------------------------------------------------------
 
@@ -237,7 +237,7 @@ INSERT INTO `krs` (`id_krs`, `sks`, `id_semester`, `id_dosen`, `id_kelas`, `id_m
 (8, 1, 1, 9, 6, 4, '0000-00-00', 0, 0, 0),
 (9, 3, 2, 9, 13, 1, '0000-00-00', 0, 0, 0),
 (10, 2, 2, 3, 13, 2, '0000-00-00', 0, 0, 0),
-(11, 1, 2, 9, 13, 3, '0000-00-00', 0, 0, 0);
+(11, 1, 2, 1, 13, 3, '0000-00-00', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -288,9 +288,10 @@ INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama_lengkap`, `nim`, `email`, `passwo
 (3, 'SIska', 88382, 'administrator@gmail.com', '$2y$10$1xli7l4I.TlQsLb6ydTSCe6LLaX9PLJNVfwFUMlmuotTW8IC3Rg8a', 'WNI', 'P', 31, 32, 'CIREBON', '07960', 'CIREBON', '2011-02-28', 'Nasoni', 'rasih', 2147483647, 2147483647, 'Temen', 'Smk Arjawinangun', 'Buntet Pesantren', 'amal8.jpg', '', '', 0, 0, '1', 13, 1, 1, 1, ''),
 (4, 'Dikky Martin', 4829388, 'sadministrator@gmail.com', '$2y$10$3pdRyN/tI2NxMkbNuM7qYu9nRn3ZdKoQvYPZj4xoxvgKele/940p2', 'WNI', 'L', 31, 32, 'jalan bahagia', '07960', 'Indramayu', '1924-10-30', 'toto', 'ii', 2147483647, 2147483647, 'Temen', 'Smk NU mekanika', 'mam', 'caleg.jpg', '', '', 0, 0, '1', 6, 1, 1, 1, ''),
 (5, 'Kodok Osaidok', 938298, 'kodok@gmail.com', '$2y$10$fSabjHoCZjPM0Q/N8GHuqOv7SYlbzXYJwls3QPTKJj1MexIiV7JZe', 'WNI', 'L', 32, 32, 'Cirebon', '2000', 'Cirebon', '2019-01-28', 'Nasoni', 'Rasi', 2147483647, 2147483647, 'Teman', 'Smk NU mekanika', 'arjawinangun', 'kodok2.jpg', '', '', 0, 0, '1', 13, 1, 1, 1, ''),
-(6, 'Fawas', 393839, 'keweng@gmail.com', '$2y$10$fSabjHoCZjPM0Q/N8GHuqOv7SYlbzXYJwls3QPTKJj1MexIiV7JZe', 'WNA', 'L', 32, 32, 'jalan bahagia', '52263', 'Cirebon', '2018-12-31', 'Nasoni', 'Rasi', 2147483647, 2147483647, 'Saudara', 'Smk NU mekanika', 'hsh', 'keyeng.jpg', '', '', 0, 0, '1', 6, 1, 1, 1, ''),
-(7, 'Juned', 31231, 'juned@gmail.com', 'adjaksdju38', 'WNI', 'L', 12, 12, 'buntet', '338', 'cirebon', '0000-00-00', 'Nasoni', 'Rasi', 383838, 3928183, 'teman', 'Smk mekanika', 'Buntet Pesantren', '', '', '', 0, 0, '2016', 13, 3, 1, 0, 'PMB_lamah'),
-(8, 'Juned', 31231, 'juned@gmail.com', 'adjaksdju38', 'WNI', 'L', 12, 12, 'buntet', '338', 'cirebon', '0000-00-00', 'Nasoni', 'Rasi', 383838, 3928183, 'teman', 'Smk mekanika', 'Buntet Pesantren', '', '', '', 0, 0, '2016', 13, 3, 1, 0, 'PMB_lamah');
+(6, 'Fawas', 393839, 'keweng@gmail.com', '$2y$10$nq/ZKkKgBgE9vFu.7t/PiuBYnfwoyJZGdMaJ8SptVWMjbEDJWDfd.', 'WNA', 'L', 32, 32, 'jalan bahagia', '52263', 'Cirebon', '2018-12-31', 'Nasoni', 'Rasi', 2147483647, 2147483647, 'Saudara', 'Smk NU mekanika', 'hsh', 'keyeng.jpg', '', '', 0, 0, '1', 6, 1, 1, 1, ''),
+(9, 'Juned', 31231, 'juned@gmail.com', 'adjaksdju38', 'WNI', 'L', 12, 12, 'buntet', '338', 'cirebon', '0000-00-00', 'Nasoni', 'Rasi', 383838, 3928183, 'teman', 'Smk mekanika', 'Buntet Pesantren', '', '', '', 0, 0, '2016', 13, 3, 1, 0, 'PMB_lamah'),
+(19, 'Narpan', 883832, 'narpan@gmail.com', 'adjaksdju38', 'WNI', 'P', 12, 12, 'buntet pesantren', '338', 'cirebon', '0000-00-00', 'Nasoni', 'Rasi', 383838, 3928183, 'teman', 'Smk mekanika', 'Buntet Pesantren', '', '', '', 0, 0, '2016', 13, 3, 1, 0, 'PMB_lamah'),
+(20, 'Casgoni', 9931231, 'casgoni@gmail.com', 'adjaksdju38', 'WNI', 'L', 12, 12, 'buntet', '338', 'cirebon', '0000-00-00', 'Nasoni', 'Rasi', 383838, 3928183, 'teman', 'Smk mekanika', 'Buntet Pesantren', '', '', '', 0, 0, '2016', 13, 3, 1, 0, 'PMB_lamah');
 
 -- --------------------------------------------------------
 
@@ -457,16 +458,62 @@ CREATE TABLE `pengumuman` (
 --
 
 INSERT INTO `pengumuman` (`id_pengumuman`, `judul`, `pesan`, `kepada`, `tanggal_kirim`, `id_pmb`, `read`) VALUES
-(15, 'testing saj', 'aoa ya', '', '2019-04-10', 22, '1'),
-(16, 'Info Penerimaan', 'Selamat casgoni anda di terimah di akademik perawatan', '', '2019-04-10', 22, '1'),
 (17, 'Test Keperawanan', 'Wehhh ini ada cuma Test saja ya jadi jangan di bales soalnya nanti kalau di bales kamu ga bakal masuk kehalaman saya ua\r\n\r\n\r\nby aanak konda', '', '2019-04-10', 22, '1'),
 (22, 'kirim lagi ah', 'Testingkirimya kak karna ini masih taham development', '', '2019-04-11', 23, '1'),
-(23, 'Ncak maning ki', 'Adate gah masih penesaraan masih bisa beli konon kah', '', '2019-04-11', 23, '1'),
-(24, 'Info Penerimaan', 'selamat terima', '', '2019-04-15', 36, '1'),
 (25, 'Info Kampus samid', 'Test di trima', '', '2019-05-04', 43, '1'),
-(26, 'Informasi Pendaftaran PMB', 'Selamat Pendaftaran anda di konfirmasi', '', '2019-05-05', 49, '1'),
 (27, 'Informasi Pendaftaran PMB', 'Selamat Pendaftaran anda di konfirmasi</br> Nomor Peserta Ujian anda adalah 20192144', '', '2019-05-05', 49, '1'),
-(28, 'Informasi Pendaftaran PMB', 'Selamat Pendaftaran anda di konfirmasi</br> Nomor Peserta Ujian anda adalah <b>20192144<b>', '', '2019-05-05', 49, '1');
+(28, 'Informasi Pendaftaran PMB', 'Selamat Pendaftaran anda di konfirmasi</br> Nomor Peserta Ujian anda adalah <b>20192144<b>', '', '2019-05-05', 49, '1'),
+(29, 'Info Kampus samid', 'TATATA', '', '2019-05-07', 21, '0');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengumuman_dosen`
+--
+
+CREATE TABLE `pengumuman_dosen` (
+  `id_pengumuman_dosen` int(11) NOT NULL,
+  `judul` varchar(70) NOT NULL,
+  `pesan` text NOT NULL,
+  `dari` varchar(110) NOT NULL,
+  `tanggal_kirim` date NOT NULL,
+  `id_mahasiswa` int(11) NOT NULL,
+  `id_dosen` int(11) NOT NULL,
+  `read` enum('0','1') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pengumuman_dosen`
+--
+
+INSERT INTO `pengumuman_dosen` (`id_pengumuman_dosen`, `judul`, `pesan`, `dari`, `tanggal_kirim`, `id_mahasiswa`, `id_dosen`, `read`) VALUES
+(88, 'coba', 'apa', 'Asep', '2019-05-08', 0, 3, '0'),
+(89, 'apa', 'ssasa', 'Asep', '2019-05-08', 0, 3, '0');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengumuman_mhs`
+--
+
+CREATE TABLE `pengumuman_mhs` (
+  `id_pengumuman_mhs` int(11) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `pesan` text NOT NULL,
+  `dari` varchar(190) NOT NULL,
+  `tanggal_kirim` date NOT NULL,
+  `id_mahasiswa` int(11) NOT NULL,
+  `read` enum('0','1') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pengumuman_mhs`
+--
+
+INSERT INTO `pengumuman_mhs` (`id_pengumuman_mhs`, `judul`, `pesan`, `dari`, `tanggal_kirim`, `id_mahasiswa`, `read`) VALUES
+(1, 'Info Kampus Untuk fawas', 'ya beli kuh', 'saefudinhardi', '2019-05-07', 6, '1'),
+(2, 'nacak', 'yawis', 'saefudinhardi', '2019-05-07', 6, '1'),
+(4, '', '', 'Asep', '2019-05-07', 0, '0');
 
 -- --------------------------------------------------------
 
@@ -633,8 +680,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `firstname`, `lastna
 (1, 'saefudinhardi', '$2y$10$fSabjHoCZjPM0Q/N8GHuqOv7SYlbzXYJwls3QPTKJj1MexIiV7JZe', 'saefudinhardi@gmail.com', 'Saefudin', 'Hardi', '0828172827', 1),
 (2, 'demensinden', '$2y$10$iZu4jjEq/I.a6VvhbTwSD.gizMFKDOqAYHTtCpbLq4T29RFTGBghK', 'anakdesa088@gmail.com', 'anakdes', 'anakdesa', '0827282727', 1),
 (4, 'casgoni', '$2y$10$oUozrpvfAInYlaCtR/dKKO/nsiJzTI.VgW0AlF.im1E1/F4Ktx13.', 'casgoni@gmail.com', 'casgoni', 'malik', '0829282927', 1),
-(5, 'kelas', '$2y$10$/Jy3dDXfgMM.Y8NBvW.wcOC.0sHaEQJcw0K.6yW4.SzMwswdukCJG', 'kelas@gmail.com', 'Kelas', 'Test', '0827272726', 1),
-(6, 'Admine', '$2y$10$jzOnGRLSMtMvfIL0qkKWVe1E5.wYrHydZO2gvwHwTCpcPTx5A7iUO', 'admin@gmail.com', 'Admin', 'Kempong', '0272872616', 1);
+(6, 'Admine', '$2y$10$jzOnGRLSMtMvfIL0qkKWVe1E5.wYrHydZO2gvwHwTCpcPTx5A7iUO', 'admin@gmail.com', 'Admin', 'Kempong', '0272872616', 1),
+(7, 'user123', '$2y$10$IPHdWg6YE98PSVcT4l/3N.NGtQhk1jeW6ZNdhgYzifdC5i005aIEu', 'user@gmail.com', 'user', 'de', '0828173818', 1);
 
 -- --------------------------------------------------------
 
@@ -658,7 +705,8 @@ INSERT INTO `user_group` (`id`, `user_id`, `group_id`) VALUES
 (3, 3, 4),
 (4, 4, 2),
 (5, 5, 5),
-(6, 6, 7);
+(6, 6, 7),
+(7, 7, 2);
 
 --
 -- Indexes for dumped tables
@@ -765,6 +813,18 @@ ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id_pengumuman`);
 
 --
+-- Indeks untuk tabel `pengumuman_dosen`
+--
+ALTER TABLE `pengumuman_dosen`
+  ADD PRIMARY KEY (`id_pengumuman_dosen`);
+
+--
+-- Indeks untuk tabel `pengumuman_mhs`
+--
+ALTER TABLE `pengumuman_mhs`
+  ADD PRIMARY KEY (`id_pengumuman_mhs`);
+
+--
 -- Indeks untuk tabel `pmb`
 --
 ALTER TABLE `pmb`
@@ -866,7 +926,7 @@ ALTER TABLE `krs`
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `mapel_mahasiswa`
@@ -908,7 +968,19 @@ ALTER TABLE `pembagian_matkul`
 -- AUTO_INCREMENT untuk tabel `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `id_pengumuman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_pengumuman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT untuk tabel `pengumuman_dosen`
+--
+ALTER TABLE `pengumuman_dosen`
+  MODIFY `id_pengumuman_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+
+--
+-- AUTO_INCREMENT untuk tabel `pengumuman_mhs`
+--
+ALTER TABLE `pengumuman_mhs`
+  MODIFY `id_pengumuman_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `pmb`
@@ -938,13 +1010,13 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_group`
 --
 ALTER TABLE `user_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

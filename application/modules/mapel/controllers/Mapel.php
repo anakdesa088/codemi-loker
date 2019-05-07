@@ -6,6 +6,7 @@ class Mapel extends Manajemen_only {
 		parent::__construct();
 		$this->load->model('mapel/m_mapel');
 		$this->not_logged_in();
+		$this->sesi_mahasiswa();
 	}
 
 	public function index()

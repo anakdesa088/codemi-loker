@@ -13,7 +13,7 @@
                      </div>
                       <!--End Page Title-->          
 
-           
+           <?php echo $this->session->flashdata('success'); ?>
                      <!--Start row-->
                      <div class="row">
                          <div class="col-md-12">

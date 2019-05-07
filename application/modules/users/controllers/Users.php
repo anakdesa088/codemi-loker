@@ -7,7 +7,7 @@ class Users extends Manajemen_only
 		parent::__construct();
 
 		$this->not_logged_in();
-		
+		$this->sesi_mahasiswa();
 		$this->data['page_title'] = 'Users';
 		
 
@@ -221,19 +221,38 @@ public function proses_edit($id)
 	{
 		
 
-		$user_id = $this->session->userdata('id');
-
-		$user_data = $this->model_users->getUserData($user_id);
-		$this->data['user_data'] = $user_data;
-
-		$user_group = $this->model_users->getUserGroup($user_id);
+		if ($this->session->userdata('dosen')) {
+			$id = $this->session->userdata('id_dosen');
+		}
+		if ($this->session->userdata('management')) {
+			$id = $this->session->userdata('id');
+		}
+		if ($this->session->userdata('management')) {
+			$user_data = $this->model_users->getUserData($id);
+			$this->data['user_data'] = $user_data;
+			$user_group = $this->model_users->getUserGroup($id);
 		$this->data['user_group'] = $user_group;
 
         $this->template->render('users/v_profile', $this->data);
+		}
+		if ($this->session->userdata('dosen')) {
+			$user_data = $this->model_users->getDosenData($id);
+			$this->data['user_data'] = $user_data;
+			$this->template->render('users/v_profile_dosen', $this->data);
+		}
+		
+
+		
 	}
 
-	public function setting($id)
+	public function setting()
 	{	
+		if ($this->session->userdata('dosen')) {
+			$id = $this->session->userdata('id_dosen');
+		}
+		if ($this->session->userdata('management')) {
+			$id = $this->session->userdata('id');
+		}
 		
 		if ($this->session->userdata('management')) {
 				$cek_id_user = $this->model_users->m_cek_id_user($id);
@@ -342,18 +361,19 @@ public function proses_edit($id)
 		        		'email' => $this->input->post('email'),
 		        		'nama_dosen' => $this->input->post('nama_dosen'),
 		        	
-		        		'ho_hp' => $this->input->post('phone'),
+		        		'no_hp' => $this->input->post('phone'),
 		        		'jk' => $this->input->post('gender'),
 		        	);
 
-		        	$update = $this->model_users->edit($data, $id);
+		        	$update = $this->model_users->edit_dosen($data, $id);
 		        	if($update == true) {
-		        		$this->session->set_flashdata('success', 'Successfully updated');
-		        		redirect('users/profile/'.$id, 'refresh');
+		        		$this->session->set_flashdata('success', '<div class="alert alert-success" role="alert"><center> <span>Berhasil Edit.</span></center></div>
+');
+			        		redirect('dosen/biodata', 'refresh');
 		        	}
 		        	else {
 		        		$this->session->set_flashdata('errors', 'Error occurred!!');
-		        		redirect('users/profile/'.$id, 'refresh');
+		        		redirect('users/profile', 'refresh');
 		        	}
 		        }
 		        else {
@@ -367,19 +387,20 @@ public function proses_edit($id)
 			        		'alamat'=> $this->input->post('alamat'),
 		        		'email' => $this->input->post('email'),
 		        		'nama_dosen' => $this->input->post('nama_dosen'),
-		        	
-		        		'ho_hp' => $this->input->post('phone'),
+		        		'password'=>$password,
+		        		'no_hp' => $this->input->post('phone'),
 		        		'jk' => $this->input->post('gender'),
 			        	);
 
-			        	$update = $this->model_users->edit_dorn($data, $id);
+			        	$update = $this->model_users->edit_dosen($data, $id);
 			        	if($update == true) {
-			        		$this->session->set_flashdata('success', 'Successfully updated');
-			        		redirect('users/profile/'.$id, 'refresh');
+			        		$this->session->set_flashdata('success', '<div class="alert alert-success" role="alert"><center> <span>Berhasil Edit.</span></center></div>
+');
+			        		redirect('dosen/biodata', 'refresh');
 			        	}
 			        	else {
 			        		$this->session->set_flashdata('errors', 'Error occurred!!');
-			        		redirect('users/setting/'.$id, 'refresh');
+			        		redirect('dosen/biodata', 'refresh');
 			        	}
 					}
 			        

@@ -26,25 +26,27 @@
                                 <center><?php echo $this->session->flashdata('berhasil'); ?></center>
                                 <div class="mailbox-content">
                                   <div class="compose-body">
-                                    <form action="<?php echo site_url('pengumuman/proses_tambah_pengumuman'); ?>" method="post">
-                                        <div class="form-group clearfix">
-                                            <select name="kepada" class="form-control">
-                                              <?php foreach ($email as $email) {
-                                                # code...
-                                              ?>
-                                              <option value="<?php echo $email->id_pmb; ?>"><?php echo $email->email."- ".$email->nama_lengkap; ?></option>
-
-                                            <?php } ?>
-                                            </select>
+                                    <form action="<?php echo site_url('pengumuman/proses_tambah_pengumuman_dosen'); ?>" method="post">
+                                        <div class="form-group  clearfix">
+                                            <input type="hidden" name="kepada[]" class="form-control"  value="
+                                            <?php foreach ($mahasiswa as $m) {
+                              echo $m->id_mahasiswa; 
+                            } ?>
+                                            " id="subject">
                                         </div>
                                         
                                         <div class="form-group  clearfix">
-                                            <input type="text" name="judul" class="form-control"  placeholder="subject" id="subject">
+                                            <input type="text" name="judul[]" class="form-control"  placeholder="subject" id="subject">
                                         </div>
                                         
                                         <div class="form-group">
-                                <textarea name="pesan" class="textarea form-control wysihtml5-textarea" placeholder="Enter text ..."  style="height:200px; width:100%;"></textarea>
+                                <textarea name="pesan[]" class="textarea form-control wysihtml5-textarea" placeholder="Enter text ..."  style="height:200px; width:100%;"></textarea>
                              </div>
+                             <input type="hidden" name="dari[]" value="<?php echo $this->session->userdata('nama_dosen'); ?>">
+
+                             <input type="hidden" name="id_dosen[]" value="<?php echo $this->session->userdata('id_dosen'); ?>">
+                             <input type="hidden" name="tanggal_kirim[]" value="<?php echo date('Y-m-d'); ?>">
+                             <input type="hidden" name="read[]" value="0">
                              
                                     
                                 </div> <!--/.compose-body-->

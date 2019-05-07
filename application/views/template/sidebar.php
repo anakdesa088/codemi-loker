@@ -4,7 +4,7 @@
                         <ul class="metismenu" id="side-menu">
 
                             <li class="<?php  echo ($this->uri->segment(1) == 'dashboard') ?  'active' : '' ?>">
-                              <a href="<?php echo site_url('dashboard'); ?>"><i class="ti-dashboard"></i> <span class="menu-label">Dashboard</span></a>
+                              <a href="<?php echo site_url('dashboard'); ?>"><i class="ti-dashboard"></i> <span class="menu-label">DASHBOARD</span></a>
 
                           </li>
 
@@ -12,7 +12,7 @@
         # code...
                            ?>
                            <li class="<?php echo($this->uri->segment(1) == 'akademik' OR $this->uri->segment(1) == 'kelas' OR $this->uri->segment(1) == 'mahasiswa' OR $this->uri->segment(1) == 'dosen' OR $this->uri->segment(1) == 'mapel' OR $this->uri->segment(1) == 'krs' OR $this->uri->segment(1) == 'khs' ) ? 'active' : '' ?>">
-                            <a href="javascript:void(0)"><i class="fa fa-university"></i> <span class="menu-label">Akademik</span><span class="fa arrow"></span></a>
+                            <a href="javascript:void(0)"><i class="fa fa-university"></i> <span class="menu-label">AKADEMIK</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-sub collapse">
                                 <li class="sub-active"><a href="<?php echo site_url('akademik'); ?>">PMB</a></li>
 
@@ -61,7 +61,7 @@
                         </li>
 
                         <li >
-                            <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">Keuangan</span><span class="fa arrow"></span></a>
+                            <a href="javascript:void(0)"><i class="fa fa-money"></i> <span class="menu-label">KEUANGAN</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-sub collapse">
                                 <li><a href="<?php echo site_url('keuangan'); ?>">PMB</a></li>
                                 <li><a href="<?php echo site_url('jenis_pembayaran'); ?>">JENIS PEMBAYARAN</a></li>
@@ -72,24 +72,26 @@
                         </li>
 
                         
-                        <li>
-                           <a href="javascript:void(0)"><i class="ti-email"></i> <span class="menu-label">LAYANAN SURAT</span><span class="fa arrow"></span></a>
-                           <ul class="nav nav-sub collapse">
-                            <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> PENGATURAN</a></li>
-                            <li><a href="vector-map.html"> INFORMASI</a></li>
-                        </ul>
-                    </li>
+                        
 
                     <li>
                        <a href="javascript:void(0)"><i class="fa fa-clipboard"></i> <span class="menu-label">LAPORAN</span><span class="fa arrow"></span></a>
                        <ul class="nav nav-sub collapse">
                         <li><a href="<?php echo site_url('surat/pengaturan/index') ?>"> MAHASISWA</a></li>
                         <li><a href="<?php echo site_url('laporan/pmb'); ?>"> PMB</a></li>
-                        <li><a href="<?php echo site_url('laporan/transaksi'); ?>">Lap Transaksi</a></li>
+                        <li><a href="<?php echo site_url('laporan/transaksi'); ?>">TRANSAKSI</a></li>
+                    </ul>
+                </li>
+                <li>
+                       <a href="javascript:void(0)"><i class="fa fa-bullhorn"></i> <span class="menu-label">PENGUMUMAN</span><span class="fa arrow"></span></a>
+                       <ul class="nav nav-sub collapse">
+                        <li><a href="<?php echo site_url('pengumuman/mahasiswa') ?>"> MAHASISWA</a></li>
+                        <li><a href="<?php echo site_url('pengumuman'); ?>"> PMB</a></li>
+                        
                     </ul>
                 </li>
 
-                <li class="<?php echo($this->uri->segment(1) == 'pengumuman' ) ? 'active' : '' ?>"><a href="<?php echo site_url('pengumuman'); ?>"><i class="fa fa-bullhorn"></i>  <span class="menu-label">PENGUMUMAN</span></a></li>
+                
 
                 <li>
                     <a href="javascript:void(0)"><i class="fa fa-user"></i>  <span class="menu-label">PENGGUNA</span><span class="fa arrow"></span></a>
@@ -129,7 +131,7 @@
     <li>
        <a href="javascript:void(0)"><i class="fa fa-bullhorn"></i>  <span class="menu-label"> PENGUMUMAN</span><span class="fa arrow"></span></a>
        <ul class="nav nav-sub collapse">
-        <li><a href="<?php echo site_url('biodata') ?>"> PENGUMUMAN</a></li>
+        <li><a href="<?php echo site_url('pengumuman/list_pengumuman_mhs') ?>"> PENGUMUMAN</a></li>
 
     </ul>
 </li>                                
@@ -160,7 +162,7 @@ $dosen = $this->session->userdata('dosen');
 
                         </li>
                         <li class="">
-                              <a href="<?php echo site_url('dashboard'); ?>"><i class="fa fa fa-bullhorn"></i><span class="menu-label">PENGUMUMAN</span></a>
+                              <a href="<?php echo site_url('pengumuman/select_kelas'); ?>"><i class="fa fa fa-bullhorn"></i><span class="menu-label">PENGUMUMAN</span></a>
 
                         </li>
 <?php }  ?>

@@ -7,6 +7,7 @@ class Kelas extends Manajemen_only {
 		parent::__construct();
 		$this->load->model('kelas/m_kelas');
 		$this->not_logged_in();
+		$this->sesi_mahasiswa();
 	}
 
 	public function index()

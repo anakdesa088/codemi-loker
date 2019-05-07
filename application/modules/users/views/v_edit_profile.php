@@ -234,11 +234,11 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Password</label>
-                                                        <input type="text" name="password"   class="form-control">
+                                                        <input type="password" name="password"   class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Confirm password</label>
-                                                        <input type="text" name="cpaassword"   class="form-control">
+                                                        <input type="password" name="cpaassword"   class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-10">

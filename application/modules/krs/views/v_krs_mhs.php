@@ -1,14 +1,14 @@
 <div class="page-title-box">
-    <h4 class="page-title">Cetak KRS</h4>
+    <h4 class="page-title">CETAK KRS</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Akademik</a>
+            <a href="#">AKADEMIK</a>
         </li>
         <li>
             <a href="#">KRS</a>
         </li>
         <li class="active">
-            Cetak KRS
+            CETAK KRS
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -21,15 +21,15 @@
      <!-- Start  Bordered  Table-->
      <div class="col-md-12">
        <div class="white-box">
-        <h2 class="header-title"> KRS Semester </h2>
+        <h2 class="header-title"> KRS  </h2>
         
         <div class="row">
 
             <div class="col-md-11">
-                <button onclick="kembali()" class="btn btn-warning">Kembali</button>
+                
             </div>
             <div class="col-ms-1">
-                <a href="<?php echo site_url('krs/cetak_krs_mhs'); ?>" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</a>
+                <a href="<?php echo site_url('krs/cetak_krs_mhs'); ?>" class="btn btn-success"><i class="fa fa-print"></i> Cetak</a>
             </div>
 
         </div>
@@ -63,7 +63,7 @@
             <td width="5">:</td>
             <td><?php echo $info->tahun_ajarancol; ?></td>
           </tr>
-          <hr>
+          
         </table>
 </div>
         <div class="table-wrap">

@@ -9,6 +9,7 @@ class Keuangan extends Manajemen_only
 		$this->load->model('keuangan/m_keuangan'); 
 		$this->load->model('m_pmb'); 
 		$this->not_logged_in();
+		$this->sesi_mahasiswa();
 	}
 	public function index()
 	{

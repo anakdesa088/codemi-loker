@@ -1,13 +1,13 @@
 
 <div class="page-title-box">
-  <h4 class="page-title">Data Krs</h4>
+  <h4 class="page-title">DATA KRS</h4>
   <ol class="breadcrumb">
     <li>
-      <a href="#">Akademik</a>
+      <a href="#">AKADEMIK</a>
     </li>
 
     <li class="active">
-      Data Krs
+      DATA KRS
     </li>
   </ol>
   <div class="clearfix"></div>
@@ -22,7 +22,7 @@
 <div class="row">
  <div class="col-md-12">
    <div class="white-box">
-     <h2 class="header-title">Data Krs</h2>
+     <h2 class="header-title">DATA KRS</h2>
 
      <div class="row">
 

@@ -18,7 +18,7 @@
                        <div class="row">
                            <div class="col-md-12">
                                <div class="white-box">
-                                   <h2 class="header-title">Basic example</h2>
+                                   <h2 class="header-title">LAPORAN TRANSAKSI</h2>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">
                                             <thead>

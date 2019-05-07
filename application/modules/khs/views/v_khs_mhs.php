@@ -1,20 +1,19 @@
 
 <div class="page-title-box">
-  <h4 class="page-title">Data KHS</h4>
+  <h4 class="page-title">DATA KHS</h4>
   <ol class="breadcrumb">
     <li>
-      <a href="#">Akademik</a>
+      <a href="#">AKADEMIK</a>
     </li>
 
     <li class="active">
-      Data KHS
+      DATA KHS
     </li>
   </ol>
   <div class="clearfix"></div>
 </div>
 
 <?php $this->session->flashdata('sukses'); ?>
-ya ya
 
 <div id="messages"></div>
 <!--Start row-->
@@ -35,7 +34,7 @@ ya ya
      <div class="col-md-11">
      </div>
      <div class="col-ms-1">
-        <a href="" class="btn btn-success"><i class="fa fa-print"></i> COBA</a>
+        <a href="<?php echo site_url('khs/cetak_mhs'); ?>" class="btn btn-success"><i class="fa fa-print"></i> CETAK</a>
      </div>
    </div>
 

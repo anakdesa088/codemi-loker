@@ -7,16 +7,18 @@ class Transaksi extends Manajemen_only {
 		$this->load->model('m_transaksi');
 		$this->not_logged_in();
 
+
 	}
 	public function index()
 	{
-		
+		$this->sesi_mahasiswa();
 		$data['jenis_pembayaran'] = $this->m_transaksi->m_jenis_pembayaran();
 		$data['tampil'] = $this->m_transaksi->m_data_transaksi();
 		$this->template->render('transaksi/v_transaksi',$data);
 		
 	}
 	public function tambah_transaksi(){
+		$this->sesi_mahasiswa();
 		$data['kode_transaksi'] = $this->m_transaksi->m_kode_transaksi();
 		$data['jenis_pembayaran'] = $this->m_transaksi->m_jenis_pembayaran();
 		$this->template->render('transaksi/v_tambah_transaksi',$data);
@@ -35,6 +37,7 @@ class Transaksi extends Manajemen_only {
         }
 	}
 	public function proses_tambah_transaksi(){
+		$this->sesi_mahasiswa();
 		$jp = $this->input->post('jp');
 		$nim = $this->input->post('nim');
 		$nominal_bayar = $this->input->post('nominal_bayar');
@@ -80,12 +83,14 @@ class Transaksi extends Manajemen_only {
 
 	}
 	public function edit_transaksi($id){
+		$this->sesi_mahasiswa();
 		$data['tampil'] = $this->m_transaksi->m_edit_transaksi($id);
 		$data['jenis_pembayaran']  = $this->m_transaksi->m_jenis_pembayaran();
 		$this->template->render('transaksi/v_edit_transaksi',$data);
 	}
 
 	public function proses_edit_transaksi($id_t){
+		$this->sesi_mahasiswa();
 		$jp = $this->input->post('jp');
 		$nim = $this->input->post('nim');
 		$nominal_bayar = $this->input->post('nominal_bayar');
@@ -156,6 +161,7 @@ class Transaksi extends Manajemen_only {
         }
     }
     public function hapus_transaksi(){
+    	$this->sesi_mahasiswa();
 	$id_transaksi = $this->input->post('id');
 
 		$response = array();
@@ -189,6 +195,7 @@ class Transaksi extends Manajemen_only {
 		return false;
 	}
 	public function cetak($id){
+		$this->sesi_mahasiswa();
 		$cek = $this->m_transaksi->m_cek_mahasiswa($id);
 		foreach ($cek as $key ) {
 			$a = $key->id_mahasiswa;
@@ -207,6 +214,7 @@ class Transaksi extends Manajemen_only {
 		
 	}
 	public function jenis_pembayaran($id){
+		$this->sesi_mahasiswa();
 		$data['tampil'] = $this->m_transaksi->m_data_jenis_pembayaran($id);
 		$this->template->render('transaksi/v_filter_jenis_pembayaran',$data);
 	}

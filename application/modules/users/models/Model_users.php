@@ -138,6 +138,19 @@ class Model_users extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
+	public function getDosenDataid($id = null)
+	{
+		if($id) {
+
+			$sql = "SELECT * FROM dosen WHERE id_dosen = ?";
+			$query = $this->db->query($sql, array($id));
+			return $query->row_array();
+		}
+		
+		$sql = "SELECT * FROM dosen";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
 	public function m_hapus_users($id){
 		
 			$this->db->where('id', $id);

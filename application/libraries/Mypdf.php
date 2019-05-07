@@ -1,5 +1,7 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 require_once('assets/dompdf/autoload.inc.php');
 use Dompdf\Dompdf;
 class Mypdf
@@ -42,6 +44,25 @@ class Mypdf
 
     $dompdf->stream("krs".rand().".pdf", array("Attachment" => FALSE));	
 	}
+	public function khs_mhs($view,$data = array(),$paper ='A4',$orientation ='portrait'){
+	$dompdf = new Dompdf();
+
+		$html = $this->ci->load->view($view,$data, TRUE);
+
+	$dompdf->loadHtml($html);
+
+	
+	$dompdf->setPaper($paper, $orientation);
+
+	
+	$dompdf->render();
+    ob_clean();
+    $date = date_create();
+    $tanggal = date_format($date,'d-m-Y');
+    
+    $dompdf->stream("KHS-".$tanggal.".pdf", array("Attachment" => FALSE));	
+	}
+
 
 	
 

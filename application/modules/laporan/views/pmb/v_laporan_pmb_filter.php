@@ -2,16 +2,16 @@
 
 </style>
 <div class="page-title-box">
-    <h4 class="page-title">Data Table</h4>
+    <h4 class="page-title">DATA PESERTA MAHASISWA BARU</h4>
     <ol class="breadcrumb">
         <li>
-            <a href="#">Dashboard</a>
+            <a href="#">LAPORAN</a>
         </li>
         <li>
-            <a href="#">Table</a>
+            <a href="#">PMB</a>
         </li>
         <li class="active">
-            Data Table
+            DATA PESERTA MAHASISWA BARU
         </li>
     </ol>
     <div class="clearfix"></div>
@@ -24,7 +24,7 @@
                      
                      
                            <div class="white-box">
-                             <h2 class="header-title">LAPORAN TRANSAKSI TANGGAL</h2>
+                             <h2 class="header-title"></h2>
                                 <form  method="post"  action="<?php echo site_url('laporan/pmb_filter'); ?>" class="form-horizontal">
                                  
                                  <div class="col-md-2">
@@ -115,7 +115,7 @@
 
                             </td>
                         </tr>
-                    
+                    <?php } ?>
                     <tr>
                         <td></td>
                         <td></td>

@@ -20,7 +20,7 @@
                                         
                                         </div>
                                         <div class="col-md-4">
-                                        	<form method="post" action="<?php echo base_url("mahasiswa/proses_import"); ?>" enctype="multipart/form-data">
+                                        	<form method="post" action="<?php echo base_url("mahasiswa/import"); ?>" enctype="multipart/form-data">
                                         	<div class="fileupload btn btn-success">
                                             <span><i class="fa fa-upload"></i> Upload</span>
                                             <input type="file" name="file" class="upload">

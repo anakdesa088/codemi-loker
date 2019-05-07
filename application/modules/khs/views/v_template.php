@@ -169,9 +169,9 @@
         <td width="7"><?php echo $no++; ?></td>
         <td width="80" align="center"><?php echo $r->nama_mapel; ?></td>
         <td width="80" align="center"><?php echo $r->sks; ?></td>
-        <td width="80" align="center"><?php echo $r->nilai_mutu; ?></td>
-        <td width="80" align="center"><?php echo $r->nilai_lambang; ?></td>
-        <td width="80" align="center"><?php echo $r->nilai_sks; ?></td>
+        <td width="80" align="center"><?php echo $r->jumlah; ?></td>
+        <td width="80" align="center"><?php echo $r->hm; ?></td>
+        <td width="80" align="center"><?php echo $r->am; ?></td>
         
         
       </tr>

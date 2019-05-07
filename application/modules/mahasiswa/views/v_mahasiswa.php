@@ -37,7 +37,10 @@
                                             <li><a href="<?php echo site_url('mahasiswa/kelas/'.$k->id_kelas); ?>"><?php echo $k->nama_kelas; ?></a></li>
                                             <?php } ?>
                                         </ul>
-                                        <a href="<?php echo site_url('mahasiswa/import'); ?>" class="btn btn-success"><i class="fa fa-upload"></i> Import <i class="fa fa-file-excel-o"></i></a>
+                                        
+
+                                        <a href="<?php echo site_url('mahasiswa/import'); ?>" class="btn btn-success"><i class="fa fa-upload"></i> Import<i class="fa fa-file-excel-o"></i></a>
+
 
                                    </div>
                                    
@@ -94,6 +97,55 @@
                            </div>
                        </div>
                    <!-- End  hover Table-->
+
+
+
+
+<div class="modal fade" id="animate-modal-6" >
+                                            <div class="modal-dialog animated bounceInUp">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">Import mahasiswa</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      <a href="<?php echo base_url('excel/format.xlsx'); ?>" class="btn btn-primary"><i class="fa fa-download"></i> Download Format</a>
+                                                    </div>
+                                                    <div class="modal-body text-center  " >
+                                                      <form action="<?php echo site_url('mahasiswa/import'); ?>" enctype="multipart/form-data" method="post">
+                                                        
+                                                    
+                                                       <div class="fileupload btn btn-info">
+                                                            <span><i class="ion-upload"></i> Upload</span>
+                                                            <input type="file" name="file" class="upload">
+                                                        </div> 
+
+                                                    
+
+
+                                                      
+                                                        
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button data-dismiss="modal" class="btn btn-default" type="button">Batal</button>
+                                                        <button type="submit" class="btn btn-primary" >Upload</button>
+                                                      </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="modal fade" tabindex="-1" role="dialog" id="removeModal">

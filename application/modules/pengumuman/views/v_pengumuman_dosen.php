@@ -1,12 +1,12 @@
 <div class="page-title-box">
-                        <h4 class="page-title">PENGUMUMAN PMB</h4>
+                        <h4 class="page-title">PENGUMUMAN </h4>
                         <ol class="breadcrumb">
                             <li>
                                 <a href="#">PENGUMUMAN</a>
                             </li>
                             
                             <li class="active">
-                                PENGUMUMAN PMB
+                                PENGUMUMAN 
                             </li>
                         </ol>
                         <div class="clearfix"></div>
@@ -23,8 +23,8 @@
                                <div class="white-box">
                                 <div class="row">
                                 </div>
-                                   <h2 class="header-title">PENGUMUMAN PMB</h2>
-                                   <a href="<?php echo site_url('pengumuman/tambah_pengumuman'); ?>" class="btn btn-primary">Pesan</a>
+                                   <h2 class="header-title">PENGUMUMAN </h2>
+                                   <a href="<?php echo site_url('pengumuman/tambah_pengumuman_dosen'); ?>" class="btn btn-primary"><i class="fa fa-edit"></i> Tambah</a>
                                    <hr>
                                     <div class="table-responsive">
                                      <table id="example" class="display table">
@@ -32,6 +32,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Judul</th>
+                                                    <th>Dari</th>
                                                     <th>Kepada</th>
                                                     <th>Pesan</th>
                                                     <th>Info</th>
@@ -50,6 +51,7 @@
                                                 <tr>
                                                   <td><?php echo $no++; ?></td>
                                                   <td><?php echo $r->judul; ?></td>
+                                                  <td><?php echo $r->dari; ?></td>
                                                   
                                                   <td><?php echo $r->email; ?></td>
                                                   <td><?php echo $r->pesan; ?></td>
@@ -64,7 +66,7 @@
                                                     $tanggal = date_format($date, 'd-m-Y');
                                                    ?>
                                                   <td><?php echo $tanggal; ?></td>
-                                                  <td> <a href="<?php echo site_url('pengumuman/hapus_pengumuman/'.$r->id_pengumuman); ?>" class="btn btn-danger">Hapus</td>
+                                                  <td> <a href="<?php echo site_url('pengumuman/hapus_pengumuman_mhs/'.$r->id_pengumuman_dosen); ?>" class="btn btn-danger">Hapus</td>
                                                 </tr>
                                            
                                               <?php } ?>

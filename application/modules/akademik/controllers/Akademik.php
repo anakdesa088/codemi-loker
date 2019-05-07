@@ -11,6 +11,7 @@ class Akademik extends Manajemen_only
 		$this->load->model('m_pmb'); 
 		$this->load->model('keuangan/m_keuangan'); 
 		$this->load->model('pengumuman/m_pengumuman');
+		$this->sesi_mahasiswa();
 
 	}
 	public function index()

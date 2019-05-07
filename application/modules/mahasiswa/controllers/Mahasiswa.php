@@ -29,13 +29,14 @@ private $filename = "import_data";
 
 	}
 	public function kelas($kelas){
+		$this->sesi_mahasiswa();
 
 		$data['kelas'] = $this->m_kelas->m_get_kelas();
 		$data['tampil'] = $this->m_mahasiswa->m_get_kelas_mahasiswa($kelas);
 		$this->template->render('mahasiswa/v_mahasiswa_kelas',$data);
 	}
 	public function proses_tambah_mahasiswa(){
-
+$this->sesi_mahasiswa();
 		$config['upload_path'] = './uploads'; //path folder gambar
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type gambar bisa disesuaikan
 		$this->upload->initialize($config);
@@ -230,6 +231,7 @@ private $filename = "import_data";
 	}
 	
 	public function hapus_mahasiswa(){
+		$this->sesi_mahasiswa();
 	$id_mahasiswa = $this->input->post('id');
 
 		$response = array();
@@ -263,6 +265,7 @@ private $filename = "import_data";
 		return false;
 	}
 	public function import(){
+		$this->sesi_mahasiswa();
 		$data = array(); // Buat variabel $data sebagai array
 		
 		if(isset($_POST['preview'])){ // Jika user menekan tombol Preview pada form
@@ -288,6 +291,7 @@ private $filename = "import_data";
 	}
 
 public function proses_import(){
+	$this->sesi_mahasiswa();
 	include APPPATH.'third_party/PHPExcel/PHPExcel.php';
 		
 		$excelreader = new PHPExcel_Reader_Excel2007();
@@ -337,10 +341,11 @@ public function proses_import(){
 		}
 		
 		$this->m_mahasiswa->insert_multiple($data);
-		
+		$this->session->set_flashdata('sukses','<div class="alert alert-success" role="alert"> <strong></strong> <span> <center>Berhasil Import Data Mahasiswa </center></span></div>');
 		redirect("mahasiswa"); 
 	}
 	public function detail_mahasiswa($id){
+		$this->sesi_mahasiswa();
 		$id_link = $this->m_mahasiswa->m_cek_id($id);
 
 		

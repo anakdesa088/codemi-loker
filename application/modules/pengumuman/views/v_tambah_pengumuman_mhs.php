@@ -26,13 +26,13 @@
                                 <center><?php echo $this->session->flashdata('berhasil'); ?></center>
                                 <div class="mailbox-content">
                                   <div class="compose-body">
-                                    <form action="<?php echo site_url('pengumuman/proses_tambah_pengumuman'); ?>" method="post">
+                                    <form action="<?php echo site_url('pengumuman/proses_tambah_pengumuman_mhs'); ?>" method="post">
                                         <div class="form-group clearfix">
                                             <select name="kepada" class="form-control">
                                               <?php foreach ($email as $email) {
                                                 # code...
                                               ?>
-                                              <option value="<?php echo $email->id_pmb; ?>"><?php echo $email->email."- ".$email->nama_lengkap; ?></option>
+                                              <option value="<?php echo $email->id_mahasiswa; ?>"><?php echo $email->email."- ".$email->nama_lengkap; ?></option>
 
                                             <?php } ?>
                                             </select>

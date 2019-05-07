@@ -62,7 +62,7 @@
                         
                         <h2 class="header-title font-22 text-center m-b-35">Halaman Login Management</h2>
                         <?php echo $this->session->flashdata('gagal'); ?>
-                       <form method="post" action="<?php echo site_url('auth_management/login'); ?>">
+                       <form method="post" action="<?php echo site_url('management/login'); ?>">
                            <div class="form-group">
                                <input type="email" class="form-control" name="email"  placeholder="Email" >
                            </div>
@@ -74,8 +74,7 @@
                         <div class="form-group m-t-30 clearfix">
                            <div class="pull-left">
                                <div class="checkbox primary">
-                              <input  id="checkbox-1" type="checkbox">
-                              <label for="checkbox-1">Remember me</label>
+                              
                             </div>
                            </div>
                            

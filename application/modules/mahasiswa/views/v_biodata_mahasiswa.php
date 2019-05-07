@@ -29,34 +29,17 @@
                                              <h4><?php echo $tampil->nama_lengkap; ?></h4>
                                              <p><?php echo $tampil->nim; ?></p>
                                          </div>
-                                         <div class="m-b-20 text-center">
+                                         <div class="m-b-20 ">
                                          
                                          </div>
                                          <div class="">
-                                         <p class="font-13"><strong>No HP :</strong> <span class="m-l-15"><?php echo $tampil->no_hp1; ?></span></p>
-                                         <p class="font-13"><strong>Email :</strong> <span class="m-l-15"><?php echo $tampil->email; ?></span></p>
+                                         <p class="font-13"><strong><i class="fa fa-phone"></i></strong> <span class="m-l-15"><?php echo $tampil->no_hp1; ?></span></p>
+                                         <p class="font-13"><strong><i class="fa fa-envelope"></i></strong> <span class="m-l-15"><?php echo $tampil->email; ?></span></p>
                                          
                                          </div>
                                      </div>
                                      
-                                   <div class="white-box">
-                                    <h2 class="header-title">Skills</h2>
-                                        <p>HTML5</p>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            </div>
-                                        </div>
-                                        <p>CSS3</p>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            </div>
-                                        </div>
-                                        <p>Bootstrap</p>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                            </div>
-                                        </div>
-                                  </div> <!--/.white-box-->
+                                   
                                      
                                  </div> 
                                  
@@ -72,7 +55,7 @@
                                             <li class="">
                                                 <a href="#data_sekolah" data-toggle="tab" aria-expanded="false">
                                                     <span class="visible-xs"><i class="fa fa-cog"></i></span>
-                                                    <span class="hidden-xs">DATA SEKOLAH</span>
+                                                    <span class="hidden-xs">DATA AKADEMIK</span>
                                                 </a>
                                             </li>
                                             <li class="">

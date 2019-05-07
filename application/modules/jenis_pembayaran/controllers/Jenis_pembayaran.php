@@ -7,6 +7,7 @@ class Jenis_pembayaran extends Manajemen_only {
 		parent::__construct();
 		$this->load->model('m_jenis_pembayaran');
 		$this->not_logged_in();
+		$this->sesi_mahasiswa();
 	}
 	public function index()
 	{

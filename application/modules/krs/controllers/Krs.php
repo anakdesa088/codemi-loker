@@ -11,6 +11,7 @@ class Krs extends Manajemen_only
 	{
 		parent::__construct();
 
+
 		
 
 		 
@@ -25,7 +26,7 @@ class Krs extends Manajemen_only
 	*/
 	public function index()
 	{	
-	
+	$this->sesi_mahasiswa();
 	
 	$data['jumlah'] = $this->m_krs->m_jumlah();
 	$data['tampil'] = $this->m_krs->m_all_data_krs();
@@ -57,6 +58,7 @@ class Krs extends Manajemen_only
 		$this->template->render('krs/v_cetak',$data);
 	}	
 	public function tambah_krs(){
+		$this->sesi_mahasiswa();
 		$data['mapel'] = $this->m_krs->m_get_mapel();
 		$data['kelas'] = $this->m_krs->m_get_kelas();
 		$data['dosen'] = $this->m_krs->m_get_dosen();

@@ -7,6 +7,7 @@ class Group extends Manajemen_only
         parent::__construct();
 
         $this->not_logged_in();
+        $this->sesi_mahasiswa();
 
         $this->data['page_title'] = 'Groups';
         

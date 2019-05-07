@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth_management extends Manajemen_only
+class Management extends Manajemen_only
 {
 
 	public function __construct()
@@ -13,7 +13,7 @@ class Auth_management extends Manajemen_only
 	}
 
 	public function index(){
-		redirect('auth_management/login');
+		redirect('management/login');
 	}
 	/* 
 		Check if the login form is submitted, and validates the user credential
@@ -54,7 +54,7 @@ class Auth_management extends Manajemen_only
            		}
            		else {
            			$this->session->set_flashdata('gagal','<div class="alert alert-danger" role="alert"> <span><center>Password anda salah </center></span></div>');
-                redirect('auth_management/login');
+                redirect('management/login');
            		}
            	}
            	else {
@@ -82,11 +82,11 @@ class Auth_management extends Manajemen_only
            		}
            		else {
                 $this->session->set_flashdata('gagal','<div class="alert alert-danger" role="alert"> <span><center>Email atau Password anda salah </center></span></div>');
-           			redirect('auth_management/login');
+           			redirect('management/login');
            		}
            	}
            		$this->session->set_flashdata('gagal','<div class="alert alert-danger" role="alert"> <span><center>Email atau Password anda salah </center> </span></div>');
-                redirect('auth_management/login');
+                redirect('management/login');
            	}	
         }
         else {
@@ -103,7 +103,7 @@ class Auth_management extends Manajemen_only
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('auth_management', 'refresh');
+		redirect('management', 'refresh');
 	}
   public function logout_mhs()
   {

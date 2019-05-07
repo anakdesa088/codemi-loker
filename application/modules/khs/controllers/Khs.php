@@ -9,8 +9,10 @@ class Khs extends Manajemen_only {
 		$this->load->model('m_khs');
 		$this->load->library('form_validation');
 		$this->not_logged_in();
+
 	}
 	public function index(){
+		$this->sesi_mahasiswa();
 		$nim = $this->input->post('nim');
 
 		$cek = $this->m_khs->m_cek_kelas($nim);
@@ -25,6 +27,7 @@ class Khs extends Manajemen_only {
 
 	}
 	public function find(){
+		$this->sesi_mahasiswa();
 		$nim = $this->input->post('nim');
 
 		$cek = $this->m_khs->m_cek_kelas($nim);
@@ -37,6 +40,7 @@ class Khs extends Manajemen_only {
 
 	}
 	public function proses_tambah_khs(){
+		$this->sesi_mahasiswa();
 		$nim = $this->input->post('nim');
 		$validation = array(
 			array('field' => 'data_mahasiswa[]', 'rules' => 'required'),
@@ -90,19 +94,21 @@ class Khs extends Manajemen_only {
 
 	}
 	public function datakhs($nim){
-			
+			$this->sesi_mahasiswa();
 		$data['tampil'] = $this->m_khs->m_data_khs($nim);
 		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
 		$this->template->render('khs/v_data_khs',$data);
 	}
 
 	public function data_khs(){
+		$this->sesi_mahasiswa();
 		$nim = $this->input->post('nim');
 		$data['tampil'] = $this->m_khs->m_data_khs($nim);
 		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
 		$this->template->render('khs/v_data_khs',$data);
 	}
 	public function hapus_khs($id){
+		$this->sesi_mahasiswa();
 		$pisah = explode("-", $id);
 
 		
@@ -112,6 +118,7 @@ class Khs extends Manajemen_only {
 	}
 	}
 	public function cetak_khs(){
+		$this->sesi_mahasiswa();
 		$nim = $this->input->post('nim');
 		$data['tampil'] = $this->m_khs->m_data_khs($nim);
 		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
@@ -119,6 +126,7 @@ class Khs extends Manajemen_only {
 		$this->template->render('khs/v_cetak',$data);
 	}
 	public function proses_cetak_khs($nim){
+		$this->sesi_mahasiswa();
 	
 		$data['tampil'] = $this->m_khs->m_data_khs($nim);
 		$data['mahasiswa'] = $this->m_khs->m_mahasiswa($nim);
@@ -127,11 +135,13 @@ class Khs extends Manajemen_only {
 		//$this->template->render('khs/v_cetak',$data);
 	}
 	public function input(){
+		$this->sesi_mahasiswa();
 		$data['mapel'] = $this->m_khs->m_mapel();
 		$data['kelas'] = $this->m_khs->m_kelas();
 		$this->template->render('khs/v_input_khs',$data);
 	}
 	public function filter(){
+		$this->sesi_mahasiswa();
 		$data['mapel'] = $this->m_khs->m_mapel();
 		$data['kelas'] = $this->m_khs->m_kelas();
 		$kelas = $this->input->post('kelas');
@@ -141,7 +151,7 @@ class Khs extends Manajemen_only {
 		$this->template->render('khs/v_filter_khs',$data);
 	}
 	public function proses_input(){
-
+$this->sesi_mahasiswa();
 
 
 
@@ -219,6 +229,7 @@ class Khs extends Manajemen_only {
 		}
 	}
 	public function list_khs(){
+		$this->sesi_mahasiswa();
 		$id_dosen = $this->session->userdata('id_dosen');
 		
 		$data['kelas'] = $this->m_khs->m_kelas();
@@ -227,6 +238,7 @@ class Khs extends Manajemen_only {
 		$this->template->render('khs/v_khs_dosen',$data);
 	}
 	public function list_khs_kelas(){
+		$this->sesi_mahasiswa();
 		$id_dosen = $this->session->userdata('id_dosen');
 		
 		$data['mapel'] = $this->m_khs->m_mapel();
@@ -264,6 +276,14 @@ class Khs extends Manajemen_only {
 		$data['mahasiswa'] = $this->m_khs->m_info_mhs($id_mahasiswa);
 		$data['tampil'] = $this->m_khs->m_khs_mhs($id_mahasiswa);
 		$this->template->render('khs/v_khs_mhs',$data);
+	}
+	public function cetak_mhs(){
+		$id_mahasiswa = $this->session->userdata('id_mahasiswa');
+		$data['mahasiswa'] = $this->m_khs->m_info_mhs($id_mahasiswa);
+		$data['tampil'] = $this->m_khs->m_khs_mhs($id_mahasiswa);
+		$this->load->library('mypdf');
+		
+    	$this->mypdf->khs_mhs('khs/v_template',$data);
 	}
 
 
